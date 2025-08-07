@@ -1,0 +1,2 @@
+NDefines.NCountry.ABANDON_IDEAGROUP_REFUND = 0.8
+NDefines.NCountry.POWER_MAX = 5000

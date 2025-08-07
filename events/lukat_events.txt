@@ -1,0 +1,69 @@
+namespace = lukat_events
+
+country_event = {
+    id = lukat_events.1
+    title = lukat_events.1title
+    desc = lukat_events.1desc
+    picture = muslimgfx_COLONIZATION_eventPicture
+
+    trigger = {
+        any_owned_province = {
+            OR = {
+                region = niger_region
+                region = guinea_region
+                region = sahel_region
+            }
+        }
+        any_owned_province = {
+            has_port = yes
+        }
+        any_country = {
+            AND = {
+                capital_scope = { has_discovered = PREV }
+                religion = catholic
+            }
+        }
+        NOT = {
+            has_country_flag = discovered_by_europeanss
+        }
+    }
+    mean_time_to_happen = {
+        months = 2
+    }
+
+    immediate = {
+        set_country_flag = discovered_by_europeanss
+    }
+
+    option = {
+        name = lukat_events.1.1
+        
+        ROOT = {
+            random_owned_province = {
+                spawn_rebels = {
+                    type = catholic_rebels
+                    size = 12
+                    religion = catholic
+                    unrest = 5
+                    leader = "Fiona Pedro"
+                    female = yes
+                    estate = estate_church
+                    as_if_faction = yes
+                    should_take_capital = yes
+                }
+            }
+            random_owned_province = {
+                spawn_rebels = {
+                    type = catholic_rebels
+                    size = 6
+                    religion = catholic
+                    unrest = 5
+                    estate = estate_church
+                    as_if_faction = yes
+                    should_take_capital = yes
+                }
+            }
+        }
+    }
+
+}
