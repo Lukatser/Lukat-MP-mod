@@ -692,7 +692,7 @@ printing_press = {
 			trade_goods = paper
 		}
 	}
-	start_chance = 0.5		#in 100 for when a province can_start
+	start_chance = 5		#in 100 for when a province can_start
 	
 	
 	on_start = institution_events.4
