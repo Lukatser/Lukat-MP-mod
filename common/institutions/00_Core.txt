@@ -1099,6 +1099,9 @@ new_world_i = {
 				any_owned_province = {
 					new_world_i = 100
 				}
+				any_friendly_coast_border_province = {
+					new_world_i = 100
+				}
 				has_institution = new_world_i
 				has_idea_group = exploration_ideas
 				has_idea_group = expansion_ideas
@@ -1133,7 +1136,7 @@ new_world_i = {
 	embracement_speed = {
 	
 		modifier = {
-			factor = 1.2
+			factor = 0.2
 			scale = yes
 			custom_trigger_tooltip = {
 				tooltip = tooltip_any_friendly_coast_border_province_has_embraced_colonialism
@@ -1145,7 +1148,7 @@ new_world_i = {
 		}
 		
 		modifier = {
-			factor = 0.5
+			factor = 0.001
 			scale = yes
 			potential = {
 				has_port = yes
