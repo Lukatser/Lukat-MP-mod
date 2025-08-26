@@ -692,7 +692,7 @@ printing_press = {
 			trade_goods = paper
 		}
 	}
-	start_chance = 5		#in 100 for when a province can_start
+	start_chance = 10		#in 100 for when a province can_start
 	
 	
 	on_start = institution_events.4
@@ -1126,6 +1126,33 @@ new_world_i = {
 							continent = south_america
 						}
 					}
+				}
+				AND = {
+					capital_scope = {
+						continent = europe
+					}
+					is_year = 1600
+				}
+				AND = {
+					capital_scope = {
+						OR = {
+							continent = africa
+							continent = asia
+						}
+					}
+					is_year = 1625
+				}
+				AND = {
+					capital_scope = {
+						OR = {
+							continent = north_america
+							continent = south_america
+							continent = oceania
+							continent = island_check_provinces
+							continent = new_world
+						}
+					}
+					is_year = 1650
 				}
 			}			
 		}
