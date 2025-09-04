@@ -1,6 +1,6 @@
 namespace = lukat_events
 
-country_event = {
+country_event = { #chistians in africa
     id = lukat_events.1
     title = lukat_events.1title
     desc = lukat_events.1desc
@@ -65,5 +65,739 @@ country_event = {
             }
         }
     }
+}
 
+namespace = lukat_heir_events
+
+country_event = { #start event spy heir
+    id = lukat_heir_events.1
+    title = lukat_heir_events.1title
+    desc = lukat_heir_events.1desc
+    picture = wihgfx_FEMALE_RULER_eventPicture
+
+    major = yes
+    is_triggered_only = yes
+
+    immediate = {
+		hidden_effect = {
+			set_country_flag = heir_supported_in_our_country
+			add_country_modifier = {
+				name = just_got_pretender_rebels
+				duration = 7300
+				hidden = yes
+			}
+			export_to_variable = {
+				which = year_of_last_try_to_support_heir_in_our_country
+				value = trigger_value:is_year
+			}
+			change_variable = { which = year_of_last_try_to_support_heir_in_our_country value = -1 }
+            if = {
+				limit = {
+					num_of_owned_provinces_with = {
+						value = 10
+						is_overseas = no
+						OR = {
+							island = no
+							AND = {
+								island = yes
+								owner = {
+									all_owned_province = {
+										island = yes
+									}
+								}
+							}
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_overseas = no
+						OR = {
+							island = no
+							AND = {
+								island = yes
+								owner = {
+									all_owned_province = {
+										island = yes
+									}
+								}
+							}
+						}
+						NOT = {	has_province_flag = pretender_rebels_spawned_here }
+					}
+					set_province_flag = pretender_rebels_spawned_here
+				}
+			}
+			if = {
+				limit = {
+					num_of_owned_provinces_with = {
+						value = 15
+						is_overseas = no
+						OR = {
+							island = no
+							AND = {
+								island = yes
+								owner = {
+									all_owned_province = {
+										island = yes
+									}
+								}
+							}
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_overseas = no
+						OR = {
+							island = no
+							AND = {
+								island = yes
+								owner = {
+									all_owned_province = {
+										island = yes
+									}
+								}
+							}
+						}
+						NOT = {	has_province_flag = pretender_rebels_spawned_here }
+						NOT = {	has_province_flag = pretender_rebels_spawned_here_2 }
+					}
+					set_province_flag = pretender_rebels_spawned_here_2
+				}
+			}
+		}
+	}
+
+    option = {
+        name = lukat_heir_events.1.1
+
+        ai_chance = { factor = 100 }
+
+        random_owned_province = {
+			limit = {
+				is_capital = no
+				is_overseas = no
+				OR = {
+					island = no
+					AND = {
+						island = yes
+						owner = {
+							all_owned_province = {
+								island = yes
+							}
+						}
+					}
+				}
+				has_province_flag = pretender_rebels_spawned_here
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+				win = yes
+			}
+		}
+
+        random_owned_province = {
+			limit = {
+				is_capital = no
+				is_overseas = no
+				OR = {
+					island = no
+					AND = {
+						island = yes
+						owner = {
+							all_owned_province = {
+								island = yes
+							}
+						}
+					}
+				}
+				has_province_flag = pretender_rebels_spawned_here_2
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 6
+				win = yes
+			}
+		}
+
+        if = { # rebel army (size 3), if more than 2 provinces
+			limit = {
+				num_of_owned_provinces_with = {
+					value = 3
+					is_overseas = no
+					OR = {
+						island = no
+						AND = {
+							island = yes
+							owner = {
+								all_owned_province = {
+									island = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						any_neighbor_province = {
+							NOT = {	has_province_flag = pretender_rebels_spawned_here }
+							NOT = {	has_province_flag = pretender_rebels_spawned_here_2 }
+							owned_by = ROOT
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_overseas = no
+						OR = {
+							island = no
+							AND = {
+								island = yes
+								owner = {
+									all_owned_province = {
+										island = yes
+									}
+								}
+							}
+						}
+						NOT = {	has_province_flag = pretender_rebels_spawned_here }
+						NOT = {	has_province_flag = pretender_rebels_spawned_here_2 }
+						any_neighbor_province = {
+							is_capital = yes
+							owned_by = ROOT
+						}
+					}
+					spawn_rebels = {
+						type = pretender_rebels
+						size = 5
+					}
+				}
+				if = {
+					limit = {
+						army_size = 200
+					}
+					random_owned_province = {
+						limit = {
+							is_capital = no
+							is_overseas = no
+							OR = {
+								island = no
+								AND = {
+									island = yes
+									owner = {
+										all_owned_province = {
+											island = yes
+										}
+									}
+								}
+							}
+							NOT = {	has_province_flag = pretender_rebels_spawned_here }
+							NOT = {	has_province_flag = pretender_rebels_spawned_here_2 }
+							any_neighbor_province = {
+								is_capital = yes
+								owned_by = ROOT
+							}
+						}
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 3
+						}
+					}
+				}
+			}
+			else = {
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						is_overseas = no
+						OR = {
+							island = no
+							AND = {
+								island = yes
+								owner = {
+									all_owned_province = {
+										island = yes
+									}
+								}
+							}
+						}
+						NOT = {	has_province_flag = pretender_rebels_spawned_here }
+						NOT = {	has_province_flag = pretender_rebels_spawned_here_2 }
+					}
+					spawn_rebels = {
+						type = pretender_rebels
+						size = 5
+					}
+				}
+			}
+		}
+		else_if = { # rebel army (size 1), if exactly 2 provinces (cities)
+			limit = {
+				num_of_owned_provinces_with = {
+					value = 2
+					is_overseas = no
+					OR = {
+						island = no
+						AND = {
+							island = yes
+							owner = {
+								all_owned_province = {
+									island = yes
+								}
+							}
+						}
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					is_overseas = no
+					OR = {
+						island = no
+						AND = {
+							island = yes
+							owner = {
+								all_owned_province = {
+									island = yes
+								}
+							}
+						}
+					}
+					NOT = {	has_province_flag = pretender_rebels_spawned_here }
+					NOT = {	has_province_flag = pretender_rebels_spawned_here_2 }
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+				}
+			}
+		}
+		else = {
+			random_owned_province = {
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 3
+				}
+			}
+		}
+
+        hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_flag = pretender_rebels_spawned_here
+				}
+				clr_province_flag = pretender_rebels_spawned_here
+			}
+			every_owned_province = {
+				limit = {
+					has_province_flag = pretender_rebels_spawned_here_2
+				}
+				clr_province_flag = pretender_rebels_spawned_here_2
+			}
+		}
+    }
+}
+
+country_event = { #rebels win
+    id = lukat_heir_events.2
+    title = lukat_heir_events.2title
+    desc = lukat_heir_events.2desc
+    picture = REVOLUTION_eventPicture
+
+    trigger = {
+		capital_scope = {
+			controlled_by = pretender_rebels
+		}
+		has_country_flag = heir_supported_in_our_country
+	}
+
+    mean_time_to_happen = {
+		days = 1
+	}
+
+    option = {
+        name = lukat_heir_events.2.1
+
+        ai_chance = { factor = 100 }
+
+        disband_rebels = pretender_rebels
+		every_country = {
+			limit = {
+				has_country_flag = supported_heir_at_@ROOT
+			}
+			country_event = { id = lukat_heir_events.3 }
+			clr_country_flag = supported_heir_at_@ROOT
+		}
+		clr_country_flag = heir_supported_in_our_country
+    }
+}
+
+country_event = { #your action succeded
+    id = lukat_heir_events.3
+    title = lukat_heir_events.3title
+    desc = lukat_heir_events.3desc
+    picture = wihgfx_FEMALE_RULER_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = lukat_heir_events.3.1
+
+
+        ai_chance = { factor = 100 }
+
+        random_list = {
+            15 = { # new heir, claim = weak, male
+                custom_tooltip = NEW_HEIR_OF_OUR_DYNASTY_WEAK_CLAIM
+                hidden_effect = {
+					FROM = {
+						define_heir = {
+							claim = 30
+							dynasty = ROOT
+							age = 16
+							male = yes
+						}
+					}
+					add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted
+					}
+					reverse_add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted_target
+					}
+                }
+            }
+            15 = { # new heir, claim = weak, female
+                custom_tooltip = NEW_HEIR_OF_OUR_DYNASTY_WEAK_CLAIM
+                hidden_effect = {
+					FROM = {
+						define_heir = {
+							claim = 30
+							dynasty = ROOT
+							age = 16
+							female = yes
+						}
+					}
+					add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted
+					}
+					reverse_add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted_target
+					}
+                }
+            }
+            12 = { # new heir, claim = middle, male
+               custom_tooltip = NEW_HEIR_OF_OUR_DYNASTY_MIDDLE_CLAIM
+				hidden_effect = {
+					FROM = {
+						define_heir = {
+							claim = 50
+							dynasty = ROOT
+							age = 17
+							male = yes
+						}
+					}
+					add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted
+					}
+					reverse_add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted_target
+					}
+				} 
+            }
+            13 = { # new heir, claim = middle, female
+                custom_tooltip = NEW_HEIR_OF_OUR_DYNASTY_MIDDLE_CLAIM
+				hidden_effect = {
+					FROM = {
+						define_heir = {
+							claim = 50
+							dynasty = ROOT
+							age = 17
+							female = yes
+						}
+					}
+					add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted
+					}
+					reverse_add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted_target
+					}
+				}
+            }
+            10 = { # new heir, claim = strong, male
+                custom_tooltip = NEW_HEIR_OF_OUR_DYNASTY_STRONG_CLAIM
+				hidden_effect = {
+					FROM = {
+						define_heir = {
+							claim = 75
+							dynasty = ROOT
+							age = 18
+							male = yes
+						}
+					}
+					add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted
+					}
+					reverse_add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted_target
+					}
+				}
+            }
+            10 = { # new heir, claim = strong, female
+                custom_tooltip = NEW_HEIR_OF_OUR_DYNASTY_STRONG_CLAIM
+				hidden_effect = {
+					FROM = {
+						define_heir = {
+							claim = 75
+							dynasty = ROOT
+							age = 18
+							female = yes
+						}
+					}
+					add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted
+					}
+					reverse_add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted_target
+					}
+				}
+            }
+            15 = { # FROM gets lesser in union under USER
+				hidden_effect = {
+					if = {
+						limit = { war_with = FROM }
+						white_peace = FROM
+					}
+				}
+				create_union = FROM
+			}
+            10 = {
+                custom_tooltip = HEIR_ACCEPTED_AS_RULER
+                hidden_effect = {
+					if = {
+						limit = { war_with = FROM }
+						white_peace = FROM
+					}
+                    FROM = {
+						define_ruler = {
+							claim = 100
+							dynasty = ROOT
+							min_age = 16
+                            max_age = 20
+							female = yes
+                            adm = 4
+                            max_random_adm = 6
+                            dip = 5
+                            max_random_dip = 6
+                            mil = 6
+                            culture = ROOT
+                            religion = ROOT
+						}
+					}
+					add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted
+					}
+					reverse_add_opinion = {
+						who = FROM
+						modifier = supported_heir_accepted_target
+					}
+                }
+            }
+        }
+    }
+}
+
+country_event = { #all rebels killed, ROOT won
+    id = lukat_heir_events.4
+    title = lukat_heir_events.4title
+    desc = lukat_heir_events.4desc
+    picture = CONQUEST_eventPicture
+
+    trigger = {
+		has_country_flag = heir_supported_in_our_country
+		NOT = { num_of_rebel_armies = 1 }
+		NOT = {
+			any_owned_province = {
+				controlled_by = pretender_rebels
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+    option = {
+        name = lukat_heir_events.4.1
+
+        ai_chance = { factor = 100 }
+
+        every_country = {
+			limit = {
+				has_country_flag = supported_heir_at_@ROOT
+			}
+			country_event = { id = lukat_heir_events.5 }
+			clr_country_flag = supported_heir_at_@ROOT
+		}
+		clr_country_flag = heir_supported_in_our_country
+    }
+}
+
+country_event = { #rebels in FROM killed, effects for ROOT and others
+    id = lukat_heir_events.5
+    title = lukat_heir_events.5title
+    desc = lukat_heir_events.5desc
+    picture = BAD_WITH_MONARCH_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = lukat_heir_events.5.1
+
+        ai_chance = { factor = 100 }
+
+        add_opinion = {
+			who = FROM
+			modifier = supported_heir_rejected
+		}
+		reverse_add_opinion = {
+			who = FROM
+			modifier = supported_heir_rejected_target
+		}
+        random_list = {
+			40 = { add_prestige = -5 }
+			35 = {
+				add_prestige = -10
+				FROM = {
+					define_general = {
+						fire = 3
+						shock = 3
+						manuever = 3
+						siege = 1
+					}
+				}
+			}
+			25 = {
+				add_prestige = -15
+				FROM = {
+					add_casus_belli = {
+						target = FROM
+						type = cb_claim_throne
+						months = 12
+					}
+				}
+			}
+		}
+    }
+}
+
+country_event = { #rebel armies killed, but one province still controlled by REBELS
+    id = lukat_heir_events.6
+    title = lukat_heir_events.6title
+    desc = lukat_heir_events.6desc
+    picture = ANGRY_MOB_eventPicture
+
+    trigger = {
+		has_country_flag = heir_supported_in_our_country
+		NOT = { num_of_rebel_armies = 1 }
+		any_owned_province = {
+			is_capital = no
+			controlled_by = pretender_rebels
+		}
+		NOT = {
+			calc_true_if = {
+				all_owned_province = {
+					is_capital = no
+					controlled_by = pretender_rebels
+					has_siege = no
+				}
+				amount = 2
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+    option = {
+        name = lukat_heir_events.6.1
+
+        ai_chance = { factor = 100 }
+
+        random_owned_province = {
+			limit = {
+				is_capital = no
+                controlled_by = pretender_rebels
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+			}
+		}
+    }
+}
+
+country_event = { #rebel backup
+    id = lukat_heir_events.7
+    title = lukat_heir_events.7title
+    desc = lukat_heir_events.7desc
+    picture = ANGRY_MOB_eventPicture
+
+    trigger = {
+		has_country_flag = heir_supported_in_our_country
+		num_of_rebel_armies = 1
+		any_owned_province = {
+			is_capital = no
+			controlled_by = pretender_rebels
+		}
+		capital_scope = {
+			controlled_by = ROOT
+			has_siege = no
+		}
+        OR = {
+            had_country_flag = { flag = heir_supported_in_our_country days = 365 }
+            had_country_flag = { flag = heir_supported_in_our_country days = 730 }
+            had_country_flag = { flag = heir_supported_in_our_country days = 1095 }
+            had_country_flag = { flag = heir_supported_in_our_country days = 1460 }
+            had_country_flag = { flag = heir_supported_in_our_country days = 1825 }
+        }
+	}
+
+    mean_time_to_happen = {
+		days = 1
+	}
+
+    option = {
+        name = lukat_heir_events.7.1
+
+        ai_chance = { factor = 100 }
+
+        capital_scope = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 4
+			}
+		}
+    }
 }

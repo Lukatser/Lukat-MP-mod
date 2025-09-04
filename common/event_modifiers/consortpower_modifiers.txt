@@ -54,3 +54,8 @@ consort_power_mod_mil_plus_5 = {
 consort_power_mod_mil_plus_6 = {
 	country_military_power = 6
 }
+countdown_next_heir_spionage = {
+}
+
+just_got_pretender_rebels = {
+}
