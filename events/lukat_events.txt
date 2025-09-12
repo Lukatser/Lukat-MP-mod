@@ -195,7 +195,7 @@ country_event = { #start event spy heir
 			}
 			spawn_rebels = {
 				type = pretender_rebels
-				size = 5
+				size = 3
 				win = yes
 			}
 		}
@@ -219,7 +219,7 @@ country_event = { #start event spy heir
 			}
 			spawn_rebels = {
 				type = pretender_rebels
-				size = 6
+				size = 4
 				win = yes
 			}
 		}
@@ -276,7 +276,7 @@ country_event = { #start event spy heir
 					}
 					spawn_rebels = {
 						type = pretender_rebels
-						size = 5
+						size = 3
 					}
 				}
 				if = {
@@ -333,7 +333,7 @@ country_event = { #start event spy heir
 					}
 					spawn_rebels = {
 						type = pretender_rebels
-						size = 5
+						size = 3
 					}
 				}
 			}
@@ -376,7 +376,7 @@ country_event = { #start event spy heir
 				}
 				spawn_rebels = {
 					type = pretender_rebels
-					size = 3
+					size = 2
 				}
 			}
 		}
@@ -384,7 +384,7 @@ country_event = { #start event spy heir
 			random_owned_province = {
 				spawn_rebels = {
 					type = pretender_rebels
-					size = 3
+					size = 2
 				}
 			}
 		}
@@ -752,7 +752,7 @@ country_event = { #rebel armies killed, but one province still controlled by REB
 			}
 			spawn_rebels = {
 				type = pretender_rebels
-				size = 5
+				size = 3
 			}
 		}
     }
@@ -796,7 +796,7 @@ country_event = { #rebel backup
         capital_scope = {
 			spawn_rebels = {
 				type = pretender_rebels
-				size = 4
+				size = 2
 			}
 		}
     }

@@ -41,3 +41,4 @@
  string_2500: "2500"
  string_year_for_last_try_to_support_heir_there: "[From.year_of_last_try_to_support_heir_in_our_country.GetValue]"
  string_slash: "/"
+ REQUIRES_ALLIANCE_OR_SUBJECT_TT: "§R[From.GetName] must either be a subject or like us§!"
