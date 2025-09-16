@@ -7,7 +7,7 @@ country_event = { #chistians in africa
     picture = muslimgfx_COLONIZATION_eventPicture
 
     trigger = {
-        any_owned_province = {
+        capital_scope = {
             OR = {
                 region = niger_region
                 region = guinea_region
