@@ -293,24 +293,32 @@ renaissance = {
 				area = tuscany_area
 			}
 			AND = {
-				is_year = 1445
+				is_year = 1444
 				area = emilia_romagna_area
 			}
 			AND = {
-				is_year = 1445
+				is_year = 1444
 				area = venetia_area
 			}
 			AND = {
-				is_year = 1445
+				is_year = 1444
 				area = po_valley_area
 			}
 			AND = {
-				is_year = 1445
+				is_year = 1444
 				area = lombardy_area
 			}
 			AND = {
 				is_year = 1445
 				area = liguria_area
+			}
+			AND = {
+				is_year = 1444
+				province_id = 1876
+			}
+			AND = {
+				is_year = 1444
+				province_id = 78
 			}
 
 			AND = {
