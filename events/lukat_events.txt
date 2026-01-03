@@ -67,6 +67,33 @@ country_event = { #chistians in africa
     }
 }
 
+country_event = {
+	id = lukat_events.2
+	title = lukat_events.2title
+	desc = lukat_events.1desc
+    picture = muslimgfx_COLONIZATION_eventPicture
+
+	trigger = {
+		any_neighbor_country = {
+			has_institution = new_world_i
+		}
+		NOT = {
+			has_country_flag = got_colonialism
+		}
+	}
+
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = lukat_events.2.1
+
+		set_country_flag = got_colonialism
+	}
+}
+
 namespace = lukat_heir_events
 
 country_event = { #start event spy heir

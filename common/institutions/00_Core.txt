@@ -1101,9 +1101,9 @@ new_world_i = {
 	can_embrace = {
 		owner = {
 			OR = {
-				# hidden_trigger = {
-				# 	has_country_flag = got_colonialism				
-				# }
+				 hidden_trigger = {
+				 	has_country_flag = got_colonialism				
+				 }
 				any_owned_province = {
 					new_world_i = 1
 				}
