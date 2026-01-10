@@ -34,7 +34,7 @@ technology = { #Advanced Tribes
 	# Tech 1
 	year = 1390
 	expects_institution = {
-		feudalism = 0.25
+		feudalism = 0.15
 	}
 	
 	tribal_democracy_legacy = yes
@@ -45,7 +45,7 @@ technology = { #Feudal Monarchy
 	# Tech 2
 	year = 1420
 	expects_institution = {
-		feudalism = 0.5
+		feudalism = 0.3
 	}
 
 	#Monarchies
@@ -60,8 +60,7 @@ technology = { #Medieval Administration
 	# Tech 3
 	year = 1440
 	expects_institution = {
-		feudalism = 1
-		renaissance = 0.05
+		feudalism = 0.5
 	}
 
 	production_efficiency	=	0.02
@@ -72,9 +71,8 @@ technology = { #Temples
 	# Tech 4
 	year = 1453
 	expects_institution = {
-		feudalism = 1.75
-		renaissance = 0.15
-		printing_press = 0.05
+		feudalism = 1
+		renaissance = 0.05
 	}
 
 	# Temple
@@ -86,9 +84,9 @@ technology = { #National Ideas
 	# Tech 5
 	year = 1466
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 0.30
-		printing_press = 0.15
+		feudalism = 1.75
+		renaissance = 0.15
+		printing_press = 0.05
 	}
 
 	allowed_idea_groups = 1
@@ -100,8 +98,8 @@ technology = { #Workshop
 	year = 1479
 	expects_institution = {
 		feudalism = 2.5
-		renaissance = 0.5
-		printing_press = 0.3
+		renaissance = 0.3
+		printing_press = 0.15
 	}
 
 	#Workshop
@@ -115,8 +113,8 @@ technology = { #Renaissance Thought
 	year = 1492
 	expects_institution = {
 		feudalism = 2.5
-		renaissance = 1
-		printing_press = 0.5
+		renaissance = 0.5
+		printing_press = 0.3
 	}
 	
 	#Noble Republic
@@ -128,8 +126,8 @@ technology = { #Courthouse
 	year = 1505
 	expects_institution = {
 		feudalism = 2.5
-		renaissance = 1.75
-		printing_press = 1
+		renaissance = 1
+		printing_press = 0.5
 	}
 
 	courthouse = yes
@@ -142,9 +140,8 @@ technology = { #The Scythe
 	year = 1518
 	expects_institution = {
 		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 1.75
-		new_world_i = 0.05
+		renaissance = 1.75
+		printing_press = 1
 	}
 	
 	#The Scythe
@@ -159,8 +156,8 @@ technology = { #Modern Theocracy
 	expects_institution = {
 		feudalism = 2.5
 		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 0.15
+		printing_press = 1.75
+		new_world_i = 0.05
 	}
 	
 	allowed_idea_groups = 3
@@ -174,7 +171,7 @@ technology = { #Textile Manufactory
 		feudalism = 2.5
 		renaissance = 2.5
 		printing_press = 2.5
-		new_world_i = 0.3
+		new_world_i = 0.15
 	}
 	
 	#Textile Manufactory
@@ -189,7 +186,7 @@ technology = { #Early Modern Administration
 		feudalism = 2.5
 		renaissance = 2.5
 		printing_press = 2.5
-		new_world_i = 0.5
+		new_world_i = 0.3
 	}
 	
 	administrative_monarchy	= yes 
@@ -205,7 +202,7 @@ technology = { #Improved Drainage
 		feudalism = 2.5
 		renaissance = 2.5
 		printing_press = 2.5
-		new_world_i = 1
+		new_world_i = 0.5
 	}
 	
 	#Improved Drainage
@@ -219,7 +216,7 @@ technology = { #Scientific Experimentation
 		feudalism = 2.5
 		renaissance = 2.5
 		printing_press = 2.5
-		new_world_i = 1.75
+		new_world_i = 1
 	}
 	
 	plantations = yes
@@ -233,8 +230,7 @@ technology = { #Military Administration
 		feudalism = 2.5
 		renaissance = 2.5
 		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 0.05
+		new_world_i = 1.75
 	}
 	
 	may_force_march = yes
@@ -249,7 +245,7 @@ technology = { #Metallurgy
 		renaissance = 2.5
 		printing_press = 2.5
 		new_world_i = 2.5
-		global_trade = 0.15
+		global_trade = 0.05
 	}
 	
 	mills = yes
@@ -266,7 +262,7 @@ technology = { #University
 		renaissance = 2.5
 		printing_press = 2.5
 		new_world_i = 2.5
-		global_trade = 0.3
+		global_trade = 0.15
 	}
 	
 	university = yes	
@@ -284,8 +280,7 @@ technology = { #National Sovereignty
 		renaissance = 2.5
 		printing_press = 2.5
 		new_world_i = 2.5
-		global_trade = 0.5
-		manufactories = 0.05
+		global_trade = 0.3
 	}
 	
 	allowed_idea_groups	= 5
@@ -299,8 +294,8 @@ technology = { #Cathedral
 		renaissance = 2.5
 		printing_press = 2.5
 		new_world_i = 2.5
-		global_trade = 1
-		manufactories = 0.15
+		global_trade = 0.5
+		manufactories = 0.05
 	}
 	
 	#Cathedral
@@ -315,8 +310,8 @@ technology = { #Absolute Rulership
 		renaissance = 2.5
 		printing_press = 2.5
 		new_world_i = 2.5
-		global_trade = 1.75
-		manufactories = 0.3
+		global_trade = 1
+		manufactories = 0.15
 	}
 	
 	republican_dictatorship = yes
@@ -331,8 +326,8 @@ technology = { #Land Clearance
 		renaissance = 2.5
 		printing_press = 2.5
 		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 0.5
+		global_trade = 1.75
+		manufactories = 0.3
 	}
 	
 	#Land Clearance
@@ -349,7 +344,7 @@ technology = { #The Constitution
 		printing_press = 2.5
 		new_world_i = 2.5
 		global_trade = 2.5
-		manufactories = 1
+		manufactories = 0.5
 	}
 	
 	allowed_idea_groups = 6
@@ -368,8 +363,7 @@ technology = { #Measuring the World
 		printing_press = 2.5
 		new_world_i = 2.5
 		global_trade = 2.5
-		manufactories = 1.75
-		enlightenment = 0.05
+		manufactories = 1
 	}
 	
 	administrative_efficiency = 0.1
@@ -385,8 +379,8 @@ technology = { #Bonds and Tontines
 		printing_press = 2.5
 		new_world_i = 2.5
 		global_trade = 2.5
-		manufactories = 2.5
-		enlightenment = 0.15
+		manufactories = 1.75
+		enlightenment = 0.05
 	}
 	
 	counting_house = yes  
@@ -403,7 +397,7 @@ technology = { #Improved Production
 		new_world_i = 2.5
 		global_trade = 2.5
 		manufactories = 2.5
-		enlightenment = 0.3
+		enlightenment = 0.15
 	}
 	
 	#Improved Farm Animals
@@ -420,8 +414,7 @@ technology = { #Separation of Powers
 		new_world_i = 2.5
 		global_trade = 2.5
 		manufactories = 2.5
-		enlightenment = 0.5
-		industrialization = 0.05
+		enlightenment = 0.3
 	}
 	
 	allowed_idea_groups 	= 	7
@@ -437,8 +430,8 @@ technology = { #Modern Bureaucracy
 		new_world_i = 2.5
 		global_trade = 2.5
 		manufactories = 2.5
-		enlightenment = 1
-		industrialization = 0.15
+		enlightenment = 0.5
+		industrialization = 0.05
 	}
 
 	administrative_efficiency = 0.1
@@ -456,8 +449,8 @@ technology = { #Rotherham Plough
 		new_world_i = 2.5
 		global_trade = 2.5
 		manufactories = 2.5
-		enlightenment = 1.75
-		industrialization = 0.3
+		enlightenment = 1
+		industrialization = 0.15
 	}
 	
 	#Rotherham Plough
@@ -474,8 +467,8 @@ technology = { #Rights of Man
 		new_world_i = 2.5
 		global_trade = 2.5
 		manufactories = 2.5
-		enlightenment = 2.5
-		industrialization = 0.5
+		enlightenment = 1.75
+		industrialization = 0.3
 	}
 
 	allowed_idea_groups = 8
@@ -494,7 +487,7 @@ technology = { #Advanced Production
 		global_trade = 2.5
 		manufactories = 2.5
 		enlightenment = 2.5
-		industrialization = 1
+		industrialization = 0.5
 	}
 	
 	#Improved Draft Animals
@@ -512,7 +505,7 @@ technology = { #Revolutionary Ideals
 		global_trade = 2.5
 		manufactories = 2.5
 		enlightenment = 2.5
-		industrialization = 1.75
+		industrialization = 1
 	}
 	
 	revolutionary_republic = yes

@@ -26,7 +26,7 @@ naval_hegemon = {
 	scale = {
 		reduced_liberty_desire = 20
 		global_sailors_modifier = 2.0
-		heavy_ship_power = 0.5
+		heavy_ship_power = 0.15
 	}
 	
 	max = {

@@ -37,7 +37,7 @@ military_hegemon = {
 	
 	# At max 100% tickup.
 	scale = {
-		land_morale_constant = 1
+		land_morale_constant = 0.25
 		land_attrition = -0.25
 		reserves_organisation = 0.25
 	}
