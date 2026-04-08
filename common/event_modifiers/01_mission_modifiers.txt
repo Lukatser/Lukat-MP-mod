@@ -14192,7 +14192,13 @@ hab_ostend_company_1 = {
 hab_ostend_company_2 = {
 	merchants = 1
 	trade_steering = 0.1
-	range = 0.25
+	range = 0.50
+}
+
+hab_ostend_company_3 = {
+	merchants = 1
+	trade_steering = 0.25
+	range = 1
 }
 
 hab_into_the_balkans = {

@@ -1414,6 +1414,7 @@ on_startup = {
 			duration = -1
 		}
 	}
+	set_global_flag = ai_will_change_color
 }
 
 on_queen_death = {

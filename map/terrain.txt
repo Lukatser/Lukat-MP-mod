@@ -50,7 +50,10 @@ categories =  {
 		supply_limit = 2		
 		local_development_cost = 0.5
 		nation_designer_cost_multiplier = 0.75
-		combat_width = -0.75		
+		combat_width = -0.75
+		attrition = 2
+		garrison_growth = -0.2
+		local_defensiveness = 0.5		
 		
 		terrain_override = {		
 			1034 1035 1104 1105 2074 2128 2129 2025 2440 2574
@@ -68,6 +71,8 @@ categories =  {
 		supply_limit = 10
 		allowed_num_of_buildings = 1
 		nation_designer_cost_multiplier = 1.05
+		attrition = -2
+		garrison_growth = 0.5
 		
 		terrain_override = {
 			104 109 108 1744 1865
@@ -147,6 +152,8 @@ categories =  {
 		local_development_cost = 0.2
 		nation_designer_cost_multiplier = 0.9
 		combat_width = -0.20
+		garrison_growth = -0.1
+		local_defensiveness = 1.5
 		
 		terrain_override = { 
 			2 4 8 9 11 18 29 30 31 315 4123 4124 # Sweden
@@ -171,11 +178,12 @@ categories =  {
 
 		movement_cost = 1.40
 		defence = 1
-		local_defensiveness = 0.1
 		local_development_cost = 0.25
 		nation_designer_cost_multiplier = 0.85
 		supply_limit = 5
 		combat_width = -0.25
+		garrison_growth = -0.1
+		local_defensiveness = 1.5
 		
 		terrain_override = {
 			508 509 511 515 525 527 530 545 550 554 557 1947 2036 
@@ -247,6 +255,7 @@ categories =  {
 		nation_designer_cost_multiplier = 0.9
 		supply_limit = 6
 		combat_width = -0.20
+		local_defensiveness = 1
 		
 		terrain_override = {
 			206 1851 # Spain
@@ -313,11 +322,13 @@ categories =  {
 
 		movement_cost = 1.5
 		defence = 2
-		local_defensiveness = 0.25
 		local_development_cost = 0.35
 		nation_designer_cost_multiplier = 0.75
 		supply_limit = 4
 		combat_width = -0.75
+		garrison_growth = -0.2
+		local_defensiveness = 2.5
+		attrition = 1
 		
 		terrain_override = {
 			210	226 # Spain
@@ -398,6 +409,9 @@ categories =  {
 		supply_limit = 8
 		allowed_num_of_buildings = 1
 		nation_designer_cost_multiplier = 1
+		garrison_growth = 0.25
+		attrition = -1
+		local_defensiveness = -0.25
 		
 		terrain_override = {
 			2666 # North America
@@ -461,6 +475,9 @@ categories =  {
 		nation_designer_cost_multiplier = 0.8
 		supply_limit = 5
 		combat_width = -0.25
+		garrison_growth = -0.2
+		local_defensiveness = 1.5
+		attrition = 0.5
 		
 		terrain_override = {
 			1237 1245 2703 #South East Asia
@@ -504,6 +521,8 @@ categories =  {
 		nation_designer_cost_multiplier = 0.85
 		supply_limit = 5
 		combat_width = -0.25
+		garrison_growth = 0.2
+		local_defensiveness = 2
 
 		terrain_override = {
 			1860 #England
@@ -536,6 +555,7 @@ categories =  {
 		supply_limit = 4
 		local_development_cost = 0.50
 		nation_designer_cost_multiplier = 0.8
+		attrition = 2
 		
 		terrain_override = {
 			503 2078 2088 #India
@@ -565,6 +585,7 @@ categories =  {
 		local_development_cost = 0.35
 		nation_designer_cost_multiplier = 0.9		
 		supply_limit = 4
+		attrition = 1
 
 		terrain_override = {
 			792 793 796 805 806 2821 2822 2840 2841
@@ -593,6 +614,7 @@ categories =  {
 		local_development_cost = 0.15
 		nation_designer_cost_multiplier = 0.85		
 		supply_limit = 6 
+		garrison_growth = 0.5
 		
 		terrain_override = {
 			957 962 2554 2561 2578 #n am
@@ -677,7 +699,7 @@ categories =  {
 		supply_limit = 6
 		movement_cost = 1.40
 		defence = 1
-		local_defensiveness = 0.1
+		local_defensiveness = 0.5
 		local_development_cost = 0.2
 		nation_designer_cost_multiplier = 0.9	
 		combat_width = -0.50
@@ -726,10 +748,13 @@ categories =  {
 		sound_type = plains
 		type = plains
 
-		supply_limit = 6
-		movement_cost = 1.00
-		local_development_cost = 0.15
-		nation_designer_cost_multiplier = 0.95	
+		movement_cost = 1.0
+		supply_limit = 8
+		allowed_num_of_buildings = 1
+		nation_designer_cost_multiplier = 0.85
+		garrison_growth = 0.25
+		attrition = -1
+		local_defensiveness = -0.25
 		
 		terrain_override = {
 			768 776 1800 2805 2809 2810 2812 2814 2815 2855 2859 2879 2884 2887 
@@ -768,6 +793,7 @@ categories =  {
 		local_development_cost = 0.20
 		nation_designer_cost_multiplier = 0.9	
 		supply_limit = 6
+		local_defensiveness = -0.25
 		
 		terrain_override = {
 			2195 463 2197 2417 466 2367 470 472 2353 2369 2358 476 2354 479 2357 1966 2420

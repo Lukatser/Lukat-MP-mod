@@ -22,8 +22,14 @@ country_decisions = {
 				set_country_flag = established_voc_flag
 				every_owned_province = {
 					limit = {
-						 superregion = india_superregion
-						 superregion = east_indies_superregion
+						superregion = india_superregion
+					}
+					cede_province = VOC
+					add_core = VOC
+				}
+				every_owned_province = {
+					limit = {
+						superregion = east_indies_superregion
 					}
 					cede_province = VOC
 					add_core = VOC
@@ -97,13 +103,15 @@ country_decisions = {
 				}
 				has_estate_privilege = estate_burghers_voc_privilege
 			}
-			num_of_owned_provinces_with = {
-				superregion = india_superregion
-				value = 1
-			}
-			num_of_owned_provinces_with = {
-				superregion = east_indies_superregion
-				value = 1
+			OR = {
+				num_of_owned_provinces_with = {
+					superregion = india_superregion
+					value = 1
+				}
+				num_of_owned_provinces_with = {
+					superregion = east_indies_superregion
+					value = 1
+				}
 			}
 		}
 		effect = {
@@ -112,8 +120,14 @@ country_decisions = {
 				set_country_flag = established_voc_flag
 				every_owned_province = {
 					limit = {
-						 superregion = india_superregion
-						 superregion = east_indies_superregion
+						superregion = india_superregion
+					}
+					cede_province = VOC
+					add_core = VOC
+				}
+				every_owned_province = {
+					limit = {
+						superregion = east_indies_superregion
 					}
 					cede_province = VOC
 					add_core = VOC
