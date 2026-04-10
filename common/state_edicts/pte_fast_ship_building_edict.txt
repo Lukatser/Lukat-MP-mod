@@ -13,6 +13,16 @@ pte_fast_ship_building_edict = {
 
 	allow = {
 		always = yes
+		custom_trigger_tooltip = {
+			tooltip = sea_remove_state_edicts_flag_tt
+			OR = {
+				NOT = { has_country_flag = sea_state_edicts_clear_flag }
+				had_country_flag = {
+					flag = sea_state_edicts_clear_flag
+					days = 33
+				}
+			}
+		}
 	}
 
 	modifier = {
@@ -21,6 +31,7 @@ pte_fast_ship_building_edict = {
 	}
 
 	color = { 200 200 0 }
+	on_state_edict_revoked = { FROM = { clr_country_flag = sea_state_edicts_decision_pte_fast_ship_building_edict_flag } }
 
 	ai_will_do = {
 		factor = 0
