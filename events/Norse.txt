@@ -119,7 +119,7 @@ country_event = {
 	option = {	#The time as a Christian is really tiresome with popes like these
 		name = norse_events.2.a
 		custom_tooltip = norse_events.2.a.tt #Ruler will flee into the wilderness to rethink his life decisions
-		add_ruler_modifier = {
+		add_country_modifier = {
 			name = rethinking_catholic_life
 			duration = 10950
 		}
@@ -691,7 +691,7 @@ country_event = {
 		}
 		add_stability = -1
 		custom_tooltip = norse_events.2.a.tt #Ruler will flee into the wilderness to rethink his life decisions
-		add_ruler_modifier = {
+		add_country_modifier = {
 			name = rethinking_catholic_life
 			duration = 10950
 		}

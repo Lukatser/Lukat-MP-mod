@@ -828,3 +828,27 @@ country_event = { #rebel backup
 		}
     }
 }
+
+country_event = {
+	id = lukat_events.3
+	title = none 
+	desc = none 
+	picture = none 
+	hidden = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		naval_ideas = 5
+	}
+
+	option = {
+		name = lukat_events.3.1
+		add_country_modifier = {
+			name = professional_marines_tm
+			duration = -1
+		}
+		ai_chance = { factor = 100 }
+	}
+}

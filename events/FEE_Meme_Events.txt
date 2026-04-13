@@ -508,35 +508,6 @@ country_event = {
 	}
 }
 
-# Start Event
-country_event = {
-	id = FEE_Meme_Events.1000
-	title = FEE_Meme_Events.1000.T
-	desc = FEE_Meme_Events.1000.D
-	picture = DIPLOMACY_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-
-	trigger = {
-		ai = no
-		NOT = { has_global_flag = FEE_Meme_Happened }
-	}
-
-	immediate = {
-		set_global_flag = FEE_Meme_Happened
-	}
-
-	option = {
-		name = FEE_Meme_Events.1000.OPT1
-		set_global_flag = fee_meme_active
-	}
-
-	option = {
-		name = FEE_Meme_Events.1000.OPT2
-	}
-}
-
 #Holding out for a Hero
 country_event = {
 	id = FEE_Meme_Events.2000

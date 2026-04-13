@@ -72,6 +72,12 @@ on_startup = {
 			}
 		}
 	}
+	set_global_flag = fee_trading_fairs_enabled
+	add_country_modifier = {
+		name = fuck_your_tariffs
+		duration = -1
+	}
+	set_global_flag = fee_meme_active
 }
 
 # province
