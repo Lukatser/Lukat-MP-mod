@@ -73,6 +73,10 @@ on_startup = {
 		}
 	}
 	set_global_flag = fee_trading_fairs_enabled
+	every_province = {
+		limit = { province_has_center_of_trade_of_level = 1 }
+		set_province_flag = fee_trading_fair_eligible
+	}
 	add_country_modifier = {
 		name = fuck_your_tariffs
 		duration = -1

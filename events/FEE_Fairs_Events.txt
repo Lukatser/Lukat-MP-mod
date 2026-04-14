@@ -1,42 +1,6 @@
 namespace = FEE_Fairs_Events
 
 # Event to talk about the Trading Fairs
-country_event = {
-	id = FEE_Fairs_Events.1
-	title = FEE_Fairs_Events.1.T
-	desc = FEE_Fairs_Events.1.D
-	picture = CARAVAN_EVENT_Picture
-
-	major = yes
-	fire_only_once = yes
-	is_triggered_only = yes
-
-	trigger = {
-		ai = no
-		NOT = { has_global_flag = fee_trading_fairs_enabled }
-		NOT = { is_institution_enabled = global_trade }
-	}
-
-	option = {
-		name = FEE_Fairs_Events.1.OPT1
-
-		custom_tooltip = FEE_FAIRS_STARTING_TT
-		set_global_flag = fee_trading_fairs_enabled
-		hidden_effect = {
-			every_province = {
-				limit = { province_has_center_of_trade_of_level = 1 }
-				set_province_flag = fee_trading_fair_eligible
-			}
-		}
-	}
-
-	option = {
-		name = FEE_Fairs_Events.1.OPT2
-
-		custom_tooltip = FEE_FAIRS_DISABLE_TT
-		clr_global_flag = fee_trading_fairs_enabled
-	}
-}
 
 # The start of a the fair
 country_event = {
