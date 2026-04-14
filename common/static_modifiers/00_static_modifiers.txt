@@ -1392,7 +1392,7 @@ low_army_professionalism = {
 	mercenary_manpower = 0.15
 	global_regiment_cost = -0.15
 	land_attrition = 0.25
-	recover_army_morale_speed = -0.25
+	recover_army_morale_speed = -0.05
 }
 
 high_army_professionalism = {
@@ -1403,7 +1403,7 @@ high_army_professionalism = {
 	allowed_samurai_fraction = 0.1
 	global_regiment_cost = 0.15
 	land_attrition = -0.25
-	recover_army_morale_speed = 0.25
+	recover_army_morale_speed = 0.15
 }
 
 streltsy_modifier = {
