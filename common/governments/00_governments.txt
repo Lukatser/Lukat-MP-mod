@@ -799,7 +799,7 @@ republic = {
 				rajput_military_leadership_reform
 				the_maratha_army_reform
 				subutais_strategies_reform
-				ahmudan_system_reform
+				devolution_system_reform
 				ghazi_reform
 				the_cawa_regiments_reform
 				tercio_reform

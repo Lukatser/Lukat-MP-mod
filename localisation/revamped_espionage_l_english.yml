@@ -376,4 +376,11 @@
  hohenzollern_castle: "Hohenzollern Castle"
  hohenzollern_castle_desc: "Perched high upon the Swabian Alps, Hohenzollern Castle stands as the ancestral seat of a rising dynasty. Its commanding position and imposing walls symbolize both noble prestige and enduring authority. Though less vast than the great fortresses of empires, it serves as a powerful center of regional control and dynastic legitimacy. From its heights, loyal retainers guard the surrounding lands, while its halls preserve the lineage and ambition of its rulers. The castle inspires unity among subjects and strengthens the influence of its noble house."
  rock_of_gibraltar: "the Rock of Gibraltar"
- rock_of_gibraltar_desc: "Towering above the narrow strait that binds the Mediterranean Sea to the Atlantic Ocean, the Rock of Gibraltar stands as a natural fortress of immense strategic value. Its steep cliffs and commanding height allow its holders to watch and control the passage of ships between continents. Fortified with artillery and guarded by a vigilant garrison, it serves as both shield and gatekeeper of maritime trade. Whoever commands the Rock holds sway over one of the world’s most vital chokepoints."
+ rock_of_gibraltar_desc: "Towering above the narrow strait that binds the Mediterranean Sea to the Atlantic Ocean, the Rock of Gibraltar stands as a natural fortress of immense strategic value. Its steep cliffs and commanding height allow its holders to watch and control the passage of ships between continents. Fortified with artillery and guarded by a vigilant garrison, it serves as both shield and gatekeeper of maritime trade. Whoever commands the Rock holds sway over one of the world’s most vital chokepoints."`
+
+ devolution_system_reform: "Devolution System"
+ devolution_system_reform_desc: "The devolution system is a form of conscription where local governors provide the army with a supply of predetermined quota of men. The affected governors and their provinces are exempt from most of the taxes in exchange for their military servitude."
+ mechanic_ahmudan_system_yes: "Gain §G-10.0%§! Global Regiment Cost and §G+20.0%§! Manpower Recovery Speed during war.\nGain additional §G+7.5%§! Morale of Armies, §G+15.0%§! Fort Defense and §G+10.0%§! Manpower Recovery Speed during a defensive war."
+ ability_ahmudan_mechanic: "Devolution System Interactions"
+ devolution_system_attacker: "Devolution System: Attacker"
+ devolution_system_defender: "Devolution System: Defender"

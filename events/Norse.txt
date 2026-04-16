@@ -652,7 +652,7 @@ country_event = {
 		}
 		any_owned_province = {
 			any_empty_neighbor_province = {
-				religion = animist
+				religion = animism
 			}
 		}
 		NOT = { religion_group = pagan }
@@ -669,7 +669,7 @@ country_event = {
 			random_owned_province = {
 				limit = {
 					any_empty_neighbor_province = {
-						religion = animist
+						religion = animism
 					}
 				}
 				save_event_target_as = wen_norse_province
@@ -681,11 +681,11 @@ country_event = {
 		event_target:wen_norse_province = {
 			change_religion = animist
 			spawn_rebels = {
-				type = animist_rebels
+				type = animism_rebels
 				size = 2
 			}
 			spawn_rebels = {
-				type = animist_rebels
+				type = animism_rebels
 				size = 2
 			}
 		}

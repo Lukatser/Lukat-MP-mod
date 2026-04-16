@@ -2674,7 +2674,7 @@ legacy_of_the_seljuk_reform = {
 }
 
 #Republics
-ahmudan_system_reform = {
+devolution_system_reform = {
 	icon = "generic_people"
 	allow_normal_conversion = yes
 	potential = {
@@ -2685,13 +2685,13 @@ ahmudan_system_reform = {
 		if = {
 			limit = { has_modifier_locking_military_tier = yes }
 			OR = {
-				has_reform = ahmudan_system_reform
+				has_reform = devolution_system_reform
 				has_not_modifier_locking_military_tier = yes
 			}
 		}
 	}
 	modifiers = {
-		reinforce_cost_modifier = -0.2
+		garrison_size = 0.25
 	}
 	custom_attributes = {
 		ahmudan_system = yes
@@ -2699,7 +2699,7 @@ ahmudan_system_reform = {
 	}
 	
 	ai = {
-		factor = 1000
+		factor = 10
 	}
 }
 

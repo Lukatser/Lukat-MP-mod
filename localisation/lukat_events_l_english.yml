@@ -42,7 +42,7 @@
  string_year_for_last_try_to_support_heir_there: "[From.year_of_last_try_to_support_heir_in_our_country.GetValue]"
  string_slash: "/"
  REQUIRES_ALLIANCE_OR_SUBJECT_TT: "§R[From.GetName] must either be a subject or like us§!"
- norse_events.10t: "Proposal from an old friend"
+ norse_events.10: "Proposal from an old friend"
  norse_events.10.desc: "Our old Vinlandian colonist, whom we presumed to have died out centuries ago, have suddenly shown there faces once more. They've shown up in the thousands demanding a return to the old roots. How shall we react?"
  norse_events.10.a: "They kinda sexy omg, welcome them."
  norse_events.10.b: "Fuck them bitches, take their lands!"

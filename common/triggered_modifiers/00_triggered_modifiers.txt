@@ -973,7 +973,7 @@ judaism_yom_kippur_aspect_defensive_war_modifier = {
 # Government Reform Specific
 ######################################
 
-ahmudan_system_attacker = {
+devolution_system_attacker = {
 	potential = {
 		has_government_attribute = ahmudan_system
 	}
@@ -985,7 +985,7 @@ ahmudan_system_attacker = {
 	manpower_recovery_speed = 0.2
 }
 
-ahmudan_system_defender = {
+devolution_system_defender = {
 	potential = {
 		has_government_attribute = ahmudan_system
 	}
