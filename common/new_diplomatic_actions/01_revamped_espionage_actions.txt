@@ -9,12 +9,12 @@ assassinate_general_action = {
 		treasury = 400 
 		spy_ideas = 4 
 		FROM = { 
-			NOT = { had_country_flag = { flag = esp_general_cd days = 60 } } 
+			had_country_flag = { flag = esp_general_cd days = 1825 }
 		} 
 	}
 	on_accept = { 
 		hidden_effect = { 
-			FROM = { set_country_flag = esp_general_target } 
+			FROM = { set_country_flag = esp_general_target save_global_event_target_as = esp_general_pending_target }
 			country_event = { id = revamped_espionage.203 } 
 			FROM = { clr_country_flag = esp_general_cd set_country_flag = esp_general_cd } 
 		} 
@@ -31,12 +31,12 @@ assassinate_admiral_action = {
 		treasury = 300  
 		spy_ideas = 4
 		FROM = { 
-			NOT = { had_country_flag = { flag = esp_admiral_cd days = 60 } } 
+			had_country_flag = { flag = esp_admiral_cd days = 1825 }
 		} 
 	}
 	on_accept = { 
 		hidden_effect = { 
-			FROM = { set_country_flag = esp_admiral_target } 
+			FROM = { set_country_flag = esp_admiral_target save_global_event_target_as = esp_admiral_pending_target }
 			country_event = { id = revamped_espionage.204 } 
 			FROM = { clr_country_flag = esp_admiral_cd set_country_flag = esp_admiral_cd } 
 		} 
@@ -53,12 +53,12 @@ assassinate_advisor_action = {
 		treasury = 500  
 		spy_ideas = 3
 		FROM = { 
-			NOT = { had_country_flag = { flag = esp_advisor_cd days = 60 } } 
+			had_country_flag = { flag = esp_advisor_cd days = 1825 }
 		} 
 	}
 	on_accept = { 
 		hidden_effect = { 
-			FROM = { set_country_flag = esp_advisor_target } 
+			FROM = { set_country_flag = esp_advisor_target save_global_event_target_as = esp_advisor_pending_target }
 			country_event = { id = revamped_espionage.205 } 
 			FROM = { clr_country_flag = esp_advisor_cd set_country_flag = esp_advisor_cd } 
 		} 
@@ -77,12 +77,12 @@ plant_rebellion_cell_action = {
 		treasury = 3750  
 		spy_ideas = 6
 		FROM = { 
-			NOT = { had_country_flag = { flag = esp_rebellion_cd days = 90 } } 
+			had_country_flag = { flag = esp_rebellion_cd days = 3650 }
 		} 
 	}
 	on_accept = { 
 		hidden_effect = { 
-			FROM = { set_country_flag = esp_rebellion_target } 
+			FROM = { set_country_flag = esp_rebellion_target save_global_event_target_as = esp_rebellion_pending_target }
 			country_event = { id = revamped_espionage.206 } 
 			FROM = { clr_country_flag = esp_rebellion_cd set_country_flag = esp_rebellion_cd } 
 		} 
@@ -101,7 +101,7 @@ infiltrate_treasury_action = {
 		dip_power = 100  
 		spy_ideas = 2
 		FROM = { 
-			NOT = { had_country_flag = { flag = esp_treasury_cd days = 200 } } 
+			had_country_flag = { flag = esp_treasury_cd days = 1825 }
 		} 
 	}
 	on_accept = { 
@@ -132,12 +132,12 @@ destroy_fortifications_action = {
 		treasury = 450  
 		spy_ideas = 5
 		FROM = { 
-			NOT = { had_country_flag = { flag = esp_fort_cd days = 180 } }
+			had_country_flag = { flag = esp_fort_cd days = 1825 }
 		} 
 	}
 	on_accept = { 
 		hidden_effect = { 
-			FROM = { set_country_flag = esp_fort_target } 
+			FROM = { set_country_flag = esp_fort_target save_global_event_target_as = esp_fort_pending_target }
 			country_event = { id = revamped_espionage.208 } 
 			FROM = { clr_country_flag = esp_fort_cd set_country_flag = esp_fort_cd } 
 		} 
@@ -158,12 +158,12 @@ stage_alliance_incident_action = {
 		treasury = 1500 
 		spy_ideas = 7
 		FROM = { 
-			NOT = { had_country_flag = { flag = esp_alliance_cd days = 120 } }
+			had_country_flag = { flag = esp_alliance_cd days = 1825 }
 		} 
 	}
 	on_accept = { 
 		hidden_effect = { 
-			FROM = { set_country_flag = esp_alliance_target } 
+			FROM = { set_country_flag = esp_alliance_target save_global_event_target_as = esp_alliance_pending_target }
 			country_event = { id = revamped_espionage.209 } 
 			FROM = { clr_country_flag = esp_alliance_cd set_country_flag = esp_alliance_cd } 
 		} 

@@ -315,7 +315,7 @@ innovativeness_ideas = {
 	category = ADM
 
 	bonus = {
-		advisor_cost = -0.25
+		advisor_cost = -0.35
 	}
 
 	patron_of_art  = {
@@ -1545,8 +1545,8 @@ administrative_ideas = {
 		adm_advisor_cost = -0.25 
 	}
 	local_rule = {
-		land_maintenance_modifier = -0.20
-		naval_maintenance_modifier = -0.2
+		land_maintenance_modifier = -0.075
+		naval_maintenance_modifier = -0.075
 	}
 	adaptability = {
 		core_creation = -0.25
@@ -1561,7 +1561,7 @@ administrative_ideas = {
 	}
 	centralization = {
 		global_autonomy = -0.05
-		min_autonomy_in_territories = -0.15
+		min_autonomy_in_territories = -0.10
 	}
 	civil_servants = {
 		adm_tech_cost_modifier = -0.1
@@ -1715,7 +1715,7 @@ influence_ideas = {
 		liberty_desire_from_subject_development = -0.2
 	}
 	marcher_lords = {
-		vassal_forcelimit_bonus = 1.5
+		vassal_forcelimit_bonus = 0.5
 	}
 
 	ai_will_do = {
@@ -1830,16 +1830,15 @@ court_ideas = {
 		monarch_diplomatic_power = 1 
 	}
 	recognize_hierarchy = {
-		all_estate_loyalty_equilibrium = 0.25
+		all_estate_loyalty_equilibrium = 0.10
 		monarch_lifespan = 0.25
 	}
 	welcoming_ceremonies = {
 		prestige = 2
-		allow_client_states = yes
 		free_concentrate_development = yes
 	}
 	tranquil_coordination = {
-		reform_progress_growth = 0.4
+		reform_progress_growth = 0.2
 		no_stability_loss_on_monarch_death = yes
 		allow_free_estate_privilege_revocation = yes
 	}
@@ -1848,8 +1847,8 @@ court_ideas = {
 		monarch_power_tribute = 1
 	}
 	palace_of_splendor = {
-		monthly_splendor = 4 
-		estate_interaction_cooldown_modifier = -0.25
+		monthly_splendor = 2 
+		estate_interaction_cooldown_modifier = -0.15
 	}
 	court_embassies = {
 		max_absolutism = 25

@@ -365,7 +365,9 @@
  esp_alliance_detected_tt: "§R~70%§! chance:\n  Target and a random ally receive §R-150§! Relations for 5 years\n  §MAlerted National Security§! for 2 years\n  Gain §YDiscovered Spy§! Casus Belli\n§G~30%§! chance:\n  Target gains §G20§! Prestige\n  Gain §YDiscovered Spy§! Casus Belli"
 
  # REBELS TYPES
- terrorist_rebels: "Terrorists"
+ terrorist_rebels_name: "Terrorists"
+ terrorist_rebels_title: "They want to declare a terrorist nation."
+ terrorist_rebels_desc: "They want to kill the royal family, install a terrorist on our throne, even if that costs them parts of the country."
  terrorist_rebels_army: "Terrorist Forces"
  terrorist_rebels_demand: "Declare a terrorist nation."
  terrorist_rebels_demand_desc: "They want to kill the royal family, install a terrorist on our throne, even if that costs them parts of the country."
