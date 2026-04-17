@@ -1,12 +1,14 @@
 #1243 - Samoa
 
-
+add_core = SAM
+owner = SAM
+controller = SAM
 culture = polynesian
 religion = animism
 hre = no
 capital = "Falealupo"
-
-trade_goods = unknown
+is_city = yes
+trade_goods = cloth
 base_tax = 3 
 base_production = 3
 base_manpower = 2
