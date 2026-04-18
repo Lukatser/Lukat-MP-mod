@@ -103,12 +103,12 @@ plutocracy_ideas = {
 	}
 
 	tradition_of_payment = {
-		reinforce_cost_modifier = -0.20
-		global_regiment_cost = -0.1
+		reinforce_cost_modifier = -0.10
+		general_cost = -0.10
 	}
 	abolished_serfdom = {
-		global_defender_dice_roll_bonus = 1
-		inflation_action_cost = -0.5
+		centralize_state_cost = -0.1
+		inflation_action_cost = -0.6
 	}
 	bill_of_rights = {
 		monthly_reform_progress = 0.1
@@ -714,7 +714,7 @@ defensive_ideas = {
 		army_tradition_from_battle = 1.0
 	}
 	military_drill = {
-		land_morale = 0.10
+		land_morale = 0.175
 		garrison_damage = 0.33
 	}
 	improved_manuever = {
@@ -726,7 +726,7 @@ defensive_ideas = {
 	}
 	defensive_mentality = {
 		defensiveness = 0.25
-		fort_maintenance_modifier = -0.1
+		global_defender_dice_roll_bonus = 1
 	}
 	supply_trains = {
 		reinforce_speed = 0.3

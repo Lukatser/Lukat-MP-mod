@@ -94,6 +94,30 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = lukat_events.3
+	title = none 
+	desc = none 
+	picture = none 
+	hidden = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		naval_ideas = 5
+	}
+
+	option = {
+		name = lukat_events.3.1
+		add_country_modifier = {
+			name = professional_marines_tm
+			duration = -1
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
 namespace = lukat_heir_events
 
 country_event = { #start event spy heir
@@ -829,26 +853,544 @@ country_event = { #rebel backup
     }
 }
 
-country_event = {
-	id = lukat_events.3
-	title = none 
-	desc = none 
-	picture = none 
-	hidden = yes
-	mean_time_to_happen = {
-		days = 1
-	}
 
-	trigger = {
-		naval_ideas = 5
-	}
+
+namespace = rename_country
+
+country_event = {
+	id = rename_country.1
+	title = rename_country.t
+	desc = rename_country.d
+	picture = muslimgfx_BIG_BOOK_eventPicture
+	is_triggered_only = yes
 
 	option = {
-		name = lukat_events.3.1
-		add_country_modifier = {
-			name = professional_marines_tm
-			duration = -1
-		}
-		ai_chance = { factor = 100 }
+		name = rename_country.a
+		restore_country_name = yes
+	}
+	option = {
+		name = rename_country_rome.b
+		trigger = { tag = ROM }
+		override_country_name = ROMAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_rome.c
+		trigger = { tag = ROM }
+		override_country_name = IMPERIUM_ROMANUM_NAME
+	}
+	option = {
+		name = rename_country_rome.d
+		trigger = { tag = ROM }
+		override_country_name = ROMAN_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_rome.e
+		trigger = { tag = ROM }
+		override_country_name = SPQR_NAME
+	}
+	option = {
+		name = rename_country_rome.f
+		trigger = { tag = ROM }
+		override_country_name = RES_PUBLICA_ROMANA_NAME
+	}
+	option = {
+		name = rename_country_rome.g
+		trigger = { tag = ROM }
+		override_country_name = ROMAN_THEOCRACY_NAME
+	}
+	option = {
+		name = rename_country_rome.h
+		trigger = { tag = ROM }
+		override_country_name = THEOCRATIA_ROMANA_NAME
+	}
+	option = {
+		name = rename_country_rome.i
+		trigger = { tag = ROM }
+		override_country_name = ROMAN_HORDE_NAME
+	}
+	option = {
+		name = rename_country_byzantium.b
+		trigger = { tag = BYZ }
+		override_country_name = RHOMANIA_NAME
+	}
+	option = {
+		name = rename_country_byzantium.c
+		trigger = { tag = BYZ }
+		override_country_name = EASTERN_ROME_NAME
+	}
+	option = {
+		name = rename_country_byzantium.d
+		trigger = { tag = BYZ }
+		override_country_name = BYZANTINE_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_byzantium.e
+		trigger = { tag = BYZ }
+		override_country_name = RHOMANIAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_byzantium.f
+		trigger = { tag = BYZ }
+		override_country_name = BASILEIA_RHOMAION_NAME
+	}
+	option = {
+		name = rename_country_byzantium.g
+		trigger = { tag = BYZ }
+		override_country_name = EASTERN_ROMAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_byzantium.h
+		trigger = { tag = BYZ }
+		override_country_name = BYZANTINE_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_byzantium.i
+		trigger = { tag = BYZ }
+		override_country_name = RHOMANIAN_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_byzantium.j
+		trigger = { tag = BYZ }
+		override_country_name = EASTERN_ROMAN_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_byzantium.k
+		trigger = { tag = BYZ }
+		override_country_name = BYZANTINE_THEOCRACY_NAME
+	}
+	option = {
+		name = rename_country_byzantium.l
+		trigger = { tag = BYZ }
+		override_country_name = RHOMANIAN_THEOCRACY_NAME
+	}
+	option = {
+		name = rename_country_byzantium.m
+		trigger = { tag = BYZ }
+		override_country_name = EASTERN_ROMAN_THEOCRACY_NAME
+	}
+	option = {
+		name = rename_country_byzantium.n
+		trigger = { tag = BYZ owns_core_province = 118 }
+		override_country_name = BYZANTINE_ROME_NAME
+	}
+	option = {
+		name = rename_country_byzantium.p
+		trigger = { tag = BYZ owns_core_province = 118 }
+		override_country_name = BYZANTINE_ROMAN_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_byzantium.o
+		trigger = { tag = BYZ owns_core_province = 118 }
+		override_country_name = BYZANTINE_ROMAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_ottomans.b
+		trigger = { tag = TUR }
+		override_country_name = OSMAN_NAME
+	}
+	option = {
+		name = rename_country_ottomans.c
+		trigger = { tag = TUR }
+		override_country_name = OTTOMAN_SULTANATE_NAME
+	}
+	option = {
+		name = rename_country_ottomans.d
+		trigger = { tag = TUR }
+		override_country_name = OSMAN_SULTANATE_NAME
+	}
+	option = {
+		name = rename_country_ottomans.e
+		trigger = { tag = TUR }
+		override_country_name = OTTOMAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_ottomans.f
+		trigger = { tag = TUR }
+		override_country_name = OSMAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_ottomans.g
+		trigger = { tag = TUR }
+		override_country_name = TURKISH_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_ottomans.h
+		trigger = { tag = TUR }
+		override_country_name = TURKISH_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_ottomans.i
+		trigger = { tag = TUR }
+		override_country_name = REPUBLIC_OF_TURKEY_NAME
+	}
+	option = {
+		name = rename_country_ottomans.j
+		trigger = { tag = TUR }
+		override_country_name = TURKEY_NAME
+	}
+	option = {
+		name = rename_country_great_britain.b
+		trigger = { tag = GBR }
+		override_country_name = UNITED_KINGDOM_NAME
+	}
+	option = {
+		name = rename_country_great_britain.c
+		trigger = { tag = GBR }
+		override_country_name = BRITISH_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_great_britain.d
+		trigger = { tag = GBR }
+		override_country_name = COMMONWEALTH_OF_ENGLAND_NAME
+	}
+	option = {
+		name = rename_country_great_britain.e
+		trigger = { tag = GBR }
+		override_country_name = COMMONWEALTH_OF_BRITAIN_NAME
+	}
+	option = {
+		name = rename_country_great_britain.f
+		trigger = { tag = GBR }
+		override_country_name = UNITED_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_great_britain.d
+		trigger = { tag = ENG }
+		override_country_name = COMMONWEALTH_OF_ENGLAND_NAME
+	}
+	option = {
+		name = rename_country_holy_roman_empire.c
+		trigger = { tag = HLR }
+		override_country_name = HOLY_ROMAN_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_united_states.b
+		trigger = { tag = USA }
+		override_country_name = UNITED_STATES_OF_AMERICA_NAME
+	}
+	option = {
+		name = rename_country_united_states.c
+		trigger = { tag = USA }
+		override_country_name = AMERICA
+	}
+	option = {
+		name = rename_country_united_states.d
+		trigger = { tag = USA }
+		override_country_name = AMERICAN_UNITARY_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_united_states.e
+		trigger = { tag = USA }
+		override_country_name = KINGDOM_OF_AMERICA_NAME
+	}
+	option = {
+		name = rename_country_united_states.f
+		trigger = { tag = USA }
+		override_country_name = AMERICAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_united_states.l
+		trigger = { tag = USA }
+		override_country_name = USONIA_NAME
+	}
+	option = {
+		name = rename_country_united_states.g
+		trigger = { tag = USA }
+		override_country_name = 13_BROTHERHOODS_OF_AMERICA_NAME
+	}
+	option = {
+		name = rename_country_united_states.i
+		trigger = { tag = USA }
+		override_country_name = THE_FINAL_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_united_states.j
+		trigger = { tag = USA }
+		override_country_name = SHINING_CITY_ON_A_HILL_NAME
+	}
+	option = {
+		name = rename_country_commonwealth.b
+		trigger = { tag = PLC }
+		override_country_name = POLAND_LITHUANIA_NAME
+	}
+	option = {
+		name = rename_country_commonwealth.c
+		trigger = { tag = PLC }
+		override_country_name = LITHUANIA_POLAND_NAME
+	}
+	option = {
+		name = rename_country_ming.b
+		trigger = { tag = MNG }
+		override_country_name = GREAT_MING_NAME
+	}
+	option = {
+		name = rename_country_ming.c
+		trigger = { tag = MNG }
+		override_country_name = DAI_MING_NAME
+	}
+	option = {
+		name = rename_country_ming.d
+		trigger = { OR = { tag = MNG tag = QNG } }
+		override_country_name = CHINA_NAME
+	}
+	option = {
+		name = rename_country_qing.b
+		trigger = { tag = QNG }
+		override_country_name = GREAT_QING_NAME
+	}
+	option = {
+		name = rename_country_qing.c
+		trigger = { tag = QNG }
+		override_country_name = DAI_QING_NAME
+	}
+	option = {
+		name = rename_country_yuan.b
+		trigger = { tag = YUA }
+		override_country_name = GREAT_YUAN_NAME
+	}
+	option = {
+		name = rename_country_yuan.c
+		trigger = { tag = YUA }
+		override_country_name = DAI_YUAN_NAME
+	}
+	option = {
+		name = rename_country_yuan.d
+		trigger = { tag = YUA }
+		override_country_name = MONGOL_CHINA_NAME
+	}
+	option = {
+		name = rename_country_mongolia.b
+		trigger = { tag = KHA }
+		override_country_name = NORTHERN_YUAN_NAME
+	}
+	option = {
+		name = rename_country_mongol_empire.c
+		trigger = { tag = MGE }
+		override_country_name = GREAT_MONGOL_STATE_NAME
+	}
+	option = {
+		name = rename_country_mongol_empire.b
+		trigger = { tag = MGE }
+		override_country_name = GREAT_MONGOL_NATION_NAME
+	}
+	option = {
+		name = rename_country_joseon.b
+		trigger = { tag = KOR }
+		override_country_name = GREAT_JOSEON_NAME
+	}
+	option = {
+		name = rename_country_joseon.c
+		trigger = { tag = KOR }
+		override_country_name = DAI_JOSEON_NAME
+	}
+	option = {
+		name = rename_country_joseon.d
+		trigger = { tag = KOR }
+		override_country_name = KOREA_NAME
+	}
+	option = {
+		name = rename_country_timurids.b
+		trigger = { tag = TIM }
+		override_country_name = GURKANI_NAME
+	}
+	option = {
+		name = rename_country_bohemia.b
+		trigger = { tag = BOH }
+		override_country_name = CZECHIA_NAME
+	}
+	option = {
+		name = rename_country_nitra.b
+		trigger = { tag = SLO }
+		override_country_name = SLOVAKIA_NAME
+	}
+	option = {
+		name = rename_country_persia.b
+		trigger = { tag = PER }
+		override_country_name = IRAN_NAME
+	}
+	option = {
+		name = rename_country_persia.c
+		trigger = { tag = PER }
+		override_country_name = SAFAVID_NAME
+	}
+	option = {
+		name = rename_country_persia.d
+		trigger = { tag = PER }
+		override_country_name = SAFAVID_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_persia.e
+		trigger = { tag = PER }
+		override_country_name = AFSHARID_NAME
+	}
+	option = {
+		name = rename_country_persia.f
+		trigger = { tag = PER }
+		override_country_name = AFSHARID_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_hindustan.b
+		trigger = { OR = { tag = HIN tag = BHA } }
+		override_country_name = INDIA_NAME
+	}
+	option = {
+		name = rename_country_uzbek.b
+		trigger = { tag = SHY }
+		override_country_name = UZBEKISTAN_NAME
+	}
+	option = {
+		name = rename_country_transoxiana.b
+		trigger = { tag = TRS }
+		override_country_name = MAVARANNAHR_NAME
+	}
+	option = {
+		name = rename_country_switzerland.b
+		trigger = { tag = SWI }
+		override_country_name = HELVETIA_NAME
+	}
+	option = {
+		name = rename_country_switzerland.c
+		trigger = { tag = SWI }
+		override_country_name = ALAMANNIA_NAME
+	}
+	option = {
+		name = rename_country_france.a
+		trigger = { tag = FRA }
+		override_country_name = FRANCIA_NAME
+	}
+	option = {
+		name = rename_country_france.b
+		trigger = { tag = FRA }
+		override_country_name = LAIGLE_NAME
+	}
+	option = {
+		name = rename_country_france.c
+		trigger = { tag = FRA }
+		override_country_name = FRENCH_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_milan.a
+		trigger = { tag = MLO }
+		override_country_name = AUREA_AMBROSIANA_RESPUBLICA_MEDIOLANENSIS_NAME
+	}
+	option = {
+		name = rename_country_milan.b
+		trigger = { tag = MLO }
+		override_country_name = DOMINIUM_FERRUM_MEDIOLANENSE_NAME
+	}
+	option = {
+		name = rename_country_milan.c
+		trigger = { tag = MLO }
+		override_country_name = GRADUCA_DE_MILAN_NAME
+	}
+	option = {
+		name = rename_country_zimbabwe.a
+		trigger = { OR = { tag = GZI tag = ZIM } }
+		override_country_name = FEDERATED_STATES_OF_SOUTH_EASTERN_AFRICA_NAME
+	}
+	option = {
+		name = rename_country_frankfurt.a
+		trigger = { tag = FRN }
+		override_country_name = FREIE_STADT_FRANKFURT_NAME
+	}
+	option = {
+		name = rename_country_frankfurt.b
+		trigger = { tag = FRN }
+		override_country_name = GROSSREPUBLIK_FRANKFURT_NAME
+	}
+	option = {
+		name = rename_country_frankfurt.c
+		trigger = { tag = FRN }
+		override_country_name = OBERSTER_SCHWESTERNORDEN_FRANKFURT_NAME
+	}
+	option = {
+		name = rename_country_westphalia.a
+		trigger = { tag = WES }
+		override_country_name = GROSSREPUBLIK_WESTFALEN_NAME
+	}
+	option = {
+		name = rename_country_westphalia.b
+		trigger = { tag = WES }
+		override_country_name = REICHSREPUBLIK_WESTFALEN_NAME
+	}
+	option = {
+		name = rename_country_westphalia.c
+		trigger = { tag = WES }
+		override_country_name = OBERSTER_SCHWESTERNORDEN_WESTFALEN_NAME
+	}
+	option = {
+		name = rename_country_gotland.a
+		trigger = { tag = GOT }
+		override_country_name = PIRATE_BROTHERHOOD_OF_GOATLAND_NAME
+	}
+	option = {
+		name = rename_country_gotland.b
+		trigger = { tag = GOT }
+		override_country_name = NEW_VALHALLA_NAME
+	}
+	option = {
+		name = rename_country_gotland.c
+		trigger = { tag = GOT }
+		override_country_name = SCOURGE_OF_THE_SEVEN_SEAS_NAME
+	}
+	option = {
+		name = rename_country_castile.a
+		trigger = { tag = CAS }
+		override_country_name = CROWN_OF_CASTILE_NAME
+	}
+	option = {
+		name = rename_country_castile.b
+		trigger = { tag = CAS }
+		override_country_name = CORONA_CASTELLAE_NAME
+	}
+	option = {
+		name = rename_country_castile.c
+		trigger = { tag = CAS }
+		override_country_name = CORONA_DE_CASTILLA
+	}
+	option = {
+		name = rename_country_mali.a
+		trigger = { tag = MAL }
+		override_country_name = GOLDEN_EMPIRE_OF_MALI_NAME
+	}
+	option = {
+		name = rename_country_mali.b
+		trigger = { tag = MAL }
+		override_country_name = MALIKAR_NAME
+	}
+	option = {
+		name = rename_country_mali.c
+		trigger = { tag = MAL }
+		override_country_name = MUSAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_netherlands.a
+		trigger = { tag = NED }
+		override_country_name = LOWLAND_CONFEDERACY_NAME
+	}
+	option = {
+		name = rename_country_netherlands.b
+		trigger = { tag = NED }
+		override_country_name = UNITED_PROVINCES_NAME
+	}
+	option = {
+		name = rename_country_netherlands.c
+		trigger = { OR = { tag = HOL tag = NED } }
+		override_country_name = FREE_PROVINCES_OF_THE_LOWLANDS_NAME
+	}
+	option = {
+		name = rename_country_arabia.a
+		trigger = { tag = ARB }
+		override_country_name = DAR_AL_ISLAM_NAME
+	}
+	option = {
+		name = rename_country_arabia.b
+		trigger = { tag = ARB }
+		override_country_name = ABBASID_CALIPHATE_NAME
+	}
+	option = {
+		name = rename_country_arabia.c
+		trigger = { tag = ARB }
+		override_country_name = ARAB_FEDERATION
 	}
 }
