@@ -327,7 +327,7 @@ categories =  {
 		nation_designer_cost_multiplier = 0.75
 		supply_limit = 4
 		combat_width = -0.75
-		garrison_growth = -0.2
+		garrison_growth = -0.15
 		local_defensiveness = 1.4
 		attrition = 1
 		
