@@ -1194,6 +1194,11 @@ country_event = {
 		override_country_name = GURKANI_NAME
 	}
 	option = {
+		name = rename_country_timurids.a
+		trigger = { tag = TIM }
+		override_country_name = TIMURRIZZ_NAME
+	}
+	option = {
 		name = rename_country_bohemia.b
 		trigger = { tag = BOH }
 		override_country_name = CZECHIA_NAME
@@ -1287,6 +1292,11 @@ country_event = {
 		name = rename_country_zimbabwe.a
 		trigger = { OR = { tag = GZI tag = ZIM } }
 		override_country_name = FEDERATED_STATES_OF_SOUTH_EASTERN_AFRICA_NAME
+	}
+	option = {
+		name - rename_country_zimbabwe.b
+		trigger = { OR = { tag = GZI tag = ZIM } }
+		override_country_name = THE_EMPIRE_OF_THE_SWAHILI_COAST_NAME
 	}
 	option = {
 		name = rename_country_frankfurt.a
