@@ -529,7 +529,7 @@ local_autonomy_trade_company = {
 }
 
 recent_uprising = {
-	local_unrest = -10
+	local_unrest = -50
 	picture = "recent_uprising"
 }
 

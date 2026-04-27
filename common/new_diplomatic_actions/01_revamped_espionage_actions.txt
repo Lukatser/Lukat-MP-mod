@@ -16,6 +16,7 @@ assassinate_general_action = {
 				}
 			}
 		} 
+		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -43,6 +44,7 @@ assassinate_admiral_action = {
 				}
 			}
 		} 
+		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -70,6 +72,7 @@ assassinate_advisor_action = {
 				}
 			}
 		} 
+		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -99,6 +102,7 @@ plant_rebellion_cell_action = {
 				}
 			}
 		} 
+		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -128,6 +132,7 @@ infiltrate_treasury_action = {
 				}
 			}
 		} 
+		ai = no
 	}
 	on_accept = { 
 		hidden_effect = {
@@ -164,6 +169,7 @@ destroy_fortifications_action = {
 				}
 			}
 		} 
+		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -195,6 +201,7 @@ stage_alliance_incident_action = {
 				}
 			}
 		}  
+		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 

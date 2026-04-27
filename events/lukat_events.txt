@@ -1289,7 +1289,7 @@ country_event = {
 		override_country_name = GRADUCA_DE_MILAN_NAME
 	}
 	option = {
-		name = rename_country_zimbabwe.a
+		name = rename_country_zimbabwe.c
 		trigger = { OR = { tag = GZI tag = ZIM } }
 		override_country_name = FEDERATED_STATES_OF_SOUTH_EASTERN_AFRICA_NAME
 	}
