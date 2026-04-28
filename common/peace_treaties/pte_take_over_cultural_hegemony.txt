@@ -17,7 +17,7 @@ pte_take_over_cultural_hegemony = {
 	warscore_cap = -1
 	requires_demand_independence = yes
 	is_make_subject = no
-	requires_is_allowed = yes
+	requires_is_allowed = no
 
 	is_visible = {
 		is_subject = no
@@ -29,7 +29,7 @@ pte_take_over_cultural_hegemony = {
 		}
 	}
 	is_allowed = {
-		culture_group = FROM
+		is_great_power = yes
 	}
 	effect = {
 		FROM = {

@@ -15,8 +15,8 @@ assassinate_general_action = {
 					has_country_flag = esp_general_cd
 				}
 			}
+			ai = no
 		} 
-		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -43,8 +43,8 @@ assassinate_admiral_action = {
 					has_country_flag = esp_admiral_cd
 				}
 			}
+			ai = no
 		} 
-		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -71,8 +71,8 @@ assassinate_advisor_action = {
 					has_country_flag = esp_advisor_cd
 				}
 			}
+			ai = no
 		} 
-		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -101,8 +101,8 @@ plant_rebellion_cell_action = {
 					has_country_flag = esp_rebellion_cd
 				}
 			}
+			ai = no
 		} 
-		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -131,8 +131,8 @@ infiltrate_treasury_action = {
 					has_country_flag = esp_treasury_cd
 				}
 			}
+			ai = no
 		} 
-		ai = no
 	}
 	on_accept = { 
 		hidden_effect = {
@@ -168,8 +168,8 @@ destroy_fortifications_action = {
 					has_country_flag = esp_fort_cd
 				}
 			}
+			ai = no
 		} 
-		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
@@ -200,8 +200,8 @@ stage_alliance_incident_action = {
 					has_country_flag = esp_alliance_cd
 				}
 			}
+			ai = no
 		}  
-		ai = no
 	}
 	on_accept = { 
 		hidden_effect = { 
