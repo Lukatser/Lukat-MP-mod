@@ -1356,7 +1356,22 @@ country_event = {
 	option = {
 		name = rename_country_castile.c
 		trigger = { tag = CAS }
-		override_country_name = CORONA_DE_CASTILLA
+		override_country_name = CORONA_DE_CASTILLA_NAME
+	}
+	option = {
+		name = rename_country_spain.a
+		trigger = { tag = SPA }
+		override_country_name = REINO_DE_ESPANA_NAME
+	}
+	option = {
+		name = rename_country_spain.b
+		trigger = { tag = SPA }
+		override_country_name = IMPERIO_ESPANOL_NAME
+	}
+	option = {
+		name = rename_country_spain.c
+		trigger = { tag = SPA }
+		override_country_name = IMPERIUM_HISPANICUM_NAME
 	}
 	option = {
 		name = rename_country_mali.a

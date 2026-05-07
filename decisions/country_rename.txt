@@ -37,6 +37,7 @@ country_decisions = {
                 tag = HOL
                 tag = NED
                 tag = ARB 
+                tag = SPA
             }
             NOT = {
                 ai = yes
