@@ -40,3 +40,10 @@ discovered_by = north_american
 	religion = protestant
 	remove_core = FRA
 } #Treaty of Utrecht, France abandon its half of Newfoundland
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

@@ -1,0 +1,9 @@
+#cruiser
+type = heavy_ship
+
+hull_size = 100
+base_cannons = 200
+sail_speed = 10
+blockade = 5
+
+sprite_level = 6

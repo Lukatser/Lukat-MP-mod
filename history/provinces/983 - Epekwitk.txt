@@ -11,7 +11,7 @@ base_manpower = 1
 native_size = 5
 native_ferocity = 1
 native_hostileness = 1
-
+tribal_owner = MIK
 
 
 discovered_by = north_american
@@ -37,3 +37,10 @@ discovered_by = north_american
 	religion = protestant
 } # Treaty of Paris, the island is ceded to Britain
 1768.1.1 = { capital = "Charlottetown" }
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

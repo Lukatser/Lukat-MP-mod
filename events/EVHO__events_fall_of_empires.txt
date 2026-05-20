@@ -1,0 +1,844 @@
+namespace = EVHO_events_fall_of_empires
+normal_or_historical_nations = yes
+
+#MING
+country_event = {
+	id = EVHO_events_fall_of_empires.100
+	title = EVHO_events_fall_of_empires.100.t
+	desc = EVHO_events_fall_of_empires.100.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = MNG
+		is_great_power = yes
+		in_golden_age = no
+		any_neighbor_country = {
+			is_nomad = yes
+			capital_scope = {
+				OR = {
+					superregion = tartary_superregion
+					superregion = far_east_superregion
+				}
+			}
+		}
+		OR = {
+			AND = {
+				has_dlc = "Common Sense"
+				government_rank = 3
+			}
+			AND = {
+				NOT = { has_dlc = "Common Sense" }
+				total_development = 1000
+			}
+		}
+		NOT = { has_country_modifier = MNG_unguarded_frontier }
+		NOT = { has_country_flag = MNG_unguarded_frontier_flag }
+		
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			total_development = 1500
+		}
+		modifier = {
+			factor = 0.25
+			total_development = 2000
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.100.a 
+		set_country_flag = MNG_unguarded_frontier_flag
+		add_country_modifier = {
+			name = MNG_unguarded_frontier
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.101
+	title = EVHO_events_fall_of_empires.101.t
+	desc = EVHO_events_fall_of_empires.101.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = MNG
+		is_great_power = yes
+		in_golden_age = no
+		is_year = 1500
+		any_known_country = {
+			technology_group = western
+			OR = {
+				tech_difference = 2
+				total_development = 500
+			}
+			any_neighbor_country = {
+				OR = {
+					tag = MNG
+					is_subject_of = MNG
+				}
+			}
+		}
+		OR = {
+			AND = {
+				has_dlc = "Common Sense"
+				government_rank = 3
+			}
+			AND = {
+				NOT = { has_dlc = "Common Sense" }
+				total_development = 1000
+			}
+		}
+		NOT = { has_country_modifier = MNG_western_devils }
+		NOT = { has_country_flag = MNG_western_devils_flag }
+		
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			total_development = 1500
+		}
+		modifier = {
+			factor = 0.25
+			total_development = 2000
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.101.a 
+		set_country_flag = MNG_western_devils_flag
+		add_country_modifier = {
+			name = MNG_western_devils
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.102
+	title = EVHO_events_fall_of_empires.102.t
+	desc = EVHO_events_fall_of_empires.102.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = MNG
+		is_great_power = yes
+		in_golden_age = no
+		is_year = 1500
+		is_year = 1600
+		MCH = {
+			exists = yes
+			any_neighbor_country = {
+				OR = {
+					tag = MNG
+					is_subject_of = MNG
+				}
+			}
+		}
+		OR = {
+			AND = {
+				has_dlc = "Common Sense"
+				government_rank = 3
+			}
+			AND = {
+				NOT = { has_dlc = "Common Sense" }
+				total_development = 1000
+			}
+		}
+		NOT = { has_country_modifier = MNG_rise_of_qing }
+		NOT = { has_country_flag = MNG_rise_of_qing_flag }
+		
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			total_development = 1500
+		}
+		modifier = {
+			factor = 0.25
+			total_development = 2000
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.102.a 
+		set_country_flag = MNG_rise_of_qing_flag
+		add_country_modifier = {
+			name = MNG_rise_of_qing
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.103
+	title = EVHO_events_fall_of_empires.103.t
+	desc = EVHO_events_fall_of_empires.103.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = MNG
+		OR = {
+			is_great_power = no
+			in_golden_age = yes
+			is_emperor_of_china = no
+		}
+		OR = {
+			has_country_flag = MNG_unguarded_frontier_flag
+			has_country_flag = MNG_western_devils_flag
+			has_country_flag = MNG_rise_of_qing_flag
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { total_development = 750 }
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { total_development = 500 }
+		}
+	}
+	
+	option = {
+		name = EVHO_events_fall_of_empires.103.a 
+		clr_country_flag = MNG_unguarded_frontier_flag
+		clr_country_flag = MNG_western_devils_flag
+		clr_country_flag = MNG_rise_of_qing_flag
+		remove_country_modifier = MNG_unguarded_frontier
+		remove_country_modifier = MNG_western_devils
+		remove_country_modifier = MNG_rise_of_qing
+	}
+}
+
+
+#OTTOMAN EMPIRE
+country_event = {
+	id = EVHO_events_fall_of_empires.200
+	title = EVHO_events_fall_of_empires.200.t
+	desc = EVHO_events_fall_of_empires.200.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = TUR
+		NOT = { has_dlc = "Domination" }
+		current_age = age_of_absolutism
+		OR = {
+			AND = {
+				NOT = { is_institution_enabled = manufactories }
+				NOT = { has_institution = global_trade }
+			}
+			AND = {
+				is_institution_enabled = manufactories
+				NOT = { has_institution = manufactories }
+			}
+		}
+		OR = {
+			AND = {
+				has_dlc = "Common Sense"
+				government_rank = 3
+			}
+			AND = {
+				NOT = { has_dlc = "Common Sense" }
+				total_development = 1000
+			}
+		}
+		NOT = { has_country_modifier = ottoman_decline_1 }
+		NOT = { has_country_flag = ottoman_decline_1_flag }
+
+		is_great_power = yes
+		in_golden_age = no
+		151 = { country_or_subject_holds = ROOT } #Constantinople
+		146 = { country_or_subject_holds = ROOT } #Athens
+		4269 = { country_or_subject_holds = ROOT } #Belgrade
+		326 = { country_or_subject_holds = ROOT } #Ankara
+		411 = { country_or_subject_holds = ROOT } #Mosul
+		1855 = { country_or_subject_holds = ROOT } #Lebanon
+		358 = { country_or_subject_holds = ROOT } #Alexandria
+		if = {
+			limit = { is_year = 1770 }
+			OR = {
+				2461 = { country_or_subject_holds = ROOT } #Barbary
+				339 = { country_or_subject_holds = ROOT } #Barbary
+				278 = { country_or_subject_holds = ROOT } #Horn of Africa
+				1856 = { country_or_subject_holds = ROOT } #Caucasus
+				421 = { country_or_subject_holds = ROOT } #Caucasus
+				1933 = { country_or_subject_holds = ROOT } #Italia
+				120 = { country_or_subject_holds = ROOT } #Italia 
+				131 = { country_or_subject_holds = ROOT } #North Balkans 
+				141 = { country_or_subject_holds = ROOT } #Vienna
+				153 = { country_or_subject_holds = ROOT } #Budapest
+				1974 = { country_or_subject_holds = ROOT } #Crimea
+				286 = { country_or_subject_holds = ROOT } #Crimea
+				284 = { country_or_subject_holds = ROOT } #Crimea
+				2410 = { country_or_subject_holds = ROOT } #Crimea
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		
+		modifier = {
+			factor = 0.90
+			absolutism = 50
+			janissary_percentage = 0.2
+		}
+		modifier = {
+			factor = 0.90
+			absolutism = 40
+			janissary_percentage = 0.1
+		}
+		modifier = {
+			factor = 0.90
+			absolutism = 30
+			janissary_percentage = 0.1
+		}
+		
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			total_development = 1500
+		}
+		modifier = {
+			factor = 0.25
+			total_development = 2000
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.200.a 
+		set_country_flag = ottoman_decline_1_flag
+		add_country_modifier = {
+			name = ottoman_decline_1
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.201
+	title = EVHO_events_fall_of_empires.200.t
+	desc = EVHO_events_fall_of_empires.200.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = TUR
+		NOT = { has_dlc = "Domination" }
+		current_age = age_of_enlightenment
+		is_institution_enabled = enlightenment
+		NOT = { has_institution = enlightenment }
+		OR = {
+			AND = {
+				has_dlc = "Common Sense"
+				government_rank = 3
+			}
+			AND = {
+				NOT = { has_dlc = "Common Sense" }
+				total_development = 1000
+			}
+		}
+		has_country_flag = ottoman_decline_1_flag
+		NOT = { has_country_modifier = ottoman_decline_2 }
+		NOT = { has_country_flag = ottoman_decline_2_flag }
+
+		is_great_power = yes
+		in_golden_age = no
+		151 = { country_or_subject_holds = ROOT } #Constantinople
+		146 = { country_or_subject_holds = ROOT } #Athens
+		4269 = { country_or_subject_holds = ROOT } #Belgrade
+		326 = { country_or_subject_holds = ROOT } #Ankara
+		411 = { country_or_subject_holds = ROOT } #Mosul
+		1855 = { country_or_subject_holds = ROOT } #Lebanon
+		358 = { country_or_subject_holds = ROOT } #Alexandria
+		if = {
+			limit = { is_year = 1770 }
+			OR = {
+				2461 = { country_or_subject_holds = ROOT } #Barbary
+				339 = { country_or_subject_holds = ROOT } #Barbary
+				278 = { country_or_subject_holds = ROOT } #Horn of Africa
+				1856 = { country_or_subject_holds = ROOT } #Caucasus
+				421 = { country_or_subject_holds = ROOT } #Caucasus
+				1933 = { country_or_subject_holds = ROOT } #Italia
+				120 = { country_or_subject_holds = ROOT } #Italia 
+				131 = { country_or_subject_holds = ROOT } #North Balkans 
+				141 = { country_or_subject_holds = ROOT } #Vienna
+				153 = { country_or_subject_holds = ROOT } #Budapest
+				1974 = { country_or_subject_holds = ROOT } #Crimea
+				286 = { country_or_subject_holds = ROOT } #Crimea
+				284 = { country_or_subject_holds = ROOT } #Crimea
+				2410 = { country_or_subject_holds = ROOT } #Crimea
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		
+		modifier = {
+			factor = 0.90
+			absolutism = 50
+			janissary_percentage = 0.2
+		}
+		modifier = {
+			factor = 0.90
+			absolutism = 40
+			janissary_percentage = 0.1
+		}
+		modifier = {
+			factor = 0.90
+			absolutism = 30
+			janissary_percentage = 0.1
+		}
+		
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			total_development = 1500
+		}
+		modifier = {
+			factor = 0.25
+			total_development = 2000
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.200.a 
+		set_country_flag = ottoman_decline_2_flag
+		remove_country_modifier = ottoman_decline_1
+		add_country_modifier = {
+			name = ottoman_decline_2
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.202
+	title = EVHO_events_fall_of_empires.200.t
+	desc = EVHO_events_fall_of_empires.200.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = TUR
+		NOT = { has_dlc = "Domination" }
+		current_age = age_of_revolutions
+		OR = {
+			AND = {
+				NOT = { is_institution_enabled = revolutionary_thought }
+				NOT = { has_institution = industrialization }
+			}
+			AND = {
+				is_institution_enabled = revolutionary_thought
+				NOT = { has_institution = revolutionary_thought }
+			}
+		}
+		OR = {
+			AND = {
+				has_dlc = "Common Sense"
+				government_rank = 3
+			}
+			AND = {
+				NOT = { has_dlc = "Common Sense" }
+				total_development = 1000
+			}
+		}
+		has_country_flag = ottoman_decline_2_flag
+		NOT = { has_country_modifier = ottoman_decline_3 }
+		NOT = { has_country_flag = ottoman_decline_3_flag }
+
+		is_great_power = yes
+		in_golden_age = no
+		151 = { country_or_subject_holds = ROOT } #Constantinople
+		146 = { country_or_subject_holds = ROOT } #Athens
+		4269 = { country_or_subject_holds = ROOT } #Belgrade
+		326 = { country_or_subject_holds = ROOT } #Ankara
+		411 = { country_or_subject_holds = ROOT } #Mosul
+		1855 = { country_or_subject_holds = ROOT } #Lebanon
+		358 = { country_or_subject_holds = ROOT } #Alexandria
+		if = {
+			limit = { is_year = 1770 }
+			OR = {
+				2461 = { country_or_subject_holds = ROOT } #Barbary
+				339 = { country_or_subject_holds = ROOT } #Barbary
+				278 = { country_or_subject_holds = ROOT } #Horn of Africa
+				1856 = { country_or_subject_holds = ROOT } #Caucasus
+				421 = { country_or_subject_holds = ROOT } #Caucasus
+				1933 = { country_or_subject_holds = ROOT } #Italia
+				120 = { country_or_subject_holds = ROOT } #Italia 
+				131 = { country_or_subject_holds = ROOT } #North Balkans 
+				141 = { country_or_subject_holds = ROOT } #Vienna
+				153 = { country_or_subject_holds = ROOT } #Budapest
+				1974 = { country_or_subject_holds = ROOT } #Crimea
+				286 = { country_or_subject_holds = ROOT } #Crimea
+				284 = { country_or_subject_holds = ROOT } #Crimea
+				2410 = { country_or_subject_holds = ROOT } #Crimea
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		
+		modifier = {
+			factor = 0.90
+			absolutism = 50
+			janissary_percentage = 0.2
+		}
+		modifier = {
+			factor = 0.90
+			absolutism = 40
+			janissary_percentage = 0.1
+		}
+		modifier = {
+			factor = 0.90
+			absolutism = 30
+			janissary_percentage = 0.1
+		}
+		
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			total_development = 1500
+		}
+		modifier = {
+			factor = 0.25
+			total_development = 2000
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.200.a 
+		set_country_flag = ottoman_decline_3_flag
+		remove_country_modifier = ottoman_decline_2
+		add_country_modifier = {
+			name = ottoman_decline_3
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.203
+	title = EVHO_events_fall_of_empires.203.t
+	desc = EVHO_events_fall_of_empires.203.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = TUR
+		NOT = { has_dlc = "Domination" }
+		OR = {
+			is_great_power = no
+			in_golden_age = yes
+			NOT = { 151 = { country_or_subject_holds = ROOT } } #Constantinople
+			NOT = { 146 = { country_or_subject_holds = ROOT } } #Athens
+			NOT = { 4269 = { country_or_subject_holds = ROOT } } #Belgrade
+			NOT = { 326 = { country_or_subject_holds = ROOT } } #Ankara
+			NOT = { 411 = { country_or_subject_holds = ROOT } } #Mosul
+			NOT = { 1855 = { country_or_subject_holds = ROOT } } #Lebanon
+			NOT = { 358 = { country_or_subject_holds = ROOT } } #Alexandria
+			AND = {
+				is_year = 1770
+				NOT = { 2461 = { country_or_subject_holds = ROOT } } #Barbary
+				NOT = { 339 = { country_or_subject_holds = ROOT } } #Barbary
+				NOT = { 278 = { country_or_subject_holds = ROOT } } #Horn of Africa
+				NOT = { 1856 = { country_or_subject_holds = ROOT } } #Caucasus
+				NOT = { 421 = { country_or_subject_holds = ROOT } } #Caucasus
+				NOT = { 1933 = { country_or_subject_holds = ROOT } } #Italia
+				NOT = { 120 = { country_or_subject_holds = ROOT } } #Italia 
+				NOT = { 131 = { country_or_subject_holds = ROOT } } #North Balkans 
+				NOT = { 141 = { country_or_subject_holds = ROOT } } #Vienna
+				NOT = { 153 = { country_or_subject_holds = ROOT } } #Budapest
+				NOT = { 1974 = { country_or_subject_holds = ROOT } } #Crimea
+				NOT = { 286 = { country_or_subject_holds = ROOT } } #Crimea
+				NOT = { 284 = { country_or_subject_holds = ROOT } } #Crimea
+				NOT = { 2410 = { country_or_subject_holds = ROOT } } #Crimea
+			}
+		}
+		OR = {
+			has_country_flag = ottoman_decline_1_flag
+			has_country_flag = ottoman_decline_2_flag
+			has_country_flag = ottoman_decline_3_flag
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		
+		modifier = {
+			factor = 0.90
+			NOT = {
+				absolutism = 50
+				janissary_percentage = 0.2
+			}
+		}
+		modifier = {
+			factor = 0.90
+			NOT = {
+				absolutism = 40
+				janissary_percentage = 0.1
+			}
+		}
+		modifier = {
+			factor = 0.90
+			NOT = {
+				absolutism = 30
+				janissary_percentage = 0.1
+			}
+		}
+		
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { total_development = 750 }
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { total_development = 500 }
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.203.a 
+		clr_country_flag = ottoman_decline_1_flag
+		clr_country_flag = ottoman_decline_2_flag
+		clr_country_flag = ottoman_decline_3_flag
+		remove_country_modifier = ottoman_decline_1
+		remove_country_modifier = ottoman_decline_2
+		remove_country_modifier = ottoman_decline_3
+	}
+}
+
+#SPAIN
+country_event = {
+	id = EVHO_events_fall_of_empires.300
+	title = EVHO_events_fall_of_empires.300.t
+	desc = EVHO_events_fall_of_empires.300.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = SPA
+		current_age = age_of_absolutism
+		is_great_power = yes
+		in_golden_age = no
+		colony = 3
+		NOT = { has_country_modifier = spanish_decline_1 }
+		NOT = { has_country_flag = spanish_decline_1_flag }
+	}
+
+	mean_time_to_happen = {
+		months = 150
+		modifier = {
+			factor = 0.5
+			OR = {
+				colony = 4
+				total_development = 1500
+			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				colony = 5
+				total_development = 2000
+			}
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.300.a 
+		set_country_flag = spanish_decline_1_flag
+		add_country_modifier = {
+			name = spanish_decline_1
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.301
+	title = EVHO_events_fall_of_empires.300.t
+	desc = EVHO_events_fall_of_empires.300.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = SPA
+		current_age = age_of_enlightenment
+		is_great_power = yes
+		in_golden_age = no
+		colony = 3
+		has_country_flag = spanish_decline_1_flag
+		NOT = { has_country_modifier = spanish_decline_2 }
+		NOT = { has_country_flag = spanish_decline_2_flag }
+	}
+
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.5
+			OR = {
+				colony = 4
+				total_development = 1500
+			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				colony = 5
+				total_development = 2000
+			}
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.300.a 
+		set_country_flag = spanish_decline_2_flag
+		remove_country_modifier = spanish_decline_1
+		add_country_modifier = {
+			name = spanish_decline_2
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.302
+	title = EVHO_events_fall_of_empires.300.t
+	desc = EVHO_events_fall_of_empires.300.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = SPA
+		current_age = age_of_revolutions
+		is_great_power = yes
+		in_golden_age = no
+		colony = 3
+		has_country_flag = spanish_decline_2_flag
+		NOT = { has_country_modifier = spanish_decline_3 }
+		NOT = { has_country_flag = spanish_decline_3_flag }
+	}
+
+	mean_time_to_happen = {
+		months = 50
+		modifier = {
+			factor = 0.75
+			has_had_golden_age = yes
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				colony = 4
+				total_development = 1500
+			}
+		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				colony = 5
+				total_development = 2000
+			}
+		}
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.300.a 
+		set_country_flag = spanish_decline_3_flag
+		remove_country_modifier = spanish_decline_2
+		add_country_modifier = {
+			name = spanish_decline_3
+			duration = -1  
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_events_fall_of_empires.303
+	title = EVHO_events_fall_of_empires.303.t
+	desc = EVHO_events_fall_of_empires.303.d
+	picture = CITY_VIEW_eventPicture
+	
+	trigger = {
+		tag = SPA
+		OR = {
+			is_great_power = no
+			in_golden_age = yes
+		}
+		OR = {
+			has_country_flag = spanish_decline_1_flag
+			has_country_flag = spanish_decline_2_flag
+			has_country_flag = spanish_decline_3_flag
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 50
+	}
+
+	
+	
+	option = {
+		name = EVHO_events_fall_of_empires.303.a 
+		clr_country_flag = spanish_decline_1_flag
+		clr_country_flag = spanish_decline_2_flag
+		clr_country_flag = spanish_decline_3_flag
+		remove_country_modifier = spanish_decline_1
+		remove_country_modifier = spanish_decline_2
+		remove_country_modifier = spanish_decline_3
+	}
+}

@@ -1,0 +1,1994 @@
+
+EVHO_is_actually_revolutionary_trigger = {
+	OR = {
+		has_reform = revolutionary_republic_reform
+		has_reform = junior_revolutionary_republic_reform
+		has_reform = revolutionary_empire_reform
+	}
+}
+
+partition_of_poland_is_poland = {
+	OR = {
+		AND = {
+			tag = POL
+			senior_union_with = LIT
+		}
+		AND = {
+			tag = LIT
+			senior_union_with = POL
+		}
+		AND = {
+			tag = PLC
+			NOT = { exists = POL }
+			NOT = { exists = LIT }
+		}
+	}
+}
+
+partition_of_poland_is_prussia = {
+	OR = {
+		capital_scope = { region = north_german_region }
+		AND = {
+			capital_scope = { region = baltic_region }
+			OR = {
+				primary_culture = prussian  
+				primary_culture = pommeranian
+				primary_culture = lower_saxon
+				primary_culture = hannoverian
+				primary_culture = hessian
+				primary_culture = saxon
+				primary_culture = dutch
+				primary_culture = flemish
+				primary_culture = frisian
+				primary_culture = czech
+			}
+		}
+	}
+	NOT = {
+		any_country = {
+			is_neighbor_of = ROOT
+			OR = {
+				capital_scope = { region = north_german_region }
+				AND = {
+					capital_scope = { region = baltic_region }
+					OR = {
+						primary_culture = prussian  
+						primary_culture = pommeranian
+						primary_culture = lower_saxon
+						primary_culture = hannoverian
+						primary_culture = hessian
+						primary_culture = saxon
+						primary_culture = dutch
+						primary_culture = flemish
+						primary_culture = frisian
+						primary_culture = czech
+					}
+				}
+			}
+			army_strength = {
+				who = PREV
+				value = 1
+			}
+		}
+	}
+}
+
+partition_of_poland_is_austria = {
+	capital_scope = { 
+		OR = {
+			region = south_german_region
+			region = carpathia_region
+		}
+	}
+	NOT = {
+		any_country = {
+			is_neighbor_of = ROOT
+			capital_scope = { 
+				OR = {
+					region = south_german_region
+					region = carpathia_region
+				}
+			}
+			army_strength = {
+				who = PREV
+				value = 1
+			}
+		}
+	}
+}
+
+partition_of_poland_is_russia = {
+	capital_scope = { 
+		OR = {
+			region = russia_region
+			region = ruthenia_region
+			region = crimea_region
+			province_id = 151
+		}
+	}
+	religion = orthodox
+	NOT = {
+		any_country = {
+			is_neighbor_of = ROOT
+			capital_scope = { 
+				OR = {
+					region = russia_region
+					region = ruthenia_region
+					region = crimea_region
+					province_id = 151
+				}
+			}
+			religion = orthodox
+			army_strength = {
+				who = PREV
+				value = 1
+			}
+		}
+	}
+}
+
+partition_of_poland_next_in_line_1 = {
+	has_country_flag = partition_of_poland_partitioners
+	NOT = { tag = ROOT }
+	NOT = { tag = FROM }
+	NOT = { has_country_flag = partition_of_poland_wants_plc_1 }
+	NOT = { has_country_flag = partition_of_poland_not_wants_plc_1 }
+	NOT = {
+		any_country = {
+			NOT = { tag = ROOT }
+			NOT = { tag = PREV }
+			NOT = { tag = FROM }
+			has_country_flag = partition_of_poland_partitioners
+			army_strength = {
+				who = PREV
+				value = 1
+			}
+		}
+	}
+}
+
+partition_of_poland_next_in_line_2 = {
+	has_country_flag = partition_of_poland_partitioners
+	NOT = { tag = ROOT }
+	NOT = { tag = FROM }
+	NOT = { has_country_flag = partition_of_poland_wants_plc_2 }
+	NOT = { has_country_flag = partition_of_poland_not_wants_plc_2 }
+	NOT = {
+		any_country = {
+			NOT = { tag = ROOT }
+			NOT = { tag = PREV }
+			NOT = { tag = FROM }
+			has_country_flag = partition_of_poland_partitioners
+			army_strength = {
+				who = PREV
+				value = 1
+			}
+		}
+	}
+}
+
+partition_of_poland_next_in_line_3 = {
+	has_country_flag = partition_of_poland_partitioners
+	NOT = { tag = ROOT }
+	NOT = { tag = FROM }
+	NOT = { has_country_flag = partition_of_poland_wants_plc_3 }
+	NOT = { has_country_flag = partition_of_poland_not_wants_plc_3 }
+	NOT = {
+		any_country = {
+			NOT = { tag = ROOT }
+			NOT = { tag = PREV }
+			NOT = { tag = FROM }
+			has_country_flag = partition_of_poland_partitioners
+			army_strength = {
+				who = PREV
+				value = 1
+			}
+		}
+	}
+}
+
+
+partition_of_poland_prussian_claims = {
+	OR = {
+		area = west_prussia_area
+		area = east_prussia_area
+		area = wielkopolska_area
+		area = kuyavia_area
+		area = central_poland_area
+		AND = {
+			area = mazovia_area
+			NOT = { province_id = 257 }
+		}
+		region = north_german_region
+		continent = north_america
+		continent = south_america
+		
+	}
+}
+
+partition_of_poland_austrian_claims = {
+	OR = {
+		area = malopolska_area
+		area = sandomierz_area
+		area = red_ruthenia_area
+		province_id = 257
+		region = carpathia_region
+		region = balkan_region
+		region = south_german_region
+		continent = africa
+		continent = oceania
+	}
+}
+
+partition_of_poland_russian_claims = {
+	OR = {
+		region = ruthenia_region
+		AND = {
+			region = baltic_region
+			NOT = { 
+				area = west_prussia_area
+				area = east_prussia_area
+			}
+		}
+		region = russia_region
+		region = crimea_region
+		region = scandinavia_region
+		continent = asia
+	}
+}
+
+post_first_partition_borders = {
+	OR = {
+		area = wielkopolska_area
+		area = central_poland_area
+		area = kuyavia_area
+		area = mazovia_area
+		area = minsk_area
+		area = pripyat_area
+		area = west_dniepr_area
+		area = podolia_volhynia_area
+		area = volhynia_area
+		area = samogitia_area
+		area = lithuania_area
+		area = curonia_area
+		area = podlasie_area
+		province_id = 43 #Danzig
+		province_id = 259 #Sandomierz
+		province_id = 260 #Lublin
+		province_id = 262 #Krakow
+		province_id = 4527 #Checiny
+	}
+}
+
+post_second_partition_borders = {
+	OR = {
+		area = mazovia_area
+		area = samogitia_area
+		area = podlasie_area
+		province_id = 43 #Danzig
+		province_id = 259 #Sandomierz
+		province_id = 260 #Lublin
+		province_id = 262 #Krakow
+		province_id = 4527 #Checiny
+		province_id = 1938 #Wizna
+		province_id = 257 #Warszawa
+		province_id = 2962 #Rowne
+		province_id = 279 #Volhynia
+		province_id = 4538 #Chelm
+		province_id = 278 #Pinsk
+		province_id = 4537 #Nowogrodek
+		province_id = 4535 #Wilkimierz
+		province_id = 272 #Wilno
+		province_id = 4536 #Lida
+	}
+}
+eastern_america_colonies = {
+	OR = {
+		colonial_region = colonial_new_england
+		colonial_region = colonial_new_amsterdam
+		colonial_region = colonial_eastern_america 
+		colonial_region = colonial_virginia
+		colonial_region = colonial_carolina
+		colonial_region = colonial_georgia
+	}
+}
+
+#Middle America
+middle_america_colonies = {
+	OR = {
+		colonial_region = colonial_mississippi
+		colonial_region = colonial_kentucky
+		colonial_region = colonial_ohio
+		colonial_region = colonial_louisiana
+		
+		colonial_region = colonial_hudson_bay
+		colonial_region = colonial_alberta
+	}
+}
+
+#Western America
+western_american_colonies = {
+	OR = {
+		colonial_region = colonial_california
+		colonial_region = colonial_texas
+		colonial_region = colonial_arizona
+		colonial_region = colonial_oregon
+	}
+}
+
+#New Zealand
+true_nzl = {
+	OR = {
+		area = te_ika_a_maui_hauauru_area
+		area = te_ika_a_maui_waho_area
+		area = te_waipounamu_area
+	}
+}
+
+#Philippines
+true_philippines = {
+	OR = {
+		area = mindanao_area
+		area = west_mindanao_area
+		area = visayas_area
+		area = palawan_area
+		area = luzon_area
+		area = southern_luzon_area
+	}
+}
+
+#British Islands
+british_islands = {
+	OR = {
+		province_id = 1242
+		province_id = 1989
+		province_id = 1241
+		province_id = 1991
+		province_id = 1990
+	}
+}
+
+#Lower La Plata
+lower_argentina = {
+	OR = {
+		province_id = 780
+		province_id = 781
+		province_id = 782
+		province_id = 786
+		province_id = 2863
+		province_id = 2868
+		province_id = 2869
+		province_id = 2870
+		province_id = 2875
+		province_id = 2876
+		province_id = 785
+		province_id = 2847
+		province_id = 2867
+		province_id = 2871
+		province_id = 2872
+		province_id = 2877
+		province_id = 779
+		province_id = 2860
+		province_id = 2861
+		province_id = 2865
+		province_id = 2866
+		province_id = 783
+		province_id = 784
+		province_id = 2873
+		province_id = 2874
+		province_id = 1988
+	}
+}
+
+#British Islands
+french_islands = {
+	OR = {
+		province_id = 1986
+		province_id = 1244
+		province_id = 1987
+	}
+}
+
+all_american_colonies = {
+	OR = {
+		eastern_america_colonies = yes
+		colonial_region = colonial_mississippi
+		colonial_region = colonial_kentucky
+		colonial_region = colonial_ohio
+		colonial_region = colonial_louisiana
+		colonial_region = colonial_florida
+		western_american_colonies = yes
+		
+	}
+}
+
+#Africa
+african_colonies = {
+	OR = {
+		colonial_region = colonial_congo
+		colonial_region = colonial_madagascar
+		colonial_region = colonial_mozam
+		colonial_region = colonial_angola
+	}
+}
+
+#Chinese
+chinese_regions = {
+	OR = {
+		superregion = east_indies_superregion
+		superregion = india_superregion
+		superregion = far_east_superregion
+		superregion = china_superregion
+	}
+}
+
+#Canada
+canada_colonies = {
+	OR = {
+		colonial_region = colonial_acadia
+		colonial_region = colonial_canada
+		colonial_region = colonial_hudson_bay
+	}
+}
+
+all_canadian_colonies = {
+	OR = {
+		colonial_region = colonial_acadia
+		colonial_region = colonial_canada
+		colonial_region = colonial_hudson_bay
+		colonial_region = colonial_alberta
+		colonial_region = colonial_columbia
+		colonial_region = colonial_alaska
+	}
+}
+
+dixie_can_spawn_here = {
+	OR = {
+		region = southeast_america_region
+		region = rio_grande_region
+		region = central_america_region
+		region = carribeans_region
+		region = mexico_region
+		region = colombia_region
+		region = peru_region
+		region = upper_peru_region
+		region = la_plata_region
+		region = brazil_region
+		area = lower_plains_area
+		AND = {
+			region = mississippi_region
+			NOT = { area = appalachia_area }
+			NOT = { area = upper_louisiana_area }
+			NOT = { province_id = 899 }
+			NOT = { province_id = 2509 }
+		}
+	}
+}
+
+#German New Guinea Islands
+german_samoa = {
+	OR = {
+		province_id = 1235
+		province_id = 1243
+		province_id = 1996
+		province_id = 1992
+		province_id = 1993
+		province_id = 1995
+	}
+}
+
+#New Guinea mainland
+german_new_guinea = {
+	OR = {
+		province_id = 1236
+		province_id = 1238
+		province_id = 2719
+	}
+}
+
+#English Australia minus the German lands
+english_australia = {
+	OR = {
+		region = australia_region
+		#New Guinea mainland
+		province_id = 2722
+		province_id = 2721
+		province_id = 1237
+		province_id = 2720
+	}
+}
+
+ned_por_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+                current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				area = timor_area
+				area = molluca_area
+			}
+        }
+	}
+}
+
+eng_ned_sca_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				colonial_region = colonial_new_england
+				colonial_region = colonial_new_amsterdam
+				colonial_region = colonial_eastern_america
+			}
+        }
+	}
+}
+
+eng_fra_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+            }
+			OR = {
+				province_id = 2005
+				province_id = 2598
+			}
+        }
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				colonial_region = colonial_mississippi
+				colonial_region = colonial_kentucky
+				province_id = 1239
+			}
+        }
+	}
+}
+
+eng_sca_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				colonial_region = colonial_hudson_bay
+			}
+        }
+	}
+}
+
+eng_fra_sca_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+            }
+			OR = {
+				province_id = 2005
+				province_id = 2598
+			}
+        }
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				colonial_region = colonial_acadia
+				colonial_region = colonial_canada
+				province_id = 1239
+			}
+        }
+	}
+}
+
+ned_fra_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+				current_age = age_of_absolutism
+            }
+			OR = {
+				colonial_region = colonial_guyana
+			}
+        }
+	}
+}
+
+brz_spa_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            AND = {
+				OR = {
+					current_age = age_of_discovery
+					current_age = age_of_reformation
+					current_age = age_of_absolutism
+               		current_age = age_of_enlightenment
+				}
+				NOT = {
+					exists = POR
+				}
+			}
+            colonial_region = colonial_brazil
+        }
+	}
+}
+
+spa_eng_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+			}
+			OR = {
+				province_id = 482
+				province_id = 483
+
+				province_id = 1095 # Falklands
+				province_id = 2025
+			}
+        }
+		AND = {
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+                NOT = { is_year = 1800 }
+			}
+			OR = {
+				colonial_region = colonial_columbia
+				colonial_region = colonial_oregon
+			}
+        }
+	}
+}
+
+spa_jap_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+			}
+			OR = {
+				true_philippines = yes
+			}
+        }
+	}
+}
+
+eng_jap_shared_colonies = {
+	OR = {
+		AND = {
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+			}
+			OR = {
+				british_islands = yes
+			}
+        }
+	}
+}
+
+fra_jap_shared_colonies = {
+	OR = {
+		AND = {
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+			}
+			OR = {
+				french_islands = yes
+			}
+        }
+	}
+}
+
+fra_spa_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+			}
+			OR = {
+				province_id = 498
+			}
+        }
+	}
+}
+
+ned_jap_chi_shared_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+			}
+			OR = {
+				area = taiwan_area
+			}
+        }
+	}
+}
+
+spa_ger_jap_shared_colonies = {
+	is_empty = yes
+	AND = {
+		OR = {
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+            current_age = age_of_enlightenment
+		}
+		german_samoa = yes
+	}
+}
+
+spa_ger_shared_colonies = {
+	is_empty = yes
+	AND = {
+		OR = {
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+            current_age = age_of_enlightenment
+		}
+		german_new_guinea = yes
+	}
+}
+
+usa_jap_shared_colonies = {
+	is_empty = yes
+	AND = {
+		OR = {
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+            current_age = age_of_enlightenment
+		}
+		OR = {
+			area = northern_polynesia_area
+			province_id = 1994
+		}
+	}
+}
+
+#Claimed colonies
+ned_colonies = {
+	is_empty = yes
+	OR = {
+		province_id = 491
+		province_id = 1881
+		
+		province_id = 1177 #Cape
+		
+		#Dutch Guyana (Suriname)
+		
+		province_id = 1102
+		
+        AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+                current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				colonial_region = colonial_south_africa
+				province_id = 745
+				province_id = 2937
+			}
+        }
+		
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+                current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				colonial_region = colonial_indonesia
+				region = indonesia_region
+				area = south_sumatra_area
+				area = sulawesi_area
+				area = south_sulawesi_area
+				area = vogelkop_area
+				area = spice_islands_area
+				area = indonesian_islands_area
+			}
+        }
+		
+		AND = {
+            AND = {
+				NOT = {
+					OR = {
+						exists = ENG
+						exists = GBR
+						exists = UNK
+						mission_completed = ned_spice_australia
+					}
+				}
+				OR = {
+					current_age = age_of_discovery
+					current_age = age_of_reformation
+					current_age = age_of_absolutism
+              		current_age = age_of_enlightenment
+				}
+			}
+            english_australia = yes
+        }
+		
+		AND = {
+            AND = {
+				NOT = {
+					OR = {
+						exists = ENG
+						exists = GBR
+						exists = UNK
+						mission_completed = ned_new_holland_colony
+					}
+				}
+				OR = {
+					current_age = age_of_discovery
+					current_age = age_of_reformation
+					current_age = age_of_absolutism
+                	current_age = age_of_enlightenment
+				}
+			}
+            true_nzl = yes
+        }
+	}
+}
+
+eng_colonies = {
+	is_empty = yes
+	OR = {
+		province_id = 481
+		province_id = 494
+		province_id = 495
+		province_id = 500
+		province_id = 501
+		province_id = 1098
+		
+		province_id = 1101
+		province_id = 1999
+		province_id = 1998
+		
+		#Canada
+		province_id = 980
+		province_id = 981
+		province_id = 2573
+		
+		#Other
+		province_id = 574
+
+		province_id = 487 #Jamica
+		
+		AND = {
+			OR = {
+				current_age = age_of_discovery
+                current_age = age_of_reformation
+                current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+			}
+			OR = {
+				colonial_region = colonial_virginia
+				colonial_region = colonial_carolina
+				colonial_region = colonial_georgia
+				
+				colonial_region = colonial_mississippi
+				colonial_region = colonial_kentucky
+				
+				colonial_region = colonial_alberta
+			}
+		}
+		AND = {
+			NOT = { is_year = 1800 }
+			english_australia = yes
+		}
+		AND = {
+			NOT = { is_year = 1800 }
+			true_nzl = yes
+		}
+		AND = {
+            AND = {
+				NOT = {
+					OR = {
+						exists = PRU
+						exists = NGC
+						exists = GER
+					}
+				}
+				OR = {
+					current_age = age_of_discovery
+					current_age = age_of_reformation
+					current_age = age_of_absolutism
+                	current_age = age_of_enlightenment
+				}
+				german_samoa = yes
+			}
+        }
+		AND = {
+            AND = {
+				NOT = {
+					exists = NED
+				}
+			}
+            colonial_region = colonial_south_africa
+        }
+		AND = {
+            AND = {
+				NOT = {
+					OR = {
+						exists = CAS
+						exists = SPA
+					}
+				}
+				OR = {
+					current_age = age_of_discovery
+					current_age = age_of_reformation
+					current_age = age_of_absolutism
+                	current_age = age_of_enlightenment
+				}
+			}
+            colonial_region = colonial_oregon
+        }
+	}
+}
+
+fra_colonies = {
+	is_empty = yes
+	OR = {
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				colonial_region = colonial_louisiana
+				colonial_region = colonial_ohio
+				province_id = 746
+				province_id = 496
+				province_id = 497
+				province_id = 499
+				province_id = 4792
+				
+				province_id = 1100
+				province_id = 1103
+				
+				#Oceania
+				province_id = 1986
+				province_id = 1239
+			}
+        }
+	}
+}
+
+spa_colonies = {
+	is_empty = yes
+	OR = {
+		province_id = 4565
+		province_id = 502
+		province_id = 1097
+		
+		province_id = 492 #Puorto Rico
+		province_id = 2002 # Galapagos Islands
+		
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+            }
+			OR = {
+				colonial_region = colonial_the_carribean
+				colonial_region = colonial_santo_domingo
+				colonial_region = colonial_mexico
+				colonial_region = colonial_colombia
+			}
+        }
+		
+        AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+                current_age = age_of_absolutism
+            }
+			OR = {
+				colonial_region = colonial_florida
+				colonial_region = colonial_honduras
+				colonial_region = colonial_california
+				colonial_region = colonial_arizona
+				colonial_region = colonial_texas
+				colonial_region = colonial_peru
+				true_philippines = yes
+				colonial_region = colonial_la_plata
+			}
+        }
+        AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+                current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+			OR = {
+				colonial_region = colonial_california
+				colonial_region = colonial_arizona
+				colonial_region = colonial_texas
+				colonial_region = colonial_la_plata
+			}
+        }
+		AND = {
+			OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+                NOT = { is_year = 1800 }
+			}
+			OR = {
+				colonial_region = colonial_la_plata
+			}
+		}
+	}
+}
+
+por_colonies = {
+	is_empty = yes
+	OR = {
+		province_id = 1097
+		province_id = 1096
+		province_id = 1306
+		province_id = 1096
+		province_id = 2695
+		
+		province_id = 753
+		
+		AND = {
+            OR = {
+                current_age = age_of_discovery
+                current_age = age_of_reformation
+				current_age = age_of_absolutism
+                current_age = age_of_enlightenment
+            }
+            colonial_region = colonial_brazil
+        }
+	}
+}
+
+sca_colonies = {
+	is_empty = yes
+	OR = {
+		province_id = 493
+		province_id = 1104
+		province_id = 1105
+	}
+}
+
+rus_colonies = {
+	is_empty = yes
+	AND = {
+		OR = {
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+            current_age = age_of_enlightenment
+		}
+		colonial_region = colonial_alaska
+	}
+}
+
+jap_colonies = {
+	is_empty = yes
+	AND = {
+		OR = {
+			current_age = age_of_discovery
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+            current_age = age_of_enlightenment
+		}
+		province_id = 1032
+	}
+}
+
+#Colonial limitations
+col_age_1 = {
+	OR = {
+		#North America
+		canada_colonies = yes
+		eastern_america_colonies = yes
+
+		colonial_region = colonial_florida
+		colonial_region = colonial_texas
+		
+		#Africa
+		trade_company_region = trade_company_west_africa
+
+		#Asia
+		colonial_region = colonial_philippines
+		area = taiwan_area
+
+		#South America
+		colonial_region = colonial_peru
+	}
+}
+col_age_2 = {
+	OR = {
+		#North America
+		colonial_region = colonial_california
+		colonial_region = colonial_arizona
+		colonial_region = colonial_alaska
+		
+		middle_america_colonies = yes
+		
+		#Africa
+		AND = {
+			colonial_region = colonial_south_africa
+			NOT = { area = transvaal_area }
+			NOT = { area = limpopo_area }
+		}
+		
+		#Asia
+		colonial_region = colonial_indonesia
+		colonial_region = colonial_malaysia
+		
+		#South America
+		AND = {
+			colonial_region = colonial_la_plata
+			NOT = { lower_argentina = yes }
+		}
+		
+		#American Islands
+		area = northern_polynesia_area
+		province_id = 1994
+		
+		#British Islands
+		british_islands = yes
+		
+		#French Islands
+		french_islands = yes
+	}
+}
+col_age_3 = {
+	OR = {
+		#America
+		colonial_region = colonial_columbia
+		colonial_region = colonial_oregon
+
+		#Africa
+		colonial_region = colonial_congo
+	
+		#Oceania
+		colonial_region = colonial_australia
+		colonial_region = colonial_nzl
+	}
+}
+
+col_age_4 = {				#fuck you, cry about it
+	OR = {
+		#South America
+		lower_argentina = yes
+	
+		#Africa
+		area = transvaal_area
+		area = limpopo_area
+	}
+}
+
+evho_country_has_colonial_culture_trigger = {
+	OR = {
+		primary_culture = american  
+		primary_culture = confederate
+		primary_culture = canadian
+		primary_culture = creole
+		primary_culture = mexican
+		primary_culture = platinean
+		primary_culture = caribeno
+		primary_culture = italian_american
+		primary_culture = german_american
+		primary_culture = vinlandic
+		primary_culture = swedish_american
+		primary_culture = east_slav_american
+		primary_culture = west_slav_american
+		primary_culture = east_slav_american_new
+		primary_culture = west_slav_american_new
+	}
+}
+
+evho_province_has_colonial_culture_trigger = {
+	OR = {
+		culture = american  
+		culture = confederate
+		culture = canadian
+		culture = creole
+		culture = mexican
+		culture = platinean
+		culture = caribeno
+		culture = italian_american
+		culture = german_american
+		culture = vinlandic
+		culture = swedish_american
+		culture = east_slav_american
+		culture = west_slav_american
+		culture = east_slav_american_new
+		culture = west_slav_american_new
+	}
+}
+
+#Belgium
+austrian_netherlands_areas = {
+	OR = {
+		area = brabant_area
+		area = flanders_area
+		area = wallonia_area
+	}
+}
+
+#Netherlands
+dutch_republic_areas = {
+	region = low_countries_region
+	NOT = { austrian_netherlands_areas = yes }
+}
+
+EVHO_has_empire_name_trigger = {
+	has_country_flag = proclaimed_an_empire
+}
+
+evho_actual_chinese_areas = {
+	OR = {
+		region = manchuria_region
+		region = mongolia_region
+		region = tibet_region
+		region = north_china_region
+		region = south_china_region
+		region = xinan_region
+		area = shanshan_area
+		area = kashgaria_area
+		area = tarim_basin_area
+	}
+}
+
+evho_can_form_iran_trigger = {
+	NOT = { tag = PER }
+	NOT = { tag = MUG }
+	NOT = { tag = ERS }
+	NOT = { tag = HLR }
+	NOT = { tag = ROM }
+	NOT = { tag = PAP }
+	NOT = { tag = TUR }
+	NOT = { tag = BYZ }
+	NOT = { tag = LAE }
+	NOT = { tag = ARB }
+	OR = {
+		capital_scope = { region = persia_region }
+		capital_scope = { area = shirvan_area }
+		capital_scope = { area = mashhad_area }
+		capital_scope = { area = birjand_area }
+	}
+	OR = {
+		culture_group = iranian
+		primary_culture = azerbaijani
+		tag = AKK
+	}
+	if = {
+		limit = {
+			OR = {
+				tag = QAR
+				was_tag = QAR
+				tag = AKK
+				was_tag = AKK
+			}
+			has_dlc = "King of Kings"
+		}
+		has_country_flag = turkoman_can_form_persia
+	}
+	if = {
+		limit = { has_dlc = "King of Kings" }
+		OR = {
+			culture_group = iranian
+			primary_culture = azerbaijani
+		}
+	}
+	else = {
+		OR = {
+			culture_group = iranian
+			primary_culture = azerbaijani
+			tag = AKK
+		}
+	}
+	is_colonial_nation = no
+	OR = {
+		is_former_colonial_nation = no
+		AND = {
+			is_former_colonial_nation = yes
+			ai = no
+		}
+	}
+}
+
+evho_is_valid_iran_target_trigger = {
+	NOT = { tag = MUG }
+	NOT = { tag = ERS }
+	NOT = { tag = HLR }
+	NOT = { tag = ROM }
+	NOT = { tag = PAP }
+	NOT = { tag = TUR }
+	NOT = { tag = BYZ }
+	NOT = { tag = LAE }
+	NOT = { tag = ARB }
+	OR = {
+		capital_scope = { region = persia_region }
+		capital_scope = { area = shirvan_area }
+		capital_scope = { area = mashhad_area }
+		capital_scope = { area = birjand_area }
+	}
+	OR = {
+		culture_group = iranian
+		primary_culture = azerbaijani
+		tag = AKK
+	}
+}
+
+evho_province_is_in_historical_mughal_zone = {
+	OR = {
+		region = hindusthan_region 
+		region = west_india_region 
+		region = deccan_region 
+		culture = baluchi
+		culture = afghani
+	}
+}
+
+evho_province_is_in_historical_ming_zone = {
+	OR = {
+		region = manchuria_region
+		region = north_china_region 
+		region = south_china_region 
+		region = xinan_region
+	}
+}
+
+evho_province_is_in_historical_qing_zone = {
+	OR = {
+		evho_province_is_in_historical_ming_zone = yes
+		region = mongolia_region
+		region = tibet_region
+		area = shanshan_area
+		area = kashgaria_area
+		area = tarim_basin_area
+	}
+}
+
+evho_country_historically_remains_a_colony_trigger = {
+	is_colonial_nation = yes
+	capital_scope = {
+		OR = {
+			continent = africa
+			continent = asia
+			continent = oceania
+			region = carribeans_region
+			region = canada_region
+			region = cascadia_region
+			region = hudson_bay_region
+		}
+	}
+}
+
+evho_province_is_in_historical_morocco_zone = {
+	OR = {
+		area = southern_morocco_area
+		area = sus_area 
+		area = western_morocco_area 
+		area = northern_morocco_area
+		area = marrekesh_area
+		area = tafilalt_area
+	}
+}
+
+evho_province_is_in_historical_two_sicilies_zone = {
+	OR = {
+		province_id = 120
+		area = calabria_area
+		area = apulia_area
+		area = naples_area
+		area = western_sicily_area
+		AND = {
+			area = sicily_area
+			NOT = { province_id = 126 }
+		}
+	}
+}
+
+evho_province_is_in_historical_naples_zone = {
+	OR = {
+		area = calabria_area
+		area = apulia_area
+		area = naples_area
+		province_id = 120
+	}
+}
+
+evho_province_is_in_historical_peidmont_sardinia_zone_EARLY = {
+	OR = {
+		area = piedmont_area
+		area = liguria_area
+		area = corsica_sardinia_area
+		province_id = 205
+	}
+}
+
+evho_province_is_in_historical_peidmont_sardinia_zone_LATE = {
+	OR = {
+		area = piedmont_area
+		area = liguria_area
+		province_id = 2979
+		province_id = 4728
+		province_id = 205
+		AND = {
+			area = corsica_sardinia_area
+			NOT = { province_id = 1247 }
+		}
+	}
+}
+
+evho_province_is_in_historical_venice_zone_EARLY = {
+	OR = {
+		area = venetia_area
+		area = po_valley_area
+		area = carinthia_area
+		area = croatia_area
+	}
+}
+
+evho_province_is_in_historical_venice_zone_LATE = {
+	OR = {
+		area = venetia_area
+		area = po_valley_area
+		AND = {
+			area = lombardy_area
+			NOT = { province_id = 2979 }
+			NOT = { province_id = 4728 }
+		}
+	}
+}
+
+evho_province_is_in_historical_papacy_zone = {
+	NOT = { province_id = 120 }
+	NOT = { province_id = 105 }
+	OR = {
+		area = central_italy_area
+		area = lazio_area
+		area = emilia_romagna_area
+	}
+}
+
+evho_province_is_in_historical_tuscany_zone = {
+	OR = {
+		area = tuscany_area
+		province_id = 105
+	}
+}
+
+evho_province_is_in_ireland = {
+	OR = {
+		area = munster_area
+		area = connacht_area
+		area = leinster_area
+		area = ulster_area
+	}
+}
+
+evho_province_is_in_historical_central_asia = {
+	OR = {
+		region = central_asia_region
+		area = north_zungaria
+		area = zungaria_area
+		area = turpan_kumul_area
+	}
+}
+
+evho_province_is_in_historical_greater_balkans_zone = {
+	OR = {
+		region = balkan_region
+		region = carpathia_region
+	}
+}
+
+evho_province_is_in_historical_greater_ruthenia_zone = {
+	OR = {
+		region = russia_region
+		region = ruthenia_region
+		area = pripyat_area
+		area = minsk_area
+		area = white_ruthenia_area
+		area = yedisan_area
+		area = zaporizhia_area
+	}
+}
+
+EVHO_is_poland_and_requires_buff_trigger = {
+	hidden_trigger = {
+		OR = {
+			tag = PLC
+			AND = {
+				tag = POL
+				OR = {
+					LIT = { exists = no }
+					LIT = { is_subject_of = ROOT }
+				}
+			}
+			AND = {
+				tag = LIT
+				OR = {
+					POL = { exists = no }
+					POL = { is_subject_of = ROOT }
+				}
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = scandinavia_region
+				value = 2
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = russia_region
+				value = 5
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 4
+				OR = {
+					region = north_german_region
+					region = south_german_region
+					area = silesia_area
+				}
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				OR = {
+					region = carpathia_region
+					region = balkan_region
+				}
+			}
+		}
+		OR = {
+			any_province = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				region = poland_region
+				NOT = { area = silesia_area }
+			}
+			any_province = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				OR = {
+					area = lithuania_area
+					area = samogitia_area
+				}
+			}
+			AND = {
+				is_year = 1400
+				NOT = { is_year = 1500 }
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = ruthenia_region
+						value = 40
+					}
+				}
+			}
+			AND = {
+				is_year = 1500
+				NOT = { is_year = 1600 }
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = ruthenia_region
+						value = 30
+					}
+				}
+			}
+			AND = {
+				is_year = 1600
+				NOT = { is_year = 1700 }
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = ruthenia_region
+						value = 20
+					}
+				}
+			}
+		}
+	}
+}
+
+EVHO_is_persia_and_requires_buff_trigger = {
+	hidden_trigger = {
+		tag = PER
+		NOT = { num_of_cities = 95 }
+		NOT = { has_country_modifier = ismail_I_safavid }
+		NOT = { has_country_modifier = ismail_I_safavid_ai }
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = crimea_region
+				value = 1
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = anatolia_region
+				value = 4
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = khorasan_region
+				value = 15
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = central_asia_region
+				value = 10
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = hindusthan_region
+				value = 1
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = west_india_region
+				value = 1
+			}
+		}
+		OR = {
+			any_province = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				region = persia_region
+			}
+			NOT = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					region = mashriq_region
+					value = 5
+				}
+			}
+			NOT = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					region = caucasia_region
+					value = 5
+				}
+			}
+		}
+	}
+}
+
+EVHO_is_persia_and_is_too_big_trigger = {
+	hidden_trigger = {
+		tag = PER
+		is_free_or_tributary_trigger = yes
+		num_of_cities = 80
+		OR = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = crimea_region
+				value = 1
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = anatolia_region
+				value = 4
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = anatolia_region
+				value = 4
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = khorasan_region
+				value = 15
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = central_asia_region
+				value = 10
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = hindusthan_region
+				value = 1
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = west_india_region
+				value = 1
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = mashriq_region
+				value = 15
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = caucasia_region
+				value = 20
+			}
+		}
+	}
+}
+
+EVHO_is_russia_and_requires_buff_trigger = {
+	hidden_trigger = {
+		OR = {
+			tag = RUS
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+			}
+			AND = {
+				tag = NOV
+				NOT = { exists = MOS }
+				NOT = { exists = RUS }
+			}
+		}
+		NOT = {
+			any_country = {
+				ai = no
+				tag = NOV
+				war_with = ROOT
+			}
+		}
+		NOT = {
+			any_province = {
+				country_or_non_sovereign_subject_holds = ROOT
+				region = scandinavia_region
+				NOT = { area = finland_area }
+				NOT = { area = bothnia_area }
+				NOT = { area = laponia_area }
+			}
+		}
+		NOT = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = anatolia_region
+				value = 4
+			}
+		}
+		if = {
+			limit = {
+				tag = RUS
+				NOT = { is_year = 1640 }
+			}
+			NOT = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					region = baltic_region
+					value = 5
+				}
+			}
+			NOT = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					region = scandinavia_region
+					value = 3
+				}
+			}
+			NOT = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					region = anatolia_region
+					value = 2
+				}
+			}
+		}
+		OR = {
+			any_province = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				area = novgorod_area
+			}
+			any_province = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				area = moscow_area
+			}
+			NOT = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					region = russia_region
+					value = 45
+				}
+			}
+			AND = {
+				NOT = { is_year = 1600 }
+				NOT = { war_score_against = { who = TUR value = 5 } }
+				is_in_war = {
+				    attacker_leader = TUR
+				    defender_leader = ROOT
+				}
+			}
+			AND = {
+				is_year = 1550
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = ruthenia_region
+						value = 10
+					}
+				}
+			}
+			AND = {
+				is_year = 1600
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = crimea_region
+						value = 8
+					}
+				}
+			}
+		}
+	}
+}
+
+EVHO_is_ottomans_and_requires_buff_trigger = {
+	hidden_trigger = {
+		tag = TUR
+		is_free_or_tributary_trigger = yes
+		if = {
+			limit = { NOT = { is_year = 1640 } }
+			OR = {
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = balkan_region
+						value = 30
+					}
+				}
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = anatolia_region
+						value = 26
+					}
+				}
+			}
+		}
+		else = {
+			OR = {
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = balkan_region
+						value = 45
+					}
+				}
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = anatolia_region
+						value = 48
+					}
+				}
+			}
+		}
+		NOT = {
+			OR = {
+				italy_region = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				south_german_region = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				poland_region = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					region = persia_region
+					value = 5
+				}
+				AND = {
+					is_year = 1650
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = ruthenia_region
+						value = 2
+					}
+				}
+				AND = {
+					is_year = 1700
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = crimea_region
+						value = 2
+					}
+				}
+			}
+		}
+	}
+}
+
+evho_is_overlord_or_above_of_scripted_trigger = {
+	OR = {
+		overlord_of = $subject$
+		any_subject_country = { overlord_of = $subject$ }
+		any_subject_country = { any_subject_country = { overlord_of = $subject$ } }
+	}
+}
+
+evho_is_subject_or_below_of_scripted_trigger = {
+	OR = {
+		is_subject_of = $overlord$
+		overlord = { is_subject_of = $overlord$ }
+		overlord = { overlord = { is_subject_of = $overlord$ } }
+	}
+}
+
+evho_is_colour_shifting_subject_type_scripted_trigger = {
+	OR = {
+		is_subject_of_type = personal_union
+		#is_subject_of_type = eyalet
+		#is_subject_of_type = core_eyalet
+		is_subject_of_type = incorporated_vassal
+		is_subject_of_type = theodoro_personal_union
+		is_subject_of_type = integrated_personal_union
+		is_subject_of_type = mongol_brother_realm
+		is_subject_of_type = european_colony
+		AND = {
+			OR = {
+				is_subject_of_type = colony
+				is_subject_of_type = crown_colony
+				is_subject_of_type = private_enterprise
+				is_subject_of_type = self_governing_colony
+				is_subject_of_type = commercial_enterprise
+			}
+			OVERLORD = {
+				OR = {
+					is_subject_of_type = personal_union
+					#is_subject_of_type = eyalet
+					#is_subject_of_type = core_eyalet
+					is_subject_of_type = incorporated_vassal
+					is_subject_of_type = theodoro_personal_union
+					is_subject_of_type = integrated_personal_union
+					is_subject_of_type = mongol_brother_realm
+					is_subject_of_type = european_colony
+				}
+			}
+		}
+	}
+}

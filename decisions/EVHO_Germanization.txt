@@ -1,0 +1,1147 @@
+country_decisions = {
+	german_silesia = {
+		major = yes
+		potential = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+				tag = HLR
+			}
+			culture_group = germanic
+			silesia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lusatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				AND = {
+					silesia_area = {
+						type = all
+						OR = {
+							culture = pommeranian
+							culture = prussian
+							culture = hannoverian
+							culture = hessian
+							culture = saxon
+							culture = franconian
+							culture = swabian
+							culture = swiss
+							culture = bavarian
+							culture = austrian
+							culture = german_sudeten
+							culture = german_sorbian
+							culture = german_burgundian
+						}
+					}
+					lusatia_area = {
+						type = all
+						OR = {
+							culture = pommeranian
+							culture = prussian
+							culture = hannoverian
+							culture = hessian
+							culture = saxon
+							culture = franconian
+							culture = swabian
+							culture = swiss
+							culture = bavarian
+							culture = austrian
+							culture = german_sudeten
+							culture = german_sorbian
+							culture = german_burgundian
+						}
+					}
+				}
+			}
+			NOT = { has_country_flag = german_silesia }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = silesia_area
+				area = lusatia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { is_core = ROOT }
+			NOT = {
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = german_sudeten
+					culture = german_sorbian
+					culture = german_burgundian
+				}
+			}
+		}
+		allow = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			silesia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			lusatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			dip_power = 150
+			NOT = { has_country_flag = german_silesia }
+		}
+		effect = {
+			add_dip_power = -150
+			country_event = { id = flavor_rh.10013 days = 10 }
+			custom_tooltip = "german_silesia.tt"
+			set_country_flag = german_silesia
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				tag = HAB
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 150 }
+			}
+		}
+	}
+	german_bohemia = {
+		major = yes
+		potential = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+				tag = HLR
+			}
+			culture_group = germanic
+			bohemia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			erzgebirge_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			moravia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				bohemia_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+				erzgebirge_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+				moravia_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+			}
+			NOT = { has_country_flag = german_sudeten }
+			has_country_flag = german_silesia_finished
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = erzgebirge_area
+				area = bohemia_area
+				area = moravia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { is_core = ROOT }
+			NOT = {
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = german_schlesian
+					culture = german_sudeten
+					culture = german_sorbian
+					culture = german_burgundian
+				}
+			}
+		}
+		allow = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			bohemia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			erzgebirge_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			moravia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			dip_power = 200
+			NOT = { has_country_flag = german_sudeten }
+		}
+		effect = {
+			add_dip_power = -200
+			country_event = { id = flavor_rh.10051 days = 10 }
+			custom_tooltip = "german_sudeten.tt"
+			set_country_flag = german_sudeten
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				tag = HAB
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 200 }
+			}
+			modifier = {
+				factor = 0
+				ai = yes
+			}
+		}
+	}
+	german_poland_1 = {
+		major = yes
+		potential = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			wielkopolska_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kuyavia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_poland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				wielkopolska_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+				kuyavia_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+				central_poland_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+			}
+			NOT = { has_country_flag = german_poland_1 }
+			has_country_flag = german_silesia_finished
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = wielkopolska_area
+				area = kuyavia_area
+				area = central_poland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { is_core = ROOT }
+			NOT = {
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = german_schlesian
+					culture = german_sudeten
+					culture = german_sorbian
+					culture = german_burgundian
+				}
+			}
+		}
+		allow = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			wielkopolska_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			kuyavia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			central_poland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			dip_power = 250
+			NOT = { has_country_flag = german_poland_1 }
+		}
+		effect = {
+			add_dip_power = -250
+			country_event = { id = flavor_rh.10053 days = 10 }
+			custom_tooltip = "german_poland_1.tt"
+			set_country_flag = german_poland_1
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				tag = HAB
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 250 }
+			}
+			#modifier = {
+			#	factor = 0
+			#	ai = yes
+			#}
+		}
+	}
+	german_poland_2 = {
+		major = yes
+		potential = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			mazovia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			podlasie_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			samogitia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				mazovia_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+				podlasie_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+				samogitia_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+			}
+			NOT = { has_country_flag = german_poland_2 }
+			has_country_flag = german_poland_1_finished
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = mazovia_area
+				area = podlasie_area
+				area = samogitia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { is_core = ROOT }
+			NOT = {
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = german_schlesian
+					culture = german_sudeten
+					culture = german_sorbian
+					culture = german_burgundian
+				}
+			}
+		}
+		allow = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			mazovia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			podlasie_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			samogitia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			dip_power = 250
+			NOT = { has_country_flag = german_poland_2 }
+		}
+		effect = {
+			add_dip_power = -250
+			country_event = { id = flavor_rh.10055 days = 10 }
+			custom_tooltip = "german_poland_2.tt"
+			set_country_flag = german_poland_2
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				tag = HAB
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 250 }
+			}
+			modifier = {
+				factor = 0
+				ai = yes
+			}
+		}
+	}
+	german_buffer_zone = {
+		major = yes
+		potential = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+				tag = HLR
+			}
+			culture_group = germanic
+			lorraine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			94 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			193 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4764 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				AND = {
+					lorraine_area = {
+						type = all
+						OR = {
+							culture = pommeranian
+							culture = prussian
+							culture = hannoverian
+							culture = hessian
+							culture = saxon
+							culture = franconian
+							culture = swabian
+							culture = swiss
+							culture = bavarian
+							culture = austrian
+							culture = german_sudeten
+							culture = german_sorbian
+							culture = german_burgundian
+						}
+					}
+					94 = {
+						OR = {
+							culture = pommeranian
+							culture = prussian
+							culture = hannoverian
+							culture = hessian
+							culture = saxon
+							culture = franconian
+							culture = swabian
+							culture = swiss
+							culture = bavarian
+							culture = austrian
+							culture = german_sudeten
+							culture = german_sorbian
+							culture = german_burgundian
+						}
+					}
+					193 = {
+						OR = {
+							culture = pommeranian
+							culture = prussian
+							culture = hannoverian
+							culture = hessian
+							culture = saxon
+							culture = franconian
+							culture = swabian
+							culture = swiss
+							culture = bavarian
+							culture = austrian
+							culture = german_sudeten
+							culture = german_sorbian
+							culture = german_burgundian
+						}
+					}
+					4764 = {
+						OR = {
+							culture = pommeranian
+							culture = prussian
+							culture = hannoverian
+							culture = hessian
+							culture = saxon
+							culture = franconian
+							culture = swabian
+							culture = swiss
+							culture = bavarian
+							culture = austrian
+							culture = german_sudeten
+							culture = german_sorbian
+							culture = german_burgundian
+						}
+					}
+				}
+			}
+			NOT = { has_country_flag = german_buffer_zone }
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = lorraine_area
+				province_id = 94
+				province_id = 193
+				province_id = 4764
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { is_core = ROOT }
+			NOT = {
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = german_sudeten
+					culture = german_sorbian
+					culture = german_burgundian
+				}
+			}
+		}
+		allow = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			lorraine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			94 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			193 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			4764 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			dip_power = 150
+			NOT = { has_country_flag = german_buffer_zone }
+		}
+		effect = {
+			add_dip_power = -150
+			country_event = { id = flavor_rh.10064 days = 10 }
+			custom_tooltip = "german_buffer_zone.tt"
+			set_country_flag = german_buffer_zone
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				tag = HAB
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 150 }
+			}
+		}
+	}
+	german_anschluss = {
+		major = yes
+		potential = {
+			OR = {
+				tag = GER
+				tag = HLR
+			}
+			NOT = { has_country_flag = german_anschluss_done }
+			has_country_flag = german_anschluss
+			num_of_cities = 50
+			culture_group = germanic 
+			exists = HAB
+			OR = {
+				AND = {
+					NOT = { HAB = { num_of_cities = 30 } }
+					HAB = { ai = yes }
+				}
+				NOT = { HAB = { num_of_cities = 15 } }
+			}
+			culture_group = germanic
+			HAB = { culture_group = germanic }
+			134 = { is_core = HAB }
+			NOT = { has_country_flag = german_anschluss_done }
+		}
+		provinces_to_highlight = {
+			OR = {
+				any_province = {
+					country_or_non_sovereign_subject_holds = HAB
+				}
+			}
+		}
+		allow = {
+			OR = {
+				tag = GER
+				tag = HLR
+			}
+			dip_power = 250
+			is_at_war = no
+			HAB = { is_at_war = no }
+		}
+		effect = {
+			add_dip_power = -250
+			country_event = { id = flavor_rh.10063 days = 10 }
+			custom_tooltip = "german_anschluss.tt"
+			set_country_flag = german_anschluss_done
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				tag = HAB
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 250 }
+			}
+		}
+	}
+	german_dissolution_austria = {
+		major = yes
+		potential = {
+			OR = {
+				tag = GER
+				tag = HLR
+			}
+			NOT = { has_country_flag = german_dissolution_austria_done }
+			num_of_cities = 50
+			culture_group = germanic 
+			HAB = {
+				AND = {
+					is_subject_of = ROOT 
+					num_of_cities = 30
+					culture_group = germanic
+				}
+			}
+			134 = { is_core = HAB }
+		}
+		provinces_to_highlight = {
+			OR = {
+				any_province = {
+					country_or_non_sovereign_subject_holds = HAB
+				}
+			}
+		}
+		allow = {
+			OR = {
+				tag = GER
+				tag = HLR
+			}
+			dip_power = 500
+			is_at_war = no
+			HAB = { is_at_war = no }
+		}
+		effect = {
+			add_dip_power = -500
+			country_event = { id = flavor_rh.10078 days = 10 }
+			custom_tooltip = "german_dissolution_austria.tt"
+			set_country_flag = german_dissolution_austria_done
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				tag = HAB
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 500 }
+			}
+		}
+	}
+	german_ober_ost = {
+		major = yes
+		potential = {
+			OR = {
+				tag = NGC
+				tag = GER
+				tag = HLR
+			}
+			NOT = { exists = OBO }
+			num_of_cities = 50
+			culture_group = germanic
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = curonia_area
+				area = livonia_area
+				area = estonia_ingria_area
+				area = lithuania_area
+				area = pripyat_area
+				province_id = 276
+			}
+		}
+		allow = {
+			OR = {
+				tag = NGC
+				tag = GER
+				tag = HLR
+			}
+			NOT = { exists = OBO }
+			curonia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			livonia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			estonia_ingria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lithuania_area = {
+				type = all
+				owned_by = ROOT
+			}
+			pripyat_area = {
+				type = all
+				owned_by = ROOT
+			}
+			276 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = "german_ober_ost.tt"
+			hidden_effect = {
+				every_province = {
+					limit = {
+						OR = {
+							area = curonia_area
+							area = livonia_area
+							area = estonia_ingria_area
+							area = lithuania_area
+							area = pripyat_area
+							province_id = 276
+						}
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					remove_core = ROOT
+					remove_claim = ROOT
+
+					change_culture = ostlander
+					cede_province = OBO
+					add_core = OBO
+				}
+				ROOT = {
+					create_subject = {
+						subject_type = german_vassal
+						subject = OBO
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	german_switzerland = {
+		major = yes
+		potential = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			switzerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			romandie_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				switzerland_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+				romandie_area = {
+					type = all
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+					}
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = switzerland_area
+				area = romandie_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { is_core = ROOT }
+			NOT = {
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = german_schlesian
+					culture = german_sudeten
+					culture = german_sorbian
+					culture = german_burgundian
+				}
+			}
+		}
+		allow = {
+			OR = {
+				tag = HAB
+				tag = PRU
+				tag = NGC
+				tag = GER
+			}
+			culture_group = germanic
+			switzerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			romandie_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_core = ROOT
+			}
+			dip_power = 250
+			NOT = { has_country_flag = german_switzerland }
+		}
+		effect = {
+			add_dip_power = -250
+			country_event = { id = flavor_rh.10053 days = 10 }
+			custom_tooltip = "german_switzerland.tt"
+			set_country_flag = german_switzerland
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				tag = HAB
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 250 }
+			}
+			#modifier = {
+			#	factor = 0
+			#	ai = yes
+			#}
+		}
+	}
+	german_fight_spirit = {
+		major = yes
+		potential = {
+			OR = {
+				tag = GER
+				tag = HLR
+			}
+			NOT = { has_country_flag = german_fight_spirit }
+			has_country_flag = german_anschluss
+			culture_group = germanic
+			ai = no
+		}
+		provinces_to_highlight = {
+			NOT = { owned_by = ROOT }
+			OR = {
+				region = south_german_region
+				region = north_german_region
+			}
+		}
+		allow = {
+			OR = {
+				tag = GER
+				tag = HLR
+			}
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				value = 100
+				OR = {
+					region = north_german_region
+					region = south_german_region
+				}
+			}
+		}
+		effect = {
+			set_country_flag = german_fight_spirit
+			add_country_modifier = {
+				name = "ger_kampfgeist"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

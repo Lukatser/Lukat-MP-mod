@@ -7,6 +7,8 @@ technology_group = western
 primary_culture = bavarian
 religion = catholic
 capital = 64	# Landshut
+historical_friend = STY
+historical_rival = BOH
 
 1347.1.1 = {
 	monarch = {

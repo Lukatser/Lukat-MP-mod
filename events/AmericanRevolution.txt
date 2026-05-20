@@ -1,0 +1,65 @@
+normal_or_historical_nations = yes
+
+# Trade restrictions
+country_event = {
+	id = 1022
+	title = "EVTNAME1022"
+	desc = "EVTDESC1022"
+	picture = LIBERUM_VETO_eventPicture
+	
+	trigger = {
+		has_country_flag = american_revolution
+		NOT = { has_country_flag = trade_restrictions }
+		NOT = { mercantilism = 50 }
+		NOT = { exists = USA }
+		USA = {
+			OR = {
+				is_core = 971			# Abnaki
+				is_core = 970			# Pennacook
+				is_core = 968			# Massachusetts
+				is_core = 967			# Narraganset
+				is_core = 966			# Connecticut
+				is_core = 965			# Manhattan
+				is_core = 962			# Unami
+				is_core = 956			# Lenape
+				is_core = 955			# Susquehanna
+				is_core = 957			# Delaware
+				is_core = 953			# Conoy
+				is_core = 952			# Manahoac
+				is_core = 950			# Powhatan
+				is_core = 929			# Muskogee
+				is_core = 932			# Santee
+				is_core = 933			# Catawba
+				is_core = 936			# Cheraw
+				is_core = 937			# Tuscarora
+				is_core = 938			# Pamlico
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	option = {
+		name = "EVTOPTA1022" # Send troops
+		set_country_flag = trade_restrictions
+		random_owned_province = {
+			limit = { is_core = USA }
+			nationalist_rebels = 1
+		}
+		random_owned_province = {
+			limit = { is_core = USA }
+			nationalist_rebels = 1
+		}
+	}
+
+	option = {
+		name = "EVTOPTB1022" # Restrict export
+		add_country_modifier = {
+			name = "export_restrictions"
+			duration = 3650
+		}
+		set_country_flag = trade_restrictions
+	}
+}

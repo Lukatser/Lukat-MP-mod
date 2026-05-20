@@ -1,11 +1,13 @@
 government = monarchy
-add_government_reform = feudalism_reform
-primary_culture = catalan
-add_accepted_culture = aragonese
+add_government_reform = crown_of_aragon
+primary_culture = aragonese
+add_accepted_culture = catalan
 add_accepted_culture = sicilian
 religion = catholic
 technology_group = western
-capital = 213 # Tinto HQ
+capital = 220 # Valencia
+historical_friend = CAS
+historical_friend = NAP
 add_army_professionalism = 0.05
 
 1396.5.19 = {
@@ -66,7 +68,6 @@ add_army_professionalism = 0.05
 	clear_scripted_personalities = yes
 	add_ruler_personality = well_connected_personality
 	add_ruler_personality = architectural_visionary_personality
-	set_heir_flag = joan_trastamara_flag
 	heir = {
 		name = "Joan"
 		monarch_name = "Joan II"
@@ -91,12 +92,7 @@ add_army_professionalism = 0.05
 	}
 }
 
-1443.1.1 = { 
-	leader = {	name = "Bernat de Vilamarí"	type = admiral	fire = 3	shock = 2	manuever = 2	siege = 0	death_date = 1463.9.1 } 
-	catalonia_area = {
-		add_local_autonomy = 90 
-	}
-}
+1443.1.1 = { leader = {	name = "Bernat de Vilamarí"	type = admiral	fire = 3	shock = 2	manuever = 2	siege = 0	death_date = 1463.9.1 } }
 
 1458.6.29 = {
 	monarch = {

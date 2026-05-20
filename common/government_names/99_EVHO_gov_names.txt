@@ -1,0 +1,169 @@
+non_empire_empire_monarchy = {
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = DUKE
+		2 = KING
+		3 = KING
+	}
+
+	ruler_female = {
+		1 = DUCHESS
+		2 = QUEEN
+		3 = QUEEN
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN_CONSORT
+		3 = QUEEN_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		government = monarchy
+		OR = {
+			has_reform = english_monarchy
+			has_reform = french_feudalism
+			has_reform = ancien_regime_reform
+			has_reform = french_absolutism
+		}
+	}
+}
+
+gov_german_confederation = {
+	rank = {
+		1 = CONFEDERATION
+		2 = CONFEDERATION
+		3 = CONFEDERATION
+	}
+	
+	ruler_male = {
+		1 = DUKE
+		2 = KING
+		3 = KING
+	}
+
+	ruler_female = {
+		1 = DUCHESS
+		2 = QUEEN
+		3 = QUEEN
+	}
+
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN_CONSORT
+		3 = QUEEN_CONSORT
+	}
+
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+
+	trigger = {
+		has_reform = german_confederation_reform
+	}
+}
+
+gov_plc_republic = {
+	rank = {
+		1 = COMMONWEALTH
+		2 = COMMONWEALTH
+		3 = COMMONWEALTH
+	}
+	ruler_male = {
+		1 = MARSHAL
+		2 = MARSHAL
+		3 = MARSHAL
+	}
+	ruler_female = {
+		1 = MARSHAL_fem
+		2 = MARSHAL_fem
+		3 = MARSHAL_fem
+	}
+	trigger = {
+		tag = PLC
+		government = republic
+	}
+}
+
+gov_plc_commonwealth = {
+	rank = {
+		1 = COMMONWEALTH
+		2 = COMMONWEALTH
+		3 = COMMONWEALTH
+	}
+	ruler_male = {
+		1 = KING
+		2 = KING
+		3 = KING
+	}
+	ruler_female = {
+		1 = QUEEN
+		2 = QUEEN
+		3 = QUEEN
+	}
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+	}
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN_CONSORT
+		3 = EMPRESS_CONSORT
+	}
+	heir_male = {
+		1 = HEIR
+		2 = HEIR
+		3 = HEIR
+	}
+	heir_female = {
+		1 = HEIR_fem
+		2 = HEIR_fem
+		3 = HEIR_fem
+	}
+	trigger = {
+		tag = PLC
+		government = monarchy
+		OR = {
+			has_reform = polish_great_sejm
+			has_reform = polish_elective_monarchy
+		}
+	}
+}

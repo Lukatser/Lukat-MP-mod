@@ -1,0 +1,438 @@
+doctrine_of_lapse_action = {
+	category = relation
+	require_acceptance = yes
+
+	alert_index = 14
+	alert_tooltip = doctrine_of_lapse_alert_tooltip
+
+	is_visible = {
+		FROM = {
+			is_subject_of_type = princely_state
+			is_subject_of = ROOT
+		}
+	}
+	is_allowed = {
+		stability = 1
+		NOT = { truce_with = FROM }
+	}
+	on_accept = {
+		add_stability = -1
+		FROM = {
+			ROOT = { inherit = PREV }
+		}
+	}
+
+	ai_acceptance = {
+		add_entry = {
+			name = DOL_OPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			divide_variable = { which = ai_value value = 4 }	
+		}
+		add_entry = {
+			name = DOL_DIPLO_REP
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+				who = ROOT
+			}
+		}
+		add_entry = {
+			name = DOL_BASE
+			export_to_variable = {
+				variable_name = ai_value
+				value = -25
+			}
+		}
+		add_entry = {
+			name = DOL_THEIR_DEV
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:total_development
+				who = FROM
+			}
+			divide_variable = { which = ai_value value = -5 }
+		}
+		add_entry = {
+			name = DOL_THEIR_ARMY
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:army_size
+				who = FROM
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = DOL_IN_INDIAN_REBELLION
+			limit = { ROOT = { has_disaster = indian_rebellion } }
+			export_to_variable = {
+				variable_name = ai_value
+				value = -1000
+			}
+		}
+		add_entry = {
+			name = DOL_THEIR_ADM
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:adm
+				who = FROM
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = DOL_THEIR_DIP
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:dip
+				who = FROM
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = DOL_THEIR_MIL
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:mil
+				who = FROM
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = DOL_NO_HEIR
+			limit = { FROM = { has_heir = no } }
+			export_to_variable = {
+				variable_name = ai_value
+				value = 30
+			}
+		}
+		add_entry = {
+			name = DOL_REPUBLICAN_TRADITION
+			limit = { ROOT = { government = republic } }
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:republican_tradition
+				who = ROOT
+			}
+			divide_variable = { which = ai_value value = 20 }
+		}
+		add_entry = {
+			name = DOL_GOOD_ADM
+			limit = { ROOT = { has_idea = eic_company_administration } }
+			export_to_variable = {
+				variable_name = ai_value
+				value = 5
+			}
+		}
+		add_entry = {
+			name = DOL_THEIR_STABILITY
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:stability
+				who = FROM
+			}
+			multiply_variable = { which = ai_value value = -5 }
+		}
+		add_entry = {
+			name = DOL_EIC_MISSION_BONUS
+			limit = {
+				ROOT = { has_country_flag = eic_princely_states_mission_flag }
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = 10
+			}
+		}
+	}
+		
+	ai_will_do = {
+		FROM = { ai = yes }
+	}
+}
+
+establish_factory_action = {
+	category = economy
+	require_acceptance = yes
+
+	alert_index = 12
+	alert_tooltip = establish_factory_alert_tooltip
+
+	is_visible = {
+		has_country_flag = enable_eic_factories
+	}
+	is_allowed = {
+		FROM = {
+			NOT = {
+				any_owned_province = {
+					has_province_modifier = eic_foreign_factory
+				}
+			}
+		}
+	}
+	on_accept = {
+		FROM = {
+			capital_scope = {
+				add_province_modifier = {
+					name = "eic_foreign_factory"
+					duration = -1
+				}
+			}
+			home_trade_node_effect_scope = {
+				add_trade_modifier = {
+    					who = ROOT
+    					duration = -1
+    					power = 25
+    					key = HAS_FOREIGN_FACTORY
+				}
+			}
+		}
+		
+	}
+
+	ai_acceptance = {
+		add_entry = {
+			name = FAC_OPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			divide_variable = { which = ai_value value = 2 }	
+		}
+		add_entry = {
+			name = FAC_DIPLO_REP
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+				who = ROOT
+			}
+			multiply_variable = { which = ai_value value = 2 }
+		}
+		add_entry = {
+			name = FAC_TRADE_PERCENTAGE
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:trade_income_percentage
+				who = ROOT
+			}
+			multiply_variable = { which = ai_value value = 100 }
+		}
+		add_entry = {
+			name = FAC_DIFFERENT_RELIGION
+			limit = { FROM = { NOT = { religion = ROOT } } }
+			export_to_variable = {
+				variable_name = ai_value
+				value = -5
+			}
+		}
+		add_entry = {
+			name = FAC_DIFFERENT_RELIGION_GROUP
+			limit = { FROM = { NOT = { religion_group = ROOT } } }
+			export_to_variable = {
+				variable_name = ai_value
+				value = -10
+			}
+		}
+		add_entry = {
+			name = FAC_NUM_OF_MERCHANTS
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:num_of_merchants
+				who = ROOT
+			}
+			multiply_variable = { which = ai_value value = 10 }
+		}
+		add_entry = {
+			name = FAC_ALREADY_FACTORY_IN_TRADE_NODE
+			limit = {
+				FROM = {
+					home_trade_node = {	
+						has_province_modifier = eic_foreign_factory
+					}
+				}
+			}
+			export_to_variable = {
+				variable_name = ai_value
+				value = -25
+			}
+		}
+		add_entry = {
+			name = FAC_OUR_TRADING_BONUSES
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:num_of_trading_bonuses
+				who = ROOT
+			}
+			multiply_variable = { which = ai_value value = 2 }
+		}
+		add_entry = {
+			name = FAC_WOULD_LOSE_OUT
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:trade_income_percentage
+				who = FROM
+			}
+			multiply_variable = { which = ai_value value = -100 }
+		}
+	}
+		
+	ai_will_do = {
+		FROM = {
+			has_opinion = {
+				who = ROOT
+				value = 190
+			}
+		}
+	}
+}
+
+# Inform a Core Eyalet they are being stripped of their Autonomy
+end_core_eyalet_autonomy_evho_dipact = {
+	category = influence
+
+	alert_index = 5
+	alert_tooltip = end_core_eyalet_autonomy_evho_dipact_alert_tooltip
+
+	require_acceptance = yes
+
+	is_visible = {
+		has_government_attribute = has_eyalets
+		FROM = {
+			is_subject_of = ROOT
+			is_subject_of_type = core_eyalet
+		}
+	}
+	is_allowed = {
+		if = {
+			limit = {
+				FROM = { liberty_desire = 50 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = FROM_IS_REBELLIOUS_TT
+				FROM = { liberty_desire = 50 }
+			}
+		}
+	}
+	on_accept = {
+		if = {
+			limit = { 
+				ai = yes 
+				FROM = { ai = no }
+			}
+			FROM = { switch_tag = ROOT }
+		}
+		inherit = FROM
+	}
+	on_decline = {
+		declare_war_with_cb = {
+		    who = FROM
+		    casus_belli = cb_crush_rebellion
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					same_continent = FROM
+					OR = {
+						is_rival = ROOT
+						BYZ_historical_interest_against_ottomans = yes
+					}
+				}
+				country_event = { id = EVHO_eastern_roman_ottoman_events.8 }
+			}
+		}
+	}
+
+	ai_will_do = { # this is a trigger
+		if = {
+			limit = {
+				NOT = {
+					FROM = {
+						OR = {
+							tag = WAL
+							tag = TRA
+							tag = MOL
+						}
+					}
+				}
+			}
+			always = yes	#There is never a reason for the Ottomans to not want to integrate their eyalets
+		}
+		else = {
+			always = no
+		}
+	}
+
+	ai_acceptance = {
+        add_entry = {
+            name = DIPLO_OPPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			multiply_variable = {
+				which = ai_value 
+				value = 0.1
+			}
+        }
+		add_entry = {
+			name = AI_DIPLOMATIC_REPUTATION
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+			}
+			#1 rep = 2
+			multiply_variable = {
+				which = ai_value
+				value = 2
+			}
+		}
+		add_entry = {
+			name = AI_TOTAL_DEVELOPMENT
+			export_to_variable = {
+				variable_name = ai_value
+				value = total_development
+				who = FROM
+			}
+			#2 dev = -1
+			multiply_variable = {
+				which = ai_value
+				value = -0.5
+			}
+		}
+		add_entry = {
+			name = AI_LIBERTY_DESIRE
+			export_to_variable = {
+				variable_name = ai_value
+				value = liberty_desire
+				who = FROM
+			}
+			multiply_variable = {
+				which = ai_value
+				value = -1
+			}
+		}
+		add_entry = {
+			name = AI_WOULD_HAVE_LIKELY_FOREIGN_SUPPORT_FOR_REBELLION
+			limit = { 
+				any_country = {
+					same_continent = FROM
+					OR = {
+						is_rival = ROOT
+						AND = {
+							is_great_power = yes
+							BYZ_historical_interest_against_ottomans = yes
+						}
+					}
+				}
+			}
+			export_to_variable = { variable_name = ai_value value = 1 }
+			multiply_variable = { which = ai_value value = -100 }
+		}
+	}
+}

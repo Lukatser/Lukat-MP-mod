@@ -1,17 +1,17 @@
-# 95 Breda - Principal cities: Breda
+# 95 Breda - Principal cities: 's Hertogenbosch & Breda
 
 owner = BRB
 controller = BRB
 add_core = BRB
 is_city = yes
 capital = "Breda"
-culture = dutch
+culture = brabantian
 religion = catholic
 hre = yes
-base_tax = 4
-base_production = 3
+base_tax = 6
+base_production = 6
 trade_goods = cloth
-base_manpower = 2
+base_manpower = 4
 
 discovered_by = eastern
 discovered_by = western

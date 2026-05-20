@@ -43,3 +43,11 @@ discovered_by = eastern
 	remove_core = ENG
 	seat_in_parliament = yes 
 }
+
+1801.1.1 = {
+	discovered_by = UNK
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

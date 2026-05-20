@@ -7,6 +7,8 @@ capital = 266 # Praha
 technology_group = western
 add_accepted_culture = sorbian
 add_army_professionalism = 0.1
+historical_rival = UBV
+historical_rival = LBV
 
 change_estate_land_share = {
 	estate = estate_burghers

@@ -11,6 +11,7 @@ fixed_capital = 112 # Cannot move capital away from this province & no power cos
 historical_friend = KNI
 national_focus = DIP
 add_army_professionalism = 0.05
+historical_rival = PAP
 
 1380.1.1 = { leader = {	name = "Carlo Zeno"	type = admiral	fire = 3	shock = 3	manuever = 4	siege = 0	death_date = 1404.1.1 } }
 
@@ -50,17 +51,6 @@ add_army_professionalism = 0.05
 		adm = 4
 		dip = 4
 		mil = 4
-	}
-	if = {
-		limit = {
-			has_dlc = "Winds of Change"
-			ai = no
-		}
-		add_government_power = {
-			mechanic_type = council_of_ten
-			power_type = authority_power
-			value = 90
-		}
 	}
 }
 

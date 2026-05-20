@@ -1,0 +1,569 @@
+country_decisions = {
+
+	pol_commonwealth = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_plc_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = PLC }
+			NOT = { tag = HLR }
+			tag = POL
+			LIT = { exists = yes }
+			OR = {
+				ai = no
+				AND = {
+					senior_union_with = LIT
+					LIT = { #This overlaps with allow for AI, is meant to negate do_not_integrate
+						NOT = { num_of_cities = 60 } #Keep this number the same as in allow. Original 38 +10
+					}
+				}
+			}
+		}
+		provinces_to_highlight = { ## EVHO ##
+			OR = {
+				region = poland_region
+				region = ruthenia_region
+				region = baltic_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = { ## EVHO ##
+			LIT = { was_player = no }
+			LIT = {
+				NOT = { num_of_cities = 60 } #Keep this number the same as in potential. Original 38 +10
+				NOT = { liberty_desire = 25 } 
+			}
+			if = {
+				limit = { has_country_flag = pol_tech_8_form_plc_flag }
+				adm_tech = 8
+			}
+			else = { adm_tech = 10 }
+			is_subject = no
+			is_nomad = no
+			stability = 1
+			is_at_war = no
+			senior_union_with = LIT
+			owns_core_province = 262				# Krakow
+			owns_core_province = 257				# Warszawa
+			272 = { country_or_non_sovereign_subject_holds = ROOT } # Vilnus
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = poland_region
+				value = 20
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = ruthenia_region
+				value = 20
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = baltic_region
+				value = 5
+			}
+		}
+		effect = {
+			hidden_effect = { change_tag = PLC restore_country_name = yes } ## EVHO ##
+			on_change_tag_effect = yes ## EVHO ##
+			override_country_name = PLC_POL ## EVHO ##
+			inherit = LIT
+			swap_non_generic_missions = yes
+			if = {
+				limit = { NOT = { accepted_culture = lithuanian } }
+				add_accepted_culture = lithuanian
+			}
+			add_country_modifier = {
+				name = plc_polish_lithuanian_union
+				duration = -1
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = { ## EVHO ##
+					poland_region = {
+						NOT = { area = silesia_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				poland_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = silesia_area } 
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = { ## EVHO ##
+					baltic_region = {
+						NOT = { area = east_prussia_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				baltic_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = east_prussia_area } 
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = { ## EVHO ##
+					ruthenia_region = {
+						NOT = { area = sloboda_ukraine_area }
+						NOT = { area = east_dniepr_area }
+						NOT = { area = chernigov_area }
+						NOT = { area = smolensk_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				ruthenia_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = sloboda_ukraine_area } 
+						NOT = { area = east_dniepr_area } 
+						NOT = { area = chernigov_area } 
+						NOT = { area = smolensk_area }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			random_owned_province = {
+				limit = { OR = { culture = polish culture = polish_new } }
+				add_base_tax = 1
+			}
+			set_country_flag = formed_plc_flag
+			add_prestige = 25
+			if = { 
+				limit = { 
+					has_dlc = "Lions of the North"
+					NOT = { has_estate_privilege = estate_nobles_golden_liberty }
+				}
+				complete_mission = pol_leverage_magnates
+				complete_mission = pol_great_sejm
+				complete_mission = plc_articles_agreement
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			} 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+		do_not_integrate = LIT
+	}
+
+	lit_commonwealth = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_plc_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = PLC }
+			NOT = { tag = HLR }
+			tag = LIT
+			POL = {
+				exists = yes
+				ai = yes
+				was_player = no
+			}
+			OR = {
+			ai = no
+				AND = {
+					senior_union_with = POL
+					POL = { #This overlaps with allow for AI, is meant to negate do_not_integrate
+						NOT = { num_of_cities = 40 } #Keep this number the same as in allow. Original 22 + 10
+						NOT = { liberty_desire = 25 } 
+					}
+				}
+			}	
+		}
+		provinces_to_highlight = { ## EVHO ##
+			OR = {
+				region = poland_region
+				region = ruthenia_region
+				region = baltic_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = { ## EVHO ##
+			POL = { 
+				NOT = { num_of_cities = 40 } 
+				NOT = { liberty_desire = 25 }
+			} #Keep this number the same as in potential. Original 22+10
+			adm_tech = 10
+			is_subject = no
+			is_nomad = no
+			stability = 1
+			is_at_war = no
+			senior_union_with = POL
+			owns_core_province = 272				# Vilna
+			owns_core_province = 276				# Minsk
+			owns_core_province = 280				# Kiev
+			257 = { country_or_non_sovereign_subject_holds = ROOT } # Warszawa
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = poland_region
+				value = 20
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = ruthenia_region
+				value = 20
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = baltic_region
+				value = 5
+			}
+		}
+		effect = {
+			hidden_effect = { change_tag = PLC restore_country_name = yes } ## EVHO ##
+			on_change_tag_effect = yes ## EVHO ##
+			override_country_name = LPC ## EVHO ##
+			set_country_flag = is_LPC_flag ## EVHO ##
+			inherit = POL
+			set_country_flag = pol_chose_pu_flag
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_updated_culture = { culture = slavic } }
+				if = {
+					limit = { NOT = { primary_culture = polish_new } }
+					change_primary_culture = polish_new
+				}
+			}
+			else = {
+				if = {
+					limit = { NOT = { primary_culture = polish } }
+					change_primary_culture = polish
+				}
+			}
+			add_country_modifier = {
+				name = plc_polish_lithuanian_union
+				duration = -1
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = { ## EVHO ##
+					poland_region = {
+						NOT = { area = silesia_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				poland_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = silesia_area } 
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = { ## EVHO ##
+					baltic_region = {
+						NOT = { area = east_prussia_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				baltic_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = east_prussia_area } 
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = { ## EVHO ##
+					ruthenia_region = {
+						NOT = { area = sloboda_ukraine_area }
+						NOT = { area = east_dniepr_area }
+						NOT = { area = chernigov_area }
+						NOT = { area = smolensk_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				ruthenia_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = sloboda_ukraine_area } 
+						NOT = { area = east_dniepr_area } 
+						NOT = { area = chernigov_area } 
+						NOT = { area = smolensk_area }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			random_owned_province = {
+				limit = { culture = lithuanian }
+				add_base_tax = 1
+			}
+			set_country_flag = formed_plc_flag
+			add_prestige = 25
+			complete_mission = pol_leverage_magnates
+			complete_mission = pol_great_sejm
+			complete_mission = plc_articles_agreement
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			} 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+		do_not_integrate = POL
+	}
+	
+	commonwealth_enforced = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_plc_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = PLC }
+			LIT = {
+				NOT = { senior_union_with = POL }
+				NOT = { junior_union_with = POL }
+			}
+			POL = {
+				NOT = { senior_union_with = LIT }
+				NOT = { junior_union_with = LIT }
+			}
+			OR = {
+				primary_culture = polish
+				primary_culture = polish_new
+				primary_culture = lithuanian
+				primary_culture = latvian
+				primary_culture = ruthenian
+				primary_culture = belarussian
+			}
+			if = {
+				limit = {
+					NOT = { tag = LIT }
+					NOT = { tag = POL }
+				}
+				NOT = {
+					OR = {
+						current_age = age_of_enlightenment
+						current_age = age_of_revolution
+					}
+				}
+			}
+			OR = {
+				ai = no
+				NOT = { exists = POL }
+				NOT = { exists = LIT }
+			}
+		}
+		provinces_to_highlight = { ## EVHO ##
+			OR = {
+				region = poland_region
+				region = ruthenia_region
+				region = baltic_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = { ## EVHO ##
+			adm_tech = 10
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			stability = 2
+			is_at_war = no
+			owns_core_province = 272				# Vilna
+			owns_core_province = 276				# Minsk
+			owns_core_province = 280				# Kiev
+			owns_core_province = 262				# Krakow
+			owns_core_province = 257				# Warszawa
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = poland_region
+				value = 20
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = ruthenia_region
+				value = 20
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = baltic_region
+				value = 5
+			}
+		}
+		effect = {
+			hidden_effect = { change_tag = PLC restore_country_name = yes } ## EVHO ##
+			on_change_tag_effect = yes
+				
+			if = { ## EVHO ##
+				limit = { OR = { primary_culture = polish primary_culture = polish_new } }
+				override_country_name = PLC_POL
+			}
+			else_if = { ## EVHO ##
+				limit = { primary_culture = lithuanian }
+				override_country_name = LPC
+				set_country_flag = is_LPC_flag
+			}
+			else = { ## EVHO ##
+				tooltip = { change_tag = PLC }
+			}
+			set_country_flag = pol_chose_pu_flag
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				PLC = { set_government_rank = 2 }
+			}
+			if = {
+				limit = { has_updated_culture = { culture = slavic } }
+				if = {
+					limit = { NOT = { primary_culture = polish_new } NOT = { accepted_culture = polish_new } }
+					change_primary_culture = polish_new
+				}
+			}
+			else = {
+				if = {
+					limit = { NOT = { primary_culture = polish } NOT = { accepted_culture = polish } }
+					change_primary_culture = polish
+				}
+			}
+			if = {
+				limit = {
+					NOT = { primary_culture = lithuanian }
+					NOT = { accepted_culture = lithuanian }
+				}
+				add_accepted_culture = lithuanian
+			}
+			add_country_modifier = {
+				name = plc_polish_lithuanian_union
+				duration = -1
+			}
+			if = {
+				limit = { ## EVHO ##
+					poland_region = {
+						NOT = { area = silesia_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				poland_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = silesia_area } 
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = { ## EVHO ##
+					baltic_region = {
+						NOT = { area = east_prussia_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				baltic_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = east_prussia_area } 
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = { ## EVHO ##
+					ruthenia_region = {
+						NOT = { area = sloboda_ukraine_area }
+						NOT = { area = east_dniepr_area }
+						NOT = { area = chernigov_area }
+						NOT = { area = smolensk_area }
+						NOT = { owned_by = POL }
+						NOT = { owned_by = LIT }
+						NOT = { owned_by = PLC }
+					}
+				}
+				ruthenia_region = {
+					limit = { 
+						NOT = { is_core = ROOT }
+						NOT = { area = sloboda_ukraine_area } 
+						NOT = { area = east_dniepr_area } 
+						NOT = { area = chernigov_area } 
+						NOT = { area = smolensk_area }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			random_owned_province = {
+				limit = { has_owner_culture = yes }
+				add_base_tax = 1
+			}
+			set_country_flag = formed_plc_flag
+			add_prestige = 25
+			if = { 
+				limit = { 
+					NOT = { was_tag = POL } 
+				}
+				complete_mission = pol_leverage_magnates
+				complete_mission = pol_great_sejm
+				complete_mission = plc_articles_agreement
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

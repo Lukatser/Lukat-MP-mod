@@ -1,5 +1,5 @@
-owner = THU
-controller = THU
+owner = COB
+controller = COB
 capital = "Coburg"
 is_city = yes
 culture = franconian

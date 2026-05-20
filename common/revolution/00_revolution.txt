@@ -1,0 +1,337 @@
+revolution = {
+	# FROM = center of revolution
+	target_province_weights = {
+		factor = 1
+
+		modifier = {
+			factor = 0
+			OR = {
+				is_empty = yes
+				is_wasteland = yes
+				is_sea = yes
+			}
+		}
+		modifier = {
+			factor = 10
+			owner = {
+				owns = FROM
+			}
+		}
+		modifier = {
+			factor = 0.25
+			NOT = { same_continent = FROM }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { same_continent = FROM }
+			NOT = {
+				OR = {
+					has_port = yes
+					any_neighbor_province = {
+						has_revolution_in_province = yes
+					}
+					controller = { 
+						OR = {
+							has_reform = revolutionary_republic_reform
+							has_reform = junior_revolutionary_republic_reform
+							has_reform = revolutionary_empire_reform
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { superregion = FROM }
+			same_continent = FROM
+		}
+		modifier = {
+			factor = 1.2
+			culture_group = FROM
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { religion = FROM }
+		}
+		modifier = {
+			factor = 0.6
+			NOT = { religion_group = FROM }
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 1
+			likely_rebels = revolutionary_rebels
+		}
+		modifier = {
+			factor = 2
+			controlled_by = revolutionary_rebels
+		}
+		#target absolutist states more
+		modifier = {
+			factor = 0.8
+			NOT = { owner = { absolutism = 60 } }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { absolutism = 70 }
+		}
+		modifier = {
+			factor = 1.1
+			owner = { absolutism = 80 }
+		}
+		modifier = {
+			factor = 1.15
+			owner = { absolutism = 90 }
+		}
+		modifier = {
+			factor = 1.2
+			owner = { absolutism = 100 }
+		}
+		 #cities are breeding grounds for revolution
+		modifier = {
+			factor = 0.8
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.1
+			development = 15
+		}
+		modifier = {
+			factor = 1.1
+			development = 20
+		}
+		modifier = {
+			factor = 1.15
+			development = 25
+		}
+		modifier = {
+			factor = 1.15
+			development = 30
+		}
+		modifier = {
+			factor = 1.2
+			development = 35
+		}
+		modifier = {
+			factor = 1.2
+			province_has_center_of_trade_of_level = 2
+		}
+		#make it not be such a scatter gun
+		modifier = {
+			factor = 2
+			any_neighbor_province = {
+				has_revolution_in_province = yes
+			}
+		}
+		modifier = { #so that it will get to islands like Britain
+			factor = 1.6
+			has_port = yes
+			sea_zone = {
+				any_neighbor_province = {
+					has_revolution_in_province = yes
+				}
+			}
+			NOT = {
+				any_neighbor_province = {
+					has_revolution_in_province = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			controller = { 
+				OR = {
+					has_parliament = yes
+					government = republic
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			owner = { 
+				capital_scope = { continent = europe }
+				culture_group = french
+			}
+			NOT = {
+				any_country = {
+					is_great_power = yes
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			owner = { 
+				ai = no
+				capital_scope = { continent = europe }
+				NOT = { culture_group = french }
+			}
+			NOT = {
+				any_country = {
+					is_great_power = yes
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			owner = { 
+				is_great_power = yes
+			}
+		}
+		modifier = {
+			factor = 4
+			owner = {
+				is_revolution_target = yes
+				OR = {
+					has_reform = revolutionary_republic_reform
+					has_reform = junior_revolutionary_republic_reform
+					has_reform = revolutionary_empire_reform
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			owner = {
+				is_revolution_target = no
+				has_reform = junior_revolutionary_republic_reform
+			}
+		}
+		modifier = {
+			factor = 2
+			controller = {
+				is_revolution_target = yes
+				OR = {
+					has_reform = revolutionary_republic_reform
+					has_reform = junior_revolutionary_republic_reform
+				}
+			}
+			owner = { 
+				NOT = { 
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0
+			controller = { 
+				NOT = { 
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+					}
+				} 
+			}
+			owner = { 
+				NOT = { 
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				} 
+			}
+			any_country = {
+				is_great_power = yes
+				OR = {
+					has_reform = revolutionary_republic_reform
+					has_reform = revolutionary_empire_reform
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			revolution_target = {
+				has_reform = revolutionary_empire_reform
+			}
+			owner = { 
+				NOT = { 
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				} 
+			}
+		}
+		modifier = { #so that it stays gone once removed
+			factor = 0
+			controller = { 
+				NOT = { 
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				} 
+			}
+			has_province_modifier = no_revolution_here_dummy
+		}
+		modifier = {
+			factor = 0
+			controller = { 
+				NOT = { 
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				} 
+			}
+			owner = { has_country_modifier = no_revolution_here_country_dummy }
+		}
+		modifier = {
+			factor = 0.005
+			controller = { 
+				OR = {
+					has_reform = post_revolution_republic_reform
+					has_reform = post_revolution_kingdom_reform
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			has_global_flag = began_last_coalition
+			controller = { 
+				NOT = { 
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				} 
+			}
+			owner = { 
+				NOT = { 
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				} 
+			}
+		}
+	}
+
+	# Values at 100 Absolutism
+	revolution_province_modifiers = {
+		local_unrest = 0.25
+	}
+
+	# Values at 100 Revolutionary Zeal
+	zeal_modifiers = {
+		administrative_efficiency = 0.3
+		special_unit_forcelimit = 0.2
+		discipline = 0.05
+	}
+}

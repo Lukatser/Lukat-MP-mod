@@ -1,0 +1,2806 @@
+# Europa Verus Events
+
+namespace = EVHO_eastern_roman_ottoman_events
+
+# Depreciation of Mediterranean Trade
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.1
+	title = EVHO_eastern_roman_ottoman_events.1.t
+	desc = EVHO_eastern_roman_ottoman_events.1.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	major = yes
+
+	trigger = {
+		is_year = 1650.1.1
+		NOT = { has_country_flag = med_trade_gone }
+		any_owned_province = {
+			OR = {
+				region = anatolia_region
+				region = mashriq_region
+				region = egypt_region
+				region = balkan_region
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.25
+			is_great_power = yes
+		}
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.1.a
+		ai_chance = {
+			factor = 1
+		}
+		set_country_flag = med_trade_gone
+        every_owned_province = {
+			limit = {
+				OR = {
+					region = anatolia_region
+					region = mashriq_region
+					region = egypt_region
+					region = balkan_region
+				}
+			}
+			add_province_modifier = {
+				name = FEE_mediterranean_depreciation
+				duration = -1
+			}
+		}
+	}
+}
+
+# Mediterranean Destiny
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.2
+	title = EVHO_eastern_roman_ottoman_events.2.t
+	desc = EVHO_eastern_roman_ottoman_events.2.desc
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 151
+		is_year = 1490
+		is_great_power = yes
+		OR = { 
+			tag = BYZ
+			tag = LAE
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.2.a
+		wallachia_area = {
+			limit = { NOT = { is_permanent_claim = ROOT } }
+			add_permanent_claim = ROOT
+		}
+		serbia_area = {
+			limit = { NOT = { is_permanent_claim = ROOT } }
+			add_permanent_claim = ROOT
+		}
+		rascia_area = {
+			limit = { NOT = { is_permanent_claim = ROOT } }
+			add_permanent_claim = ROOT
+		}
+		moldavia_area = {
+			limit = { NOT = { is_permanent_claim = ROOT } }
+			add_permanent_claim = ROOT
+		}
+		albania_area = {
+			limit = { NOT = { is_permanent_claim = ROOT } }
+			add_permanent_claim = ROOT
+		}
+		tunisia_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+		djerba_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+		kabylia_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+		algiers_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+		hautes_plaines_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+		north_saharan_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+		ouled_nail_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+		tripolitania_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+		barbary_coast_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+        every_province = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				has_port = yes
+				OR = {
+					region = crimea_region
+					region = egypt_region
+				}
+			}
+			add_claim = ROOT
+		}
+        every_province = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+				OR = {
+					region = anatolia_region
+					region = mashriq_region
+					area = bosnia_area
+					province_id = 1828
+				}
+			}
+			add_claim = ROOT
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+# Hungarian Collapse
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.3
+	title = EVHO_eastern_roman_ottoman_events.3.t
+	desc = EVHO_eastern_roman_ottoman_events.3.desc
+	picture = COUNTRY_COLLAPSE_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		is_year = 1490
+		OR = {
+			ai = yes
+			is_year = 1525
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = RUM
+			tag = BYZ
+			tag = LAE
+		}
+		is_free_or_tributary_trigger = yes
+		is_great_power = yes
+		HAB = { exists = yes }
+		any_enemy_country = {
+			is_neighbor_of = ROOT
+			NOT = { tag = HAB }
+        	NOT = { war_score = 0 }
+        	capital_scope = { NOT = { controlled_by = PREV } }
+			OR = {
+				great_power_rank = 8
+				AND = {
+					is_year = 1540
+					ai = yes
+				}
+			}
+			OR = {
+				tag = HUN
+				AND = {
+					NOT = { capital_scope = { region = carpathia_region } }
+					num_of_owned_provinces_with = {
+						region = carpathia_region
+						NOT = { area = wallachia_area }
+						NOT = { area = moldavia_area }
+						value = 15
+					}
+				}
+			}
+		}
+		OR = {
+			NOT = { exists = HUN }
+			HUN = { is_subject = yes }
+			NOT = { tag = TUR }
+			AND = {
+				num_of_cities = 90
+				num_of_cities = HUN
+				has_ruler_flag = suleiman_the_magnificent
+			}
+			AND = {
+				151 = { country_or_non_sovereign_subject_holds = ROOT }
+				146 = { country_or_non_sovereign_subject_holds = ROOT }
+				4750 = { country_or_non_sovereign_subject_holds = ROOT }
+				OR = {
+					is_year = 1550
+					358 = { country_or_non_sovereign_subject_holds = ROOT }
+					361 = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				OR = {
+					is_year = 1550
+					4239 = { country_or_non_sovereign_subject_holds = ROOT }
+					153 = { country_or_non_sovereign_subject_holds = ROOT }
+					156 = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				war_with = ROOT
+				is_neighbor_of = ROOT
+				NOT = { tag = HAB }
+	        	NOT = { war_score = 0 }
+	        	OR = {
+	        		capital_scope = { controlled_by = ROOT } 
+	        		AND = {
+	        			war_with = HAB
+	        			capital_scope = { controlled_by = HAB } 
+	        		}
+	        	}
+				OR = {
+					great_power_rank = 8
+					AND = {
+						is_year = 1540
+						ai = yes
+					}
+				}
+				OR = {
+					tag = HUN
+					AND = {
+						NOT = { capital_scope = { region = carpathia_region } }
+						num_of_owned_provinces_with = {
+							region = carpathia_region
+							NOT = { area = wallachia_area }
+							NOT = { area = moldavia_area }
+							value = 15
+						}
+					}
+				}
+			}
+			save_event_target_as = hungarian_collapse_victim
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.3.a
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_prestige = 40
+		if = {
+			limit = { 
+				event_target:hungarian_collapse_victim = { tag = HUN }
+				HUN = { is_lesser_in_union = yes } 
+			}
+			random_country = {
+				limit = { HUN = { junior_union_with = PREV } }
+				add_stability = -2
+        		kill_ruler = yes
+				define_ruler = {
+					dynasty = "von Habsburg"
+					age = 35
+				}
+				hidden_effect = {
+					add_ruler_personality = infertile_personality
+					if = { ## EVHO ##
+						limit = { has_heir = yes }
+						kill_heir = { allow_new_heir = no }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = has_had_TRA_as_eyalet_before_flag }
+				TRA = { exists = no } 
+				NOT = { has_dlc = "Domination" } 
+			}
+			set_global_flag = TUR_had_TRA_as_fiefdom
+			every_province = {
+				limit = {
+					AND = {
+						OR = {
+							country_or_non_sovereign_subject_holds = event_target:hungarian_collapse_victim
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+						OR = {
+							area = transylvania_area
+							area = southern_transylvania_area
+						}
+					}
+				}
+				cede_province = TRA
+			}
+			ROOT = { 
+				create_subject = {
+					subject_type = fiefdom_vassal
+					subject = TRA
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				NOT = { has_country_flag = has_had_TRA_as_eyalet_before_flag }
+				TRA = { exists = no } 
+			}
+			set_global_flag = TUR_had_TRA_as_fiefdom
+			every_province = {
+				limit = {
+					AND = {
+						OR = {
+							country_or_non_sovereign_subject_holds = event_target:hungarian_collapse_victim
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+						OR = {
+							area = transylvania_area
+							area = southern_transylvania_area
+						}
+					}
+				}
+				cede_province = TRA
+			}
+			create_subject = { 
+				subject_type = eyalet
+				who = TRA
+			}
+			TRA = {
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				add_government_reform = eyalet_government
+				add_liberty_desire = -25
+				eyalet_effect = {
+					tag = EY2
+				}
+			}
+		}
+		every_province = {
+			limit = {
+				OWNER = {
+					OR = {
+						tag = event_target:hungarian_collapse_victim
+						overlord_of = event_target:hungarian_collapse_victim
+						is_subject_of = event_target:hungarian_collapse_victim
+					}
+				}
+				OR = {
+					area = moldavia_area
+					area = wallachia_area
+					area = silistria_area
+					area = bulgaria_area
+					area = serbia_area
+					area = bosnia_area
+					area = alfold_area
+					area = transylvania_area
+					area = southern_transylvania_area
+					province_id = 1828
+					province_id = 4173
+					province_id = 4126
+					province_id = 153
+				}
+			}
+			cede_province = ROOT
+		}
+		every_province = {
+			limit = {
+				OR = {
+					region = balkan_region
+					region = carpathia_region
+				}
+			}
+			add_permanent_claim = ROOT
+		}
+		if = {
+			limit = { event_target:hungarian_collapse_victim = { tag = HUN } }
+			HAB = { inherit = HUN }
+		}
+		else = {
+			every_province = {
+				limit = {
+					region = carpathia_region
+					OWNER = {
+						OR = {
+							tag = event_target:hungarian_collapse_victim
+							overlord_of = event_target:hungarian_collapse_victim
+							is_subject_of = event_target:hungarian_collapse_victim
+						}
+					}
+				}
+				cede_province = HAB
+			}
+		}
+		HAB = {
+			every_province = {
+				limit = {
+					OR = {
+						area = transdanubia_area
+						area = alfold_area
+						area = slovakia_area
+						area = transylvania_area
+						area = southern_transylvania_area
+						area = croatia_area
+						area = east_adriatic_coast_area
+						area = slavonia_area
+						area = red_ruthenia_area
+						province_id = 262
+						province_id = 2959
+						province_id = 2960
+					}
+				}
+				add_permanent_claim = HAB
+			}
+		}
+		every_country = {
+			limit = {
+				war_with = ROOT
+				capital_scope = { continent = europe }
+			}
+			white_peace = ROOT
+		}
+		
+		custom_tooltip = evho_gain_15_ae_europe_tt
+		hidden_effect = {
+			every_country = {
+				limit = { capital_scope = { continent = europe } }
+				add_aggressive_expansion = {
+					who = ROOT 
+					value = 15
+					apply_calc = no 
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.3.b
+        add_stability_or_adm_power = yes
+		if = {
+			limit = { 
+				event_target:hungarian_collapse_victim = { tag = HUN }
+				HUN = { is_lesser_in_union = yes } 
+			}
+			random_country = {
+				limit = { HUN = { junior_union_with = PREV } }
+				add_stability = -2
+        		kill_ruler = yes
+				define_ruler = {
+					dynasty = "von Habsburg"
+					age = 35
+				}
+				hidden_effect = {
+					add_ruler_personality = infertile_personality
+					if = { ## EVHO ##
+						limit = { has_heir = yes }
+						kill_heir = { allow_new_heir = no }
+					}
+				}
+			}
+		}
+        event_target:hungarian_collapse_victim = {
+			add_stability = -6
+			add_adm_power = -2000
+			add_dip_power = -2000
+			add_mil_power = -2000
+			add_prestige = -100
+    		kill_ruler = yes
+			define_ruler = {
+				dynasty = "von Habsburg"
+				age = 35
+			}
+			hidden_effect = {
+				add_ruler_personality = infertile_personality
+				if = { ## EVHO ##
+					limit = { has_heir = yes }
+					kill_heir = { allow_new_heir = no }
+				}
+			}
+        }
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Mamluk Conquest of Ottomans
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.4
+	title = EVHO_eastern_roman_ottoman_events.4.t
+	desc = EVHO_eastern_roman_ottoman_events.4.desc
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+
+	major = yes
+
+	trigger = {
+        tag = MAM
+		is_free_or_tributary_trigger = yes
+		war_with = TUR
+		is_neighbor_of = TUR
+		OR = {
+			ai = yes
+			is_year = 1490
+		}
+        TUR = {
+			is_free_or_tributary_trigger = yes
+			NOT = { war_score = -50 }
+			capital_scope = { controlled_by = MAM }
+		}
+		OR = {
+			TUR = { is_great_power = no }
+			AND = {
+				NOT = { is_year = 1470 }
+				TUR = { ai = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.4.a
+		add_adm_power = -300
+		add_dip_power = -300
+		add_mil_power = -300
+		add_prestige = 50
+		if = {
+			limit = {
+				151 = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+			}
+			add_permanent_claim = 151
+		}
+		anatolia_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		if = {
+			limit = { BYZ = { exists = yes } }
+            every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = TUR
+                	OR = {
+                		region = balkan_region
+                		region = italy_region
+                		region = carpathia_region
+                		region = crimea_region
+                	}
+				}
+				cede_province = BYZ
+                add_unrest = 10
+				add_core = BYZ
+			}
+		}
+		else_if = {
+			limit = { LAE = { exists = yes } }
+            every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = TUR
+                	OR = {
+                		region = balkan_region
+                		region = italy_region
+                		region = carpathia_region
+                		region = crimea_region
+                	}
+				}
+				cede_province = LAE
+                add_unrest = 10
+				add_core = LAE
+			}
+		}
+        every_province = {
+			limit = { country_or_non_sovereign_subject_holds = TUR }
+			cede_province = MAM
+            add_unrest = 10
+			add_core = MAM
+		}
+    	ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option	= {  
+		name = EVHO_eastern_roman_ottoman_events.4.b
+        add_stability_or_adm_power = yes
+        ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_rival = TUR
+			}
+		}
+	}
+}
+
+# Fall of Constantinople
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.5
+	title = EVHO_eastern_roman_ottoman_events.5.t
+	desc = EVHO_eastern_roman_ottoman_events.5.desc
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+
+	major = yes
+
+	trigger = {
+        tag = TUR
+		is_free_or_tributary_trigger = yes
+		OR = {
+			ai = yes
+			is_year = 1480
+		}
+		NOT = { is_year = 1580 }
+		OR = {
+			AND = {
+				war_with = BYZ
+				is_neighbor_of = BYZ
+		        BYZ = {
+		        	is_great_power = no
+		        	OR = {
+		        		ai = yes
+		        		NOT = { war_score = -80 }
+		        	}
+					is_free_or_tributary_trigger = yes
+					NOT = { war_score = -50 }
+					capital_scope = { controlled_by = TUR }
+				}
+			}
+			AND = {
+				war_with = LAE
+				is_neighbor_of = LAE
+		        LAE = {
+		        	is_great_power = no
+		        	OR = {
+		        		ai = yes
+		        		NOT = { war_score = -80 }
+		        	}
+					is_free_or_tributary_trigger = yes
+					NOT = { war_score = -50 }
+					capital_scope = { controlled_by = TUR }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.5.a
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		add_prestige = 50
+		if = {
+			limit = { exists = BYZ }
+			BYZ = {
+#				hidden_effect = { white_peace = ROOT }
+	            every_province = {
+					limit = {
+						NOT = { region = italy_region }
+						country_or_non_sovereign_subject_holds = BYZ
+						is_core = BYZ
+					}
+					add_core = TUR
+					cede_province = TUR
+				}
+	            every_province = {
+					limit = {
+						NOT = { region = italy_region }
+						country_or_non_sovereign_subject_holds = BYZ
+						NOT = { is_core = BYZ }
+					}
+					cede_province = TUR
+		      	}
+			}
+		}
+		if = {
+			limit = { exists = LAE }
+			LAE = {
+#				hidden_effect = { white_peace = ROOT }
+	            every_province = {
+					limit = {
+						NOT = { region = italy_region }
+						country_or_non_sovereign_subject_holds = LAE
+						is_core = LAE
+					}
+					add_core = TUR
+					cede_province = TUR
+				}
+	            every_province = {
+					limit = {
+						NOT = { region = italy_region }
+						country_or_non_sovereign_subject_holds = LAE
+						NOT = { is_core = LAE }
+					}
+					cede_province = TUR
+		      	}
+			}
+		}
+		custom_tooltip = evho_gain_15_ae_home_area_tt
+		hidden_effect = {
+			every_country = {
+				limit = { 
+					OR = {
+						primary_culture = austrian
+						primary_culture = polish
+						primary_culture = polish_new
+						capital_scope = { region = balkan_region }
+						capital_scope = { region = carpathia_region }
+					}
+				}
+				add_aggressive_expansion = {
+					who = ROOT 
+					value = 15
+					apply_calc = no 
+				}
+			}
+		}
+
+    	ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option	= {  
+		name = EVHO_eastern_roman_ottoman_events.5.b
+        add_stability_or_adm_power = yes
+        ai_chance = { factor = 0 }
+	}
+}
+
+# Egyptian Autonomy
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.6
+	title = EVHO_eastern_roman_ottoman_events.6.t
+	desc = EVHO_eastern_roman_ottoman_events.6.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		is_year = 1780
+		361 = { country_or_non_sovereign_subject_holds = ROOT }
+		MAM = { exists = no }
+		EGY = { exists = no }
+		is_at_war = yes
+		NOT = { war_score = 0 }
+		OR = {
+			NOT = { capital_scope = { controlled_by = ROOT } }
+			any_province = {
+				region = egypt_region
+				country_or_non_sovereign_subject_holds = ROOT
+				CONTROLLER = { war_with = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+		modifier = {
+			factor = 3
+			ai = no
+		}
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.6.a
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					region = horn_of_africa_region
+					NOT = { area = sennar_area }
+					NOT = { area = upper_nubia_area }
+					NOT = { area = dongola_area }
+					NOT = { province_id = 2324 }
+					NOT = { province_id = 1232 }
+				}
+				remove_core = ROOT
+				remove_claim = ROOT
+				cede_province = ETH
+				add_core = ETH
+			}
+		}
+		every_province = {
+			limit = {
+				country_or_non_sovereign_subject_holds = ROOT
+				AND = {
+					OR = {
+						region = egypt_region
+						region = horn_of_africa_region
+					}
+				}
+				NOT = { province_id = 356 }
+				NOT = { province_id = 357 }
+				#NOT = { province_id = 2326 }
+			}
+			remove_core = ROOT
+			remove_claim = ROOT
+			cede_province = EGY
+		}
+		every_province = {
+			limit = {
+				AND = {
+					country_or_non_sovereign_subject_holds = ROOT
+					area = palestine_area
+				}
+			}
+			cede_province = EGY
+		}
+		every_province = {
+			limit = {
+				AND = {
+					region = egypt_region
+					NOT = { province_id = 356 }
+					NOT = { province_id = 357 }
+					#NOT = { province_id = 2326 }
+				}
+			}
+			add_core = EGY
+		}
+		EGY = {
+			set_country_flag = ottoman_vassal_egypt
+			change_government = monarchy
+			add_army_tradition = 100
+			add_stability = 6
+			add_treasury = 5000
+			add_adm_power = 5000
+			add_dip_power = 5000
+			add_mil_power = 5000
+			add_manpower = 300
+			add_prestige = 100
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 1
+					cavalry = 1
+					artillery = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_port = yes
+				}
+				build_to_forcelimit = {
+					heavy_ship = 0.5
+					light_ship = 0.5
+					transport = 0.5
+				}
+			}
+			add_country_modifier = {
+				name = "ned_unity"
+				duration = 18250
+			}
+			add_country_modifier = {
+				name = "ned_sourvenity"
+				duration = 18250
+			}
+		}
+		ENG = { create_guarantee = EGY }
+		AFU = { create_guarantee = EGY }
+		GBR = { create_guarantee = EGY }
+		UNK = { create_guarantee = EGY }
+		if = {
+			limit = { NOT = { has_dlc = "Domination" } }
+		}
+		create_subject = {
+			subject_type = fiefdom_vassal
+			subject = EGY
+		}
+		else = {
+			create_subject = {
+				who = EGY
+				subject_type = eyalet
+			}
+			EGY = {
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				add_government_reform = eyalet_government
+				eyalet_effect = { tag = EY7 }
+				add_country_modifier = {
+					name = tur_mamlukian_administration
+					duration = -1
+					desc = tur_mamlukian_administration_tt
+				}
+			}
+		}
+		EGY = { add_liberty_desire = 35 }
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+# Greek Revolt of 1821
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.7
+	title = EVHO_eastern_roman_ottoman_events.7.t
+	desc = EVHO_eastern_roman_ottoman_events.7.desc
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		is_year = 1821
+		OR = {
+			is_year = 1824
+			NOT = {
+				any_country = {
+					is_great_power = yes
+					OR = {
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				}
+			}
+		}
+		146 = { country_or_non_sovereign_subject_holds = ROOT }
+		NOT = {
+			OR = {
+				culture = greek
+				religion = orthodox
+				tag = BYZ
+				tag = GRE
+				tag = LAE
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = greek_revolution
+			every_province = {
+				limit = { area = morea_area }
+				cede_province = GRE
+			}	
+			every_province = {
+				limit = {
+					OR = {
+						region = morea_area
+						culture = greek
+					}
+				}
+				add_core = GRE
+			}
+			GRE = { 
+				capital_scope = { change_religion = orthodox }
+				change_religion = orthodox
+				change_government = republic
+				add_army_tradition = 50
+				add_stability = 2
+				add_treasury = 300
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_manpower = 10
+				add_prestige = 50
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 2
+						cavalry = 1
+						artillery = 1
+					}
+				}
+				add_country_modifier = {
+					name = "revolution_buff"
+					duration = 5000
+				}
+				random_owned_province = {
+					limit = {
+						has_port = yes
+					}
+					build_to_forcelimit = {
+						heavy_ship = 0.4
+						light_ship = 0.4
+						transport = 0.4
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.7.a
+		ai_chance = {
+			factor = 100
+		}
+		declare_war_with_cb = {
+		    who = GRE
+		    casus_belli = cb_crush_rebellion
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_great_power = yes
+					OR = {
+						religion = orthodox
+						is_rival = ROOT
+					}
+				}
+				country_event = { id = EVHO_eastern_roman_ottoman_events.8 }
+			}
+		}
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.7.b
+		add_adm_power = -200
+		add_mil_power = -150
+		add_dip_power = -100
+		add_stability = -2
+		add_truce_with = GRE
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Greece wants help against evil Ottomans
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.8
+	title = EVHO_eastern_roman_ottoman_events.8.t
+	desc = EVHO_eastern_roman_ottoman_events.8.desc
+	picture = BATTLE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.8.a
+		random_country = {
+			limit = {
+				war_with = FROM
+				is_in_war = {
+					attacker_leader = FROM
+					casus_belli = cb_crush_rebellion
+				}
+			}
+			create_alliance = ROOT
+			ROOT = { join_all_offensive_wars_of = PREV }
+			ROOT = { join_all_defensive_wars_of = PREV }
+			set_ai_attitude = {
+				who = ROOT
+				attitude = attitude_friendly
+			}
+			ROOT = {
+				set_ai_attitude = {
+					who = PREV
+					attitude = attitude_friendly
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.8.b
+		add_prestige = -75
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_at_war = no
+			}
+		}
+	}
+}
+
+#For some fucking reason new provinces in Ottoman Europe aren't getting the dhimmi autonomy modifier, so I'm fixing it I guess! >:(
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.9 
+	title = "super_colonies.RHtit2"
+	desc = "super_colonies.RHdesc2"
+	picture = CONSTITUTION_eventPicture
+
+	hidden = yes
+
+	trigger = {
+		religion_group = muslim
+		has_estate_privilege = estate_dhimmi_guaranteed_autonomy
+		any_owned_province = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+		any_owned_province = {
+			NOT = { religion_group = muslim }
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+		}
+	}
+
+	immediate = {
+		every_province = {
+			limit = {
+				owner = { tag = ROOT }
+				NOT = { religion_group = muslim }
+				NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			}
+			add_province_modifier = {
+				name = estate_dhimmi_guaranteed_autonomy_mod
+				duration = -1
+			}
+		}
+	}
+
+	option = {
+		name = "super_colonies.RHans3"
+	}
+}
+
+# The Albanian Conversion
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.10
+	title = EVHO_eastern_roman_ottoman_events.10.t
+	desc = EVHO_eastern_roman_ottoman_events.10.desc
+	picture = COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		has_estate_privilege = estate_dhimmi_guaranteed_autonomy
+		NOT = {
+			any_province = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				OR = {
+					area = albania_area 
+					province_id = 1766
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.10.a
+		add_adm_power = -50
+		add_mil_power = -50
+		add_dip_power = -150
+		add_accepted_culture = albanian
+		every_province = {
+			limit = { 
+				OR = {
+					area = albania_area 
+					province_id = 1766
+				}
+			}
+			change_religion = ROOT
+			set_local_autonomy = 90
+			change_culture = albanian
+			add_province_modifier = {
+				name = cemented_culture
+				duration = -1
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+# The Bosnian Conversion
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.11
+	title = EVHO_eastern_roman_ottoman_events.11.t
+	desc = EVHO_eastern_roman_ottoman_events.11.desc
+	picture = COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		has_estate_privilege = estate_dhimmi_guaranteed_autonomy
+		NOT = {
+			any_province = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				area = bosnia_area
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.11.a
+		add_adm_power = -50
+		add_mil_power = -50
+		add_dip_power = -150
+		add_accepted_culture = bosnian
+		every_province = {
+			limit = { area = bosnia_area }
+			change_religion = ROOT
+			set_local_autonomy = 90
+			change_culture = bosnian
+			add_province_modifier = {
+				name = cemented_culture
+				duration = -1
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+country_event = {	## Mamluks just has to die man
+	id = EVHO_eastern_roman_ottoman_events.12
+	
+	hidden = yes
+
+	trigger = {
+		tag = TUR
+		is_great_power = yes
+		ai = yes
+		is_at_war = no
+		OR = {
+			is_year = 1525
+			MAM = { has_country_modifier = mam_turmoil }
+		}
+		MAM = { 
+			ai = yes  
+			NOT = { truce_with = TUR }
+			NOT = { army_size = TUR }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 10
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.12.a
+		declare_war_with_cb = {
+		    who = MAM
+		    casus_belli = cb_annex
+		}
+	}
+}
+
+# Treaty of Zuhab
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.13
+	title = EVHO_eastern_roman_ottoman_events.13.t
+	desc = EVHO_eastern_roman_ottoman_events.13.desc
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		is_year = 1600
+		OR = {
+			ai = yes
+			is_year = 1625
+		}
+		tag = PER
+		is_free_or_tributary_trigger = yes
+		any_country = {
+			is_free_or_tributary_trigger = yes
+			is_great_power = yes
+			num_of_cities = 150
+			capital_scope = {
+				OR = {
+					region = balkan_region
+					region = anatolia_region
+					region = mashriq_region
+					region = arabia_region
+					region = egypt_region
+				}
+			}
+			OR = {
+				416 = { country_or_non_sovereign_subject_holds = PREV }
+				num_of_owned_provinces_with = {
+					region = persia_region
+					value = 5
+				}
+			}
+			OR = {
+				AND = {
+					is_year = 1725
+					ai = yes
+					ROOT = { ai = yes }
+				}
+				AND = {
+					war_with = ROOT
+					OR = {
+						NOT = { capital_scope = { controlled_by = PREV } }
+						AND = {
+							NOT = { war_score = -15 }
+							ROOT = { is_great_power = no }
+						}
+						AND = {
+							NOT = { war_score = -40 }
+							ROOT = { is_great_power = yes }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		random_country = {
+			limit = {
+				is_free_or_tributary_trigger = yes
+				is_great_power = yes
+				num_of_cities = 150
+				capital_scope = {
+					OR = {
+						region = balkan_region
+						region = anatolia_region
+						region = mashriq_region
+						region = arabia_region
+						region = egypt_region
+					}
+				}
+				OR = {
+					416 = { country_or_non_sovereign_subject_holds = PREV }
+					num_of_owned_provinces_with = {
+						region = persia_region
+						value = 5
+					}
+				}
+				OR = {
+					AND = {
+						is_year = 1725
+						ai = yes
+						ROOT = { ai = yes }
+					}
+					AND = {
+						war_with = ROOT
+						OR = {
+							NOT = { capital_scope = { controlled_by = PREV } }
+							AND = {
+								NOT = { war_score = -15 }
+								ROOT = { is_great_power = no }
+							}
+							AND = {
+								NOT = { war_score = -40 }
+								ROOT = { is_great_power = yes }
+							}
+						}
+					}
+				}
+			}
+			save_event_target_as = zuhab_ottomans
+		}
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.13.a
+		add_adm_power = -150
+		add_dip_power = -150
+		add_mil_power = -150
+		add_prestige = 75
+		add_opinion = {
+			who = event_target:zuhab_ottomans
+			modifier = full_reconciliation
+		}
+		event_target:zuhab_ottomans = { 
+			white_peace = ROOT 
+			add_opinion = {
+				who = ROOT
+				modifier = full_reconciliation
+			}
+		}
+		every_province = {
+			limit = {
+				country_or_non_sovereign_subject_holds = event_target:zuhab_ottomans
+				OR = {
+					region = persia_region
+					area = shirvan_area
+					area = kartli_kakheti_area
+					AND = {
+						area = armenia_area
+						NOT = { province_id = 4302 }
+					}
+				}
+			}
+			remove_core = event_target:zuhab_ottomans
+			add_core = ROOT
+			cede_province = ROOT
+		}
+		every_province = {
+			limit = {
+				country_or_non_sovereign_subject_holds = ROOT
+				OR = {
+					region = anatolia_region
+					region = mashriq_region
+					region = arabia_region
+					region = egypt_region
+					area = circassia_area
+					area = imereti_area
+					area = samtskhe_area
+					province_id = 4302
+				}
+			}
+			remove_core = ROOT
+			add_core = event_target:zuhab_ottomans
+			cede_province = event_target:zuhab_ottomans
+		}
+		every_province = {
+			limit = { 
+				country_or_non_sovereign_subject_holds = ROOT 
+				is_core = event_target:zuhab_ottomans
+			}
+			remove_core = event_target:zuhab_ottomans
+		}
+		every_province = {
+			limit = { 
+				country_or_non_sovereign_subject_holds = event_target:zuhab_ottomans 
+				is_core = ROOT
+			}
+			remove_core = ROOT
+		}
+		every_province = {
+			limit = { 
+				country_or_non_sovereign_subject_holds = ROOT 
+				is_claim = event_target:zuhab_ottomans
+			}
+			remove_claim = event_target:zuhab_ottomans
+		}
+		every_province = {
+			limit = { 
+				country_or_non_sovereign_subject_holds = event_target:zuhab_ottomans 
+				is_claim = ROOT
+			}
+			remove_claim = ROOT
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.13.b
+        add_stability_or_adm_power = yes
+        event_target:zuhab_ottomans = {
+			add_stability = -2
+			add_adm_power = -200
+			add_dip_power = -200
+			add_mil_power = -200
+			add_prestige = -50
+        }
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Collapse of Turkish Anatolia
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.14
+	title = EVHO_eastern_roman_ottoman_events.14.t
+	desc = EVHO_eastern_roman_ottoman_events.14.desc
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+
+	major = yes
+
+	trigger = {
+        tag = BYZ
+		is_free_or_tributary_trigger = yes
+		war_with = TUR
+		is_neighbor_of = TUR
+		NOT = {
+			any_province = {
+				region = balkan_region
+				OWNER = { tag = TUR }
+			}
+		}
+		OR = {
+			ai = yes
+			is_year = 1480
+		}
+		NOT = { is_year = 1580 }
+        TUR = {
+        	is_great_power = no
+        	OR = {
+        		ai = yes
+        		NOT = { war_score = -80 }
+        	}
+			is_free_or_tributary_trigger = yes
+			NOT = { war_score = -50 }
+			capital_scope = { 
+				region = anatolia_region
+				controlled_by = BYZ 
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.14.a
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		add_prestige = 50
+		TUR = {
+			white_peace = ROOT
+            every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = TUR
+					region = anatolia_region
+					is_core = TUR
+				}
+				add_core = BYZ
+				cede_province = BYZ
+			}
+            every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = TUR
+					region = anatolia_region
+					NOT = { is_core = TUR }
+				}
+				cede_province = BYZ
+	      	}
+		}
+		random_country = {
+			limit = {
+				alliance_with = ROOT
+				OR = {
+					is_great_power = yes
+					tag = MOS
+					tag = NOV
+					tag = RUS
+				}
+				capital_scope = {
+					OR = {
+						region = russia_region
+						region = crimea_region
+						region = ruthenia_region
+						region = ural_region
+					}
+				}
+			}
+			save_event_target_as = russian_friend
+		}
+		TUR = {
+			white_peace = event_target:russian_friend
+            every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = TUR
+					is_core = TUR
+					OR = {
+						region = russia_region
+						region = crimea_region
+						region = ruthenia_region
+						region = central_asia_region
+						region = ural_region
+						region = caucasia_region
+					}
+				}
+				add_core = event_target:russian_friend
+				cede_province = event_target:russian_friend
+			}
+            every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = TUR
+					NOT = { is_core = TUR }
+					OR = {
+						region = russia_region
+						region = crimea_region
+						region = ruthenia_region
+						region = central_asia_region
+						region = ural_region
+						region = caucasia_region
+					}
+				}
+				cede_province = event_target:russian_friend
+	      	}
+		}
+    	ai_chance = {
+			factor = 100
+		}
+	}
+	
+	option	= {  
+		name = EVHO_eastern_roman_ottoman_events.14.b
+                add_stability_or_adm_power = yes
+                ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 0
+				is_rival = TUR
+			}
+		}
+	}
+}
+
+country_event = {	## Ottoman AI declare on Austria around 1680 or so
+	id = EVHO_eastern_roman_ottoman_events.15
+	
+	hidden = yes
+
+	trigger = {
+		tag = TUR
+		is_great_power = yes
+		ai = yes
+		is_at_war = no
+		is_year = 1680
+		OR = {
+			owns = 153
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				region = carpathia_region
+				NOT = { area = wallachia_area }
+				NOT = { area = moldavia_area }
+			}
+		}
+		HAB = {
+			owns = 134
+			is_neighbor_of = TUR
+			NOT = { truce_with = TUR }
+			NOT = { army_size = TUR }
+		}
+	}
+	
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 20
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.12.a
+		134 = { add_claim = ROOT }
+		declare_war_with_cb = {
+			who = HAB
+			casus_belli = cb_conquest
+			war_goal_province = 134
+		}
+	}
+}
+
+# Wallachian Autonomy
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.16
+	title = EVHO_eastern_roman_ottoman_events.16.t
+	desc = EVHO_eastern_roman_ottoman_events.16.desc
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		NOT = { religion_group = christian }
+		NOT = { has_country_flag = has_had_WAL_as_eyalet_before_flag }
+		OR = {
+			has_dlc = "Domination"
+			NOT = { has_global_flag = TUR_had_WAL_as_fiefdom }
+		}
+		OR = {
+			NOT = { exists = WAL }
+			WAL = {
+				is_subject_of = ROOT
+				OR = {
+					is_subject_of_type = eyalet
+					is_subject_of_type = core_eyalet
+					is_subject_of_type = fiefdom_vassal
+				}
+			}
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+		is_free_or_tributary_trigger = yes
+		is_great_power = yes
+		NOT = {
+			any_province = {
+				area = wallachia_area
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.16.a
+		add_prestige = 25
+		set_global_flag = TUR_had_WAL_as_fiefdom
+		every_province = {
+			limit = {
+				AND = {
+					NOT = { country_or_non_sovereign_subject_holds = WAL }
+					country_or_non_sovereign_subject_holds = ROOT
+					area = wallachia_area
+				}
+			}
+			remove_core = owner
+			cede_province = WAL
+			add_core = WAL
+		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					country_or_non_sovereign_subject_holds = WAL
+					NOT = { area = wallachia_area }
+				}
+				remove_core = owner
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Domination" } }
+			ROOT = { 
+				create_subject = {
+					subject_type = fiefdom_vassal
+					subject = WAL
+				}
+			}
+		}
+		else = {
+			create_subject = { 
+				subject_type = core_eyalet
+				who = WAL
+			}
+			WAL = {
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				add_government_reform = eyalet_government
+				add_liberty_desire = -25
+				EVHO_diplo_core_eyalet_aesthetics_effect = yes
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# HIDDEN: returns provinces retaken by Ottomans to Wallachian vassal
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.17
+	title = EVHO_eastern_roman_ottoman_events.16.t
+	desc = EVHO_eastern_roman_ottoman_events.16.desc
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		OR = {
+			WAL = {
+				is_subject_of = ROOT
+				OR = {
+					is_subject_of_type = eyalet
+					is_subject_of_type = core_eyalet
+				}
+			}
+			AND = {
+				NOT = { has_dlc = "Domination" }
+				has_global_flag = TUR_had_WAL_as_fiefdom
+				WAL = {
+					is_subject_of_type = fiefdom_vassal
+					is_subject_of = ROOT
+				}
+			}
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+		any_province = {
+			NOT = { country_or_non_sovereign_subject_holds = WAL }
+			country_or_non_sovereign_subject_holds = ROOT
+			area = wallachia_area
+		}
+	}
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.16.a
+		every_province = {
+			limit = {
+				AND = {
+					NOT = { country_or_non_sovereign_subject_holds = WAL }
+					country_or_non_sovereign_subject_holds = ROOT
+					area = wallachia_area
+				}
+			}
+			remove_core = owner
+			cede_province = WAL
+			add_core = WAL
+		}
+	}
+}
+
+# Moldavian Autonomy
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.18
+	title = EVHO_eastern_roman_ottoman_events.18.t
+	desc = EVHO_eastern_roman_ottoman_events.18.desc
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		NOT = { religion_group = christian }
+		NOT = { has_country_flag = has_had_MOL_as_eyalet_before_flag }
+		OR = {
+			has_dlc = "Domination"
+			NOT = { has_global_flag = TUR_had_MOL_as_fiefdom }
+		}
+		OR = {
+			NOT = { exists = MOL }
+			MOL = {
+				is_subject_of = ROOT
+				OR = {
+					is_subject_of_type = eyalet
+					is_subject_of_type = core_eyalet
+					is_subject_of_type = fiefdom_vassal
+				}
+			}
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+		is_free_or_tributary_trigger = yes
+		is_great_power = yes
+		NOT = {
+			any_province = {
+				area = moldavia_area
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.18.a
+		add_prestige = 25
+		set_global_flag = TUR_had_MOL_as_fiefdom
+		every_province = {
+			limit = {
+				AND = {
+					NOT = { country_or_non_sovereign_subject_holds = MOL }
+					country_or_non_sovereign_subject_holds = ROOT
+					area = moldavia_area
+					NOT = { province_id = 1756 }
+				}
+			}
+			remove_core = owner
+			cede_province = MOL
+			add_core = MOL
+		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					country_or_non_sovereign_subject_holds = MOL
+					OR = {
+						province_id = 1756
+						NOT = { area = moldavia_area }
+					}
+				}
+				remove_core = owner
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Domination" } }
+			ROOT = { 
+				create_subject = {
+					subject_type = fiefdom_vassal
+					subject = MOL
+				}
+			}
+		}
+		else = {
+			create_subject = { 
+				subject_type = core_eyalet
+				who = MOL
+			}
+			MOL = {
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				add_government_reform = eyalet_government
+				add_liberty_desire = -25
+				EVHO_diplo_core_eyalet_aesthetics_effect = yes
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# HIDDEN: returns provinces retaken by Ottomans to Moldavian vassal
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.19
+	title = EVHO_eastern_roman_ottoman_events.18.t
+	desc = EVHO_eastern_roman_ottoman_events.18.desc
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		OR = {
+			MOL = {
+				is_subject_of = ROOT
+				OR = {
+					is_subject_of_type = eyalet
+					is_subject_of_type = core_eyalet
+				}
+			}
+			AND = {
+				NOT = { has_dlc = "Domination" }
+				has_global_flag = TUR_had_MOL_as_fiefdom
+				MOL = {
+					is_subject_of_type = fiefdom_vassal
+					is_subject_of = ROOT
+				}
+			}
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+		any_province = {
+			NOT = { country_or_non_sovereign_subject_holds = MOL }
+			country_or_non_sovereign_subject_holds = ROOT
+			area = moldavia_area
+			NOT = { province_id = 1756 }
+		}
+	}
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.18.a
+		every_province = {
+			limit = {
+				AND = {
+					NOT = { country_or_non_sovereign_subject_holds = MOL }
+					country_or_non_sovereign_subject_holds = ROOT
+					area = moldavia_area
+					NOT = { province_id = 1756 }
+				}
+			}
+			remove_core = owner
+			cede_province = MOL
+			add_core = MOL
+		}
+	}
+}
+
+# Transylvanian Autonomy
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.20
+	title = EVHO_eastern_roman_ottoman_events.20.t
+	desc = EVHO_eastern_roman_ottoman_events.20.desc
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		NOT = { religion_group = christian }
+		NOT = { has_country_flag = has_had_TRA_as_eyalet_before_flag }
+		OR = {
+			has_dlc = "Domination"
+			NOT = { has_global_flag = TUR_had_TRA_as_fiefdom }
+		}
+		OR = {
+			NOT = { exists = TRA }
+			TRA = {
+				is_subject_of = ROOT
+				OR = {
+					is_subject_of_type = eyalet
+					is_subject_of_type = core_eyalet
+					is_subject_of_type = fiefdom_vassal
+				}
+			}
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+		is_free_or_tributary_trigger = yes
+		is_great_power = yes
+		NOT = {
+			any_province = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				OR = {
+					area = transylvania_area
+					area = southern_transylvania_area
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.20.a
+		add_prestige = 25
+		set_global_flag = TUR_had_TRA_as_fiefdom
+		every_province = {
+			limit = {
+				AND = {
+					NOT = { country_or_non_sovereign_subject_holds = TRA }
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						area = transylvania_area
+						area = southern_transylvania_area
+					}
+				}
+			}
+			remove_core = owner
+			cede_province = TRA
+			add_core = TRA
+		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					country_or_non_sovereign_subject_holds = TRA
+					NOT = {
+						OR = {
+							area = transylvania_area
+							area = southern_transylvania_area
+						}
+					}
+				}
+				remove_core = owner
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		if = {
+			limit = { NOT = { has_dlc = "Domination" } }
+			ROOT = { 
+				create_subject = {
+					subject_type = fiefdom_vassal
+					subject = TRA
+				}
+			}
+		}
+		else = {
+			create_subject = { 
+				subject_type = core_eyalet
+				who = TRA
+			}
+			TRA = {
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				add_government_reform = eyalet_government
+				add_liberty_desire = -25
+				eyalet_effect = {
+					tag = EY2
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# HIDDEN: returns provinces retaken by Ottomans to Transylvanian vassal
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.21
+	title = EVHO_eastern_roman_ottoman_events.20.t
+	desc = EVHO_eastern_roman_ottoman_events.20.desc
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		OR = {
+			TRA = {
+				is_subject_of = ROOT
+				OR = {
+					is_subject_of_type = eyalet
+					is_subject_of_type = core_eyalet
+				}
+			}
+			AND = {
+				NOT = { has_dlc = "Domination" }
+				has_global_flag = TUR_had_TRA_as_fiefdom
+				TRA = {
+					is_subject_of_type = fiefdom_vassal
+					is_subject_of = ROOT
+				}
+			}
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+		any_province = {
+			NOT = { country_or_non_sovereign_subject_holds = TRA }
+			country_or_non_sovereign_subject_holds = ROOT
+			OR = {
+				area = transylvania_area
+				area = southern_transylvania_area
+			}
+		}
+	}
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.20.a
+		every_province = {
+			limit = {
+				AND = {
+					NOT = { country_or_non_sovereign_subject_holds = TRA }
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						area = transylvania_area
+						area = southern_transylvania_area
+					}
+				}
+			}
+			remove_core = owner
+			cede_province = TRA
+			add_core = TRA
+		}
+	}
+}
+
+country_event = {	## Automatic Event to tell if the Ottomans have ever had certain tags as Eyalets already
+	id = EVHO_eastern_roman_ottoman_events.22
+	
+	hidden = yes
+
+	trigger = {
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+		OR = {
+			AND = {
+				NOT = { has_country_flag = has_had_WAL_as_eyalet_before_flag }
+				WAL = {
+					is_subject_of = ROOT
+					OR = {
+						is_subject_of_type = eyalet
+						is_subject_of_type = core_eyalet
+						is_subject_of_type = fiefdom_vassal
+					}
+				}
+			}
+			AND = {
+				NOT = { has_country_flag = has_had_MOL_as_eyalet_before_flag }
+				MOL = {
+					is_subject_of = ROOT
+					OR = {
+						is_subject_of_type = eyalet
+						is_subject_of_type = core_eyalet
+						is_subject_of_type = fiefdom_vassal
+					}
+				}
+			}
+			AND = {
+				NOT = { has_country_flag = has_had_TRA_as_eyalet_before_flag }
+				TRA = {
+					is_subject_of = ROOT
+					OR = {
+						is_subject_of_type = eyalet
+						is_subject_of_type = core_eyalet
+						is_subject_of_type = fiefdom_vassal
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.12.a
+		if = {
+			limit = {
+				NOT = { has_country_flag = has_had_WAL_as_eyalet_before_flag }
+				WAL = {
+					is_subject_of = ROOT
+					OR = {
+						is_subject_of_type = eyalet
+						is_subject_of_type = core_eyalet
+						is_subject_of_type = fiefdom_vassal
+					}
+				}
+			}
+			set_country_flag = has_had_WAL_as_eyalet_before_flag
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = has_had_MOL_as_eyalet_before_flag }
+				MOL = {
+					is_subject_of = ROOT
+					OR = {
+						is_subject_of_type = eyalet
+						is_subject_of_type = core_eyalet
+						is_subject_of_type = fiefdom_vassal
+					}
+				}
+			}
+			set_country_flag = has_had_MOL_as_eyalet_before_flag
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = has_had_TRA_as_eyalet_before_flag }
+				TRA = {
+					is_subject_of = ROOT
+					OR = {
+						is_subject_of_type = eyalet
+						is_subject_of_type = core_eyalet
+						is_subject_of_type = fiefdom_vassal
+					}
+				}
+			}
+			set_country_flag = has_had_TRA_as_eyalet_before_flag
+		}
+	}
+}
+
+# Italian Holdings Abandoned
+
+country_event = {
+	id = EVHO_eastern_roman_ottoman_events.23
+	title = EVHO_eastern_roman_ottoman_events.23.t
+	desc = EVHO_eastern_roman_ottoman_events.23.desc
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_major = yes
+		is_year = 1460
+		NOT = { is_year = 1510 }
+		NOT = { has_country_flag = already_abandoned_italian_holdings_once }
+		OR = { 
+			tag = BYZ
+			tag = LAE
+			tag = TUR
+			tag = MAM
+			tag = RUM
+		}
+		any_neighbor_country = { 
+			is_major = yes
+			NOT = { capital_scope = { region = italy_region } } 
+		}
+		num_of_owned_provinces_with = {
+			region = italy_region
+			value = 1
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				region = south_german_region
+				value = 1
+			}
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				region = france_region
+				value = 1
+			}
+		}
+		any_known_country = {
+			NOT = { tag = ROOT }
+			capital_scope = { region = italy_region }
+			culture_group = latin
+			OR = {
+				is_subject_of = ROOT
+				is_free_or_tributary_trigger = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 30
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.23.a
+        add_stability_or_adm_power = yes
+		every_country = {
+			limit = { is_subject_of = ROOT capital_scope = { region = italy_region } }
+			grant_independence = yes
+		}
+		if = {
+			limit = { exists = ITA }
+			every_owned_province = {
+				limit = { region = italy_region }
+				cede_province = ITA
+			}
+		}
+		else = {
+			if = {
+				limit = { any_owned_province = { evho_province_is_in_historical_two_sicilies_zone = yes } }
+				if = {
+					limit = { exists = TTS }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_two_sicilies_zone = yes }
+						cede_province = TTS
+					}
+				}
+				else_if = {
+					limit = { exists = NAP }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_two_sicilies_zone = yes }
+						cede_province = NAP
+					}
+				}
+				else = {
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							capital_scope = { region = italy_region }
+							culture_group = latin
+							OR = {
+								is_subject_of = ROOT
+								is_free_or_tributary_trigger = yes
+							}
+						}
+						ROOT = {
+							every_owned_province = {
+								limit = { evho_province_is_in_historical_two_sicilies_zone = yes }
+								cede_province = PREV
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_province = { evho_province_is_in_historical_peidmont_sardinia_zone_EARLY = yes } }
+				if = {
+					limit = { exists = SPI }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_peidmont_sardinia_zone_EARLY = yes }
+						cede_province = SPI
+					}
+				}
+				else_if = {
+					limit = { exists = SAV }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_peidmont_sardinia_zone_EARLY = yes }
+						cede_province = SAV
+					}
+				}
+				else = {
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							capital_scope = { region = italy_region }
+							culture_group = latin
+							OR = {
+								is_subject_of = ROOT
+								is_free_or_tributary_trigger = yes
+							}
+						}
+						ROOT = {
+							every_owned_province = {
+								limit = { evho_province_is_in_historical_peidmont_sardinia_zone_EARLY = yes }
+								cede_province = PREV
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_province = { evho_province_is_in_historical_venice_zone_EARLY = yes } }
+				if = {
+					limit = { exists = VEN }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_venice_zone_EARLY = yes }
+						cede_province = VEN
+					}
+				}
+				else_if = {
+					limit = { exists = HAB }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_venice_zone_EARLY = yes }
+						cede_province = HAB
+					}
+				}
+				else_if = {
+					limit = { exists = STY }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_venice_zone_EARLY = yes }
+						cede_province = STY
+					}
+				}
+				else = {
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							capital_scope = { region = italy_region }
+							culture_group = latin
+							OR = {
+								is_subject_of = ROOT
+								is_free_or_tributary_trigger = yes
+							}
+						}
+						ROOT = {
+							every_owned_province = {
+								limit = { evho_province_is_in_historical_venice_zone_EARLY = yes }
+								cede_province = PREV
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_province = { evho_province_is_in_historical_two_sicilies_zone = yes } }
+				if = {
+					limit = { exists = TTS }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_two_sicilies_zone = yes }
+						cede_province = TTS
+					}
+				}
+				else_if = {
+					limit = { exists = NAP }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_two_sicilies_zone = yes }
+						cede_province = NAP
+					}
+				}
+				else = {
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							capital_scope = { region = italy_region }
+							culture_group = latin
+							OR = {
+								is_subject_of = ROOT
+								is_free_or_tributary_trigger = yes
+							}
+						}
+						ROOT = {
+							every_owned_province = {
+								limit = { evho_province_is_in_historical_two_sicilies_zone = yes }
+								cede_province = PREV
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_province = { area = lombardy_area } }
+				if = {
+					limit = { exists = MLO }
+					every_owned_province = {
+						limit = { area = lombardy_area }
+						cede_province = MLO
+					}
+				}
+				else_if = {
+					limit = { exists = SPI }
+					every_owned_province = {
+						limit = { area = lombardy_area }
+						cede_province = SPI
+					}
+				}
+				else_if = {
+					limit = { exists = SAV }
+					every_owned_province = {
+						limit = { area = lombardy_area }
+						cede_province = SAV
+					}
+				}
+				else_if = {
+					limit = { exists = VEN }
+					every_owned_province = {
+						limit = { area = lombardy_area }
+						cede_province = VEN
+					}
+				}
+				else_if = {
+					limit = { exists = HAB }
+					every_owned_province = {
+						limit = { area = lombardy_area }
+						cede_province = HAB
+					}
+				}
+				else = {
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							capital_scope = { region = italy_region }
+							culture_group = latin
+							OR = {
+								is_subject_of = ROOT
+								is_free_or_tributary_trigger = yes
+							}
+						}
+						ROOT = {
+							every_owned_province = {
+								limit = { area = lombardy_area }
+								cede_province = PREV
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_province = { evho_province_is_in_historical_tuscany_zone = yes } }
+				if = {
+					limit = { exists = TUS }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_tuscany_zone = yes }
+						cede_province = TUS
+					}
+				}
+				else_if = {
+					limit = { exists = LAN }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_tuscany_zone = yes }
+						cede_province = LAN
+					}
+				}
+				else_if = {
+					limit = { exists = SPA }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_tuscany_zone = yes }
+						cede_province = SPA
+					}
+				}
+				else = {
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							capital_scope = { region = italy_region }
+							culture_group = latin
+							OR = {
+								is_subject_of = ROOT
+								is_free_or_tributary_trigger = yes
+							}
+						}
+						ROOT = {
+							every_owned_province = {
+								limit = { evho_province_is_in_historical_tuscany_zone = yes }
+								cede_province = PREV
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_province = { evho_province_is_in_historical_papacy_zone = yes } }
+				if = {
+					limit = { exists = PAP }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_papacy_zone = yes }
+						cede_province = PAP
+					}
+				}
+				else_if = {
+					limit = { exists = UMB }
+					every_owned_province = {
+						limit = { evho_province_is_in_historical_papacy_zone = yes }
+						cede_province = UMB
+					}
+				}
+				else = {
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							capital_scope = { region = italy_region }
+							culture_group = latin
+							OR = {
+								is_subject_of = ROOT
+								is_free_or_tributary_trigger = yes
+							}
+						}
+						ROOT = {
+							every_owned_province = {
+								limit = { evho_province_is_in_historical_papacy_zone = yes }
+								cede_province = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			every_province = {
+				limit = { region = italy_region }
+				remove_core = ROOT
+				remove_claim = ROOT
+			}
+		}
+		ai_chance = {
+			factor = 9
+		}
+	}
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.23.b
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		add_prestige = 15
+		
+		custom_tooltip = evho_gain_65_ae_italy_tt
+		hidden_effect = {
+			every_country = {
+				limit = { capital_scope = { region = italy_region } }
+				add_aggressive_expansion = {
+					who = ROOT 
+					value = 65
+					apply_calc = no 
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+		}
+	}
+}
+
+country_event = {	## Byzantines just has to die man
+	id = EVHO_eastern_roman_ottoman_events.24
+	
+	hidden = yes
+
+	trigger = {
+		tag = TUR
+		is_great_power = yes
+		ai = yes
+		is_at_war = no
+		is_year = 1453
+		BYZ = { 
+			ai = yes  
+			NOT = { truce_with = TUR }
+			NOT = { army_size = TUR }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 10
+	}
+
+	option = {
+		name = EVHO_eastern_roman_ottoman_events.24.a
+		declare_war_with_cb = {
+		    who = BYZ
+		    casus_belli = cb_annex
+		}
+	}
+}

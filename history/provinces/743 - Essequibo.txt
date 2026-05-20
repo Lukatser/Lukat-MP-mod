@@ -5,7 +5,7 @@ discovered_by = south_american
 religion = animism
 capital = "Essequibo"
 trade_goods = sugar
-
+is_city = yes
 hre = no
 base_tax = 1 
 base_production = 1
@@ -35,3 +35,10 @@ native_hostileness = 3
 	culture = english
 	remove_core = NED
 } # The English are taking over
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

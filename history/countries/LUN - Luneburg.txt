@@ -5,6 +5,7 @@ technology_group = western
 primary_culture = lower_saxon
 religion = catholic
 capital = 53 # Lüneburg
+historical_friend = BRU
 fixed_capital = 53 # Cannot move capital away from this province & no power cost to move to it
 
 # Lüneburg (Dukes of Braunschweig-Lüneburg)

@@ -1,0 +1,244 @@
+#When adding effects directly in on_actions always consider if it would be best to do so through a scripted effect. on_actions with a lot of script in them are harder to get an overview of.
+
+# country
+# root = losing country, from = location
+on_siege_lost_country = {
+	if = {
+		limit = {
+			tag = PAP
+			NOT = { has_global_flag = 1527_sack_of_rome_happened }
+			OR = {
+				has_country_flag = PAP_about_to_get_smacked
+				AND = {
+					is_year = 1527
+					any_enemy_country = { is_great_power = yes }
+				}
+			}
+			FROM = {
+				is_capital = yes
+				province_id = 118
+				owner = { tag = PAP }
+			}
+		}
+		country_event = { id = EVHO_italian_events.12 }	#Sack of Rome
+	}
+}
+
+# #Unit Scope OnAction for Battle Lost
+on_battle_lost_unit = {
+	if = {
+        limit = {
+        	is_year = 1490
+            unit_owner = {  tag = MAM }
+            OR = {
+            	NOT = { exists = SYR }
+            	SYR = { is_subject_of = MAM }
+            	SYR = { is_at_war = no }
+            }
+			enemy_unit = {
+				unit_owner = {
+        			war_with = MAM
+					OR = {
+						is_neighbor_of = MAM
+						any_subject_country = {
+							is_neighbor_of = MAM
+						}
+						MAM = {
+							any_subject_country = {
+								is_neighbor_of = PREV
+							}
+						}
+						OVERLORD = {
+							OR = {
+								is_neighbor_of = MAM
+								any_subject_country = {
+									is_neighbor_of = MAM
+								}
+								MAM = {
+									any_subject_country = {
+										is_neighbor_of = PREV
+									}
+								}
+							}
+						}
+					}
+					OR = {
+						AND = {
+							is_great_power = yes
+							OR = {
+								tag = TUR
+								tag = BYZ
+								tag = RUM
+								tag = ROM
+							}
+						}
+						OVERLORD = {
+							is_great_power = yes
+							OR = {
+								tag = TUR
+								tag = BYZ
+								tag = RUM
+								tag = ROM
+							}
+						}
+					}
+				}
+			}
+        }
+        random_list = {
+            50 = {
+            	random_country = {
+            		limit = {
+            			war_with = MAM
+						OR = {
+							is_neighbor_of = MAM
+							any_subject_country = {
+								is_neighbor_of = MAM
+							}
+							MAM = {
+								any_subject_country = {
+									is_neighbor_of = PREV
+								}
+							}
+							OVERLORD = {
+								OR = {
+									is_neighbor_of = MAM
+									any_subject_country = {
+										is_neighbor_of = MAM
+									}
+									MAM = {
+										any_subject_country = {
+											is_neighbor_of = PREV
+										}
+									}
+								}
+							}
+						}
+						OR = {
+							AND = {
+								is_great_power = yes
+								OR = {
+									tag = TUR
+									tag = BYZ
+									tag = RUM
+									tag = ROM
+								}
+							}
+							OVERLORD = {
+								is_great_power = yes
+								OR = {
+									tag = TUR
+									tag = BYZ
+									tag = RUM
+									tag = ROM
+								}
+							}
+						}
+            		}
+                    country_event = { id = ottoman_mamluk_war_events.1 }
+                }
+            }
+            50 = {}
+        }
+    }
+}
+
+on_new_age = {
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = rise_of_the_ottomans
+				has_country_modifier = zenith_of_the_ottomans
+				has_country_modifier = twilight_of_the_ottomans
+				has_country_modifier = decline_of_the_ottomans
+			}
+		}
+		remove_country_modifier = rise_of_the_ottomans
+		remove_country_modifier = zenith_of_the_ottomans
+		remove_country_modifier = twilight_of_the_ottomans
+		remove_country_modifier = decline_of_the_ottomans
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = EVHO_dominion_rise_of_the_ottomans
+				has_country_modifier = EVHO_dominion_zenith_of_the_ottomans
+				has_country_modifier = EVHO_dominion_twilight_of_the_ottomans
+				has_country_modifier = EVHO_dominion_decline_of_the_ottomans
+			}
+		}
+		remove_country_modifier = EVHO_dominion_rise_of_the_ottomans
+		remove_country_modifier = EVHO_dominion_zenith_of_the_ottomans
+		remove_country_modifier = EVHO_dominion_twilight_of_the_ottomans
+		remove_country_modifier = EVHO_dominion_decline_of_the_ottomans
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_discovery
+		}
+		add_country_modifier = {
+			name = EVHO_dominion_rise_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
+		}
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_reformation
+		}
+		add_country_modifier = {
+			name = EVHO_dominion_zenith_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
+		}
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_absolutism
+		}
+		add_country_modifier = {
+			name = EVHO_dominion_stagnation_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
+		}
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_enlightenment
+		}
+		add_country_modifier = {
+			name = EVHO_dominion_twilight_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
+		}
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_revolutions
+		}
+		add_country_modifier = {
+			name = EVHO_dominion_decline_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
+		}
+	}
+}
+
+on_startup = {
+	events = {
+		EVHO_events_technical.115 ## subject colour updater
+	}
+}
+
+# country random events
+on_monthly_pulse = {
+	events = {
+		EVHO_events_technical.115 ## subject colour updater
+		EVHO_events_technical.116 ## subject colour updater
+	}
+}

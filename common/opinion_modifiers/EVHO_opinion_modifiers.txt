@@ -1,0 +1,142 @@
+cossack_autonomy_opinion = {
+	opinion = 25
+}
+
+imperial_stability_opinion = {
+	opinion = 100
+	yearly_decay = 10
+}
+
+popular_emperor_opinion = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+defied_the_electorate = {
+	opinion = -150
+	yearly_decay = 5
+}
+
+no_longer_friends = {
+	opinion = -200
+	yearly_decay = 1
+}
+
+new_friends = {
+	opinion = 200
+	yearly_decay = 1
+}
+
+boston_massacre_opinion = {
+	opinion = -100
+	yearly_decay = 2
+}
+
+boston_massacre_others_opinion = {
+	opinion = -25
+	yearly_decay = 2
+}
+
+boston_tea_party_opinion = {
+	opinion = -50
+	yearly_decay = 2
+}
+
+intolerable_acts_opinion = {
+	opinion = -25
+	yearly_decay = 0.5
+}
+
+intolerable_acts_others_opinion = {
+	opinion = -15
+	yearly_decay = 1
+}
+
+chmielnicki_marriage = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+perejaslav_failed = {
+	opinion = -75
+	yearly_decay = 1
+}
+
+established_cossack_autonomy = {
+	opinion = 50
+	yearly_decay = 1
+}
+
+declined_establish_cossack_autonomy = {
+	opinion = -50
+	yearly_decay = 1
+}
+
+cancelled_cossack_autonomy = {
+	opinion = -200
+	yearly_decay = 5
+	min = -200
+}
+
+partition_of_poland_present = {
+	opinion = -75
+	yearly_decay = 10
+}
+
+partition_of_poland_absent = {
+	opinion = -50
+	yearly_decay = 5
+}
+
+partition_of_poland_failed = {
+	opinion = -50
+	yearly_decay = 10
+}
+
+union_with_england = {
+	opinion = 150
+}
+
+no_union_with_england = {
+	opinion = -75
+}
+
+no_charles = {
+	opinion = -25
+}
+
+fear_of_empire = {
+	opinion = -70
+	yearly_decay = 0.5 
+}
+imposed_ruler = {
+	opinion = -15
+	yearly_decay = 1
+}
+tur_allowed_autonomy = {
+	opinion = 100
+	yearly_decay = 1
+} 
+aut_trade_company_opinion = {
+	opinion = 50
+}
+opinion_india_act_good = {
+	opinion = 40
+	yearly_decay = 2
+}
+opinion_india_act_bad = {
+	opinion = -20
+	yearly_decay = 2
+}
+
+opinion_helped_eic_with_debt = {
+	opinion = 25
+	yearly_decay = 1
+}
+opinion_didnt_helped_eic_with_debt = {
+	opinion = -30
+	yearly_decay = 1
+}
+princely_state_opinion = {
+	opinion = 25
+}

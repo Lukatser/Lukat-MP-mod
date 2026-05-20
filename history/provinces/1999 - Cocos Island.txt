@@ -14,5 +14,5 @@ native_hostileness = 0
 	discovered_by = NED	# William Keeling
 }
 1814.1.1 = {
-	discovered_by = GBR	# John Clunies-Ross
+	discovered_by = UNK
 }

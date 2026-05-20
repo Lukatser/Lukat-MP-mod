@@ -1,0 +1,2814 @@
+namespace = ev_religion
+
+#Irish Religious Difficulties
+country_event = {
+	id = ev_religion.1
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	trigger = {
+		NOT = { has_country_flag = religion_difficult_ireland }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { evho_province_is_in_ireland = yes } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			evho_province_is_in_ireland = yes
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			NOT = { 
+				AND = {
+					religion = orthodox
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+		 	}
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+	
+	immediate = {
+		set_country_flag = religion_difficult_ireland
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = local_religious_difficulties }
+				NOT = { religion = ROOT }
+				evho_province_is_in_ireland = yes
+				NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+				NOT = { 
+					AND = {
+						religion = orthodox
+						has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+					}
+			 	}
+				OR = {
+					NOT = { culture = ROOT }
+					ROOT = { is_free_or_tributary_trigger = no }
+				}
+			}
+			if = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			if = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+			if = {
+				limit = { has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties }
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			}
+			add_province_modifier = {
+				name = local_religious_difficulties
+				duration = -1
+			}
+		}
+	}
+}
+
+#Irish Religious Difficulties (cont)
+country_event = {
+	id = ev_religion.2
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = religion_difficult_ireland
+			has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { evho_province_is_in_ireland = yes } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			evho_province_is_in_ireland = yes
+			NOT = { has_province_modifier = local_religious_difficulties }
+			NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+			NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			NOT = { 
+				AND = {
+					religion = orthodox
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+		 	}
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+					NOT = { religion = ROOT }
+					evho_province_is_in_ireland = yes
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_nobles_evho_placated_religious_seperatists_mod
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+					NOT = { religion = ROOT }
+					evho_province_is_in_ireland = yes
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_church_evho_right_to_inquisition_mod
+					duration = -1
+				}
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = local_religious_difficulties }
+					NOT = { religion = ROOT }
+					evho_province_is_in_ireland = yes
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = local_religious_difficulties
+					duration = -1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Irish Religious Difficulties (province removal)
+country_event = {
+	id = ev_religion.3
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		any_province = {
+			owned_by = ROOT
+			evho_province_is_in_ireland = yes
+			OR = {
+				has_province_modifier = local_religious_difficulties
+				has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		OR = {
+			capital_scope = { evho_province_is_in_ireland = yes }
+			any_province = {
+				owned_by = ROOT
+				evho_province_is_in_ireland = yes
+				OR = {
+					has_province_modifier = local_religious_difficulties
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+				}
+				OR = {
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					AND = {
+						religion = orthodox
+						has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+					}
+					AND = {
+						culture = ROOT
+						ROOT = { is_free_or_tributary_trigger = yes }
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+						has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+						has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		if = {
+			limit = { capital_scope = { evho_province_is_in_ireland = yes } }
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					evho_province_is_in_ireland = yes
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					evho_province_is_in_ireland = yes
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					evho_province_is_in_ireland = yes
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					evho_province_is_in_ireland = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					evho_province_is_in_ireland = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					evho_province_is_in_ireland = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Irish Religious Difficulties (tag removal)
+country_event = {
+	id = ev_religion.4
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = religion_difficult_ireland
+		NOT = {
+			any_province = {
+				owned_by = ROOT
+				evho_province_is_in_ireland = yes
+				has_province_modifier = local_religious_difficulties
+			}
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = religion_difficult_ireland
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+
+
+
+
+
+#Central Asian Religious Difficulties
+country_event = {
+	id = ev_religion.5
+	title = "ev_religion.5.t"
+	desc = "ev_religion.5.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	trigger = {
+		NOT = { religion_group = muslim }
+		NOT = { has_country_flag = religion_difficult_cent_asia }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { evho_province_is_in_historical_central_asia = yes } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			evho_province_is_in_historical_central_asia = yes
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			NOT = { 
+				AND = {
+					religion = orthodox
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+		 	}
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = religion_difficult_cent_asia
+	}
+
+	option = {
+		name = "ev_religion.5.a"
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = local_religious_difficulties }
+				NOT = { religion = ROOT }
+				evho_province_is_in_historical_central_asia = yes
+				NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+				NOT = { 
+					AND = {
+						religion = orthodox
+						has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+					}
+			 	}
+				OR = {
+					NOT = { culture = ROOT }
+					ROOT = { is_free_or_tributary_trigger = no }
+				}
+			}
+			if = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			if = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+			if = {
+				limit = { has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties }
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			}
+			add_province_modifier = {
+				name = local_religious_difficulties
+				duration = -1
+			}
+		}
+	}
+}
+
+#Central Asian Religious Difficulties (cont)
+country_event = {
+	id = ev_religion.6
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		NOT = { religion_group = muslim }
+		OR = {
+			has_country_flag = religion_difficult_cent_asia
+			has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { evho_province_is_in_historical_central_asia = yes } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			evho_province_is_in_historical_central_asia = yes
+			NOT = { has_province_modifier = local_religious_difficulties }
+			NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+			NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			NOT = { 
+				AND = {
+					religion = orthodox
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+		 	}
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_central_asia = yes
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_nobles_evho_placated_religious_seperatists_mod
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_central_asia = yes
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_church_evho_right_to_inquisition_mod
+					duration = -1
+				}
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = local_religious_difficulties }
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_central_asia = yes
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = local_religious_difficulties
+					duration = -1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Central Asian Religious Difficulties (province removal)
+country_event = {
+	id = ev_religion.7
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		any_province = {
+			owned_by = ROOT
+			evho_province_is_in_historical_central_asia = yes
+			OR = {
+				has_province_modifier = local_religious_difficulties
+				has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		OR = {
+			religion_group = muslim
+			capital_scope = { evho_province_is_in_historical_central_asia = yes }
+			any_province = {
+				owned_by = ROOT
+				evho_province_is_in_historical_central_asia = yes
+				OR = {
+					has_province_modifier = local_religious_difficulties
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+				}
+				OR = {
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					AND = {
+						religion = orthodox
+						has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+					}
+					AND = {
+						culture = ROOT
+						ROOT = { is_free_or_tributary_trigger = yes }
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+						has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+						has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					religion_group = muslim
+					capital_scope = { evho_province_is_in_historical_central_asia = yes }
+				}
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					evho_province_is_in_historical_central_asia = yes
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					evho_province_is_in_historical_central_asia = yes
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					evho_province_is_in_historical_central_asia = yes
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					evho_province_is_in_historical_central_asia = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					evho_province_is_in_historical_central_asia = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					evho_province_is_in_historical_central_asia = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Central Asian Religious Difficulties (tag removal)
+country_event = {
+	id = ev_religion.8
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = religion_difficult_cent_asia
+		NOT = {
+			any_province = {
+				owned_by = ROOT
+				evho_province_is_in_historical_central_asia = yes
+				has_province_modifier = local_religious_difficulties
+			}
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = religion_difficult_cent_asia
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+
+
+
+
+
+#Baltic Religious Difficulties
+country_event = {
+	id = ev_religion.9
+	title = "ev_religion.9.t"
+	desc = "ev_religion.9.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	trigger = {
+		NOT = { has_country_flag = religion_difficult_baltics }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+		OR = {
+			NOT = { religion_group = christian }
+			religion = orthodox
+			religion = coptic
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { region = baltic_region } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			region = baltic_region
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = religion_difficult_baltics
+	}
+
+	option = {
+		name = "ev_religion.9.a"
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = local_religious_difficulties }
+				NOT = { religion = ROOT }
+				region = baltic_region
+				NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+				OR = {
+					NOT = { culture = ROOT }
+					ROOT = { is_free_or_tributary_trigger = no }
+				}
+			}
+			if = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			if = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+			if = {
+				limit = { has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties }
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			}
+			add_province_modifier = {
+				name = local_religious_difficulties
+				duration = -1
+			}
+		}
+	}
+}
+
+#Baltic Religious Difficulties (cont)
+country_event = {
+	id = ev_religion.10
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = religion_difficult_baltics
+			has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag
+			has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { region = baltic_region } }
+		}
+		OR = {
+			NOT = { religion_group = christian }
+			religion = orthodox
+			religion = coptic
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			region = baltic_region
+			NOT = { has_province_modifier = local_religious_difficulties }
+			NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = baltic_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_nobles_evho_placated_religious_seperatists_mod
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = baltic_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_church_evho_right_to_inquisition_mod
+					duration = -1
+				}
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = local_religious_difficulties }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = baltic_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = local_religious_difficulties
+					duration = -1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Baltic Religious Difficulties (province removal)
+country_event = {
+	id = ev_religion.11
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		any_province = {
+			owned_by = ROOT
+			region = baltic_region
+			OR = {
+				has_province_modifier = local_religious_difficulties
+				has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		OR = {
+			capital_scope = { region = baltic_region }
+			AND = {
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = coptic }
+			}
+			any_province = {
+				owned_by = ROOT
+				region = baltic_region
+				OR = {
+					has_province_modifier = local_religious_difficulties
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+				}
+				OR = {
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					AND = {
+						culture = ROOT
+						ROOT = { is_free_or_tributary_trigger = yes }
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+						has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+						has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					capital_scope = { region = baltic_region }
+					AND = {
+						religion_group = christian
+						NOT = { religion = orthodox }
+						NOT = { religion = coptic }
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					region = baltic_region
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					region = baltic_region
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					region = baltic_region
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					region = baltic_region
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					region = baltic_region
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					region = baltic_region
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Baltic Religious Difficulties (tag removal)
+country_event = {
+	id = ev_religion.12
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = religion_difficult_baltics
+		NOT = {
+			any_province = {
+				owned_by = ROOT
+				region = baltic_region
+				has_province_modifier = local_religious_difficulties
+			}
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = religion_difficult_baltics
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+
+
+
+
+
+country_event = {	## Trigger if Poland isn't Catholic
+	id = ev_religion.13
+	
+	hidden = yes
+
+	trigger = {
+		NOT = { religion = catholic }
+		OR = {
+			tag = PLC
+			AND = {
+				tag = POL
+				PLC = { exists = no }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = ev_religion.13.a
+		set_global_flag = poland_is_not_catholic
+	}
+}
+
+
+
+
+
+
+#Polish Religious Difficulties
+country_event = {
+	id = ev_religion.14
+	title = "ev_religion.14.t"
+	desc = "ev_religion.14.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	trigger = {
+		NOT = { has_country_flag = religion_difficult_poland }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+		if = {
+			limit = { NOT = { has_global_flag = poland_is_not_catholic } }
+			NOT = { religion = catholic }
+		}
+		else = {
+			OR = {
+				NOT = { religion_group = christian }
+				religion = orthodox
+				religion = coptic
+			}
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { region = poland_region } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			region = poland_region
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = religion_difficult_poland
+	}
+
+	option = {
+		name = "ev_religion.14.a"
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = local_religious_difficulties }
+				NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+				NOT = { religion = ROOT }
+				region = poland_region
+				OR = {
+					NOT = { culture = ROOT }
+					ROOT = { is_free_or_tributary_trigger = no }
+				}
+			}
+			if = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			if = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+			if = {
+				limit = { has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties }
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			}
+			add_province_modifier = {
+				name = local_religious_difficulties
+				duration = -1
+			}
+		}
+	}
+}
+
+#Polish Religious Difficulties (cont)
+country_event = {
+	id = ev_religion.15
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = religion_difficult_poland
+			has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag
+			has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { region = poland_region } }
+		}
+		if = {
+			limit = { NOT = { has_global_flag = poland_is_not_catholic } }
+			NOT = { religion = catholic }
+		}
+		else = {
+			NOT = {
+				OR = {
+					NOT = { religion_group = christian }
+					religion = orthodox
+					religion = coptic
+				}
+			}
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			region = poland_region
+			NOT = { has_province_modifier = local_religious_difficulties }
+			NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+			NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = poland_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_nobles_evho_placated_religious_seperatists_mod
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = poland_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_church_evho_right_to_inquisition_mod
+					duration = -1
+				}
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = local_religious_difficulties }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = poland_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = local_religious_difficulties
+					duration = -1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Polish Religious Difficulties (province removal)
+country_event = {
+	id = ev_religion.16
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		any_province = {
+			owned_by = ROOT
+			region = poland_region
+			OR = {
+				has_province_modifier = local_religious_difficulties
+				has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		OR = {
+			capital_scope = { region = poland_region }
+			AND = {
+				NOT = { has_global_flag = poland_is_not_catholic }
+				religion = catholic
+			}
+			AND = {
+				has_global_flag = poland_is_not_catholic
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = coptic }
+			}
+			any_province = {
+				owned_by = ROOT
+				region = poland_region
+				OR = {
+					has_province_modifier = local_religious_difficulties
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+				}
+				OR = {
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					AND = {
+						culture = ROOT
+						ROOT = { is_free_or_tributary_trigger = yes }
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+						has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+						has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					capital_scope = { region = poland_region  }
+					AND = {
+						NOT = { has_global_flag = poland_is_not_catholic }
+						religion = catholic
+					}
+					AND = {
+						has_global_flag = poland_is_not_catholic
+						religion_group = christian
+						NOT = { religion = orthodox }
+						NOT = { religion = coptic }
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					region = poland_region
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					region = poland_region
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					region = poland_region
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					region = poland_region 
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					region = poland_region 
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					region = poland_region 
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Polish Religious Difficulties (tag removal)
+country_event = {
+	id = ev_religion.17
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = religion_difficult_poland
+		NOT = {
+			any_province = {
+				owned_by = ROOT
+				region = poland_region
+				has_province_modifier = local_religious_difficulties
+			}
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = religion_difficult_poland
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+
+
+
+
+
+#Balkan Religious Difficulties
+country_event = {
+	id = ev_religion.18
+	title = "ev_religion.18.t"
+	desc = "ev_religion.18.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	trigger = {
+		NOT = { has_country_flag = religion_difficult_balkans }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { evho_province_is_in_historical_greater_balkans_zone = yes } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			evho_province_is_in_historical_greater_balkans_zone = yes
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			NOT = { 
+				AND = {
+					religion = orthodox
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+		 	}
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = religion_difficult_balkans
+	}
+
+	option = {
+		name = "ev_religion.18.a"
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = local_religious_difficulties_lesser }
+				NOT = { religion = ROOT }
+				evho_province_is_in_historical_greater_balkans_zone = yes
+				NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+				NOT = { 
+					AND = {
+						religion = orthodox
+						has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+					}
+			 	}
+				OR = {
+					NOT = { culture = ROOT }
+					ROOT = { is_free_or_tributary_trigger = no }
+				}
+			}
+			if = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			if = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+			if = {
+				limit = { has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties }
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			}
+			add_province_modifier = {
+				name = local_religious_difficulties_lesser
+				duration = -1
+			}
+		}
+	}
+}
+
+#Balkan Religious Difficulties (cont)
+country_event = {
+	id = ev_religion.19
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = religion_difficult_balkans
+			has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag
+			has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { evho_province_is_in_historical_greater_balkans_zone = yes } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			evho_province_is_in_historical_greater_balkans_zone = yes
+			NOT = { has_province_modifier = local_religious_difficulties_lesser }
+			NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+			NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			NOT = { 
+				AND = {
+					religion = orthodox
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+		 	}
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_greater_balkans_zone = yes
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties_lesser
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_nobles_evho_placated_religious_seperatists_mod
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_greater_balkans_zone = yes
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties_lesser
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_church_evho_right_to_inquisition_mod
+					duration = -1
+				}
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = local_religious_difficulties_lesser }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { 
+						AND = {
+							religion = orthodox
+							has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						}
+				 	}
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_greater_balkans_zone = yes
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = local_religious_difficulties_lesser
+					duration = -1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Balkan Religious Difficulties (province removal)
+country_event = {
+	id = ev_religion.20
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		any_province = {
+			owned_by = ROOT
+			evho_province_is_in_historical_greater_balkans_zone = yes
+			OR = {
+				has_province_modifier = local_religious_difficulties_lesser
+				has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		OR = {
+			capital_scope = { evho_province_is_in_historical_greater_balkans_zone = yes }
+			any_province = {
+				owned_by = ROOT
+				evho_province_is_in_historical_greater_balkans_zone = yes
+				OR = {
+					has_province_modifier = local_religious_difficulties_lesser
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+				}
+				OR = {
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+					AND = {
+						culture = ROOT
+						ROOT = { is_free_or_tributary_trigger = yes }
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+						has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+						has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = local_religious_difficulties_lesser
+				evho_province_is_in_historical_greater_balkans_zone = yes
+				OR = {
+					culture = ROOT
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+			}
+			remove_province_modifier = local_religious_difficulties_lesser
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				evho_province_is_in_historical_greater_balkans_zone = yes
+				OR = {
+					culture = ROOT
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+			}
+			remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+				evho_province_is_in_historical_greater_balkans_zone = yes
+				OR = {
+					culture = ROOT
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+				}
+			}
+			remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Balkan Religious Difficulties (tag removal)
+country_event = {
+	id = ev_religion.21
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = religion_difficult_balkans
+		NOT = {
+			any_province = {
+				owned_by = ROOT
+				evho_province_is_in_historical_greater_balkans_zone = yes
+				has_province_modifier = local_religious_difficulties_lesser
+			}
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = religion_difficult_balkans
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+
+
+
+
+
+#Ruthenian Religious Difficulties
+country_event = {
+	id = ev_religion.22
+	title = "ev_religion.22.t"
+	desc = "ev_religion.22.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	trigger = {
+		NOT = { religion = orthodox }
+		NOT = { has_country_flag = religion_difficult_ruthenia }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { evho_province_is_in_historical_greater_ruthenia_zone = yes } }
+		}
+		any_province = {
+			owned_by = ROOT
+			religion = orthodox
+			NOT = { religion = ROOT }
+			evho_province_is_in_historical_greater_ruthenia_zone = yes
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			NOT = { has_province_modifier = estate_burghers_guaranteed_autonomy_mod }
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = religion_difficult_ruthenia
+	}
+
+	option = {
+		name = "ev_religion.22.a"
+		every_owned_province = {
+			limit = {
+				religion = orthodox
+				NOT = { religion = ROOT }
+				NOT = { has_province_modifier = local_religious_difficulties }
+				NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+				NOT = { has_province_modifier = estate_burghers_guaranteed_autonomy_mod }
+				evho_province_is_in_historical_greater_ruthenia_zone = yes
+				OR = {
+					NOT = { culture = ROOT }
+					ROOT = { is_free_or_tributary_trigger = no }
+				}
+			}
+			if = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			if = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+			if = {
+				limit = { has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties }
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			}
+			add_province_modifier = {
+				name = local_religious_difficulties
+				duration = -1
+			}
+		}
+	}
+}
+
+#Ruthenian Religious Difficulties (cont)
+country_event = {
+	id = ev_religion.23
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		NOT = { religion = orthodox }
+		OR = {
+			has_country_flag = religion_difficult_ruthenia
+			has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag
+			has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { evho_province_is_in_historical_greater_ruthenia_zone = yes } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			evho_province_is_in_historical_greater_ruthenia_zone = yes
+			NOT = { has_province_modifier = local_religious_difficulties }
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			NOT = { has_province_modifier = estate_burghers_guaranteed_autonomy_mod }
+			NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+			NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+			every_owned_province = {
+				limit = {
+					religion = orthodox
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { has_province_modifier = estate_burghers_guaranteed_autonomy_mod }
+					NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_nobles_evho_placated_religious_seperatists_mod
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+			every_owned_province = {
+				limit = {
+					religion = orthodox
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { has_province_modifier = estate_burghers_guaranteed_autonomy_mod }
+					NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_church_evho_right_to_inquisition_mod
+					duration = -1
+				}
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					religion = orthodox
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { has_province_modifier = estate_burghers_guaranteed_autonomy_mod }
+					NOT = { has_province_modifier = local_religious_difficulties }
+					NOT = { religion = ROOT }
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = local_religious_difficulties
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Ruthenian Religious Difficulties (province removal)
+country_event = {
+	id = ev_religion.24
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		any_province = {
+			owned_by = ROOT
+			evho_province_is_in_historical_greater_ruthenia_zone = yes
+			OR = {
+				has_province_modifier = local_religious_difficulties
+				has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		OR = {
+			religion = orthodox
+			capital_scope = { evho_province_is_in_historical_greater_ruthenia_zone = yes }
+			any_province = {
+				owned_by = ROOT
+				evho_province_is_in_historical_greater_ruthenia_zone = yes
+				OR = {
+					has_province_modifier = local_religious_difficulties
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+				}
+				OR = {
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+					AND = {
+						culture = ROOT
+						ROOT = { is_free_or_tributary_trigger = yes }
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+						has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+						has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					religion = orthodox
+					capital_scope = { evho_province_is_in_historical_greater_ruthenia_zone = yes }
+				}
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					evho_province_is_in_historical_greater_ruthenia_zone = yes
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						has_province_modifier = estate_burghers_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Ruthenian Religious Difficulties (tag removal)
+country_event = {
+	id = ev_religion.25
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = religion_difficult_ruthenia
+		NOT = {
+			any_province = {
+				owned_by = ROOT
+				evho_province_is_in_historical_greater_ruthenia_zone = yes
+				has_province_modifier = local_religious_difficulties
+			}
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = religion_difficult_ruthenia
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+
+
+
+
+#Nordic Religious Difficulties
+country_event = {
+	id = ev_religion.26
+	title = "ev_religion.26.t"
+	desc = "ev_religion.26.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 3
+	}
+
+	trigger = {
+		NOT = { has_country_flag = religion_difficult_scandinavia }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+		NOT = { religion = norse_pagan_reformed }
+		OR = {
+			NOT = { religion_group = christian }
+			religion = orthodox
+			religion = coptic
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { region = scandinavia_region } }
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			region = scandinavia_region
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = religion_difficult_scandinavia
+	}
+
+	option = {
+		name = "ev_religion.26.a"
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = local_religious_difficulties }
+				NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+				NOT = { religion = ROOT }
+				region = scandinavia_region
+				NOT = { religion = norse_pagan_reformed }
+				OR = {
+					NOT = { religion_group = christian }
+					religion = orthodox
+					religion = coptic
+				}
+				OR = {
+					NOT = { culture = ROOT }
+					ROOT = { is_free_or_tributary_trigger = no }
+				}
+			}
+			if = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			if = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+			if = {
+				limit = { has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties }
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			}
+			add_province_modifier = {
+				name = local_religious_difficulties
+				duration = -1
+			}
+		}
+	}
+}
+
+#Nordic Religious Difficulties (cont)
+country_event = {
+	id = ev_religion.27
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = religion_difficult_scandinavia
+			has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag
+			has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag
+		}
+		OR = {
+			is_free_or_tributary_trigger = no
+			NOT = { capital_scope = { region = scandinavia_region } }
+		}
+		NOT = { religion = norse_pagan_reformed }
+		OR = {
+			NOT = { religion_group = christian }
+			religion = orthodox
+			religion = coptic
+		}
+		any_province = {
+			owned_by = ROOT
+			NOT = { religion = ROOT }
+			region = scandinavia_region
+			NOT = { has_province_modifier = local_religious_difficulties }
+			NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+			NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+			OR = {
+				NOT = { culture = ROOT }
+				ROOT = { is_free_or_tributary_trigger = no }
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = scandinavia_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_nobles_evho_placated_religious_seperatists_mod
+					duration = -1
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = scandinavia_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = estate_church_evho_right_to_inquisition_mod
+					duration = -1
+				}
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = local_religious_difficulties }
+					NOT = { has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod }
+					NOT = { religion = ROOT }
+					region = scandinavia_region
+					OR = {
+						NOT = { culture = ROOT }
+						ROOT = { is_free_or_tributary_trigger = no }
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				add_province_modifier = {
+					name = local_religious_difficulties
+					duration = -1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Nordic Religious Difficulties (province removal)
+country_event = {
+	id = ev_religion.28
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		any_province = {
+			owned_by = ROOT
+			region = scandinavia_region
+			OR = {
+				has_province_modifier = local_religious_difficulties
+				has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		OR = {
+			capital_scope = { region = scandinavia_region }
+			religion = norse_pagan_reformed
+			AND = {
+				religion_group = christian
+				NOT = { religion = orthodox }
+				NOT = { religion = coptic }
+			}
+			any_province = {
+				owned_by = ROOT
+				region = scandinavia_region
+				OR = {
+					has_province_modifier = local_religious_difficulties
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+				}
+				OR = {
+					religion = ROOT
+					has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+					AND = {
+						culture = ROOT
+						ROOT = { is_free_or_tributary_trigger = yes }
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+						has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					}
+					AND = {
+						ROOT = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+						has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod }
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			every_province = {
+				limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		if = {
+			limit = { 
+				OR = {
+					capital_scope = { region = scandinavia_region }
+					religion = norse_pagan_reformed
+					AND = {
+						religion_group = christian
+						NOT = { religion = orthodox }
+						NOT = { religion = coptic }
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					region = scandinavia_region
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					region = scandinavia_region
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					region = scandinavia_region
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = local_religious_difficulties
+					region = scandinavia_region
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = local_religious_difficulties
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+					region = scandinavia_region
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_nobles_evho_placated_religious_seperatists_mod
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_church_evho_right_to_inquisition_mod
+					region = scandinavia_region
+					OR = {
+						religion = ROOT
+						has_province_modifier = estate_dhimmi_guaranteed_autonomy_mod
+						AND = {
+							culture = ROOT
+							ROOT = { is_free_or_tributary_trigger = yes }
+						}
+					}
+				}
+				remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}
+
+#Nordic Religious Difficulties (tag removal)
+country_event = {
+	id = ev_religion.29
+	title = "ev_religion.1.t"
+	desc = "ev_religion.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	hidden = yes
+
+	trigger = {
+		has_country_flag = religion_difficult_scandinavia
+		NOT = {
+			any_province = {
+				owned_by = ROOT
+				region = scandinavia_region
+				has_province_modifier = local_religious_difficulties
+			}
+		}
+	}
+	
+	immediate = {
+		clr_country_flag = religion_difficult_scandinavia
+	}
+
+	option = {
+		name = "ev_religion.1.a"
+	}
+}

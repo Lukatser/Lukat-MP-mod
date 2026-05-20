@@ -1,7 +1,7 @@
 #377 - Aleppo
 
-owner = SYR
-controller = SYR
+owner = MAM ## EVHO ##
+controller = MAM ## EVHO ##
 culture = al_suryah_arabic
 religion = sunni
 capital = "Halab"

@@ -1,0 +1,90 @@
+#Styria and Austria
+dependency = {
+	subject_type = "incorporated_vassal"
+	first = STY
+	second = AUE
+	start_date = 1444.11.11
+	end_date = 1586.2.11
+}
+
+#Austria Above and under the Ennd
+dependency = {
+	subject_type = "incorporated_vassal"
+	first = STY
+	second = AAE
+	start_date = 1444.11.11
+	end_date = 1586.2.11
+}
+
+#Styria and Tirol
+vassal = {
+	first = STY
+	second = TIR
+	start_date = 1444.11.11
+	end_date = 1586.2.11
+}
+
+#Styria and Further Austria
+vassal = {
+	first = STY
+	second = FAU
+	start_date = 1444.11.11
+	end_date = 1586.2.11
+}
+
+royal_marriage = {
+	first = STP
+	second = MAZ
+	start_date = 1408.1.1
+	end_date = 1446.12.7
+}
+
+royal_marriage = {
+	first = STP
+	second = WOL
+	start_date = 1408.1.1
+	end_date = 1446.12.7
+}
+
+# Hungarian guarantee/influence
+guarantee = {
+	first = HUN
+	second = WAL
+	start_date = 1444.1.1
+	end_date = 1447.12.12
+}
+
+alliance = { ## EVHO, austria and brandenburg were generally close allies until the protestant reformation ##
+	first = BRA
+	second = STY
+	start_date = 1440.1.1
+	end_date = 1504.1.1
+}
+
+alliance = { ## EVHO, austria and brandenburg were generally close allies until the protestant reformation ##
+	first = BRA
+	second = HAB
+	start_date = 1440.1.1
+	end_date = 1504.1.1
+}
+
+alliance = { ## EVHO, Safavid alliances gave them more stability in the region despite puny size ##
+	first = ARL
+	second = TUR
+	start_date = 1440.1.1
+	end_date = 1504.1.1
+}
+
+alliance = { ## EVHO, Safavid alliances gave them more stability in the region despite puny size ##
+	first = ARL
+	second = NOG
+	start_date = 1440.1.1
+	end_date = 1504.1.1
+}
+
+alliance = { ## EVHO, Safavid alliances gave them more stability in the region despite puny size ##
+	first = ARL
+	second = AKK
+	start_date = 1440.1.1
+	end_date = 1504.1.1
+}

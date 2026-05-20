@@ -39,3 +39,10 @@ discovered_by = north_american
 	add_core = GBR
 	remove_core = FRA
 } # Treaty of Paris - ceded to the British
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

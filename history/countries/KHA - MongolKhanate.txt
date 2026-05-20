@@ -7,6 +7,7 @@ secondary_religion = vajrayana
 primary_culture = mongol
 capital = 2116
 add_accepted_culture = khalkha
+historical_rival = OIR
 
 1260.5.5 = {
 	monarch = {

@@ -1,0 +1,175 @@
+namespace = EVHO_polish_interregnum
+normal_or_historical_nations = yes
+
+#Ask LIT, BRA, MAZ... for king
+country_event = {
+	id = EVHO_polish_interregnum.100
+	title = flavor_pol.18.t
+	desc = flavor_pol.18.desc
+
+	picture = LIBERUM_VETO_eventPicture
+
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVHO_polish_interregnum.100.a #submit to POL
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 95
+				tag = LIT
+			}
+		}
+		if = {
+			limit = { tag = MAZ }
+			POL = { inherit = ROOT }
+		}
+		if = {
+			limit = {
+				NOT = { tag = MAZ }
+			}
+			POL = { create_union = ROOT country_event = { id = flavor_pol.20 } }
+			add_liberty_desire = -200
+		}
+		if = {
+			limit = { tag = LIT }
+			POL = { set_country_flag = jagiellon_king }
+			ROOT = { set_country_flag = jagiellon_king }
+			if = {
+				limit = { has_dlc = "Lions of the North" }
+				custom_tooltip = pol_impact_future_missions_tt
+				set_country_flag = lit_accepted_pu
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = LIT
+					tag = BRA
+					tag = MAZ
+					tag = event_target:eligible_for_POL_throne
+				}
+				NOT = { tag = ROOT }
+			}
+			country_event = {
+				id = EVHO_polish_interregnum.101
+			}
+		}
+		set_global_flag = plc_union_resolved
+	}
+	
+	option = {
+		name = EVHO_polish_interregnum.100.c #switch to POL
+		highlight = yes
+		trigger = { ai = no }
+		if = {
+			limit = { tag = MAZ }
+			switch_tag = POL
+			POL = { inherit = ROOT }
+		}
+		if = {
+			limit = {
+				NOT = { tag = MAZ }
+			}
+			POL = { create_union = ROOT country_event = { id = flavor_pol.20 } }
+			ROOT = { add_liberty_desire = -200 }
+
+			switch_tag = POL
+		}
+		if = {
+			limit = { tag = LIT }
+			POL = { set_country_flag = jagiellon_king }
+			ROOT = { set_country_flag = jagiellon_king }
+			if = {
+				limit = { has_dlc = "Lions of the North" }
+				custom_tooltip = pol_impact_future_missions_tt
+				set_country_flag = lit_accepted_pu
+			}
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = LIT
+					tag = BRA
+					tag = MAZ
+					tag = event_target:eligible_for_POL_throne
+				}
+				NOT = { tag = ROOT }
+			}
+			country_event = {
+				id = EVHO_polish_interregnum.101
+			}
+		}
+		set_global_flag = plc_union_resolved
+	}
+	
+	option = {
+		name = EVHO_polish_interregnum.100.e #decline
+		set_country_flag = doesnt_want_POL
+		reverse_add_opinion = {
+			who = POL
+			modifier = lit_denied_birthright
+		}
+		if = {
+			limit = { tag = LIT }
+			set_country_flag = lit_decline_pu_flag
+			set_ruler_flag = lit_casimir_alive_flag
+		}
+		POL = {
+			country_event = {
+				id = flavor_pol.18
+			}
+		}
+	}
+}
+
+
+#Claims on Poland
+country_event = {
+	id = EVHO_polish_interregnum.101
+	title = EVHO_polish_interregnum.101.t
+	desc = EVHO_polish_interregnum.101.d
+
+	picture = LIBERUM_VETO_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVHO_polish_interregnum.101.a
+		ai_chance = { 
+			factor = 90 
+		}
+		if = {
+			limit = {
+				NOT = {
+					reverse_has_opinion_modifier = {
+						who = POL
+						modifier = lit_denied_birthright
+					}
+				}
+			}
+			reverse_add_opinion = {
+				who = POL
+				modifier = lit_denied_birthright
+			}
+		}
+		add_casus_belli = {
+			target = POL
+			type = cb_restore_personal_union
+		}
+	}
+	
+	option = {
+		name = EVHO_polish_interregnum.101.b #submit POL
+		add_prestige = -20
+	}	
+}
+
+

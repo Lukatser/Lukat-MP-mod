@@ -1,0 +1,897 @@
+namespace = EVHO_east_asian_events
+
+# Uniting the Jurchen Tribes
+country_event = {
+	id = EVHO_east_asian_events.1
+	title = EVHO_east_asian_events.1.t
+	desc = EVHO_east_asian_events.1.desc
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		is_year = 1460
+		OR = {
+			is_year = 1560
+			AND = { ## let's give Aisin Gioro a little boost, shall we?
+				tag = MJZ
+				any_country = {
+					OR = {
+						num_of_cities = ROOT
+						total_development = ROOT
+					}
+					OR = {
+						primary_culture = manchu
+						primary_culture = manchu_new
+					}
+				}
+			}
+			any_country = {
+				is_emperor_of_china = yes
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						evho_province_is_in_historical_qing_zone = yes
+						value = 100
+					}
+				}
+			}
+		}
+		NOT = { ## don't bother if anyone can form Manchuria
+			any_country = {
+				normal_or_historical_nations = yes
+				was_never_end_game_tag_trigger = yes
+				NOT = { has_country_flag = formed_manchu_flag }
+				OR = {
+					ai = no
+					is_playing_custom_nation = no
+				}
+				OR = {
+					is_free_or_tributary_trigger = yes
+					ai = no
+				}
+				OR = {
+					primary_culture = manchu
+					primary_culture = manchu_new
+				}
+				is_free_or_tributary_trigger = yes
+
+				owns_core_province = 2108		#Huncun	
+				owns_core_province = 730		#Girin
+				730 = {							#Girin
+					is_state = yes
+				}		
+				num_of_owned_provinces_with = {
+					custom_trigger_tooltip = {
+						tooltip = manchu_manchuria_decision.tooltip
+						is_core = ROOT
+						OR = {
+							culture = manchu_new
+							culture = manchu
+						}
+					}
+					value = 20
+				}
+			}
+		}
+		is_free_or_tributary_trigger = yes
+		NOT = { exists = MCH }
+		OR = {
+			primary_culture = manchu
+			primary_culture = manchu_new
+		}
+		
+		OR = {
+			NOT = { is_year = 1560 }
+			NOT = {
+				any_country = {
+					NOT = { tag = ROOT }
+					is_free_or_tributary_trigger = yes
+					num_of_cities = ROOT
+					total_development = ROOT
+					OR = {
+						primary_culture = manchu
+						primary_culture = manchu_new
+					}
+				}
+			}
+		}
+		NOT = { has_country_modifier = qing }
+		NOT = { has_country_modifier = qing_ai }
+		NOT = { has_country_modifier = conquest_of_home_area_buff }
+		NOT = {
+			any_country = {
+				has_country_modifier = qing
+				OR = {
+					primary_culture = manchu
+					primary_culture = manchu_new
+				}
+			}
+		}
+		NOT = {
+			any_country = {
+				has_country_modifier = qing_ai
+				OR = {
+					primary_culture = manchu
+					primary_culture = manchu_new
+				}
+			}
+		}
+		NOT = {
+			any_country = {
+				has_country_modifier = conquest_of_home_area_buff
+				OR = {
+					primary_culture = manchu
+					primary_culture = manchu_new
+				}
+			}
+		}
+		any_country = {
+			NOT = { tag = ROOT }
+			OR = {
+				primary_culture = manchu_new
+				primary_culture = manchu
+			}
+			OR = {
+				NOT = { is_subject_of = ROOT }
+				is_subject_of_type = tributary_state
+			}
+			NOT = {
+				ROOT = {
+					has_casus_belli = {
+						type = cb_total_war_of_annexation
+						target = PREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = { ai = yes }
+			is_at_war = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						NOT = { any_ally = { is_rival = ROOT } }
+						NOT = { any_ally = { army_size = ROOT } }
+						NOT = { alliance_with = OIR }
+						NOT = { alliance_with = KOR }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						NOT = { any_ally = { is_rival = ROOT } }
+						NOT = { any_ally = { army_size = ROOT } }
+						NOT = { alliance_with = OIR }
+						NOT = { alliance_with = KOR }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+					set_country_flag = manchu_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						NOT = { alliance_with = OIR }
+						NOT = { alliance_with = KOR }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						NOT = { alliance_with = OIR }
+						NOT = { alliance_with = KOR }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+					set_country_flag = manchu_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						NOT = { any_ally = { is_rival = ROOT } }
+						NOT = { any_ally = { army_size = ROOT } }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						NOT = { any_ally = { is_rival = ROOT } }
+						NOT = { any_ally = { army_size = ROOT } }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+					set_country_flag = manchu_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+					set_country_flag = manchu_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						NOT = { army_size = ROOT }
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+					set_country_flag = manchu_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						OR = {
+							primary_culture = manchu_new
+							primary_culture = manchu
+							primary_culture = chahar
+						}
+					}
+					set_country_flag = manchu_annexation_victim_tempflag
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVHO_east_asian_events.1.a
+		if = {
+			limit = { NOT = { ruler_has_personality = conqueror_personality } }
+			add_ruler_personality = conqueror_personality
+		}
+		add_country_modifier = { 
+			name = conquest_of_home_area_buff
+			duration = 912
+		}
+		capital_scope = {
+			build_to_forcelimit = {
+				infantry = 0.75
+				cavalry = 0.25
+			}
+		}
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				OR = {
+					primary_culture = manchu_new
+					primary_culture = manchu
+				}
+				OR = {
+					NOT = { is_subject_of = ROOT }
+					is_subject_of_type = tributary_state
+				}
+				NOT = {
+					ROOT = {
+						has_casus_belli = {
+							type = cb_total_war_of_annexation
+							target = PREV
+						}
+					}
+				}
+			}
+			ROOT = {
+				add_casus_belli = {
+					type = cb_total_war_of_annexation
+					target = PREV
+					months = 300
+				}
+			}
+		}
+		hidden_effect = {
+			manchuria_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		if = {
+			limit = { ai = yes any_country = { has_country_flag = manchu_annexation_victim_tempflag } }
+			random_country = {
+				limit = { has_country_flag = manchu_annexation_victim_tempflag }
+				clr_country_flag = manchu_annexation_victim_tempflag
+				ROOT = {
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_total_war_of_annexation
+					}
+				}
+			}
+		}
+	}
+}
+
+# Imperial Power Vaccume: Gain the Upper Hand
+country_event = {
+	id = EVHO_east_asian_events.2
+	title = EVHO_east_asian_events.2.t
+	desc = EVHO_east_asian_events.2.desc
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		is_year = 1620
+		OR = {
+			NOT = { imperial_mandate = 25 }
+			any_country = {
+				is_emperor_of_china = yes
+				NOT = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						evho_province_is_in_historical_qing_zone = yes
+						value = 100
+					}
+				}
+			}
+		}
+		NOT = { has_country_flag = evho_got_china_claim_flag }
+		capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+		NOT = {
+			any_country = {
+				capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					evho_province_is_in_historical_qing_zone = yes
+					value = 200
+				}
+			}
+		}
+		any_country = {
+			NOT = { tag = ROOT }
+			is_free_or_tributary_trigger = yes
+			capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+		}
+		is_colonial_nation = no
+		OR = {
+			is_former_colonial_nation = no
+			AND = {
+				is_former_colonial_nation = yes
+				ai = no
+			}
+		}
+		OR = {
+			is_year = 1675
+			NOT = { tag = MNG }
+			is_emperor_of_china = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_east_asian_events.2.a
+		set_country_flag = evho_got_china_claim_flag
+		if = {
+			limit = { NOT = { ruler_has_personality = conqueror_personality } }
+			add_ruler_personality = conqueror_personality
+		}
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				is_free_or_tributary_trigger = yes
+				capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+				OR = {
+					NOT = { is_subject_of = ROOT }
+					is_subject_of_type = tributary_state
+				}
+			}
+			ROOT = {
+				add_casus_belli = {
+					type = cb_total_war_of_annexation
+					target = PREV
+					months = 300
+				}
+			}
+			hidden_effect = {
+				add_trust = {
+				    who = ROOT	
+				    value = -400
+				}
+				add_opinion = {
+				    who = ROOT
+				    modifier = no_longer_friends
+				}
+			}
+		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					evho_province_is_in_historical_qing_zone = yes
+					NOT = { is_core = ROOT }
+					NOT = { is_claim = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+}
+
+# Imperial Power Vaccume: Domination
+country_event = {
+	id = EVHO_east_asian_events.3
+	title = EVHO_east_asian_events.3.t
+	desc = EVHO_east_asian_events.3.desc
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		is_subject = no
+		is_year = 1600
+		OR = {
+			is_year = 1640
+			exists = QNG
+		}
+		has_country_flag = evho_got_china_claim_flag
+		capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+		OR = {
+			AND = {
+				tag = QNG
+				ai = yes
+				num_of_cities = 50
+				NOT = { is_year = 1640 }
+			}
+			NOT = {
+				any_country = {
+					NOT = { tag = ROOT }
+					num_of_cities = ROOT
+					capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+				}
+			}
+		}
+		NOT = {
+			any_country = {
+				capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					evho_province_is_in_historical_qing_zone = yes
+					value = 200
+				}
+			}
+		}
+		any_country = {
+			NOT = { tag = ROOT }
+			is_free_or_tributary_trigger = yes
+			capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+		}
+		NOT = { has_country_modifier = qing }
+		NOT = { any_country = { has_country_modifier = qing } }
+		NOT = { has_country_modifier = qing_ai }
+		NOT = { any_country = { has_country_modifier = qing_ai } }
+		NOT = { has_country_modifier = conquest_of_home_area_buff }
+		NOT = {
+			any_country = {
+				has_country_modifier = conquest_of_home_area_buff
+				capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+			}
+		}
+		any_country = {
+			NOT = { tag = ROOT }
+			is_free_or_tributary_trigger = yes
+			capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+			OR = {
+				NOT = { is_subject_of = ROOT }
+				is_subject_of_type = tributary_state
+			}
+			NOT = {
+				ROOT = {
+					has_casus_belli = {
+						type = cb_total_war_of_annexation
+						target = PREV
+					}
+				}
+			}
+		}
+		if = {
+			limit = { ai = yes }
+			is_at_war = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_ming_zone = yes }
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						NOT = { any_ally = { is_rival = ROOT } }
+						NOT = { any_ally = { army_size = ROOT } }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_ming_zone = yes }
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						NOT = { any_ally = { is_rival = ROOT } }
+						NOT = { any_ally = { army_size = ROOT } }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+					set_country_flag = qing_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_ming_zone = yes }
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_ming_zone = yes }
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+					set_country_flag = qing_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_ming_zone = yes }
+						NOT = { army_size = ROOT }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_ming_zone = yes }
+						NOT = { army_size = ROOT }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+					set_country_flag = qing_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_ming_zone = yes }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_ming_zone = yes }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+					set_country_flag = qing_annexation_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						NOT = { any_ally = { is_rival = ROOT } }
+						NOT = { any_ally = { army_size = ROOT } }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						NOT = { any_ally = { is_rival = ROOT } }
+						NOT = { any_ally = { army_size = ROOT } }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+					set_country_flag = qing_vassalization_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+						NOT = { army_size = ROOT }
+						NOT = { is_rival = ROOT }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+					set_country_flag = qing_vassalization_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+						NOT = { army_size = ROOT }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+						NOT = { army_size = ROOT }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+					set_country_flag = qing_vassalization_victim_tempflag
+				}
+			}
+			else_if = {
+				limit = {
+					ai = yes
+					any_country = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						is_neighbor_of = ROOT
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+						OR = {
+							NOT = { is_subject_of = ROOT }
+							is_subject_of_type = tributary_state
+						}
+					}
+					set_country_flag = qing_vassalization_victim_tempflag
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVHO_east_asian_events.3.a
+		if = {
+			limit = { NOT = { ruler_has_personality = conqueror_personality } }
+			add_ruler_personality = conqueror_personality
+		}
+		add_country_modifier = { 
+			name = conquest_of_home_area_buff
+			duration = 912
+		}
+		capital_scope = {
+			build_to_forcelimit = {
+				infantry = 0.5
+				cavalry = 0.15
+			}
+		}
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				is_free_or_tributary_trigger = yes
+				capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+				NOT = {
+					ROOT = {
+						has_casus_belli = {
+							type = cb_total_war_of_annexation
+							target = PREV
+						}
+					}
+				}
+			}
+			ROOT = {
+				add_casus_belli = {
+					type = cb_total_war_of_annexation
+					target = PREV
+					months = -1
+				}
+				add_casus_belli = {
+					type = cb_vassalize_mission
+					target = PREV
+					months = -1
+				}
+			}
+		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					evho_province_is_in_historical_qing_zone = yes
+					NOT = { is_core = ROOT }
+					NOT = { is_claim = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		if = {
+			limit = { ai = yes any_country = { has_country_flag = qing_annexation_victim_tempflag } }
+			random_country = {
+				limit = { has_country_flag = qing_annexation_victim_tempflag }
+				clr_country_flag = qing_annexation_victim_tempflag
+				ROOT = {
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_total_war_of_annexation
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { ai = yes any_country = { has_country_flag = qing_vassalization_victim_tempflag } }
+			random_country = {
+				limit = { has_country_flag = qing_vassalization_victim_tempflag }
+				clr_country_flag = qing_vassalization_victim_tempflag
+				ROOT = {
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_vassalize_mission
+					}
+				}
+			}
+		}
+	}
+}

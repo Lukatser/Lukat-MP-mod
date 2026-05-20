@@ -26,6 +26,10 @@ country_event = {
 		}
 	}
 
+	mean_time_to_happen = {
+		days = 30
+	}
+
 	option = {
 		name = FEE_Brandenburg_Events.1.OPT1
 		ai_chance = {
@@ -79,6 +83,10 @@ country_event = {
 				}
 			}
 		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
 	}
 
 	immediate = {
@@ -651,7 +659,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		dynasty = "von Hohenzollern"
 		is_year = 1513
@@ -734,7 +742,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		dynasty = "von Hohenzollern"
 		OR = {
@@ -843,7 +851,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		religion = catholic
 		MAG = {
@@ -1482,13 +1490,21 @@ country_event = {
 
 	trigger = {
 		exists = BRG
+		BRG = {
+			is_subject = no
+		}
 		has_country_flag = fee_brandenburg_united_duchies_occupied_yes
 		NOT = { has_country_flag = fee_brandenburg_united_negotiations_yes }
 		BRG = {
-			is_subject = no
-			NOT = { is_at_war = yes }
+			NOT = {
+				is_at_war = yes
+			}
 			had_recent_war = 1
 		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
 	}
 
 	major = yes
@@ -2164,7 +2180,7 @@ country_event = {
 						tag = BRA
 					}
 					any_ally = {
-						tag = PRU
+						has_country_flag = formed_prussia_flag
 					}
 				}
 			}
@@ -2195,7 +2211,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1470
 		NOT = { is_year = 1480 }
@@ -2253,7 +2269,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1488
 		NOT = { is_year = 1500 }
@@ -2322,7 +2338,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1510
 		NOT = { is_year = 1520}
@@ -2379,7 +2395,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1539
 		NOT = { is_year = 1550 }
@@ -2437,7 +2453,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1490
 		NOT = { is_year = 1500 }
@@ -2515,7 +2531,7 @@ country_event = {
 	major_trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 	}
 
@@ -2559,7 +2575,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1525
 		NOT = { is_year = 1535 }
@@ -2611,7 +2627,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1506
 		NOT = { is_year = 1516 }
@@ -2646,7 +2662,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1535
 		NOT = { is_year = 1545 }
@@ -2688,7 +2704,7 @@ country_event = {
 				}
 				define_ruler = {
 					name = "Johann"
-					dynasty = "Von Hohenzollern"
+					dynasty = "von Hohenzollern"
 				}
 				add_ruler_modifier = {
 					name = fee_bran_ruppin_infertility
@@ -2713,7 +2729,7 @@ country_event = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 3
-				leader_dynasty = "Von Hohenzollern"
+				leader_dynasty = "von Hohenzollern"
 				leader = "Johann"
 			}
 		}
@@ -2730,6 +2746,7 @@ country_event = {
 		highlight = yes
 
 		add_stability = -1
+		create_guarantee = RUP
 		random_owned_province = {
 			limit = {
 				area = neumark_area
@@ -2737,14 +2754,14 @@ country_event = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 2
-				leader_dynasty = "Von Hohenzollern"
+				leader_dynasty = "von Hohenzollern"
 				leader = "Johann"
 			}
 		}
 	}
 }
 
-#Brandenburg #The Inheritance of Brandenburg-Kustrin, 1571
+#Brandenburg #The Inheritance of Brandenburg-Kustrin, 1571 EVHO
 country_event = {
 	id = FEE_Brandenburg_Events.40
 	title = FEE_Brandenburg_Events.40.T
@@ -2754,7 +2771,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		has_global_flag = fee_bran_kus_split_flag
 		OR = {
@@ -2764,9 +2781,24 @@ country_event = {
 					has_ruler_modifier = fee_bran_ruppin_infertility
 				}
 			}
+			AND = {
+				ai = yes
+				RUP = {
+					ai = yes
+					is_subject = yes
+					overlord = { NOT = { tag = BRA } }
+				}
+			}
 		}
 		RUP = {
-			is_subject_of = RUP
+			OR = {
+				is_subject = no
+				is_subject_of = ROOT
+				AND = {
+					ai = yes
+					ROOT = { ai = yes }
+				}
+			}
 		}
 	}
 
@@ -2803,9 +2835,7 @@ country_event = {
 	option = {
 		name = FEE_Brandenburg_Events.40.OPT1
 
-		BRA = {
-			inherit = RUP
-		}
+		inherit = RUP
 	}
 }
 
@@ -2820,7 +2850,7 @@ country_event = {
 	major_trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 	}
 
@@ -2833,7 +2863,7 @@ country_event = {
 			owner = {
 				OR = {
 					tag = BRA
-					tag = PRU
+					has_country_flag = formed_prussia_flag
 				}
 			}
 		}
@@ -3002,7 +3032,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1542
 		NOT = { is_year = 1550 }
@@ -3055,7 +3085,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1551
 		NOT = { is_year = 1560 }
@@ -3090,7 +3120,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1543
 		NOT = { is_year = 1570 }
@@ -3149,7 +3179,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		OR = {
 			AND = {
@@ -3195,7 +3225,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		OR = {
 			religion = protestant
@@ -3250,7 +3280,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1549
 		NOT = { is_year = 1560 }
@@ -3304,7 +3334,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1550
 		NOT = { is_year = 1575 }
@@ -3419,7 +3449,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1571
 		NOT = { is_year = 1600 }
@@ -3585,7 +3615,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1460
 		NOT = { is_year = 1470 }
@@ -3620,7 +3650,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1538
 		NOT = { is_year = 1550 }
@@ -3655,7 +3685,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1650
 		NOT = { is_year = 1660 }
@@ -3738,6 +3768,10 @@ country_event = {
 
 	fire_only_once = yes
 
+	mean_time_to_happen = {
+		days = 30
+	}
+
 	option = {
 		name = FEE_Brandenburg_Events.60.OPT1
 		ai_chance = {
@@ -3799,6 +3833,10 @@ country_event = {
 
 	fire_only_once = yes
 
+	mean_time_to_happen = {
+		days = 30
+	}
+
 	option = {
 		name = FEE_Brandenburg_Events.61.OPT1
 		ai_chance = {
@@ -3822,7 +3860,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1646
 		NOT = { is_year = 1676 }
@@ -3844,6 +3882,10 @@ country_event = {
 	}
 
 	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 30
+	}
 
 	option = {
 		name = FEE_Brandenburg_Events.62.OPT1
@@ -3879,7 +3921,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1480
 		NOT = { is_year = 1500 }
@@ -3946,7 +3988,7 @@ country_event = {
 	trigger = {
 		OR = {
 			tag = BRA
-			tag = PRU
+			has_country_flag = formed_prussia_flag
 		}
 		is_year = 1470
 		NOT = { is_year = 1490 }
@@ -4012,520 +4054,5 @@ country_event = {
 				join_all_defensive_wars_of = BRA
 			}
 		}
-	}
-}
-
-#### EDICT OF POTSDAM
-
-# Edict de Fontainebleau (FRA)
-country_event = {
-	id = FEE_Brandenburg_Events.100
-	title = FEE_Brandenburg_Events.100.T
-	desc = FEE_Brandenburg_Events.100.D
-	picture = ELECTION_REPUBLICAN_eventPicture
-
-	fire_only_once = yes
-
-	trigger = {
-		is_year = 1685
-		tag = FRA
-		FRA = {
-			OR = {
-				has_country_modifier = edict_de_nantes
-				has_country_flag = revoked_the_edict_of_nantes
-			}
-		}
-		OR = {
-			exists = PRU
-			exists = BRA
-		}
-	}
-
-	option = {
-		name = FEE_Brandenburg_Events.100.OPT1
-		ai_chance = {
-			factor = 1
-		}
-
-		add_prestige_or_monarch_power = { amount = 10 }
-		if = {
-			limit = {
-				has_country_modifier = edict_de_nantes
-			}
-			remove_country_modifier = edict_de_nantes
-			set_country_flag = revoked_the_edict_of_nantes
-		}
-		custom_tooltip = fee_edict_potsdam_hugenots_outside_tt
-		hidden_effect = {
-			if = {
-				limit = {
-					exists = PRU
-				}
-				PRU = {
-					country_event = {
-						id = FEE_Brandenburg_Events.101
-						days = 1
-					}
-				}
-			}
-			else = {
-				BRA = {
-					country_event = {
-						id = FEE_Brandenburg_Events.101
-						days = 1
-					}
-				}
-			}
-		}
-	}
-
-	option = {
-		name = FEE_Brandenburg_Events.100.OPT2
-		ai_chance = {
-			factor = 0
-		}
-
-		add_stability = -2
-	}
-}
-
-# Edict de Fontainebleau (PRU/BRA)
-country_event = {
-	id = FEE_Brandenburg_Events.101
-	title = FEE_Brandenburg_Events.101.T
-	desc = FEE_Brandenburg_Events.101.D
-	picture = ELECTION_REPUBLICAN_eventPicture
-
-	fire_only_once = yes
-	is_triggered_only = yes
-
-	option = {
-		name = FEE_Brandenburg_Events.101.OPT1
-		ai_chance = {
-			factor = 1
-		}
-
-		add_years_of_income = -0.2
-		set_country_flag = fee_edict_potsdam_huguenots_invited
-	}
-
-	option = {
-		name = FEE_Brandenburg_Events.101.OPT2
-		ai_chance = {
-			factor = 0
-		}
-
-		add_prestige = -10
-	}
-}
-
-# French Exodus (FRA)
-country_event = {
-	id = FEE_Brandenburg_Events.102
-	title = FEE_Brandenburg_Events.102.T
-	desc = FEE_Brandenburg_Events.102.D
-	picture = ELECTION_REPUBLICAN_eventPicture
-
-	fire_only_once = yes
-
-	trigger = {
-		tag = FRA
-		OR = {
-			PRU = {
-				has_country_flag = fee_edict_potsdam_huguenots_invited
-			}
-			BRA = {
-				has_country_flag = fee_edict_potsdam_huguenots_invited
-			}
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 365
-	}
-
-	immediate = {
-		hidden_effect = {
-			export_to_variable = {
-				which = 5_percent_of_development
-				value = trigger_value:total_development
-			}
-			multiply_variable = {
-				which = 5_percent_of_development
-				value = 0.05
-			}
-			set_variable = {
-				which = 5_percent_of_development_truncated
-				which = 5_percent_of_development
-			}
-			divide_variable = {
-				which = 5_percent_of_development_truncated
-				value = 1000
-			}
-			multiply_variable = {
-				which = 5_percent_of_development_truncated
-				value = 1000
-			}
-			if = {
-				limit = {
-					exists = PRU
-				}
-				PRU = {
-					set_variable = {
-						which = 5_percent_of_development_truncated
-						which = PREV
-					}
-				}
-			}
-			else = {
-				BRA = {
-					set_variable = {
-						which = 5_percent_of_development_truncated
-						which = PREV
-					}
-				}
-			}
-			while = {
-				limit = {
-					check_variable = {
-						which = 5_percent_of_development
-						value = 1
-					}
-				}
-				random_owned_province = {
-					limit = {
-						region = france_region
-						development = 4
-					}
-					if = {
-						limit = {
-							base_tax = 2
-						}
-						add_base_tax = -1
-					}
-					else_if = {
-						limit = {
-							base_production = 2
-						}
-						add_base_production = -1
-					}
-					else = {
-						add_base_manpower = -1
-					}
-				}
-				subtract_variable = {
-					which = 5_percent_of_development
-					value = 1
-				}
-			}
-		}
-	}
-
-	option = {
-		name = FEE_Brandenburg_Events.102.OPT1
-
-		custom_tooltip = fee_edict_potsdam_loses_5_percent_development_for_France_tt
-		set_country_flag = huguenots_left
-	}
-}
-
-# The Edict of Potsdam (PRU/BRA)
-country_event = {
-	id = FEE_Brandenburg_Events.103
-	title = FEE_Brandenburg_Events.103.T
-	desc = FEE_Brandenburg_Events.103.D
-	picture = ELECTION_REPUBLICAN_eventPicture
-
-	fire_only_once = yes
-
-	trigger = {
-		if = {
-			limit = {
-				exists = PRU
-			}
-			tag = PRU
-		}
-		else = {
-			tag = BRA
-		}
-		FRA = {
-			has_country_flag = huguenots_left
-		}
-	}
-
-	mean_time_to_happen = {
-		days = 365
-	}
-
-	immediate = {
-		hidden_effect = {
-			set_variable = {
-				which = 50_percent_of_huguenots_dissidents_first_half
-				which = 5_percent_of_development_truncated
-			}
-			multiply_variable = {
-				which = 50_percent_of_huguenots_dissidents_first_half
-				value = 0.5
-			}
-			divide_variable = {
-				which = 50_percent_of_huguenots_dissidents_first_half
-				value = 1000
-			}
-			multiply_variable = {
-				which = 50_percent_of_huguenots_dissidents_first_half
-				value = 1000
-			}
-			set_variable = {
-				which = huguenots_arrived_in_capital
-				which = 50_percent_of_huguenots_dissidents_first_half
-			}
-			set_variable = {
-				which = 50_percent_of_huguenots_dissidents_second_half
-				which = 50_percent_of_huguenots_dissidents_first_half
-			}
-			capital_scope = {
-				export_to_variable = {
-					variable_name = PRU_BRA_capital_tax
-					value = trigger_value:base_tax
-				}
-				export_to_variable = {
-					variable_name = PRU_BRA_capital_production
-					value = trigger_value:base_production
-				}
-				export_to_variable = {
-					variable_name = PRU_BRA_capital_manpower
-					value = trigger_value:base_manpower
-				}
-			}
-			while = {
-				limit = {
-					check_variable = {
-						which = 50_percent_of_huguenots_dissidents_second_half
-						value = 1
-					}
-				}
-				random_country = {
-					limit = {
-						is_part_of_hre = yes
-						OR = {
-							religion = protestant
-							religion = reformed
-						}
-						if = {
-							limit = {
-								exists = PRU
-							}
-							NOT = {
-								total_development = PRU
-							}
-						}
-						else = {
-							NOT = {
-								total_development = BRA
-							}
-						}
-					}
-					country_event = {
-						id = FEE_Brandenburg_Events.104
-						days = 30
-					}
-				}
-				subtract_variable = {
-					which = 50_percent_of_huguenots_dissidents_second_half
-					value = 1
-				}
-			}
-		}
-	}
-
-	option = {
-		name = FEE_Brandenburg_Events.103.OPT1
-
-		add_years_of_income = -1
-		custom_tooltip = fee_edict_potsdam_arrival_hugenots_tt
-		hidden_effect = {
-			while = {
-				limit = {
-					check_variable = {
-						which = 50_percent_of_huguenots_dissidents_first_half
-						value = 1
-					}
-				}
-				capital_scope = {
-					if = {
-						limit = {
-							NOT = {
-								AND = {
-									check_variable = {
-										which = PRU_BRA_capital_tax
-										which = PRU_BRA_capital_production
-									}
-									check_variable = {
-										which = PRU_BRA_capital_tax
-										which = PRU_BRA_capital_production
-									}
-								}
-							}
-						}
-						add_base_tax = 1
-					}
-					else_if = {
-						limit = {
-							NOT = {
-								check_variable = {
-									which = PRU_BRA_capital_production
-									which = PRU_BRA_capital_manpower
-								}
-							}
-						}
-						add_base_production = 1
-					}
-					else = {
-						add_base_manpower = 1
-					}
-					export_to_variable = {
-						which = PRU_BRA_capital_tax
-						value = trigger_value:base_tax
-					}
-					export_to_variable = {
-						which = PRU_BRA_capital_production
-						value = trigger_value:base_production
-					}
-					export_to_variable = {
-						which = PRU_BRA_capital_manpower
-						value = trigger_value:base_manpower
-					}
-				}
-				subtract_variable = {
-					which = 50_percent_of_huguenots_dissidents_first_half
-					value = 1
-				}
-			}
-		}
-	}
-
-	option = {
-		name = FEE_Brandenburg_Events.103.OPT2
-		add_prestige = -10
-		while = {
-			limit = {
-				check_variable = {
-					which = 50_percent_of_huguenots_dissidents_first_half
-					value = 1
-				}
-			}
-			random_country = {
-				limit = {
-					is_part_of_hre = yes
-					OR = {
-						religion = protestant
-						religion = reformed
-					}
-					if = {
-						limit = {
-							exists = PRU
-						}
-						NOT = {
-							total_development = PRU
-						}
-					}
-					else = {
-						NOT = {
-							total_development = BRA
-						}
-					}
-				}
-				country_event = {
-					id = FEE_Brandenburg_Events.104
-					days = 30
-				}
-			}
-			subtract_variable = {
-				which = 50_percent_of_huguenots_dissidents_first_half
-				value = 1
-			}
-		}
-	}
-}
-
-# Huguenot Dissidents
-country_event = {
-	id = FEE_Brandenburg_Events.104
-	title = FEE_Brandenburg_Events.104.T
-	desc = FEE_Brandenburg_Events.104.D
-	picture = ELECTION_REPUBLICAN_eventPicture
-
-	fire_only_once = no
-	is_triggered_only = yes
-
-	immediate = {
-		hidden_effect = {
-			capital_scope = {
-				export_to_variable = {
-					variable_name = CURRENT_capital_tax
-					value = trigger_value:base_tax
-				}
-				export_to_variable = {
-					variable_name = CURRENT_capital_production
-					value = trigger_value:base_production
-				}
-				export_to_variable = {
-					variable_name = CURRENT_capital_manpower
-					value = trigger_value:base_manpower
-				}
-			}
-		}
-	}
-
-	option = {
-		name = FEE_Brandenburg_Events.104.OPT1
-		ai_chance = {
-			factor = 75
-		}
-
-		add_prestige_or_monarch_power = { amount = 5 }
-		add_years_of_income = -0.05
-		capital_scope = {
-			if = {
-				limit = {
-					NOT = {
-						AND = {
-							check_variable = {
-								which = CURRENT_capital_tax
-								which = CURRENT_capital_production
-							}
-							check_variable = {
-								which = CURRENT_capital_tax
-								which = CURRENT_capital_production
-							}
-						}
-					}
-				}
-				add_base_tax = 1
-			}
-			else_if = {
-				limit = {
-					NOT = {
-						check_variable = {
-							which = CURRENT_capital_production
-							which = CURRENT_capital_manpower
-						}
-					}
-				}
-				add_base_production = 1
-			}
-			else = {
-				add_base_manpower = 1
-			}
-		}
-	}
-
-	option = {
-		name = FEE_Brandenburg_Events.104.OPT2
-		ai_chance = {
-			factor = 25
-		}
-
-		add_prestige = -1
 	}
 }

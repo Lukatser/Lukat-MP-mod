@@ -29,3 +29,11 @@ discovered_by = north_american
 	capital = "Fort Edmonton"
 	trade_goods = fur
 }
+
+1801.1.1 = {
+	discovered_by = UNK
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

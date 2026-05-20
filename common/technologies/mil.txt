@@ -1,9 +1,8 @@
 monarch_power = MIL
 
 # applied when a country is ahead of time in this technology
+# no bonus for MIL currently
 ahead_of_time = {
-	manpower_recovery_speed = 0.20
-	yearly_corruption = -0.05
 	monthly_russian_modernization = 0.05
 	ahead_of_time_benefit_mil = 1
 }
@@ -25,7 +24,7 @@ technology = {
 	# Tech 1
 	year = 1390
 	expects_institution = {
-		feudalism = 0.15
+		feudalism = 0.25
 	}
 	
 	infantry_shock		= 	0.1
@@ -78,7 +77,7 @@ technology = {
 	# Tech 2
 	year = 1420
 	expects_institution = {
-		feudalism = 0.3
+		feudalism = 0.5
 	}
 	
 	infantry_shock		= 	0.2
@@ -95,7 +94,7 @@ technology = {
 	expects_institution = {
 		feudalism = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	land_morale = 	0.5
 	may_drill = yes
 }
@@ -104,12 +103,12 @@ technology = {
 	# Tech 4
 	year = 1453
 	expects_institution = {
-		feudalism = 1
+		feudalism = 0.5
 		renaissance = 0.05
 	}
-
-	#Pike Square
 	
+	#Pike Square
+	supply_limit 		= 	0.15
 
 	land_morale = 	0.5
 	military_tactics 	= 	0.25
@@ -119,13 +118,13 @@ technology = {
 	# Tech 5
 	year = 1466
 	expects_institution = {
-		feudalism = 1.75
+		feudalism = 0.5
 		renaissance = 0.15
 		printing_press = 0.05
 	}
 	
 	#Standardised Pikes
-	supply_limit 		= 	0.5
+	supply_limit 		= 	0.2
 	infantry_shock		= 	0.15
 	cavalry_shock		= 	0.2
 
@@ -165,7 +164,7 @@ technology = {
 	# Tech 6
 	year = 1479
 	expects_institution = {
-		feudalism = 2.5
+		feudalism = 0.5
 		renaissance = 0.3
 		printing_press = 0.15
 	}
@@ -175,7 +174,7 @@ technology = {
 	infantry_shock		= 	0.30
 	infantry_fire 		= 	0.20
 	
-	
+	supply_limit 		= 	0.15
 	barracks = yes
 
 
@@ -201,11 +200,11 @@ technology = {
 	# Tech 7
 	year = 1492
 	expects_institution = {
-		feudalism = 2.5
+		feudalism = 0.5
 		renaissance = 0.5
 		printing_press = 0.3
 	}
-	
+	supply_limit 		= 	0.15
 	#The limber
 	artillery_fire 		= 	1
 	artillery_shock 	=	0.05
@@ -218,12 +217,11 @@ technology = {
 	# Tech 8
 	year = 1505
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 1
+		feudalism = 0.5
+		renaissance = 0.5
 		printing_press = 0.5
 	}
-
-	
+	supply_limit 		= 	0.15
 	#Pike and Shot
 	infantry_fire		= 	0.25
 	cavalry_shock		=	0.8
@@ -234,15 +232,17 @@ technology = {
 
 technology = {
 	# Tech 9
+	
 	year = 1518
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 1.75
-		printing_press = 1
+		feudalism = 0.5
+		renaissance = 0.5
+		printing_press = 0.5
+		new_world_i = 0.15
 	}
 	
 	#Ditch
-	
+	supply_limit 		= 	0.15
 	enable = south_indian_musketeer	
 	enable = mughal_musketeer		
 	enable = ottoman_janissary	
@@ -262,12 +262,12 @@ technology = {
 	# Tech 10
 	year = 1531
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 1.75
-		new_world_i = 0.05
+		feudalism = 0.5
+		renaissance = 0.5
+		printing_press = 0.5
+		new_world_i = 0.3
 	}
-	
+	supply_limit 		= 	0.15
 	#Reiter
 	maneuver_value 		= 	0.25
 
@@ -302,12 +302,12 @@ technology = {
 	# Tech 11
 	year = 1544
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 0.15
+		feudalism = 0.5
+		renaissance = 0.5
+		printing_press = 0.5
+		new_world_i = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Matchlock Musket
 	infantry_shock		= 	0.20
 	cavalry_fire		= 	0.5
@@ -322,16 +322,16 @@ technology = {
 	# Tech 12
 	year = 1557
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 0.3
+		feudalism = 0.5
+		renaissance = 0.5
+		printing_press = 0.5
+		new_world_i = 0.5
 	}
 	
 	#Spanish Square
 	sprite_level = 2
 	
-	supply_limit 		= 	0.5
+	supply_limit 		= 	0.2
 	military_tactics	=	0.25
 
 	enable = tofongchis_musketeer		
@@ -355,12 +355,12 @@ technology = {
 	# Tech 13
 	year = 1570
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
+		feudalism = 0.5
+		renaissance = 0.5
 		new_world_i = 0.5
+		printing_press = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Trunnions
 	artillery_shock 	= 	0.1
 	artillery_fire 		= 	0.4
@@ -373,12 +373,12 @@ technology = {
 	# Tech 14
 	year = 1583
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 1
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Star Bastions
 	fort_16th = yes
 	infantry_fire		=	0.3
@@ -415,12 +415,12 @@ technology = {
 	# Tech 15
 	year = 1596
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 1.75
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Maurician Infantry
 	land_morale 		=	1.0
 	military_tactics	=	0.25
@@ -444,13 +444,12 @@ technology = {
 	# Tech 16
 	year = 1609
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 0.05
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Standardisation of Calibre
 	artillery_shock 	= 	0.1
 	artillery_fire 		= 	1.0	
@@ -461,22 +460,21 @@ technology = {
 	combat_width = 1
 	
 	enable = chambered_demi_cannon
-	enable = demi_culverin
 }
 
 technology = {
 	# Tech 17
 	year = 1622
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
 		global_trade = 0.15
 	}
 	
 	cavalry_shock		=	1.0
-	supply_limit		= 	0.5	
+	supply_limit		= 	0.2
 	
 	enable = maharathan_cavalry		
 	enable = manchu_banner		
@@ -487,13 +485,13 @@ technology = {
 	# Tech 18
 	year = 1635
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
 		global_trade = 0.3
 	}
-	
+	supply_limit 		= 	0.15
 	#Carbine
 	maneuver_value 		= 	0.25
 
@@ -505,7 +503,6 @@ technology = {
 	enable = mamluk_musket_charge 
 	enable = afsharid_reformed	
 	enable = leather_cannon	
-	enable = chambered_cannon	
 	enable = steppe_mounted_raiders
 	enable = ha_xoloti
 	enable = aboriginal_swarm_cav
@@ -518,17 +515,16 @@ technology = {
 	# Tech 19
 	year = 1648
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
 		global_trade = 0.5
-		manufactories = 0.05
 	}
 	
 	#Gustavian Infantry
 	military_tactics 	= 	0.25
-	supply_limit		=	0.5
+	supply_limit		=	0.2
 
 	fort_17th = yes
 
@@ -557,20 +553,18 @@ technology = {
 	# Tech 20
 	year = 1661
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 1
-		manufactories = 0.15
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Killing Grounds
 	
 	infantry_fire		= 	0.5
 		
-	enable = swivel_cannon
-	enable = howitzer
+	enable = swivel_cannon		
 
 	combat_width = 2
 }
@@ -579,14 +573,14 @@ technology = {
 	# Tech 21
 	year = 1674
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 1.75
-		manufactories = 0.3
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.15
 	}
-	
+	supply_limit 		= 	0.15
 	#Line Infantry
 	sprite_level = 3
 	military_tactics 	= 	0.25
@@ -598,15 +592,15 @@ technology = {
 	# Tech 22
 	year = 1687
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 0.5
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.3
 	}
-	
-	#Cartridge	(1620)?
+	supply_limit 		= 	0.15
+	#Cartridge	(1620)?)
 	cavalry_fire		=	0.5
 	artillery_shock 	=	0.1
 	artillery_fire		=	2.0
@@ -619,22 +613,21 @@ technology = {
 	enable = polish_winged_hussar	
 	enable = muscovite_cossack	
 
-	enable = horse_artillery_unit
-	enable = coehorn_mortar
+	enable = coehorn_mortar		
 }
 
 technology = {
 	# Tech 23
 	year = 1700
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 1
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Light Cavalry
 	
 	cavalry_shock		=	1.0
@@ -674,15 +667,15 @@ technology = {
 	# Tech 24
 	year = 1715
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 1.75
-		enlightenment = 0.05
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
+		enlightenment = 0.15
 	}
-	
+	supply_limit 		= 	0.15
 	#Covered Way
 	fort_18th	= yes	
 	military_tactics 	= 	0.25
@@ -694,38 +687,36 @@ technology = {
 	# Tech 25
 	year = 1730
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 2.5
-		enlightenment = 0.15
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
+		enlightenment = 0.3
 	}
-	
+	supply_limit 		= 	0.15
 	#Metallurgy
 	artillery_shock 	=	0.1
 	artillery_fire		=	2.0
 	
-	enable = royal_mortar
-	enable = licorne
+	enable = royal_mortar	
 }
 
 technology = {
 	# Tech 26
 	year = 1745
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 2.5
-		enlightenment = 0.3
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
+		enlightenment = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Light Infantry Companies
-	sprite_level = 4
 
 	land_morale			=	1.0
 
@@ -766,18 +757,17 @@ technology = {
 	# Tech 27
 	year = 1760
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 2.5
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
 		enlightenment = 0.5
-		industrialization = 0.05
 	}
 	
 	#Bayonet
-	supply_limit		=	0.5
+	supply_limit		=	0.2
 	infantry_fire		= 	0.5	
 }
 
@@ -785,16 +775,16 @@ technology = {
 	# Tech 28
 	year = 1775
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 2.5
-		enlightenment = 1
-		industrialization = 0.15
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
+		enlightenment = 0.5
+		industrialization = 0.25
 	}
-	
+	supply_limit 		= 	0.15
 	#Cuirassier
 	maneuver_value 		= 	0.25
 	infantry_shock		=	0.5	
@@ -822,39 +812,39 @@ technology = {
 	# Tech 29
 	year = 1790
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 2.5
-		enlightenment = 1.75
-		industrialization = 0.3
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
+		enlightenment = 0.5
+		industrialization = 0.5
 	}
-	
+	supply_limit 		= 	0.15
 	#Defense in Depth
 		
-	enable = flying_battery
-	enable = grand_battery
+	enable = flying_battery  
 }
 
 technology = {
 	# Tech 30
 	year = 1805
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 2.5
-		enlightenment = 2.5
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
+		enlightenment = 1
 		industrialization = 0.5
 	}
+	sprite_level = 4
 	
 	#Impulse Warfare
 	#sprite_level = 5	
-	
+	supply_limit 		= 	0.15
 	military_tactics	=	0.25
 	land_morale			=	1.0
 	maneuver_value = 0.25
@@ -877,18 +867,18 @@ technology = {
 
 technology = {
 	# Tech 31
-	year = 1820
+	year = 1817
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 2.5
-		enlightenment = 2.5
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 0.5
+		enlightenment = 0.5
 		industrialization = 1
 	}
-	
+	supply_limit 		= 	0.15
 	#Rifle
 	cavalry_shock		=	1.0
 	infantry_fire		=	1.0
@@ -897,20 +887,100 @@ technology = {
 
 technology = {
 	# Tech 32
-	year = 1835
+	year = 1820
 	expects_institution = {
-		feudalism = 2.5
-		renaissance = 2.5
-		printing_press = 2.5
-		new_world_i = 2.5
-		global_trade = 2.5
-		manufactories = 2.5
-		enlightenment = 2.5
-		industrialization = 2.5
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 1
+		enlightenment = 1
+		industrialization = 1
 	}
-	
+	supply_limit 		= 	0.5
 	#Field Howitzer
 	military_tactics	=	0.25
 	artillery_shock		=	0.1
 	artillery_fire		=	2.0	
+
+	fort_19th = yes
+}
+
+technology = {
+	# Tech 33
+	year = 1830
+	expects_institution = {
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 1
+		enlightenment = 1
+		industrialization = 1
+	}
+	
+	#Field Howitzer
+	military_tactics	=	0.25
+	artillery_shock		=	0.2
+	artillery_fire		=	1.0
+
+	enable = field_howitzer	
+
+	fort_siege_1 = yes
+}
+
+technology = {
+	# Tech 34
+	year = 1843
+	expects_institution = {
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 1
+		enlightenment = 1
+		industrialization = 1
+	}
+
+	#Percussion Cap
+	
+	land_morale = 1
+	combat_width = -2
+
+	enable = american_percussion_cap
+	enable = african_percussion_cap
+	enable = mayan_percussion_cap
+	enable = incan_percussion_cap
+	enable = ottoman_percussion_cap
+	enable = muslim_percussion_cap
+	enable = chinese_percussion_cap
+	enable = ha_percussion_cap
+	enable = indian_percussion_cap
+	enable = nomad_percussion_cap
+	enable = eastern_percussion_cap
+	enable = modern_cavalry
+}
+
+technology = {
+	# Tech 35
+	year = 1850
+	expects_institution = {
+		feudalism = 0.5
+		renaissance = 0.5
+		new_world_i = 0.5
+		printing_press = 0.5
+		global_trade = 0.5
+		manufactories = 1
+		enlightenment = 1
+		industrialization = 1
+	}
+
+	#Minié Ball
+	infantry_fire = 1.0
+
+	enable = dreyse_needle_gun
+	enable = minie_rifle
 }

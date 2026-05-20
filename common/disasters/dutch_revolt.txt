@@ -1,0 +1,293 @@
+dutch_revolt_disaster = {
+
+	potential = {
+		normal_or_historical_nations = yes
+		is_religion_enabled = protestant
+		#NOT = { has_country_flag = bur_dutch_integration }
+		NOT = { 
+			AND = {
+				has_global_flag = dutch_revolt 
+				OR = {
+					is_year = 1650
+					has_country_flag = had_dutch_revolt
+				}
+			}
+		}
+		NOT = { exists = NED }
+		NOT = { exists = BEL }
+		num_of_owned_provinces_with = {
+			value = 4
+			region = low_countries_region
+			OR = {
+				culture = dutch
+				culture = flemish
+				culture = frisian
+				culture = brabantian
+			}
+		}
+		NOT = {
+			OR = {
+				primary_culture = dutch
+				primary_culture = flemish
+				primary_culture = frisian
+				primary_culture = brabantian
+				primary_culture = wallonian
+			}
+		}
+		NOT = { capital_scope = { region = low_countries_region } }
+		num_of_cities = 5
+	}
+	
+	can_start = {
+		OR = {
+			AND = {
+				low_countries_region = {
+					owned_by = ROOT
+					NOT = { province_religion = ROOT }
+				}
+				NOT = { full_idea_group = humanist_ideas }
+			}
+			custom_trigger_tooltip = {
+				tooltip = dutch_revolt_disaster_tt
+				AND = {
+					any_owned_province = {
+						culture = dutch
+					}
+					NOT = { accepted_culture = dutch }
+				}
+				AND = {
+					any_owned_province = {
+						culture = flemish
+					}
+					NOT = { accepted_culture = flemish }
+				}
+				AND = {
+					any_owned_province = {
+						culture = brabantian
+					}
+					NOT = { accepted_culture = brabantian }
+				}
+				AND = {
+					any_owned_province = {
+						culture = frisian
+					}
+					NOT = { accepted_culture = frisian }
+				}
+			}
+			AND = {
+				ai = yes
+				is_year = 1550
+				num_of_owned_provinces_with = {
+					value = 2
+					region = low_countries_region
+					OR = {
+						culture = dutch
+						culture = flemish
+						culture = frisian
+						culture = brabantian
+					}
+				}
+			}
+		}
+	}
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			is_year = 1650
+			exists = NED
+		}
+	}
+	
+	progress = {	
+		# progress happens as a result of tensions that actually exist in your country
+		modifier = {
+			factor = 1
+			any_owned_province = {
+				region = low_countries_region
+				NOT = { province_religion = ROOT }
+			}
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 3
+					region = low_countries_region
+					NOT = { province_religion = ROOT }
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			num_of_owned_provinces_with = {
+				value = 3
+				region = low_countries_region
+				NOT = { province_religion = ROOT }
+			}
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 5
+					region = low_countries_region
+					NOT = { province_religion = ROOT }
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			num_of_owned_provinces_with = {
+				value = 5
+				region = low_countries_region
+				NOT = { province_religion = ROOT }
+			}
+		}
+		modifier = {
+			factor = 1
+			any_owned_province = {
+				region = low_countries_region
+				unrest = 3
+			}
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 3
+					region = low_countries_region
+					unrest = 3
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			num_of_owned_provinces_with = {
+				value = 3
+				region = low_countries_region
+				unrest = 3
+			}
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 5
+					region = low_countries_region
+					unrest = 3
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			num_of_owned_provinces_with = {
+				value = 5
+				region = low_countries_region
+				unrest = 3
+			}
+		}
+		modifier = {
+			factor = 2
+			any_owned_province = {
+				culture = dutch
+			}
+			NOT = { accepted_culture = dutch }
+		}
+		modifier = {
+			factor = 2
+			any_owned_province = {
+				culture = frisian
+			}
+			NOT = { accepted_culture = frisian }
+		}
+		modifier = {
+			factor = 2
+			any_owned_province = {
+				culture = brabantian
+			}
+			NOT = { accepted_culture = brabantian }
+		}
+		modifier = {
+			factor = 2
+			any_owned_province = {
+				culture = flemish
+			}
+			NOT = { accepted_culture = flemish }
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 4
+			ai = yes
+			is_year = 1550
+			num_of_owned_provinces_with = {
+				value = 2
+				region = low_countries_region
+				OR = {
+					culture = dutch
+					culture = flemish
+					culture = frisian
+					culture = brabantian
+				}
+			}
+		}
+	}
+	
+	can_end = {
+		OR = {
+			exists = NED
+			exists = BEL
+			AND = {
+				custom_trigger_tooltip = {
+					tooltip = had_disaster_for_x_years_dutch
+					had_global_flag = {
+						flag = dutch_revolt
+						days = 7300 # 20 years
+					}
+				}
+				NOT = { num_of_rebel_armies = 1 }
+				NOT = { num_of_rebel_controlled_provinces = 1 }
+				stability = 1
+			}
+			AND = {
+				NOT = {
+					num_of_owned_provinces_with = {
+						value = 5
+						region = low_countries_region
+						OR = {
+							culture = dutch
+							culture = flemish
+							culture = frisian
+							culture = brabantian
+						}
+					}
+				}
+				NOT = {
+					AND = {
+						ai = yes
+						is_year = 1550
+						num_of_owned_provinces_with = {
+							value = 2
+							region = low_countries_region
+							OR = {
+								culture = dutch
+								culture = flemish
+								culture = frisian
+								culture = brabantian
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	modifier = {
+		stability_cost_modifier = 0.50
+	}
+	
+	on_start = flavor_bur.8
+	on_end = dutch_revolt.1
+	
+	on_monthly = {
+		events = {
+			flavor_bur.10 # netherlands declare independence
+		}
+		random_events = {
+			3 = 0
+			2 = flavor_bur.9 # random rebels spawn
+		}	
+	}
+
+}

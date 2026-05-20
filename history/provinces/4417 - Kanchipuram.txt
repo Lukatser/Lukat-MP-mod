@@ -34,23 +34,17 @@ discovered_by = chinese
 	remove_core = VIJ
 } # Dutch east india company's capital
 1639.1.1 = {
-	owner = ENG
-	controller = ENG
-	add_core = ENG
+	owner = EIC
+	controller = EIC
+	add_core = EIC
 	remove_core = NED
 	capital = "Madras"
 	
 } # Ceded by Vijayanagara & Company Capital
-1707.5.12 = {
-	owner = GBR
-	controller = GBR
-	add_core = GBR
-	remove_core = ENG
-}
 1746.9.1 = { controller = FRA }
-1748.10.18 = { controller = GBR } #Peace of Aachen
+1748.10.18 = { controller = EIC } #Peace of Aachen
 1758.6.7 = { controller = FRA }
-1760.1.22 = { controller = GBR } #Battle of Wandiwash
+1760.1.22 = { controller = EIC } #Battle of Wandiwash
 1806.7.10 = {
 	revolt = {
 		type = nationalist_rebels
@@ -60,5 +54,5 @@ discovered_by = chinese
 } # The Vellore Mutiny
 1806.7.11 = {
 	revolt = {}
-	controller = GBR
+	controller = EIC
 } # British control is restored

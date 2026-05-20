@@ -1,9 +1,13 @@
 government = monarchy
-add_government_reform = kalmar_union
+add_government_reform = arch_king_reform
 primary_culture = danish
 religion = catholic
 technology_group = western
 historical_friend = NOR
+historical_rival = POL
+historical_rival = HAB
+historical_rival = MOS
+historical_friend = TEU
 capital = 12 #Sjaelland
 
 change_estate_land_share = {
@@ -42,7 +46,6 @@ change_estate_land_share = {
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = infertile_personality
-	set_ruler_flag = has_proclaimed_archking_title
 }
 
 1445.9.26 = {

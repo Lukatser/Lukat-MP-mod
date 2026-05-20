@@ -29,3 +29,10 @@ discovered_by = north_american
 }
 1707.5.12 = { discovered_by = GBR }
 1763.2.10 = { owner = GBR controller = GBR add_core = GBR remove_core = FRA }
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

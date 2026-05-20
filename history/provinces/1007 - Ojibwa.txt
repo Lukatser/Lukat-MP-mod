@@ -51,3 +51,10 @@ discovered_by = north_american
 	religion = protestant
 	trade_goods = fur
 } # Treaty of Paris
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

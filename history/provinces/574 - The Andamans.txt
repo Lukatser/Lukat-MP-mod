@@ -80,9 +80,9 @@ discovered_by = indian
 	remove_core = DAN
 }
 1805.1.1 = {
-	owner = GBR #Occupied by Great Britain during Napoleonic wars
-	controller = GBR
-	add_core = GBR
+	owner = UNK #Occupied by Great Britain during Napoleonic wars
+	controller = UNK
+	add_core = UNK
 	add_core = DAN
 	is_city = yes
 	capital = "Frederiksøerne"
@@ -94,5 +94,5 @@ discovered_by = indian
 	capital = "The Andamans"
 	owner = ---
 	controller = ---
-	remove_core = GBR
+	remove_core = UNK
 }

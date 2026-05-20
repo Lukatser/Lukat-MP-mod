@@ -92,12 +92,48 @@ country_event = {
 			set_country_flag = pal_sax_imperial_duties
 		}
 
-		franconia_area = { add_permanent_claim = ROOT }
-		lower_swabia_area = { add_permanent_claim = ROOT }
-		lower_rhineland_area = { add_permanent_claim = ROOT }
-		palatinate_area = { add_permanent_claim = ROOT }
-		upper_swabia_area = { add_permanent_claim = ROOT }
-		upper_rhineland_area = { add_permanent_claim = ROOT }
+		franconia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		lower_swabia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		lower_rhineland_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		palatinate_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		upper_swabia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		upper_rhineland_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
 	}
 
 	option = {
@@ -115,10 +151,34 @@ country_event = {
 			set_country_flag = pal_sax_imperial_duties
 		}
 
-		braunschweig_area = { add_permanent_claim = ROOT }
-		northern_saxony_area = { add_permanent_claim = ROOT }
-		south_saxony_area = { add_permanent_claim = ROOT }
-		westphalia_area = { add_permanent_claim = ROOT }
+		braunschweig_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		northern_saxony_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		south_saxony_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		westphalia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
 	}
 
 	option = {
@@ -563,9 +623,9 @@ country_event = {
 				who = ROOT
 				modifier = pal_sax_alliance
 			}
-			add_historical_friend = ROOT
 		}
 		add_historical_friend = SAX
+		SAX = {	add_historical_friend = ROOT }
 	}
 
 	option = {

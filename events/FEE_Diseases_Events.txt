@@ -323,7 +323,6 @@ country_event = {
 				add_permanent_province_modifier = {
 					name = fee_diseases_small_bubonic_outbreak
 					duration = -1
-					desc = fee_diseases_until_end_of_plague
 				}
 			}
 		}
@@ -339,7 +338,6 @@ country_event = {
 						add_permanent_province_modifier = {
 							name = fee_diseases_small_bubonic_outbreak
 							duration = -1
-							desc = fee_diseases_until_end_of_plague
 						}
 					}
 				}

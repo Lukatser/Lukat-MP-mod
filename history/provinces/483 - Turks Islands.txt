@@ -41,3 +41,10 @@ native_hostileness = 3
 1707.5.12 = { owner = GBR controller = GBR add_core = GBR remove_core = ENG discovered_by = GBR }
 1753.1.1 = { unrest = 6 } # France claimed the island
 1754.1.1 = { unrest = 0 } # ...but were repelled just a year later
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

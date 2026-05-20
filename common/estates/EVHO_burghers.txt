@@ -1,0 +1,6 @@
+estate_nobles = {
+	privileges = {
+		### EVHO ###
+		estate_nobles_evho_placate_local_religious_seperatists
+	}
+}

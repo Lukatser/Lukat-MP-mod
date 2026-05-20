@@ -1,0 +1,293 @@
+﻿l_english:
+ FEE_Education_Startup_Event.1.tt: "Heir Education"
+ FEE_Education_Startup_Event.1.dd: "Heir Education is a system which revolves around sending your Heir to various prestigious institutions across the continent, or if tight on money and resources, a tutor could do great. Heir education allows you to pay certain amounts of Mana and Ducats for a chance at increasing the Skill of your heir, will your heir become a Respected Scholar of the realm? an Master of the Sword? or an Unfortunate Gambler. As the fact of uncertainty with no guarantee of good outcome, people have requested an option to enable or disable the education. \nIn order to keep things fair, you will not be able to turn this feature on and off without manually refiring this event."
+ FEE_Education_Startup_Event.1.a: "I would like this education system!"
+ FEE_Education_Startup_Event.1.b: "I would rather not"
+ # Events:
+ FEE_Advisor_Event.EVTNAME1: "A Pouch of Gold?"
+ FEE_Advisor_Event.EVTDESC1: "$MASTER_OF_MINT$$TREASURER$ beams a smile at you while handing over a pouch of gold. He claims it contains the savings accumulated from hard work and donations from the richer families in your realm."
+ FEE_Advisor_Event1.EVTOPT1: "Excellent News!"
+
+ FEE_Advisor_Event.EVTNAME2: "Monumental Suggestions"
+ FEE_Advisor_Event.EVTDESC2: "$MASTER_OF_MINT$$TREASURER$ approaches you: \"My Liege, I have a great idea for a monument. Something to raise our cultural status and make the people notice what a great ruler you are. I would require some gold and your patience, and the work would take a year to complete.\""
+ FEE_Advisor_Event2.EVTOPT1: "So be it! Surprise me!"
+ FEE_Advisor_Event2.EVTOPT2: "I don't think so ..."
+
+ FEE_Advisor_Event.EVTNAME3: "A Monumental Reveal"
+ FEE_Advisor_Event.EVTDESC3: "The monument $MASTER_OF_MINT$$TREASURER$ promised is finished. The shape of the statue seems a bit off, as it is unveiled some of the crowd seem confused. It is a giant ear with the inscription 'IT LISTENS'."
+ FEE_Advisor_Event3.EVTOPT1: "At least it's original."
+ FEE_Advisor_Event3.EVTOPT2: "Tear it down!"
+
+ FEE_Advisor_Event.EVTNAME4: "A Monumental Reveal"
+ FEE_Advisor_Event.EVTDESC4: "The monument $MASTER_OF_MINT$$TREASURER$ promised is finished. People have gathered to witness the unveiling of the new statue. It is a large portrait of [fee_statue_target.Monarch.GetName]."
+ FEE_Advisor_Event4.EVTOPT1: "Surely, this will bring us their favour."
+
+ FEE_Advisor_Event.EVTNAME5: "A Monumental Reveal"
+ FEE_Advisor_Event.EVTDESC5: "The monument $MASTER_OF_MINT$$TREASURER$ promised is finished.  At the unveiling, the crowd gasps and some even scream. It's something that resembles a throne, with an eyeless horned creature on top. It smells like blood."
+ FEE_Advisor_Event5.EVTOPT1: "I should have seen this coming."
+ FEE_Advisor_Event5.EVTOPT2: "Climb on the throne."
+
+ FEE_Advisor_Event.EVTNAME6: "A Monumental Reveal"
+ FEE_Advisor_Event.EVTDESC6: "The monument $MASTER_OF_MINT$$TREASURER$ promised is finished. Upon unveiling, a statue of yourself is revealed and you notice the crowd smiling and giving you a round of applause."
+ FEE_Advisor_Event6.EVTOPT1: "I have no words."
+ FEE_Advisor_Event6.EVTOPT2: "It's too much, remove it."
+
+ FEE_Advisor_Event.EVTNAME7: "A Monumental Reveal"
+ FEE_Advisor_Event.EVTDESC7: "The monument $MASTER_OF_MINT$$TREASURER$ promised is finished. The statue is unveiled and it's just a bigger version of $MASTER_OF_MINT$$TREASURER$, only slightly better looking than the real $MASTER_OF_MINT$$TREASURER$."
+ FEE_Advisor_Event7.EVTOPT1: "I don't know about this."
+ FEE_Advisor_Event7.EVTOPT2: "Tear it down! $MASTER_OF_MINT$$TREASURER$ will be put in their place!"
+
+ FEE_Advisor_Event.EVTNAME8: "A Monumental Reveal"
+ FEE_Advisor_Event.EVTDESC8: "The monument $MASTER_OF_MINT$$TREASURER$ promised is finished. Some people in the crowd cover their children's eyes as the statue is unveiled. It's a couple in the middle of lovemaking, and not exactly presented tastefully."
+ FEE_Advisor_Event8.EVTOPT1: "Children must learn this sooner or later."
+ FEE_Advisor_Event8.EVTOPT2: "Tear it down!"
+
+ FEE_Advisor_Event.EVTNAME9: "Courtly Loans"
+ FEE_Advisor_Event.EVTDESC9: "A merchant approaches the court and carefully pleads to make a payment plan for the recent loan taken by $MASTER_OF_MINT$$TREASURER$. It seems the fruits of labour may have been exaggerated, and since the loan was made in your name, this reflects poorly on you too. What will the consequence be for $MASTER_OF_MINT$$TREASURER$?"
+ FEE_Advisor_Event9.EVTOPT1: "Understandable, collecting taxes is tough work."
+ FEE_Advisor_Event9.EVTOPT2: "He has overstepped his bounds."
+
+ FEE_Advisor_Event.EVTNAME10: "A Full Days Work"
+ FEE_Advisor_Event.EVTDESC10: "$MASTER_OF_MINT$$TREASURER$ smiles at you. \"My Liege, I have noticed your mind seems to drift off whenever we discuss monetary issues. I believe that to make things interesting, one must be introduced to the subject where it is directly relevant to oneself. Perhaps you would like to join me tomorrow on a full days work?\""
+ FEE_Advisor_Event10.EVTOPT1: "Yes that would be interesting."
+ FEE_Advisor_Event10.EVTOPT2: "Hah! You must be joking. I have better things to do."
+
+ FEE_Advisor_Event.EVTNAME11: "A Full Days Work"
+ FEE_Advisor_Event.EVTDESC11: "$MASTER_OF_MINT$$TREASURER$ starts the day off collecting taxes. Some People frown and complain when they give away their earnings, $MASTER_OF_MINT$$TREASURER$ calmly explains why taxes are collected and manages to appease the complainers."
+ FEE_Advisor_Event11.EVTOPT1: "Earning trust is earning gold."
+ FEE_Advisor_Event11.EVTOPT2: "Maybe we could squeeze them for some more?"
+
+ FEE_Advisor_Event.EVTNAME12: "A Full Days Work"
+ FEE_Advisor_Event.EVTDESC12: "Today, $MASTER_OF_MINT$$TREASURER$ brings you to the nearest construction site to evaluate progress, notices that the builders are lagging behind the agreed schedule and proceeds to question them. The builders complain about the weather and want more pay to cover the delays, look over your way, awaiting a response."
+ FEE_Advisor_Event12.EVTOPT1: "We will hold our end of the deal when you hold yours."
+ FEE_Advisor_Event12.EVTOPT2: "I guess one cannot predict the weather."
+ FEE_Advisor_Event12.EVTOPT3: "Clear the site! You will never work again!"
+
+ FEE_Advisor_Event.EVTNAME13: "A Full Days Work"
+ FEE_Advisor_Event.EVTDESC13: "A friend has come to visit $MASTER_OF_MINT$$TREASURER$ this evening. The three of you have a good time discussing your experiences over a fine evening meal. The Visitor nods at you, saying to $MASTER_OF_MINT$$TREASURER$: \"How lucky you are, to have a liege that understands your work. This cooperation should benefit both of you.\""
+ FEE_Advisor_Event13.EVTOPT1: "It's been interesting, more so than many other things I've tried."
+ FEE_Advisor_Event13.EVTOPT2: "It wasn't for me, it feels like stealing."
+ FEE_Advisor_Event13.EVTOPT3: "I hated it! We should just kill the peasants and take their money."
+
+ FEE_Advisor_Event.EVTNAME14: "Student of Language?"
+ FEE_Advisor_Event.EVTDESC14: "My Advisor $STATESMAN$$DIPLOMAT$$COLONIAL_GOVERNOR$ kindly suggests that it would be of benefit to the realm if I studied the languages spoken at foreign courts. He also offers himself to aid me in my studies."
+ FEE_Advisor_Event14.EVTOPT1: "An excellent idea!"
+ FEE_Advisor_Event14.EVTOPT2: "If they can't speak [Root.Culture.GetName], they are not important."
+
+ FEE_Advisor_Event.EVTNAME15: "Student of Language"
+ FEE_Advisor_Event.EVTDESC15: "Distractions seem to overwhelm you during your studies. The Simplest pleasures, and even plain and mundane chores, seem like time better spent than drowning in books all evening. How does one manage to keep focused when everything else is so much more appealing?"
+ FEE_Advisor_Event15.EVTOPT1: "If I learn even a few phrases, it will be worth it!"
+ FEE_Advisor_Event15.EVTOPT2: "I guess learning languages is not for everyone."
+
+ FEE_Advisor_Event.EVTNAME16: "Student of Language"
+ FEE_Advisor_Event.EVTDESC16: "Advisor $STATESMAN$$DIPLOMAT$$COLONIAL_GOVERNOR$ has a look of parental disappointment in his eyes, \"I believe you could have done this well if only you'd put your mind to it. Unfortunately, your disinterest is all too apparent in your absence from our meetings. With your permission, I will henceforth focus on more useful work instead of waiting for you, my Liege.\""
+ FEE_Advisor_Event16.EVTOPT1: "You will watch your tongue or lost it!"
+ FEE_Advisor_Event16.EVTOPT2: "Although I learned less than expected, I thank you for your time."
+
+ FEE_Advisor_Event.EVTNAME17: "Student of Language"
+ FEE_Advisor_Event.EVTDESC17.1: "Your determination and hard work have paid off. Studying with your advisor $STATESMAN$$DIPLOMAT$$COLONIAL_GOVERNOR$, you have learned several new languages to a decent level of fluency. This will surely increase your prestige at foreign courts!"
+ FEE_Advisor_Event.EVTDESC17.2: "Your determination and hard work have paid off. Studying now alone, you focus hard, you have learned several new languages to a decent level of fluency. This will surely increase your prestige at foreign courts!"
+ FEE_Advisor_Event17.EVTOPT1: "I knew I could do it!"
+
+ FEE_Advisor_Event.EVTNAME18: "Student of Language"
+ FEE_Advisor_Event.EVTDESC18: "Without the support of your advisor $STATESMAN$$DIPLOMAT$$COLONIAL_GOVERNOR$ your study sessions seem to be and far between. You increasingly feel that the challenge is just too great to tackle on your own."
+ FEE_Advisor_Event18.EVTOPT1: "At least I made an effort."
+
+ FEE_Advisor_Event.EVTNAME19: "Excessive Bureaucracy"
+ FEE_Advisor_Event.EVTDESC19: "While walking down the corridor of your court, a local peasant runs up to you with panic in his eyes: \"I had come here to ask for aid since some of my sheep had got killed by wild animals,  but now I just need to get out of here! I've already paid a dozen fees and been stuck in different rooms for hours in supposed 'queues' but I saw no-one else there! Please help my poor soul!\""
+ FEE_Advisor_Event19.EVTOPT1: "Put $STATESMAN$$DIPLOMAT$$COLONIAL_GOVERNOR$ in prison for his bureaucratic scheme."
+ FEE_Advisor_Event19.EVTOPT2: "I'll let $STATESMAN$$DIPLOMAT$$COLONIAL_GOVERNOR$ scheme slip by for now and join the scheme."
+
+ FEE_Advisor_Event.EVTNAME20: "Up and Coming Commander"
+ FEE_Advisor_Event.EVTDESC20: "Your Marshal, $ARMY_REFORMER$$ARMY_ORGANISER$$COMMANDANT$$GRAND_CAPTAIN$$NAVAL_REFORMER$$QUARTERMASTER$$RECRUITMASTER$, has come to you with a suggestion: \"My Lord, it is my opinion that I have found someone who would make an excellent military commander. I suggest we make use of they're talents for the good of the realm.\""
+ FEE_Advisor_Event20.EVTOPT1: "Very well."
+ FEE_Advisor_Event20.EVTOPT2: "Our military studies are a better use of funds."
+
+ FEE_Advisor_Event.EVTNAME21: "Untrustworthy Assistants"
+ FEE_Advisor_Event.EVTDESC21: "You receive news of your Marshal's activities in [Root.Capital.GetName]. It appears he has been spreading ill words about your rule, encouraging disloyalty among the peasantry!"
+ FEE_Advisor_Event21.EVTOPT1: "A traitor cannot be Marshal!"
+ FEE_Advisor_Event21.EVTOPT2: "Ill tidings, but I still need him."
+
+ FEE_Advisor_Event.EVTNAME22: "Abuse of Power"
+ FEE_Advisor_Event.EVTDESC22: "Worrying reports have reached you regarding your Marshal $ARMY_REFORMER$$ARMY_ORGANISER$$COMMANDANT$$GRAND_CAPTAIN$$NAVAL_REFORMER$$QUARTERMASTER$$RECRUITMASTER$. It seems he has been using your soldiers to extort money from the peasantry in [Root.Capital.GetName]."
+ FEE_Advisor_Event22.EVTOPT1: "He has forfeited his office!"
+ FEE_Advisor_Event22.EVTOPT2: "I will deal with this later."
+
+ FEE_Advisor_Event.EVTNAME23: "The Brilliant Inventor"
+ FEE_Advisor_Event.EVTDESC23: "Your Marshal, $ARMY_REFORMER$$ARMY_ORGANISER$$COMMANDANT$$GRAND_CAPTAIN$$NAVAL_REFORMER$$QUARTERMASTER$$RECRUITMASTER$, has put forward a plan for experimentation with new military technology, inspired by a supposedly brilliant inventor and engineer that he has recently befriended. All that is needed is a little funding..."
+ FEE_Advisor_Event23.EVTOPT1: "You shall have it."
+ FEE_Advisor_Event23.EVTOPT2: "No, this is pointless."
+
+ FEE_Advisor_Event.EVTNAME24: "The Armoured Chariot"
+ FEE_Advisor_Event.EVTDESC24: "You receive a report from the outcome of the military experiments that your Marshal asked you to sponsor. A large steel-plated chariot was constructed, propelled by ten men inside pulling it forward, directed by a commander peering out from a revolving turret mounted on top. This vehicle also had several ballistas firing through arrow slits. Unfortunately, its weight caused a wooden bridge to collapse when crossing and the invention was lost in the river, also killing the engineer. The marshal himself barely escaped with his life."
+ FEE_Advisor_Event24.EVTOPT1: "Oh no!"
+
+ FEE_Advisor_Event.EVTNAME25: "Screaming Arrows"
+ FEE_Advisor_Event.EVTDESC25: "You receive a report on the outcome of the military experiments that your Marshal asked you to sponsor. Apparently, a new kind of self-propelled arrow was tried out, based on Far Eastern models. Lit by fire, these arrows would scream and fly away leaving a trail of smoke and then explode on impact, killing several of the livestock used as practice targets. Though of dubious accuracy and prone to failure in rainy weather, these experiments have still provided some valuable lessons."
+ FEE_Advisor_Event25.EVTOPT1: "Excellent."
+
+ FEE_Advisor_Event.EVTNAME26: "Burning Sheep"
+ FEE_Advisor_Event.EVTDESC26: "You receive a report from the outcome of the military experiments that your Marshal asked you to sponsor. The experiments consisted of drenching a large amount of sheep in oil and setting fire to them, then sending the terrified, screaming animals towards the enemy. Unfortunately, it proved impossible to control the direction of the sheep. The engineer was immolated in a ball of fire and your Marshal was a injured, we await to see if he will survive."
+ FEE_Advisor_Event26.EVTOPT1: "It seems we'll be dining roast mutton..."
+
+ FEE_Advisor_Event.EVTNAME27: "Trumpets of Doom"
+ FEE_Advisor_Event.EVTDESC27: "You receive a report on the outcome of the military experiments that your Marshal asked you to sponsor. Apparently, the experiments consisted of training a large force of musicians to blow their trumpets in unison, thus deafening and stunning the enemy army in preparation for an attack. Attempts were also made to make castle walls tumble by marching around them blowing the trumpets. \n\nUnfortunately, while quite expensive, none of these experiments were successful."
+ FEE_Advisor_Event27.EVTOPT1: "Trumpets? How much did I pay for this again?"
+
+ # Tooltips:
+ EVERY_OWNED_CORE_PROVINCE_MINUS_2_UNREST: "Every owned core province loses §G-2§! unrest."
+ EVERY_OWNED_CORE_PROVINCE_PLUS_1_UNREST: "Every owned core province gains §R+1§! unrest."
+ heir_education.1.t: "Heir Education?"
+ heir_education.1.d: "It is always important for a country to have a competent leader and because of this it's important that $HEIR$ gets the best education $HEIR_S_PRONOUN$ can get. However, there are many options to choose from and while its everyone's hope that $HEIR$ will be a competent successor, no one will know if he can even succeed.\n\nEducating $HEIR$ is a vital role in his upbringing that may shape $HEIR_ADJ$ personality and skills."
+ heir_education.1.a: "Only the most renowned of academics in these lands will teach our heir."
+ heir_education.1.a.tt: "Heir will be taught most excellently, we shall send him to the best university around!"
+ heir_education.1.b: "Our own scholars shall make great educators."
+ heir_education.1.b.tt: "Heir will be taught the best WE have to offer"
+ heir_education.1.c: "A humble tutor will do our heir just fine."
+ heir_education.1.c.tt: "Heir will be decently taught, they will gain the basic life skills needed to rule and be taught a few specialities"
+ heir_education.1.e: "My child needs hands-on lifeskills to effectively rule."
+ heir_education.1.e.tt: "Heir will be taught from life-experience and occasionally advisors, this may be an cheaper option which has the chance of being great or bad"
+ heir_education.1.f: "Our heir is a natural Genius, he has no need for Education!"
+ heir_education.1.f.tt: "As our heir is at the max stat, it would be best to let not to waste the time and money."
+ neglected_heir_education: "Heir Neglected"
+
+
+ heir_education.2.t: "The Artist's Canvas"
+ heir_education.2.d: "One day, $ARTIST$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $ARTIST$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about the sophistication of the arts and music. In fact, $ARTIST$ would like to teach $HEIR$ the ways of mastering the canvas and bring $HEIR_O_PRONOUN$ to meet many prestigious artists and poets."
+ heir_education.2.a: "I count on you to make $HEIR$ a master of the arts."
+ heir_education.2.b: "Now where was that portrait I asked?"
+
+ heir_education.3.t: "The Scientist's Experiment"
+ heir_education.3.d: "One day, $NATURAL_SCIENTIST$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $NATURAL_SCIENTIST$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about the laws of nature and mathematics. In fact, $NATURAL_SCIENTIST$ would like to expose $HEIR$ the wonders of science and bring $HEIR_O_PRONOUN$ to meet many esteemed scholars."
+ heir_education.3.a: "I count on you to make $HEIR$ a beacon of knowledge."
+ heir_education.3.b: "So how are those experiments going?"
+
+ heir_education.4.t: "The Inquisitor's Apprentice"
+ heir_education.4.d: "One day, $INQUISITOR$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $INQUISITOR$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about the scriptures and in all matters of the religious laws. In fact, $INQUISITOR$ would like to take $HEIR$ as their apprentice and show $HEIR_O_PRONOUN$ the truth about our beloved faith."
+ heir_education.4.a: "I count on you to make $HEIR$ one of god's pious servant."
+ heir_education.4.b: "There's an awful lot of heretics these days isn't there?"
+
+ heir_education.5.t: "The Trader's Bargain"
+ heir_education.5.d: "One day, $TRADER$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $TRADER$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about economics and the silver tongue of commerce. In fact, $TRADER$ would like to take $HEIR$ to various markets all over the continent and show $HEIR_O_PRONOUN$ the way business is done among men of wit."
+ heir_education.5.a: "I count on you to make $HEIR$ the embodiment of wealth."
+ heir_education.5.b: "How's the trade doing old friend?"
+
+ heir_education.6.t: "The Spymaster's Secrets"
+ heir_education.6.d: "One day, $SPYMASTER$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $SPYMASTER$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about deception and the game of espionage. In fact, $SPYMASTER$ would like to share $HEIR$ the secrets to be the best amongst the shadows and introduce $HEIR_O_PRONOUN$ to many spymasters and inspectors known for their cunning intelligence."
+ heir_education.6.a: "I count on you to make $HEIR$ an elusive shadow."
+ heir_education.6.b: "I wonder what those pesky rivals are up to..."
+
+ heir_education.7.t: "The Governor's Expeditions"
+ heir_education.7.d: "One day, $COLONIAL_GOVERNOR$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $COLONIAL_GOVERNOR$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about administrating a settlement and the politics of colonies. In fact, $COLONIAL_GOVERNOR$ would like to show $HEIR$ the tricks of running an efficient bureaucracy and introduce $HEIR_O_PRONOUN$ to the splendors of wealth from the new world."
+ heir_education.7.a: "I count on you to make $HEIR$ a colonial mastermind"
+ heir_education.7.b: "How are the colonies?" 
+
+ heir_education.8.t: "The Reformer's Tactics"
+ heir_education.8.d: "One day, $ARMY_REFORMER$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $ARMY_REFORMER$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about military strategies and tactics. In fact, $ARMY_REFORMER$ would like to show $HEIR$ the value of military strength on the battlefield and introduce $HEIR_O_PRONOUN$ to the thrilling world of warfare."
+ heir_education.8.a: "I count on you to make $HEIR$ a tactical genius."
+ heir_education.8.b: "I hope the troops are doing well..." 
+
+ heir_education.9.t: "The Fortifier's Defence"
+ heir_education.9.d: "One day, $FORTIFICATION_EXPERT$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $FORTIFICATION_EXPERT$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about the importance of preparation and how to create strategically excellent forts. In fact, $FORTIFICATION_EXPERT$ would like to encourage $HEIR$ on engineering $HEIR_O_PRONOUN$ own fortresses to get first hand experience and introduce $HEIR_O_PRONOUN$ to numerous renowned military engineers and architects."
+ heir_education.9.a: "I count on you to make $HEIR$ a fortification expert."
+ heir_education.9.b: "I hope the troops are doing well..." 
+
+ heir_education.10.t: "The Grand Captain's Men"
+ heir_education.10.d: "One day, $GRAND_CAPTAIN$ approached your presence, \"Your majesty, I'm concerned about the upbringing of $HEIR$, I understand if you don't trust the schools to educate him but someone needs to teach him the ropes of running our country.\"\n\nAs expected, $GRAND_CAPTAIN$ is offering themselves to become $HEIR$'s tutor, teaching $HEIR_O_PRONOUN$ about discipline and the qualities of a valiant fighter on the battlefield. In fact, $GRAND_CAPTAIN$ would like to encourage $HEIR$ on joining $HEIR_O_PRONOUN$ first military expedition facing the enemy and introduce $HEIR_O_PRONOUN$ to the most skilled and deadly men we have to offer, in hopes that he can learn from them too."
+ heir_education.10.a: "I count on you to make $HEIR$ a fortification expert."
+ heir_education.10.b: "I hope the troops are doing well..." 
+
+ heir_education.11.t: "Heir's Excellent Education has Finished"
+ heir_education.11.d: "After a decade of learning and studying from the best tutors money could find, $HEIR$ has finally finished their education in one of the most prestigious academies in $CAPITAL_CITY$. Despite learning calligraphy from the finest $CULTURE$ writers and taught etiquette by a famed governess, its still very unknown if $HEIR$ has learned much or anything at all, and we pray to the heavens that all the funds didn't go down the drain..."
+ heir_education.11.a: "Let's see what you've learned."
+
+ heir_education.12.t: "Heir's Good Education has Finished"
+ heir_education.12.d: "After a decade of learning and studying from our most experienced educators, $HEIR$ has finally finished their education by graduating from a small yet well-known school in $CAPITAL_CITY$. Despite being able to talk, read and write fluently with special commendation from several teachers, its still very unknown if $HEIR$ has learned much or anything at all, and we pray to the heavens that all the funds didn't go down the drain..."
+ heir_education.12.a: "Let's see what you've learned."
+
+ heir_education.13.t: "Heir's Average Education has Finished"
+ heir_education.13.d: "After a decade of learning and studying from a homeschooled curriculum, $HEIR$ has finally finished their education with their humble tutor in his home at $CAPITAL_CITY$. Despite only taught by a tutor with adequate expertise, $HEIR$ have learned much about our realm through his own experiences, its still very unknown if $HEIR$ has learned much or anything at all, and we pray to the heavens that all the funds didn't go down the drain..."
+ heir_education.13.a: "Let's see what you've learned."
+
+ heir_education.14.t: "Heir's Lack of Education has Finished"
+ heir_education.14.d: "After a decade of learning and studying from arbitrary experiences and often first-hand accounts, $HEIR$ has finally finished their education scuttering and interacting with the various classes and people all over $CAPITAL_CITY$. Although our heir received no formal education and little tutoring throughout his young life, $HEIR$ have learned much by his own means, prodding his nose into others' business most of the time but its still very unknown if $HEIR$ has learned much or anything at all, and we pray to the heavens that all the funds didn't go down the drain..."
+ heir_education.14.a: "Let's see what you've learned."
+
+ heir_education.101.t: "Respected Scholar"
+ heir_education.101.d: "Throughout the years of their youth, our heir has become a respected scholar. $HEIR$ has shown great interest in the arts, sciences and scripture since a very young age and has applied this greatly in his education, scoring exceptionally high-marks in examinations and winning numerous awards for $HEIR_ADJ$ cunningness and wit. Considered an excellent pupil by the teachers, $HEIR$ has done well throughout his education and has balanced the use of the pen and the sword, all while learning the intricacies of bureaucracy and beuaty of the arts. Our education has made $HEIR$ into a well-rounded heir fit for the throne."
+ heir_education.101.a: "As expected from a child of mine."
+
+ heir_education.102.t: "Shadow Mastermind"
+ heir_education.102.d: "Throughout the years of their youth, our heir has become a shadow mastermind. $HEIR$ has been trained in intrigue and espionage since a young age, revealing a hidden talent that has been trained to its true potential. Always hidden in the shadows and always inventing new schemes, only few can get a glimpse into the secretive mind of $HEIR$ and even fewer can get the better end of the deal. However, our heir's affairs in the underground world has made $HEIR_O_PRONOUN$ overly reliant on networks and assassins and not so much in the face of actual danger. Our education has made $HEIR$ into a manipulative spymaster."
+ heir_education.102.a: "Intriguing..."
+
+ heir_education.103.t: "Military Mathematician"
+ heir_education.103.d: "Throughout the years of their youth, our heir has become a military mathematician. $HEIR$ has proved themselves as both a man of brain and brawn, able to calculate precision and deadliness when presented with conflict and swift thinking in times when odds are not in their favor. Mastering the world of engineering, $HEIR$ has proved to be both a innovative yet dangereous general, coming up with new siege machines and weapons while predicting the enemy's next move. It looks like time spent in the study doesn't mean time is not spent in the fields. Our education has made $HEIR$ into a military mathematician."
+ heir_education.103.a: "I didn't expect this from geometry lessons."
+
+ heir_education.104.t: "Gullible Genius"
+ heir_education.104.d: "Throughout the years of their youth, our heir has become a gullible genius. $HEIR$ possesses a mind and intellect like no other, able to solve complex algebraic equations in a flash and can recall pages upon pages of our country's history without hesitating. Our scholars has claimed him to be one of the most intelligent people in the realm and we wear it with pride. However, there is a downside. Despite $HEIR$ intelligence is unrivalled, his naivety and lack of practical skills is an issue, unable to engage in diplomatic conversation or make the right moves. This is expected from a royal who is both sheltered and counts too much. Our education has made $HEIR$ into a gullible genius."
+ heir_education.104.a: "At least he's smarter than me."
+
+ heir_education.105.t: "Master of the Sword"
+ heir_education.105.d: "Throughout the years of their youth, our heir has become a master of the sword. $HEIR$ was a rough child, engaging in frequent fights with other pupils and often considered a bully to weaker children. However, thanks to his lively intiative, $HEIR$ was given special education in the arts of warfare and tactics at an early age with many of $HEIR_ADJ$ bad tendencies suppressed under strict guardians. In the end, this made our heir a person of great military skill, mastering the vast battlefield by day and strategising the next move at night. However, $HEIR$ focus on military skills means $HEIR_S_PRONOUN$ other subjects are suffering ad in turn, this makes $HEIR_ADJ$ ignorant to politics or bureaucracy. Our education has made $HEIR$ into a master of the sword."
+ heir_education.105.a: "A fine addition to the dynasty."
+
+ heir_education.106.t: "Pragmatic Jury"
+ heir_education.106.d: "Throughout the years of their youth, our heir has become a pragmatic jury. $HEIR$ was one of the few pupils that had a keen interest in law & politics, to our courtier's relief. While just as confused as everyone after learning all about the intriciacies of the laws of our country, $HEIR$ took an initiative to dedicate $HEIR_ADJ$ education to the greater good of justice, attending many noisy debates and memorized pages upon pages about our realm's laws, politics and bureaucracy, making $HEIR_O_PRONOUN$ one of the few who have the privilege of knowing the in's and out's of the convoluted mess that is the $COUNTRY_ADJ$ government. Our education has made $HEIR$ into a pragmatic jury."
+ heir_education.106.a: "Finally, someone who likes paperwork."
+
+ heir_education.107.t: "Dim Pupil"
+ heir_education.107.d: "Throughout the years of their youth, our heir has become a dim pupil. $HEIR$ was blessed to be born as a $DYNASTY$, unfortunately this doesn't mean that $HEIR_S_PRONOUN$ was blessed with wit or charm. Barely passing his classes, or what's left of it after his tutors were too frustrated, our heir has never been particularly good at anything and is in fact, quite dim. This has made $HEIR$ more careless and clumsy, some even think $HEIR_S_PRONOUN$'s' unable to fulfil $HEIR_ADJ$ expected duties as future monarch. Unable to do proper paperwork, horrible at negotiating and too cowardly to run an army, it seems that this isn't our finest moment in history. Our education has made $HEIR$ into a dim pupil."
+ heir_education.107.a: "May god help us..."
+
+ heir_education.108.t: "Merry Drunkard"
+ heir_education.108.d: "Throughout the years of their youth, our heir has become merry drunkard. $HEIR$ could've been many things throughout his childhood, however out of all the paths of life, it seems that our heir has chosen no more than a common alcoholic. To the dismay of our courtiers, $HEIR$ has evolved from taking a few sips into whole bottles, often missing for days and found in pubs and brothels all over $CAPITAL_CITY$, squandering what little wealth $HEIR_S_PRONOUN$  had on wine and bear and mead. This has made $HEIR$ particularly unintelligent, unable to do the simplest of mathematics or even write properly in $CULTURE$ but to our surprise, $HEIR$ is extraordinarily talented at persuasion and diplomacy, owing his silver-tongue to spending time in the shady pubs. Furthermore, $HEIR_S_PRONOUN$ has connections in and out of $COUNTRY$ with large connections of friends in the more darker parts of politics, warfare and commerce."
+ heir_education.108.a: "Last thing I need is a drunkard..."
+
+ heir_education.109.t: "Not-so-Bright Warrior"
+ heir_education.109.d: "Throughout the years of their youth, our heir has become a not-so-bright warrior. $HEIR$ is a very unique child. Growing up within the castle walls, our courtiers observe that $HEIR$ possesses a great talent for strength, even to a point that $HEIR_S_PRONOUN$ was able to lift and toss around objects more nearly twice his weight with ease. Our priests claim that this was a great gift from the heavens, but it would be a gift if $HEIR$ wasn't so incredibly slow. While our generals make use of $HEIR_ADJ$ strength by training $HEIR$ in the art of warfare, which $HEIR_S_PRONOUN$ succeeded with flying colors, little could be done about his dull intellect. Having trouble with even reading and slurring in his speech, our heir was never destined for knowledge. Our education has made $HEIR$ a not-so-bright warrior."
+ heir_education.109.a: "Looks like it does run in the family."
+
+ heir_education.110.t: "Pious Zealot"
+ heir_education.110.d: "Throughout the years of their youth, our heir has become a pious zealot. $HEIR$ has been devoting $HEIR_ADJ$ life to religious duties and praying as the young royal sought to seek clarity, wisdom and guidance from the almighty heavens. Spending most of $HEIR_ADJ$ time in the temples and often discussing the scriptures with older priests, $HEIR$ is committed to be a pious servant for the heavens and unlike many youths around $HEIR_O_PRONOUN$, abstains from luxurious goods and alcohol, instead donating his time to charity and the lesser fortunate. Unfortunately, this has cause $HEIR$ to become sheltered and often naive to the more cruel world where deceit and lies exist, often choosing to do ambitiously impossible tasks in the name of god such as ending corruption. Our education has made $HEIR$ a pious zealot."
+ heir_education.110.a: "We are truly blessed."
+
+ heir_education.111.t: "Curious Skeptic"
+ heir_education.111.d: "Throughout the years of their youth, our heir has become a curious skeptic. $HEIR$ was always considered to be a nosy child, often snooping around the courts and getting his nose into other people's business, to the dismay or pleasure of our subjects. Furthermore, as $HEIR$ get older, our assigned tutors and educators noticed that $HEIR$ is often quite stubborn and refuse to indulge in the scriptures, holy texts or stories that is presented, often asking too many questions and complaining of its credibility, earning him his skeptical attitude. This in turn however, has made $HEIR$ to be great at $HEIR_ADJ$ more materialistic subjects such as the sciences, philosophy and geometry as well as being more careful around our more zealous courtiers. Our education has made $HEIR$ a curious skeptic."
+ heir_education.111.a: "Shush! Don't let the inquisitors know!"
+
+ heir_education.112.t: "Unfortunate Gambler"
+ heir_education.112.d: "Throughout the years of their youth, our heir has become a unfortunate gambler. Somewhere down the line, $HEIR$ was interested in the gambling and while it started out with a few peanuts, as they got older it spiralled as every coin turned from their hand into the opponents, never stopping to look whether the mirage of the 'jackpot' is real. Whether its bad parenting or bad supervision, its no doubt that this has led $HEIR$ to crave risks and often take careless decisions, some even nearly cost their life. Whether this was a product of failed education or the absence of it, our heir can be expected to gamble the treasury empty."
+ heir_education.112.a: "I bet my coffers are already empty."
+
+ heir_education.113.t: "Believer of the Occult"
+ heir_education.113.d: "Throughout the years of their youth, our heir has become a believer of the occult. Whether it was by luck or destiny, $HEIR$ was always captivated in the mysteries and dark secrets of the world, never ending in $HEIR_ADJ$ pursuit towards immortality, god-like abilities or universal secrets. This has made our heir to join many secret cults, whether legal or illegal, their practices are mostly deemed heretical and some rumored satanic. Believing in witchcraft and sorcery, our heir has become a believer of the occult, whether it's just an elaborate scam or truly a hidden path in life, this was definitely not a phase." 
+ heir_education.113.a: "This is horribly heretical!"
+
+ heir_education.114.t: "Mercantile Maestro"
+ heir_education.114.d: "Throughout the years of their youth, our heir has become a mercantile maestro. Through the stroke of genius or luck, $HEIR$ has always been fond of money and with it the great interest of commerce, trade and economies. Despite this, little was actually learned at schools or academies but $HEIR$ found a hidden talent for bartering and negotiating that lead $HEIR_O_PRONOUN$ to become a known maestro in all that shines. Our heir knows the markets, and $HEIR_S_PRONOUN$ knows it well, experiencing the trade first-hand by eye not by paper."
+ heir_education.114.a: "Must've run in the family."
+
+ heir_education.115.t: "Jolly Performer"
+ heir_education.115.d: "Throughout the years of their youth, our heir has become a jolly performer. Never finding much talent in diplomatic, administrative or military tasks, $HEIR$ was a lost cause to many of our courtiers yet unknown at the time, $HEIR$ was gifted with the talent of pleasing patrons and entertaining crowds, able to entertain many with $HEIR_ADJ$ plays, tragedies and musical, as well as vocal, talent. Born to be on stage, $HEIR$ has mastered the art of acting and music, able to play several instruments and often finding joy in entertaining people with them. Due to this however, our heir is frowned upon our military, often seeing $HEIR$ as not fit for rule since a monarch do not play the lute or entertain the dull masses."
+ heir_education.115.a: "I don't know whether I'm entertained or amused."
+ 
+ heir_education.200.t: "Extra Lessons?"
+ heir_education.200.d: "As our heir continues to grow into a stronger, more educated heir; some have suggested that we should place [Root.Heir.GetHerHimCap] into more lessons to learn some specialities. \nMany different classes would involve giving [Root.Heir.GetHerHimCap] more administrative duties to learn from, or we could task [Root.Heir.GetHerHimCap] with learning more proper Etiquette in a court of diplomats or even train [Root.Heir.GetHerHimCap] to be a better swordfighter with Fencing training."
+ heir_education.200.a: "Administative classes."
+ heir_education.200.b: "Teach [Root.Heir.GetHerHimCap] proper Diplomatic Etiquette."
+ heir_education.200.c: "Fencing Classes for [Root.Heir.GetName]!"
+ heir_education.200.e: "We should not overwork our heir, he is fine learning what he is."
+
+ fee_ruler_trait_wroth: "Wroth"
+ fee_ruler_trait_proud: "Proud"
+ fee_ruler_trait_humble: "Humble"
+ fee_ruler_trait_lustful: "Lustful"
+ fee_ruler_trait_honest: "Honest"
+ fee_ruler_trait_trusting: "Trusting"
+ fee_ruler_trait_kind: "Kind"
+ fee_ruler_trait_slothful: "Slothful"
+ fee_ruler_trait_shy: "Shy"
+ fee_ruler_trait_diligent: "Diligent"
+ fee_ruler_trait_patient: "Patient"

@@ -43,7 +43,7 @@ discovered_by = ottoman
 1798.6.9 = { controller = FRA } # Occupied by French troops
 1800.1.1 = { controller = KNI } # British protectorate
 1814.5.30 = {
-	owner = GBR
-	controller = GBR
-	add_core = GBR
+	owner = UNK
+	controller = UNK
+	add_core = UNK
 } # Treaty of Paris

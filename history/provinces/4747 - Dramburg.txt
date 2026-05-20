@@ -3,6 +3,7 @@
 owner = TEU
 controller = TEU
 add_core = TEU
+add_core = BRA
 culture = pommeranian
 religion = catholic
 hre = yes

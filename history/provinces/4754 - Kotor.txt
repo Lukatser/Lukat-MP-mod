@@ -43,7 +43,7 @@ discovered_by = ottoman
 	remove_core = ITA
 }
 1814.1.5 = {
-	controller = GBR
+	controller = UNK
 }
 1814.4.6 = { # Napoleon abdicates
 	owner = HAB

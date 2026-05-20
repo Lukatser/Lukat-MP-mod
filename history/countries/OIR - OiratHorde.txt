@@ -5,6 +5,7 @@ religion = tengri_pagan_reformed
 primary_culture = oirats
 capital = 718
 add_accepted_culture = khalkha
+historical_rival = KHA
 
 #Khans of the Oirats (Kalmyks, Dzungars)
 1399.1.1 = {

@@ -35,3 +35,10 @@ discovered_by = eastern
 }
 1798.5.23 = { unrest = 10 } # Irish rebellion
 1798.7.14 = { unrest = 0 } # The rebels are defeated
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

@@ -5,7 +5,14 @@ technology_group = western
 primary_culture = dutch
 add_accepted_culture = flemish
 religion = catholic
-capital = 4383 #Haag
+capital = 4506 #Haag
+historical_friend = SWI
+historical_friend = BRA
+historical_friend = PRU
+historical_rival = POR
+historical_rival = ENG
+historical_rival = GBR
+historical_rival = UNK
 
 #1477.1.5 = {
 #	government_rank = 1
@@ -19,7 +26,7 @@ capital = 4383 #Haag
 		adm = 5
 		dip = 4
 		mil = 5
-		leader = { name = "Willem van Oranje"	type = general	fire = 3	shock = 3	manuever = 4	siege = 1 }
+		leader = { name = "Willem van Oranje"	type = general	fire = 3	shock = 3	manuever = 4	siege = 3 }
 	}
 }
 
@@ -280,7 +287,6 @@ capital = 4383 #Haag
 		culture = sardinian #Corsican
 		religion = catholic
 		dynasty = "Bonaparte"
-		birth_date = 1804.10.11
 		adm = 3
 		dip = 3
 		mil = 2

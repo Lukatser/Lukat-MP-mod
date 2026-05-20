@@ -1,8 +1,9 @@
 #Nangha'er
 
-owner = NVK
-controller = NVK
-add_core = NVK
+#owner = ANU ## EVHO made it empty ##
+#controller = ANU ## EVHO made it empty ##
+#add_core = ANU ## EVHO made it empty ##
+#is_city = yes ## EVHO made it empty ##
 culture = nivkh
 religion = tengri_pagan_reformed
 capital = "Nangha'er"
@@ -11,7 +12,6 @@ hre = no
 base_tax = 1 
 base_production = 1
 base_manpower = 1
-is_city = yes
 native_size = 5
 native_ferocity = 1
 native_hostileness = 1

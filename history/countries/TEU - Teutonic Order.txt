@@ -4,8 +4,11 @@ government_rank = 1
 primary_culture = prussian
 religion = catholic
 technology_group = western
+historical_friend = DAN
 historical_friend = LIV
 historical_rival = POL
+historical_rival = NOV
+historical_rival = MOS
 capital = 1841	# Marienburg
 add_army_professionalism = 0.1
 

@@ -1,0 +1,4994 @@
+namespace = historical_friends_mod
+
+# Franco-Ottoman alliance
+country_event = {
+	id = historical_friends_mod.1
+	title = "historical_friends_mod.1.t"
+	desc = "historical_friends_mod.1.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1530
+		BYZ = { exists = no }
+		LAE = { exists = no }
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		TUR = { exists = yes is_free_or_tributary_trigger = yes }
+		NOT = {
+			OR = {
+				is_year = 1680
+				AND = {
+					is_year = 1580
+					NOT = {
+						any_province = {
+							region = anatolia_region
+							OWNER = { 
+								is_rival = FRA
+								is_rival = TUR
+							}
+						}
+					}
+					NOT = {
+						any_province = {
+							region = france_region
+							OWNER = { 
+								is_rival = FRA
+								is_rival = TUR
+							}
+						}
+					}
+				}
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		FRA = { 
+			remove_historical_rival = TUR 
+			add_historical_friend = TUR 
+			if = {
+				limit = {
+					FRA = { ai = yes }
+					TUR = { ai = yes }
+				}
+				create_alliance = TUR
+			}
+			add_trust = {
+			    who = TUR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = TUR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_friendly
+			}
+		}
+		TUR = { 
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_friendly
+			}
+		}
+	}
+}
+
+# Franco-Ottoman Break
+country_event = {
+	id = historical_friends_mod.2
+	title = "historical_friends_mod.2.t"
+	desc = "historical_friends_mod.2.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		TUR = { exists = yes is_free_or_tributary_trigger = yes }
+		is_year = 1600
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		FRA = { 
+			remove_historical_friend = TUR 
+			add_historical_rival = TUR 
+			add_trust = {
+			    who = TUR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = TUR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_domineering
+			}
+		}
+		TUR = { 
+			remove_historical_friend = FRA 
+			add_historical_rival = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_outraged
+			}
+		}
+	}
+}
+
+# Franco-Danish alliance
+country_event = {
+	id = historical_friends_mod.3
+	title = "historical_friends_mod.3.t"
+	desc = "historical_friends_mod.1.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		SWE = { is_subject = no }		
+		10 = { country_or_non_sovereign_subject_holds = SWE }
+		OR = {
+			1982 = { country_or_non_sovereign_subject_holds = SWE }
+			26 = { country_or_non_sovereign_subject_holds = SWE }
+		}
+		OR = {
+			6 = { country_or_non_sovereign_subject_holds = SWE }
+			17 = { country_or_non_sovereign_subject_holds = SWE }
+			12 = { country_or_non_sovereign_subject_holds = SWE }
+			36 = { country_or_non_sovereign_subject_holds = SWE }
+			38 = { country_or_non_sovereign_subject_holds = SWE }
+		}
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		FRA = { 
+			remove_historical_rival = DAN 
+			add_historical_friend = DAN 
+			if = {
+				limit = {
+					FRA = { ai = yes }
+					DAN = { ai = yes }
+				}
+				create_alliance = DAN
+			}
+			add_trust = {
+			    who = DAN	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = DAN
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = DAN
+				attitude = attitude_friendly
+			}
+		}
+		DAN = { 
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_friendly
+			}
+		}
+	}
+}
+
+# Polish-Swedish alliance
+country_event = {
+	id = historical_friends_mod.4
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1525
+		SWE = { is_subject = no exists = yes }
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+		NOT = {	
+			OR = {
+				is_year = 1580
+				AND = {
+					is_year = 1560
+					RUS = { exists = no }
+				}
+				AND = {
+					is_year = 1560
+					SWE = { 
+						OR = {
+							total_development = 350
+							is_great_power = yes 
+						}
+					}
+					OR = {
+						POL = { is_great_power = yes }
+						PLC = { is_great_power = yes }
+					}
+					OR = {
+						SWE = { is_neighbor_of = PLC }
+						SWE = { is_neighbor_of = POL }
+					}
+				}
+				any_country = {
+					OR = {
+						tag = POL
+						is_subject_of = POL
+						tag = PLC
+						is_subject_of = PLC
+					}
+					OR = {
+						num_of_owned_provinces_with = {
+							area = estonia_ingria_area
+							value = 1
+						}
+						num_of_owned_provinces_with = {
+							area = livonia_area
+							value = 2
+						}
+					}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		set_global_flag = POL_SWE_friendship
+		POL = { 
+			remove_historical_rival = SWE 
+			add_historical_friend = SWE 
+			if = {
+				limit = {
+					SWE = { ai = yes }
+					POL = { ai = yes }
+				}
+				create_alliance = SWE
+			}
+			add_trust = {
+			    who = SWE	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SWE
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SWE
+				attitude = attitude_allied
+			}
+		}
+		PLC = { 
+			remove_historical_rival = SWE 
+			add_historical_friend = SWE 
+			if = {
+				limit = {
+					SWE = { ai = yes }
+					PLC = { ai = yes }
+				}
+				create_alliance = SWE
+			}
+			add_trust = {
+			    who = SWE	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SWE
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SWE
+				attitude = attitude_allied
+			}
+		}
+		SWE = { 
+			remove_historical_rival = POL 
+			remove_historical_rival = PLC 
+			add_historical_friend = POL 
+			add_historical_friend = PLC
+			add_trust = {
+			    who = POL	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POL
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = PLC
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Polish-Swedish Break
+country_event = {
+	id = historical_friends_mod.4001
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		SWE = { is_subject = no exists = yes }
+		has_global_flag = POL_SWE_friendship
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+		OR = {
+			is_year = 1580
+			AND = {
+				is_year = 1560
+				RUS = { exists = no }
+			}
+			AND = {
+				is_year = 1540
+				SWE = { 
+					total_development = 250
+					OR = {
+						total_development = 350
+						is_great_power = yes 
+						num_of_owned_provinces_with = {
+							region = baltic_region
+							value = 8
+						}
+					}
+				}
+				OR = {
+					POL = { is_great_power = yes }
+					PLC = { is_great_power = yes }
+				}
+				SWE = {
+					any_neighbor_country = {
+						OR = {
+							tag = POL
+							is_subject_of = POL
+							tag = PLC
+							is_subject_of = PLC
+						}
+					}
+				}
+			}
+			any_country = {
+				OR = {
+					tag = POL
+					is_subject_of = POL
+					tag = PLC
+					is_subject_of = PLC
+				}
+				OR = {
+					num_of_owned_provinces_with = {
+						area = estonia_ingria_area
+						value = 1
+					}
+					num_of_owned_provinces_with = {
+						area = livonia_area
+						value = 2
+					}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_friend = SWE 
+			add_historical_rival = SWE 
+			add_trust = {
+			    who = SWE	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SWE
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = SWE
+				attitude = attitude_hostile
+			}
+		}
+		PLC = { 
+			remove_historical_friend = SWE 
+			add_historical_rival = SWE 
+			add_trust = {
+			    who = SWE	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SWE
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = SWE
+				attitude = attitude_hostile
+			}
+		}
+		SWE = { 
+			remove_historical_friend = POL 
+			remove_historical_friend = PLC 
+			add_historical_rival = POL 
+			add_historical_rival = PLC 
+			add_trust = {
+			    who = POL	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POL
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PLC
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Polish-Habsburg alliance
+country_event = {
+	id = historical_friends_mod.5
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1510
+		NOT = {
+			is_year = 1700
+		}
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					POL = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		PLC = { 
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					PLC = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		HAB = { 
+			remove_historical_rival = POL 
+			remove_historical_rival = PLC 
+			add_historical_friend = POL 
+			add_historical_friend = PLC
+			add_trust = {
+			    who = POL	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POL
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = PLC
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Polish-Habsburg Break
+country_event = {
+	id = historical_friends_mod.6
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		HAB = { 
+			exists = yes
+			OR = {
+				is_free_or_tributary_trigger = yes
+				overlord = { tag = POL }
+				overlord = { tag = PLC }
+			}
+		}	
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }
+			POL = { exists = yes overlord = { tag = HAB } }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+			PLC = { exists = yes overlord = { tag = HAB } }
+		}
+		OR = {
+			is_year = 1700
+			AND = {
+				is_year = 1600
+				OR = {
+					POL = { overlord = { tag = HAB } }
+					PLC = { overlord = { tag = HAB } }
+					HAB = { overlord = { tag = POL } }
+					HAB = { overlord = { tag = PLC } }
+				}
+			}
+			AND = {
+				HAB = {
+					OR = {
+						is_emperor = yes
+						is_great_power = yes
+					}
+				}
+				OR = {
+					POL = {
+						num_of_owned_provinces_with = {
+							is_part_of_hre = yes
+							value = 5
+						}
+					}
+					PLC = {
+						num_of_owned_provinces_with = {
+							is_part_of_hre = yes
+							value = 5
+						}
+					}
+				}
+			}
+			AND = {
+				is_year = 1600
+				any_country = {
+					is_great_power = yes
+					num_of_cities = 25
+					tag = PRU
+					owns = 41
+					owns = 43
+					owns = 50
+				}
+				any_country = {
+					is_neighbor_of = HAB
+					is_great_power = no
+					NOT = { num_of_cities = 50 }
+					OR = {
+						tag = PLC
+						AND = {
+							tag = POL
+							NOT = { exists = PLC }
+						}
+					}
+				}
+			}
+		}
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_friend = HAB 
+			add_historical_rival = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_hostile
+			}
+		}
+		PLC = { 
+			remove_historical_friend = HAB 
+			add_historical_rival = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_hostile
+			}
+		}
+		HAB = { 
+			remove_historical_friend = POL 
+			remove_historical_friend = PLC 
+			add_historical_rival = POL 
+			add_historical_rival = PLC 
+			add_trust = {
+			    who = POL	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POL
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PLC
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Polish-Hungarian alliance
+country_event = {
+	id = historical_friends_mod.7
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1460
+		HUN = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_rival = HUN 
+			add_historical_friend = HUN 
+			if = {
+				limit = {
+					HUN = { ai = yes }
+					POL = { ai = yes }
+				}
+				create_alliance = HUN
+			}
+			add_trust = {
+			    who = HUN	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HUN
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HUN
+				attitude = attitude_allied
+			}
+		}
+		PLC = { 
+			remove_historical_rival = HUN 
+			add_historical_friend = HUN 
+			if = {
+				limit = {
+					HUN = { ai = yes }
+					PLC = { ai = yes }
+				}
+				create_alliance = HUN
+			}
+			add_trust = {
+			    who = HUN	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HUN
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HUN
+				attitude = attitude_allied
+			}
+		}
+		HUN = { 
+			remove_historical_rival = POL 
+			remove_historical_rival = PLC 
+			add_historical_friend = POL 
+			add_historical_friend = PLC
+			add_trust = {
+			    who = POL	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POL
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = PLC
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Polish-Hungarian Break (not historical, just to prevent Hungary from being too safe)
+country_event = {
+	id = historical_friends_mod.77
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1525
+		HUN = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}	
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_friend = HUN 
+			add_historical_rival = HUN 
+			add_trust = {
+			    who = HUN	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HUN
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = HUN
+				attitude = attitude_hostile
+			}
+		}
+		PLC = { 
+			remove_historical_friend = HUN 
+			add_historical_rival = HUN 
+			add_trust = {
+			    who = HUN	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HUN
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = HUN
+				attitude = attitude_hostile
+			}
+		}
+		HUN = { 
+			remove_historical_friend = POL 
+			remove_historical_friend = PLC 
+			add_historical_rival = POL 
+			add_historical_rival = PLC 
+			add_trust = {
+			    who = POL	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POL
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PLC
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Russo-Ottoman Rivalry
+country_event = {
+	id = historical_friends_mod.8
+	title = "historical_friends_mod.8.t"
+	desc = "historical_friends_mod.8.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1650
+		TUR = { exists = yes is_free_or_tributary_trigger = yes }
+		RUS = { exists = yes is_free_or_tributary_trigger = yes }
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		RUS = { 
+			remove_historical_friend = TUR 
+			add_historical_rival = TUR 
+			add_trust = {
+			    who = TUR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = TUR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_domineering
+			}
+		}
+		TUR = { 
+			remove_historical_friend = RUS 
+			add_historical_rival = RUS 
+			add_trust = {
+			    who = RUS	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = RUS
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = RUS
+				attitude = attitude_outraged
+			}
+		}
+	}
+}
+
+# Anglo-Habsburg alliance
+country_event = {
+	id = historical_friends_mod.88
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1690
+		NOT {
+			is_year = 1750
+		}
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			ENG = { exists = yes is_free_or_tributary_trigger = yes }	
+			GBR = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		ENG = { 
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					ENG = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		GBR = { 
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					GBR = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		HAB = { 
+			remove_historical_rival = ENG 
+			remove_historical_rival = GBR 
+			add_historical_friend = ENG 
+			add_historical_friend = GBR
+			add_trust = {
+			    who = ENG	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = GBR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ENG
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = GBR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = ENG
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = GBR
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# British-Habsburg Break
+country_event = {
+	id = historical_friends_mod.9
+	title = "historical_friends_mod.9.t"
+	desc = "historical_friends_mod.9.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1750
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			ENG = { exists = yes is_free_or_tributary_trigger = yes }	
+			GBR = { exists = yes is_free_or_tributary_trigger = yes }	
+			UNK = { exists = yes is_free_or_tributary_trigger = yes }
+		}	
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		ENG = { 
+			remove_historical_friend = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+		}
+		GBR = { 
+			remove_historical_friend = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+		}
+		UNK = { 
+			remove_historical_friend = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+		}
+		HAB = { 
+			remove_historical_friend = ENG 
+			remove_historical_friend = GBR
+			remove_historical_friend = UNK
+			add_trust = {
+			    who = ENG	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = GBR	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = UNK	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ENG
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = GBR
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = UNK
+			    modifier = no_longer_friends
+			}
+		}
+	}
+}
+
+# Franco-Spanish Reconcilliation
+country_event = {
+	id = historical_friends_mod.10
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1650
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			CAS = { exists = yes is_free_or_tributary_trigger = yes }	
+			SPA = { exists = yes is_free_or_tributary_trigger = yes }
+		}	
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		CAS = { 
+			remove_historical_friend = HAB
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+		}
+		SPA = { 
+			remove_historical_friend = HAB 
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+		}
+		HAB = { 
+			remove_historical_friend = CAS 
+			remove_historical_friend = SPA
+			add_opinion = {
+			    who = CAS
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = SPA
+			    modifier = no_longer_friends
+			}
+		}
+		CAS = { 
+			if = {
+				limit = {
+					CAS = { ai = yes }
+					FRA = { ai = yes }
+				}
+				create_alliance = FRA
+			}
+			create_marriage = FRA
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_allied
+			}
+		}
+		SPA = { 
+			if = {
+				limit = {
+					SPA = { ai = yes }
+					FRA = { ai = yes }
+				}
+				create_alliance = FRA
+			}
+			create_marriage = FRA
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_allied
+			}
+		}
+		FRA = { 
+			remove_historical_rival = CAS 
+			remove_historical_rival = SPA 
+			add_historical_friend = CAS 
+			add_historical_friend = SPA 
+			add_trust = {
+			    who = CAS	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = SPA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = CAS
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = SPA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = CAS
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = SPA
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Franco-Austrian Reconcilliation (Diplomatic Revolution)
+country_event = {
+	id = historical_friends_mod.11
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1750
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		HAB = { 
+			exists = yes 
+			is_free_or_tributary_trigger = yes
+			NOT = { war_with = FRA } 
+		}
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		FRA = { 
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		HAB = { 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					FRA = { ai = yes }
+				}
+				create_alliance = FRA
+			}
+			create_marriage = FRA
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Austro-Prussian Rivalry
+country_event = {
+	id = historical_friends_mod.12
+	title = "historical_friends_mod.8.t"
+	desc = "historical_friends_mod.8.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		HAB = { 
+			exists = yes is_free_or_tributary_trigger = yes 
+			OR = {
+				is_great_power = yes
+				is_emperor = yes
+			}
+		}
+		OR = {
+			PRU = { exists = yes is_free_or_tributary_trigger = yes }
+			BRA = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+		any_country = {
+			NOT = { tag = BRA }
+			NOT = { tag = PRU }
+			OR = {
+				tag = HAB
+				is_subject_of = HAB
+			}
+			OR = {
+				is_neighbor_of = BRA
+				is_neighbor_of = PRU
+			}
+		}
+		OR = {
+			is_year = 1700
+			BRA = { is_subject_of = HAB }
+			PRU = { is_subject_of = HAB }
+			BRA = { is_great_power = yes }
+			PRU = { is_great_power = yes }
+		}
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		BRA = { 
+			remove_historical_friend = HAB 
+			add_historical_rival = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_hostile
+			}
+		}
+		PRU = { 
+			remove_historical_friend = HAB 
+			add_historical_rival = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_hostile
+			}
+		}
+		HAB = { 
+			remove_historical_friend = BRA 
+			remove_historical_friend = PRU 
+			add_historical_rival = BRA 
+			add_historical_rival = PRU 
+			add_trust = {
+			    who = BRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PRU	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BRA
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PRU
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = BRA
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PRU
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Anglo-Russian Rivalry (The Great Game)
+country_event = {
+	id = historical_friends_mod.13
+	title = "historical_friends_mod.8.t"
+	desc = "historical_friends_mod.8.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1820
+		RUS = { exists = yes is_free_or_tributary_trigger = yes is_great_power = yes }
+		OR = {
+			GBR = { exists = yes is_free_or_tributary_trigger = yes is_great_power = yes }
+			UNK = { exists = yes is_free_or_tributary_trigger = yes is_great_power = yes }
+		}
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		GBR = { 
+			remove_historical_friend = RUS 
+			add_trust = {
+			    who = RUS	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = RUS
+			    modifier = no_longer_friends
+			}
+		}
+		UNK = { 
+			remove_historical_friend = RUS 
+			add_trust = {
+			    who = RUS	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = RUS
+			    modifier = no_longer_friends
+			}
+		}
+		RUS = { 
+			remove_historical_friend = GBR 
+			remove_historical_friend = UNK
+			add_trust = {
+			    who = GBR	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = UNK	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = GBR
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = UNK
+			    modifier = no_longer_friends
+			}
+		}
+	}
+}
+
+# Russo-Habsburg alliance
+country_event = {
+	id = historical_friends_mod.14
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			is_year = 1675
+			AND = {
+				has_global_flag = second_holy_league
+				HAB = { has_country_flag = holy_league_requester }
+			}
+		}
+		RUS = { exists = yes is_free_or_tributary_trigger = yes }
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			any_province = {
+				region = crimea_region
+				OWNER = { 
+					OR = {
+						has_country_flag = holy_league_target
+						tag = TUR
+						AND = {
+							is_rival = RUS
+							is_rival = HAB
+						}
+					}
+				}
+			}
+			any_province = {
+				region = carpathia_region
+				OWNER = { 
+					OR = {
+						has_country_flag = holy_league_target
+						tag = TUR
+						AND = {
+							is_rival = RUS
+							is_rival = HAB
+						}
+					}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		RUS = { 
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					RUS = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		HAB = { 
+			remove_historical_rival = RUS 
+			add_historical_friend = RUS
+			add_trust = {
+			    who = RUS	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = RUS
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = RUS
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Russo-Habsburg Break
+country_event = {
+	id = historical_friends_mod.15
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1700
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+		RUS = { exists = yes is_free_or_tributary_trigger = yes }
+		RUS = { is_neighbor_of = HAB }
+		NOT = {
+			any_province = {
+				region = crimea_region
+				OWNER = { 
+					is_rival = RUS
+					is_rival = HAB
+				}
+			}
+		}
+		NOT = {
+			any_province = {
+				region = carpathia_region
+				OWNER = { 
+					is_rival = RUS
+					is_rival = HAB
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		RUS = { 
+			remove_historical_friend = HAB 
+			add_historical_rival = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_hostile
+			}
+		}
+		HAB = { 
+			remove_historical_friend = RUS 
+			add_historical_rival = RUS 
+			add_trust = {
+			    who = RUS	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = RUS
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = RUS
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Bavaro-Habsburg Break
+country_event = {
+	id = historical_friends_mod.16
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+		BAV = { exists = yes is_free_or_tributary_trigger = yes }
+		BAV = { is_neighbor_of = HAB }
+		OR = {
+			is_year = 1650
+			BAV = { is_subject_of = HAB }
+			HAB = {
+				NOT = { primary_culture = bavarian }
+				num_of_owned_provinces_with = {
+					culture = bavarian
+					value = 2
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		BAV = { 
+			remove_historical_friend = HAB 
+			add_historical_rival = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_hostile
+			}
+		}
+		HAB = { 
+			remove_historical_friend = BAV 
+			add_historical_rival = BAV 
+			add_trust = {
+			    who = BAV	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BAV
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = BAV
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Polish-French alliance
+country_event = {
+	id = historical_friends_mod.17
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1675
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		PRU = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_allied
+			}
+		}
+		PLC = { 
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_allied
+			}
+		}
+		FRA = { 
+			remove_historical_rival = POL 
+			remove_historical_rival = PLC 
+			add_historical_friend = POL 
+			add_historical_friend = PLC
+			add_trust = {
+			    who = POL	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = 400
+			    mutual = yes
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# End of Turko-Polish Rivalry
+country_event = {
+	id = historical_friends_mod.18
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1700
+		TUR = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_rival = TUR 
+			add_historical_friend = TUR
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_allied
+			}
+		}
+		PLC = { 
+			remove_historical_rival = TUR 
+			add_historical_friend = TUR
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_allied
+			}
+		}
+		TUR = { 
+			remove_historical_rival = POL 
+			remove_historical_rival = PLC 
+			add_historical_friend = POL 
+			add_historical_friend = PLC
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Anglo-Prussian alliance
+country_event = {
+	id = historical_friends_mod.19
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1750
+		PRU = { 
+			exists = yes 
+			is_free_or_tributary_trigger = yes 
+			NOT = {
+				OR = {
+					war_with = ENG
+					war_with = GBR
+					war_with = UNK
+				}
+			}
+		}
+		OR = {
+			ENG = { exists = yes is_free_or_tributary_trigger = yes }	
+			GBR = { exists = yes is_free_or_tributary_trigger = yes }
+			UNK = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		ENG = { 
+			remove_historical_rival = PRU 
+			add_historical_friend = PRU 
+			if = {
+				limit = {
+					PRU = { ai = yes }
+					ENG = { ai = yes }
+				}
+				create_alliance = PRU
+			}
+			add_trust = {
+			    who = PRU	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = PRU
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = PRU
+				attitude = attitude_allied
+			}
+		}
+		GBR = { 
+			remove_historical_rival = PRU 
+			add_historical_friend = PRU 
+			if = {
+				limit = {
+					PRU = { ai = yes }
+					GBR = { ai = yes }
+				}
+				create_alliance = PRU
+			}
+			add_trust = {
+			    who = PRU	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = PRU
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = PRU
+				attitude = attitude_allied
+			}
+		}
+		UNK = { 
+			remove_historical_rival = PRU 
+			add_historical_friend = PRU 
+			if = {
+				limit = {
+					PRU = { ai = yes }
+					UNK = { ai = yes }
+				}
+				create_alliance = PRU
+			}
+			add_trust = {
+			    who = PRU	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = PRU
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = PRU
+				attitude = attitude_allied
+			}
+		}
+		PRU = { 
+			remove_historical_rival = ENG 
+			remove_historical_rival = GBR 
+			remove_historical_rival = UNK 
+			add_historical_friend = ENG 
+			add_historical_friend = GBR
+			add_historical_friend = UNK
+			add_trust = {
+			    who = ENG	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = GBR	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = UNK	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ENG
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = GBR
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = UNK
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = ENG
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = GBR
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = UNK
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Saxon-Habsburg alliance
+country_event = {
+	id = historical_friends_mod.20
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1650
+		SAX = { exists = yes is_free_or_tributary_trigger = yes }
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		SAX = { 
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					SAX = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		HAB = { 
+			remove_historical_rival = SAX 
+			add_historical_friend = SAX
+			add_trust = {
+			    who = SAX	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SAX
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SAX
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Pruso-Swedish Rivalry
+country_event = {
+	id = historical_friends_mod.21
+	title = "historical_friends_mod.8.t"
+	desc = "historical_friends_mod.8.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1660
+		SWE = { exists = yes is_free_or_tributary_trigger = yes }
+		PRU = { exists = yes is_free_or_tributary_trigger = yes }
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		PRU = { 
+			remove_historical_friend = SWE 
+			add_historical_rival = SWE 
+			add_trust = {
+			    who = SWE	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SWE
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = SWE
+				attitude = attitude_domineering
+			}
+		}
+		SWE = { 
+			remove_historical_friend = PRU 
+			add_historical_rival = PRU 
+			add_trust = {
+			    who = PRU	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = PRU
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = PRU
+				attitude = attitude_outraged
+			}
+		}
+	}
+}
+
+# Portuguese-Spanish Break
+country_event = {
+	id = historical_friends_mod.22
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		POR = { 
+			exists = yes
+			OR = {
+				is_subject = no
+				overlord = { tag = CAS }
+				overlord = { tag = SPA }
+			}
+		}
+		OR = {
+			CAS = { exists = yes is_free_or_tributary_trigger = yes }	
+			SPA = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+		OR = {
+			is_year = 1650
+			AND = {
+				is_year = 1600
+				overlord = { tag = CAS }
+			}
+			AND = {
+				is_year = 1600
+				overlord = { tag = SPA }
+			}
+			any_country = {
+				OR = {
+					tag = CAS
+					is_subject_of = CAS
+					tag = SPA
+					is_subject_of = SPA
+				}
+				OR = {
+					num_of_owned_provinces_with = {
+						area = alentejo_area
+						value = 1
+					}
+					num_of_owned_provinces_with = {
+						area = beieras_area
+						value = 1
+					}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		CAS = { 
+			remove_historical_friend = POR 
+			add_historical_rival = POR 
+			add_trust = {
+			    who = POR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = POR
+				attitude = attitude_hostile
+			}
+		}
+		SPA = { 
+			remove_historical_friend = POR 
+			add_historical_rival = POR 
+			add_trust = {
+			    who = POR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = POR
+				attitude = attitude_hostile
+			}
+		}
+		ENG = { 
+			remove_historical_rival = POR 
+			add_historical_friend = POR 
+			if = {
+				limit = {
+					POR = { ai = yes }
+					ENG = { ai = yes }
+				}
+				create_alliance = POR
+			}
+			add_trust = {
+			    who = POR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = POR
+				attitude = attitude_allied
+			}
+		}
+		GBR = { 
+			remove_historical_rival = POR 
+			add_historical_friend = POR 
+			if = {
+				limit = {
+					POR = { ai = yes }
+					GBR = { ai = yes }
+				}
+				create_alliance = POR
+			}
+			add_trust = {
+			    who = POR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = POR
+				attitude = attitude_allied
+			}
+		}
+		UNK = { 
+			remove_historical_rival = POR 
+			add_historical_friend = POR 
+			if = {
+				limit = {
+					POR = { ai = yes }
+					UNK = { ai = yes }
+				}
+				create_alliance = POR
+			}
+			add_trust = {
+			    who = POR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = POR
+				attitude = attitude_allied
+			}
+		}
+		POR = { 
+			remove_historical_friend = CAS 
+			remove_historical_friend = SPA 
+			add_historical_rival = CAS 
+			add_historical_rival = SPA 
+			add_trust = {
+			    who = CAS	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = SPA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = CAS
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = SPA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = CAS
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = SPA
+				attitude = attitude_hostile
+			}
+			remove_historical_rival = ENG 
+			remove_historical_rival = GBR 
+			remove_historical_rival = UNK 
+			add_historical_friend = ENG 
+			add_historical_friend = GBR
+			add_historical_friend = UNK
+			add_trust = {
+			    who = ENG	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = GBR	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = UNK	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ENG
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = GBR
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = UNK
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = ENG
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = GBR
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = UNK
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Franco-Swiss alliance
+country_event = {
+	id = historical_friends_mod.23
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1520
+		SWI = { exists = yes is_free_or_tributary_trigger = yes }
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		SWI = { 
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA 
+			if = {
+				limit = {
+					FRA = { ai = yes }
+					SWI = { ai = yes }
+				}
+				create_alliance = FRA
+			}
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_allied
+			}
+		}
+		FRA = { 
+			remove_historical_rival = SWI 
+			add_historical_friend = SWI
+			add_trust = {
+			    who = SWI	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SWI
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SWI
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Franco-Bavarian alliance
+country_event = {
+	id = historical_friends_mod.24
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		BAV = { exists = yes is_free_or_tributary_trigger = yes }
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			is_year = 1650
+			BAV = { is_subject_of = HAB }
+			HAB = {
+				NOT = { primary_culture = bavarian }
+				num_of_owned_provinces_with = {
+					culture = bavarian
+					value = 2
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		BAV = { 
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA 
+			if = {
+				limit = {
+					FRA = { ai = yes }
+					BAV = { ai = yes }
+				}
+				create_alliance = FRA
+			}
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_allied
+			}
+		}
+		FRA = { 
+			remove_historical_rival = BAV 
+			add_historical_friend = BAV
+			add_trust = {
+			    who = BAV	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BAV
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = BAV
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Austo-Spanish Alliance
+country_event = {
+	id = historical_friends_mod.25
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1460
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			CAS = { exists = yes is_free_or_tributary_trigger = yes }	
+			SPA = { exists = yes is_free_or_tributary_trigger = yes }
+		}	
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		CAS = { 
+			if = {
+				limit = {
+					CAS = { ai = yes }
+					HAB = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			create_marriage = HAB
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		SPA = { 
+			if = {
+				limit = {
+					SPA = { ai = yes }
+					HAB = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			create_marriage = HAB
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		HAB = { 
+			remove_historical_rival = CAS 
+			remove_historical_rival = SPA 
+			add_historical_friend = CAS 
+			add_historical_friend = SPA 
+			add_trust = {
+			    who = CAS	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = SPA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = CAS
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = SPA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = CAS
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = SPA
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Polish-Novgorodian Break
+country_event = {
+	id = historical_friends_mod.26
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			is_year = 1470
+			NOV = { num_of_owned_provinces_with = { is_core = NOV value = 30 } }
+			NOV = { NOT = { num_of_owned_provinces_with = { is_core = NOV value = 10 } } }
+			AND = {
+				NOV = { is_great_power = yes }
+				MOS = { is_great_power = yes }
+			}
+			AND = {
+				is_year = 1460
+				NOV = {
+					ai = yes
+					was_player = no
+				}
+				MOS = {
+					ai = yes
+					was_player = no
+				}
+			}
+		}
+		NOV = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_friend = NOV 
+			add_historical_rival = NOV 
+			add_trust = {
+			    who = NOV	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = NOV
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = NOV
+				attitude = attitude_hostile
+			}
+		}
+		PLC = { 
+			remove_historical_friend = NOV 
+			add_historical_rival = NOV 
+			add_trust = {
+			    who = NOV	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = NOV
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = NOV
+				attitude = attitude_hostile
+			}
+		}
+		NOV = { 
+			remove_historical_friend = POL 
+			remove_historical_friend = PLC 
+			add_historical_rival = POL 
+			add_historical_rival = PLC 
+			add_trust = {
+			    who = POL	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POL
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PLC
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Danish-Novgorodian Break
+country_event = {
+	id = historical_friends_mod.27
+	title = "historical_friends_mod.2.t"
+	desc = "historical_friends_mod.2.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		always = no
+		#OR = {
+		#	is_year = 1500
+		#	AND = {
+		#		is_year = 1460
+		#		NOV = {
+		#			ai = yes
+		#			was_player = no
+		#		}
+		#		MOS = {
+		#			ai = yes
+		#			was_player = no
+		#		}
+		#	}
+		#}
+		#NOV = { exists = yes is_free_or_tributary_trigger = yes }
+		#DAN = { exists = yes is_free_or_tributary_trigger = yes }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		NOV = { 
+			remove_historical_friend = DAN 
+			add_historical_rival = DAN 
+			add_trust = {
+			    who = DAN	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = DAN
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = DAN
+				attitude = attitude_domineering
+			}
+		}
+		DAN = { 
+			remove_historical_friend = NOV 
+			add_historical_rival = NOV 
+			add_trust = {
+			    who = NOV	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = NOV
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = NOV
+				attitude = attitude_outraged
+			}
+		}
+	}
+}
+
+# Anglo-Swedish alliance
+country_event = {
+	id = historical_friends_mod.28
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			has_global_flag = GNW_sweden_lost
+			SWE = { has_country_flag = lost_finland }
+		}
+		SWE = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			ENG = { exists = yes is_free_or_tributary_trigger = yes }	
+			GBR = { exists = yes is_free_or_tributary_trigger = yes }
+			UNK = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		ENG = { 
+			remove_historical_rival = SWE 
+			add_historical_friend = SWE 
+			if = {
+				limit = {
+					SWE = { ai = yes }
+					ENG = { ai = yes }
+				}
+				create_alliance = SWE
+			}
+			add_trust = {
+			    who = SWE	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SWE
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SWE
+				attitude = attitude_allied
+			}
+		}
+		GBR = { 
+			remove_historical_rival = SWE 
+			add_historical_friend = SWE 
+			if = {
+				limit = {
+					SWE = { ai = yes }
+					GBR = { ai = yes }
+				}
+				create_alliance = SWE
+			}
+			add_trust = {
+			    who = SWE	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SWE
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SWE
+				attitude = attitude_allied
+			}
+		}
+		SWE = { 
+			remove_historical_rival = ENG 
+			remove_historical_rival = GBR 
+			add_historical_friend = ENG 
+			add_historical_friend = GBR
+			add_trust = {
+			    who = ENG	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = GBR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ENG
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = GBR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = ENG
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = GBR
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# End of Austro-Swedish Rivalry
+country_event = {
+	id = historical_friends_mod.29
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1700
+		SWE = { exists = yes is_free_or_tributary_trigger = yes }
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }	
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		HAB = { 
+			remove_historical_rival = SWE 
+			add_historical_friend = SWE
+			set_ai_attitude = {
+				who = SWE
+				attitude = attitude_allied
+			}
+		}
+		SWE = { 
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Tuscan-Habsburg alliance
+country_event = {
+	id = historical_friends_mod.30
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1650
+		HAB = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			LAN = { exists = yes is_free_or_tributary_trigger = yes }	
+			TUS = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		FRA = { 
+			remove_historical_friend = LAN 
+			remove_historical_friend = TUS 
+			add_historical_rival = LAN 
+			add_historical_rival = TUS 
+			add_trust = {
+			    who = LAN	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = TUS	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = LAN
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = TUS
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = LAN
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = TUS
+				attitude = attitude_hostile
+			}
+		}
+		LAN = { 
+			remove_historical_friend = FRA 
+			add_historical_rival = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_hostile
+			}
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					LAN = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		TUS = { 
+			remove_historical_friend = FRA 
+			add_historical_rival = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_hostile
+			}
+			remove_historical_rival = HAB 
+			add_historical_friend = HAB 
+			if = {
+				limit = {
+					HAB = { ai = yes }
+					TUS = { ai = yes }
+				}
+				create_alliance = HAB
+			}
+			add_trust = {
+			    who = HAB	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = HAB
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = HAB
+				attitude = attitude_allied
+			}
+		}
+		HAB = { 
+			remove_historical_rival = LAN 
+			remove_historical_rival = TUS 
+			add_historical_friend = LAN 
+			add_historical_friend = TUS
+			add_trust = {
+			    who = LAN	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = TUS	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = LAN
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = TUS
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = LAN
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = TUS
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Franco-Dutch Rivalry
+country_event = {
+	id = historical_friends_mod.31
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1650
+		NED = { exists = yes is_free_or_tributary_trigger = yes }
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		FRA = { is_neighbor_of = NED }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		FRA = { 
+			remove_historical_friend = NED 
+			add_historical_rival = NED 
+			add_trust = {
+			    who = NED	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = NED
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = NED
+				attitude = attitude_hostile
+			}
+		}
+		NED = { 
+			remove_historical_friend = FRA 
+			add_historical_rival = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Franco-Prussian Rivalry
+country_event = {
+	id = historical_friends_mod.32
+	title = "historical_friends_mod.8.t"
+	desc = "historical_friends_mod.8.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			is_year = 1700
+			BRA = { is_neighbor_of = FRA }
+			PRU = { is_neighbor_of = FRA }
+		}
+		FRA = { 
+			exists = yes 
+			is_free_or_tributary_trigger = yes 
+			is_great_power = yes
+		}
+		OR = {
+			BRA = { is_great_power = yes }
+			PRU = { is_great_power = yes }
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		BRA = { 
+			remove_historical_friend = FRA 
+			add_historical_rival = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_hostile
+			}
+		}
+		PRU = { 
+			remove_historical_friend = FRA 
+			add_historical_rival = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_hostile
+			}
+		}
+		FRA = { 
+			remove_historical_friend = BRA 
+			remove_historical_friend = PRU 
+			add_historical_rival = BRA 
+			add_historical_rival = PRU 
+			add_trust = {
+			    who = BRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PRU	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BRA
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PRU
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = BRA
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PRU
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Franco-Byzantine alliance
+country_event = {
+	id = historical_friends_mod.33
+	title = "historical_friends_mod.1.t"
+	desc = "historical_friends_mod.1.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1530
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		BYZ = { exists = yes is_free_or_tributary_trigger = yes }
+		NOT = {
+			OR = {
+				is_year = 1680
+				AND = {
+					is_year = 1580
+					NOT = {
+						any_province = {
+							region = anatolia_region
+							OWNER = { 
+								is_rival = FRA
+								is_rival = BYZ
+							}
+						}
+					}
+					NOT = {
+						any_province = {
+							region = france_region
+							OWNER = { 
+								is_rival = FRA
+								is_rival = BYZ
+							}
+						}
+					}
+				}
+			}	
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		FRA = { 
+			remove_historical_rival = BYZ 
+			add_historical_friend = BYZ 
+			if = {
+				limit = {
+					FRA = { ai = yes }
+					BYZ = { ai = yes }
+				}
+				create_alliance = BYZ
+			}
+			add_trust = {
+			    who = BYZ	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BYZ
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = BYZ
+				attitude = attitude_friendly
+			}
+		}
+		BYZ = { 
+			remove_historical_rival = FRA 
+			add_historical_friend = FRA
+			add_trust = {
+			    who = FRA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_friendly
+			}
+		}
+	}
+}
+
+# Franco-Byzantine Break
+country_event = {
+	id = historical_friends_mod.34
+	title = "historical_friends_mod.2.t"
+	desc = "historical_friends_mod.2.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		FRA = { exists = yes is_free_or_tributary_trigger = yes }
+		BYZ = { exists = yes is_free_or_tributary_trigger = yes }
+		is_year = 1600
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		FRA = { 
+			remove_historical_friend = BYZ 
+			add_historical_rival = BYZ 
+			add_trust = {
+			    who = BYZ	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BYZ
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = BYZ
+				attitude = attitude_domineering
+			}
+		}
+		BYZ = { 
+			remove_historical_friend = FRA 
+			add_historical_rival = FRA 
+			add_trust = {
+			    who = FRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = FRA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = FRA
+				attitude = attitude_outraged
+			}
+		}
+	}
+}
+
+# if Byzantines restore to GP status they inherit old Ottoman rivalries
+country_event = {
+	id = historical_friends_mod.35
+	title = "historical_friends_mod.2.t"
+	desc = "historical_friends_mod.2.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			BYZ = { is_great_power = yes }
+			LAE = { is_great_power = yes }
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		BYZ = { add_historical_rival = MAM }
+		MAM = { add_historical_rival = BYZ }
+		BYZ = { add_historical_rival = TUN }
+		TUN = { add_historical_rival = BYZ }
+		BYZ = { add_historical_rival = STY }
+		STY = { add_historical_rival = BYZ }
+		BYZ = { add_historical_rival = HAB }
+		HAB = { add_historical_rival = BYZ }
+		BYZ = { add_historical_rival = PER }
+		PER = { add_historical_rival = BYZ }
+		BYZ = { add_historical_rival = SPA }
+		SPA = { add_historical_rival = BYZ }
+		BYZ = { add_historical_rival = HUN }
+		HUN = { add_historical_rival = BYZ }
+		BYZ = { add_historical_friend = MOS }
+		MOS = { add_historical_friend = BYZ }
+		BYZ = { add_historical_friend = RUS }
+		RUS = { add_historical_friend = BYZ }
+		LAE = { add_historical_rival = MAM }
+		MAM = { add_historical_rival = LAE }
+		LAE = { add_historical_rival = TUN }
+		TUN = { add_historical_rival = LAE }
+		LAE = { add_historical_rival = STY }
+		STY = { add_historical_rival = LAE }
+		LAE = { add_historical_rival = HAB }
+		HAB = { add_historical_rival = LAE }
+		LAE = { add_historical_rival = PER }
+		PER = { add_historical_rival = LAE }
+		LAE = { add_historical_rival = SPA }
+		SPA = { add_historical_rival = LAE }
+		LAE = { add_historical_rival = HUN }
+		HUN = { add_historical_rival = LAE }
+		LAE = { add_historical_friend = MOS }
+		MOS = { add_historical_friend = LAE }
+		LAE = { add_historical_friend = RUS }
+		RUS = { add_historical_friend = LAE }
+	}
+}
+
+# Perso-Ottoman Rivalry
+country_event = {
+	id = historical_friends_mod.36
+	title = "historical_friends_mod.8.t"
+	desc = "historical_friends_mod.8.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		TUR = { exists = yes is_free_or_tributary_trigger = yes }
+		PER = { exists = yes is_free_or_tributary_trigger = yes }
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		PER = { 
+			remove_historical_friend = TUR 
+			add_historical_rival = TUR 
+			add_trust = {
+			    who = TUR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = TUR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_domineering
+			}
+		}
+		TUR = { 
+			remove_historical_friend = PER 
+			add_historical_rival = PER 
+			add_trust = {
+			    who = PER	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = PER
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = PER
+				attitude = attitude_outraged
+			}
+		}
+	}
+}
+
+# Spanish-Portuguese Reconcilliation if Peninsular War
+country_event = {
+	id = historical_friends_mod.37
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1800
+		has_global_flag = peninsular_war_happened
+		SPA = { has_country_flag = SPA_peninsular_war_victim }
+		revolution_target = {
+			war_with = SPA
+			war_with = POR
+		}	
+		NOT = {
+			any_country = {
+				NOT = { tag = POR }
+				has_country_flag = united_kingdom_brazil_portugal
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		SPA = { 
+			if = {
+				limit = {
+					SPA = { ai = yes }
+					POR = { ai = yes }
+				}
+				create_alliance = POR
+			}
+			create_marriage = POR
+			remove_historical_rival = POR 
+			add_historical_friend = POR 
+			add_trust = {
+			    who = POR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = POR
+				attitude = attitude_allied
+			}
+		}
+		POR = { 
+			remove_historical_rival = SPA 
+			add_historical_friend = SPA 
+			add_trust = {
+			    who = SPA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SPA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SPA
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Anglo-Spanish Reconcilliation if Peninsular War
+country_event = {
+	id = historical_friends_mod.38
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1800
+		has_global_flag = peninsular_war_happened
+		SPA = { has_country_flag = SPA_peninsular_war_victim }
+		revolution_target = {
+			war_with = SPA
+			OR = {
+				war_with = GBR
+				war_with = UNK
+			}
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		GBR = { 
+			remove_historical_rival = SPA 
+			add_historical_friend = SPA 
+			if = {
+				limit = {
+					SPA = { ai = yes }
+					GBR = { ai = yes }
+				}
+				create_alliance = SPA
+			}
+			add_trust = {
+			    who = SPA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SPA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SPA
+				attitude = attitude_allied
+			}
+		}
+		UNK = { 
+			remove_historical_rival = SPA 
+			add_historical_friend = SPA 
+			if = {
+				limit = {
+					SPA = { ai = yes }
+					UNK = { ai = yes }
+				}
+				create_alliance = SPA
+			}
+			add_trust = {
+			    who = SPA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = SPA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = SPA
+				attitude = attitude_allied
+			}
+		}
+		SPA = { 
+			remove_historical_rival = GBR 
+			remove_historical_rival = UNK 
+			add_historical_friend = GBR 
+			add_historical_friend = UNK
+			add_trust = {
+			    who = GBR	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = UNK	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = GBR
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = UNK
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = GBR
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = UNK
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Russo-Prussian Rivalry
+country_event = {
+	id = historical_friends_mod.39
+	title = "historical_friends_mod.8.t"
+	desc = "historical_friends_mod.8.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		NOT = { is_year = 1750 }
+		RUS = { 
+			exists = yes 
+			is_great_power = yes
+		}
+		OR = {
+			PRU = { exists = yes is_free_or_tributary_trigger = yes }
+			BRA = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+		OR = {
+			is_year = 1650
+			BRA = { is_subject_of = RUS }
+			PRU = { is_subject_of = RUS }
+			BRA = { is_great_power = yes }
+			PRU = { is_great_power = yes }
+		}
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		BRA = { 
+			remove_historical_friend = RUS 
+			add_historical_rival = RUS 
+			add_trust = {
+			    who = RUS	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = RUS
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = RUS
+				attitude = attitude_hostile
+			}
+		}
+		PRU = { 
+			remove_historical_friend = RUS 
+			add_historical_rival = RUS 
+			add_trust = {
+			    who = RUS	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = RUS
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = RUS
+				attitude = attitude_hostile
+			}
+		}
+		RUS = { 
+			remove_historical_friend = BRA 
+			remove_historical_friend = PRU 
+			add_historical_rival = BRA 
+			add_historical_rival = PRU 
+			add_trust = {
+			    who = BRA	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PRU	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BRA
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PRU
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = BRA
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PRU
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# End of Russo-Prussian Rivalry
+country_event = {
+	id = historical_friends_mod.40
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1750
+		RUS = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			BRA = { exists = yes is_free_or_tributary_trigger = yes }	
+			PRU = { exists = yes is_free_or_tributary_trigger = yes }
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		BRA = { 
+			remove_historical_rival = RUS 
+			add_historical_friend = RUS
+			set_ai_attitude = {
+				who = RUS
+				attitude = attitude_allied
+			}
+		}
+		PRU = { 
+			remove_historical_rival = RUS 
+			add_historical_friend = RUS
+			set_ai_attitude = {
+				who = RUS
+				attitude = attitude_allied
+			}
+		}
+		RUS = { 
+			remove_historical_rival = BRA 
+			remove_historical_rival = PRU 
+			add_historical_friend = BRA 
+			add_historical_friend = PRU
+			set_ai_attitude = {
+				who = BRA
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = PRU
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Ardabili-Turkish Break
+country_event = {
+	id = historical_friends_mod.42
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1500
+		TUR = { exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			PER = { was_tag = ARL exists = yes is_free_or_tributary_trigger = yes }
+			ARL = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+		OR = {
+			exists = PER
+			is_year = 1550
+			ARL = { num_of_cities = TUR }
+			ARL = { num_of_cities = 40 }
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		ARL = { 
+			remove_historical_friend = TUR 
+			add_historical_rival = TUR 
+			add_trust = {
+			    who = TUR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = TUR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_hostile
+			}
+		}
+		PER = { 
+			remove_historical_friend = TUR 
+			add_historical_rival = TUR 
+			add_trust = {
+			    who = TUR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = TUR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_hostile
+			}
+		}
+		TUR = { 
+			remove_historical_friend = ARL 
+			remove_historical_friend = PER 
+			add_historical_rival = ARL 
+			add_historical_rival = PER 
+			add_trust = {
+			    who = ARL	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PER	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ARL
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PER
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = ARL
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PER
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Ottoman-Danger Zone Moroccan alliance
+country_event = {
+	id = historical_friends_mod.43
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_great_power = no
+		is_free_or_tributary_trigger = yes
+		NOT = { 358 = { country_or_non_sovereign_subject_holds = ROOT } }
+		NOT = { 356 = { country_or_non_sovereign_subject_holds = ROOT } }
+		NOT = { 341 = { country_or_non_sovereign_subject_holds = ROOT } }
+		NOT = { 2461 = { country_or_non_sovereign_subject_holds = ROOT } }
+		capital_scope = { evho_province_is_in_historical_morocco_zone = yes }
+		OR = { primary_culture = moroccan primary_culture = berber }
+		NOT = {
+			any_known_country = {
+				NOT = { tag = ROOT }
+				NOT = { is_subject_of = ROOT }
+				capital_scope = { evho_province_is_in_historical_morocco_zone = yes }
+				OR = { primary_culture = moroccan primary_culture = berber }
+			}
+		}
+		TUR = { 
+			owns = 151
+			exists = yes 
+			is_great_power = yes
+			is_free_or_tributary_trigger = yes
+		}
+		NOT = { is_year = 1600 }
+		NOT = {
+			AND = {
+				358 = { country_or_non_sovereign_subject_holds = TUR }
+				356 = { country_or_non_sovereign_subject_holds = TUR }
+				341 = { country_or_non_sovereign_subject_holds = TUR }
+				2461 = { country_or_non_sovereign_subject_holds = TUR }
+			}
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		remove_historical_rival = TUR 
+		add_historical_friend = TUR 
+		if = {
+			limit = {
+				TUR = { ai = yes }
+				ROOT = { ai = yes }
+			}
+			create_alliance = TUR
+		}
+		add_trust = {
+		    who = TUR	
+		    value = 400
+		    mutual = yes
+		}
+		add_opinion = {
+		    who = TUR
+		    modifier = new_friends
+		}
+		set_ai_attitude = {
+			who = TUR
+			attitude = attitude_allied
+		}
+		TUR = { 
+			remove_historical_rival = ROOT 
+			remove_historical_rival = MOR 
+			add_historical_friend = ROOT 
+			add_historical_friend = MOR
+			add_trust = {
+			    who = ROOT	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = MOR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ROOT
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = MOR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = ROOT
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = MOR
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Morocco-Turkish Break
+country_event = {
+	id = historical_friends_mod.44
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		TUR = { exists = yes is_free_or_tributary_trigger = yes }
+		MOR = { num_of_cities = 20 exists = yes is_free_or_tributary_trigger = yes }
+		OR = {
+			is_year = 1600
+			MOR = { is_great_power = yes }
+			358 = { country_or_non_sovereign_subject_holds = MOR }
+			356 = { country_or_non_sovereign_subject_holds = MOR }
+			341 = { country_or_non_sovereign_subject_holds = MOR }
+			2461 = { country_or_non_sovereign_subject_holds = MOR }
+			AND = {
+				358 = { country_or_non_sovereign_subject_holds = TUR }
+				356 = { country_or_non_sovereign_subject_holds = TUR }
+				341 = { country_or_non_sovereign_subject_holds = TUR }
+				2461 = { country_or_non_sovereign_subject_holds = TUR }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		MOR = { 
+			remove_historical_friend = TUR 
+			add_historical_rival = TUR 
+			add_trust = {
+			    who = TUR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = TUR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = TUR
+				attitude = attitude_hostile
+			}
+		}
+		TUR = { 
+			remove_historical_friend = MOR 
+			add_historical_rival = MOR 
+			add_trust = {
+			    who = MOR	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = MOR
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = MOR
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# British-Moroccan alliance
+country_event = {
+	id = historical_friends_mod.45
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		capital_scope = { evho_province_is_in_historical_morocco_zone = yes }
+		OR = { primary_culture = moroccan primary_culture = berber }
+		NOT = {
+			any_known_country = {
+				NOT = { tag = ROOT }
+				NOT = { is_subject_of = ROOT }
+				capital_scope = { evho_province_is_in_historical_morocco_zone = yes }
+				OR = { primary_culture = moroccan primary_culture = berber }
+			}
+		}
+		any_country = {
+			NOT = { alliance_with = ROOT }
+			exists = yes 
+			is_free_or_tributary_trigger = yes 
+			OR = {
+				tag = CAS
+				tag = SPA
+			}
+			OR = {
+				is_rival = ENG
+				is_rival = GBR
+			}
+			num_of_owned_provinces_with = {
+				region = maghreb_region
+				value = 2
+			}
+		}
+		OR = {
+			ENG = { 
+				exists = yes 
+				is_free_or_tributary_trigger = yes 
+				OR = {
+					is_rival = CAS
+					is_rival = SPA
+				}
+				NOT = {
+					num_of_owned_provinces_with = {
+						region = maghreb_region
+						value = 2
+					}
+				}
+			}	
+			GBR = { 
+				exists = yes 
+				is_free_or_tributary_trigger = yes 
+				OR = {
+					is_rival = CAS
+					is_rival = SPA
+				}
+				NOT = {
+					num_of_owned_provinces_with = {
+						region = maghreb_region
+						value = 2
+					}
+				}
+			}
+		}		
+	 }
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		remove_historical_rival = ENG 
+		add_historical_friend = ENG 
+		remove_historical_rival = GBR 
+		add_historical_friend = GBR 
+		if = {
+			limit = {
+				ENG = { ai = yes }
+				ROOT = { ai = yes }
+			}
+			create_alliance = ENG
+		}
+		if = {
+			limit = {
+				GBR = { ai = yes }
+				ROOT = { ai = yes }
+			}
+			create_alliance = GBR
+		}
+		add_trust = {
+		    who = ENG	
+		    value = 400
+		    mutual = yes
+		}
+		add_opinion = {
+		    who = ENG
+		    modifier = new_friends
+		}
+		set_ai_attitude = {
+			who = ENG
+			attitude = attitude_allied
+		}
+		add_trust = {
+		    who = GBR	
+		    value = 400
+		    mutual = yes
+		}
+		add_opinion = {
+		    who = GBR
+		    modifier = new_friends
+		}
+		set_ai_attitude = {
+			who = GBR
+			attitude = attitude_allied
+		}
+		ENG = { 
+			remove_historical_rival = ROOT 
+			remove_historical_rival = MOR 
+			add_historical_friend = ROOT 
+			add_historical_friend = MOR
+			add_trust = {
+			    who = ROOT	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = MOR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ROOT
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = MOR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = ROOT
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = MOR
+				attitude = attitude_allied
+			}
+		}
+		GBR = { 
+			remove_historical_rival = ROOT 
+			remove_historical_rival = MOR 
+			add_historical_friend = ROOT 
+			add_historical_friend = MOR
+			add_trust = {
+			    who = ROOT	
+			    value = 400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = MOR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ROOT
+			    modifier = new_friends
+			}
+			add_opinion = {
+			    who = MOR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = ROOT
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = MOR
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Yankee-Moroccan alliance (these two were good friends in the 18th and 19th centuries for some reason)
+country_event = {
+	id = historical_friends_mod.46
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		MOR = { exists = yes is_free_or_tributary_trigger = yes }
+		USA = { exists = yes is_free_or_tributary_trigger = yes }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		MOR = { 
+			remove_historical_rival = USA 
+			add_historical_friend = USA 
+			if = {
+				limit = {
+					USA = { ai = yes }
+					MOR = { ai = yes }
+				}
+				create_alliance = USA
+			}
+			add_trust = {
+			    who = USA	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = USA
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = USA
+				attitude = attitude_allied
+			}
+		}
+		USA = { 
+			remove_historical_rival = MOR 
+			add_historical_friend = MOR
+			add_trust = {
+			    who = MOR	
+			    value = 400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = MOR
+			    modifier = new_friends
+			}
+			set_ai_attitude = {
+				who = MOR
+				attitude = attitude_allied
+			}
+		}
+	}
+}
+
+# Oda-Tokugawa Break
+country_event = {
+	id = historical_friends_mod.47
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1525
+		TKG = { exists = yes }
+		ODA = { exists = yes }
+		OR = {
+			is_year = 1550
+			TKG = { is_subject_of = ODA }
+			AND = {
+				ODA = { is_subject = no }
+				TKG = { is_subject = no }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		TKG = { 
+			remove_historical_friend = ODA 
+			add_historical_rival = ODA 
+			add_trust = {
+			    who = ODA	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = ODA
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = ODA
+				attitude = attitude_hostile
+			}
+		}
+		ODA = { 
+			remove_historical_friend = TKG 
+			add_historical_rival = TKG 
+			add_trust = {
+			    who = TKG	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = TKG
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = TKG
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Polish-Bohemian Break
+country_event = {
+	id = historical_friends_mod.48
+	title = "historical_friends_mod.6.t"
+	desc = "historical_friends_mod.6.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1500
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+		OR = {
+			is_year = 1535
+			BOH = { is_subject = yes }
+			BOH = { 
+				num_of_owned_provinces_with = {
+					value = 2
+					OR = {
+						area = neumark_area
+						area = mittelmark_area
+					}
+				}
+			}
+			POL = { 
+				num_of_owned_provinces_with = {
+					value = 2
+					OR = {
+						area = neumark_area
+						area = mittelmark_area
+					}
+				}
+			}
+			PLC = { 
+				num_of_owned_provinces_with = {
+					value = 2
+					OR = {
+						area = neumark_area
+						area = mittelmark_area
+					}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.2.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_friend = BOH 
+			add_historical_rival = BOH 
+			add_trust = {
+			    who = BOH	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BOH
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = BOH
+				attitude = attitude_hostile
+			}
+		}
+		PLC = { 
+			remove_historical_friend = BOH 
+			add_historical_rival = BOH 
+			add_trust = {
+			    who = BOH	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = BOH
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = BOH
+				attitude = attitude_hostile
+			}
+		}
+		BOH = { 
+			remove_historical_friend = POL 
+			remove_historical_friend = PLC 
+			add_historical_rival = POL 
+			add_historical_rival = PLC 
+			add_trust = {
+			    who = POL	
+			    value = -400
+			    mutual = yes
+			}
+			add_trust = {
+			    who = PLC	
+			    value = -400
+			    mutual = yes
+			}
+			add_opinion = {
+			    who = POL
+			    modifier = no_longer_friends
+			}
+			add_opinion = {
+			    who = PLC
+			    modifier = no_longer_friends
+			}
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_hostile
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_hostile
+			}
+		}
+	}
+}
+
+# Polish-Bohemian Alliance (helps prevent occasional unhistorical partitions early partitions of Bohemia)
+country_event = {
+	id = historical_friends_mod.49
+	title = "historical_friends_mod.5.t"
+	desc = "historical_friends_mod.5.d"
+	picture = DIPLOMACY_eventPicture	
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		is_year = 1455
+		NOT = { is_year = 1535 }
+		OR = {
+			POL = { exists = yes is_free_or_tributary_trigger = yes }	
+			PLC = { exists = yes is_free_or_tributary_trigger = yes }
+		}
+		BOH = { 
+			exists = yes 
+			is_subject = no 
+			NOT = { 
+				num_of_owned_provinces_with = {
+					value = 2
+					OR = {
+						area = neumark_area
+						area = mittelmark_area
+					}
+				}
+			}
+		}
+		NOT = {
+			OR = {
+				POL = { 
+					num_of_owned_provinces_with = {
+						value = 2
+						OR = {
+							area = neumark_area
+							area = mittelmark_area
+						}
+					}
+				}
+				PLC = { 
+					num_of_owned_provinces_with = {
+						value = 2
+						OR = {
+							area = neumark_area
+							area = mittelmark_area
+						}
+					}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	 option = {	
+		name = "historical_friends_mod.1.o"
+		ai_chance = {
+			factor = 3
+		}
+	}	
+	 immediate = {
+		POL = { 
+			remove_historical_rival = BOH 
+			add_historical_friend = BOH
+			set_ai_attitude = {
+				who = BOH
+				attitude = attitude_allied
+			}
+		}
+		PLC = { 
+			remove_historical_rival = BOH 
+			add_historical_friend = BOH
+			set_ai_attitude = {
+				who = BOH
+				attitude = attitude_allied
+			}
+		}
+		BOH = { 
+			remove_historical_rival = POL 
+			remove_historical_rival = PLC 
+			add_historical_friend = POL 
+			add_historical_friend = PLC
+			set_ai_attitude = {
+				who = POL
+				attitude = attitude_allied
+			}
+			set_ai_attitude = {
+				who = PLC
+				attitude = attitude_allied
+			}
+		}
+	}
+}

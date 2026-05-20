@@ -6,6 +6,9 @@ religion = catholic
 primary_culture = pommeranian
 capital = 46	# Mecklenburg
 fixed_capital = 46 # Cannot move capital away from this province & no power cost to move to it
+historical_friend = BRA
+historical_friend = SWE
+historical_friend = DAN
 
 1384.1.1 = {
 	monarch = {

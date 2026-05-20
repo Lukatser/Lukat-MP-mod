@@ -1,0 +1,5472 @@
+# Europa Verus Events
+
+namespace = EVHO_misc_events
+
+# EVHO Generic Alliance Event
+country_event = {
+	id = EVHO_misc_events.1
+	title = EVHO_misc_events.1.t
+	desc = EVHO_misc_events.1.d
+	picture = BATTLE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVHO_misc_events.1.a
+		FROM = {
+			if = {
+				limit = { FROM = { is_subject = no } }
+				create_alliance = ROOT
+			}
+			ROOT = { join_all_offensive_wars_of = FROM }
+			ROOT = { join_all_defensive_wars_of = FROM }
+			set_ai_attitude = {
+				who = ROOT
+				attitude = attitude_friendly
+			}
+			ROOT = {
+				set_ai_attitude = {
+					who = FROM
+					attitude = attitude_friendly
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						is_at_war = yes
+						NOT = { war_score = -25 }
+					}
+					AND = {
+						is_at_war = yes
+						is_great_power = no
+						NOT = { war_score = -1 }
+					}
+					AND = {
+						is_great_power = yes
+						any_country = {
+							war_with = ROOT
+							is_great_power = yes
+							NOT = { tag = ROOT }
+						}
+					}
+					NOT = { has_opinion = { who = FROM value = 0 } }
+					any_country = {
+						war_with = FROM
+						alliance_with = ROOT
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVHO_misc_events.1.b
+		add_prestige = -50
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					FROM = { is_colonial_nation_of = ROOT }
+					AND = {
+						has_opinion = { who = FROM value = 0 }
+						NOT = {
+							any_country = {
+								war_with = FROM
+								alliance_with = ROOT
+							}
+						}
+						OR = {
+							is_at_war = no
+							AND = {
+								is_great_power = no
+								war_score = -1
+							}
+							AND = {
+								is_great_power = yes
+								NOT = { 
+									any_country = {
+										war_with = ROOT
+										is_great_power = yes
+										NOT = { tag = ROOT }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {	## Countries that need buffs fuckin apparently
+	id = EVHO_misc_events.2
+	
+	hidden = yes
+
+	trigger = {
+		any_country = {
+			ai = yes
+			was_player = no
+			NOT = { has_country_flag = got_life_buff }
+			is_free_or_tributary_trigger = yes
+			OR = {
+				tag = AZT
+				tag = IRO
+				tag = CSU
+				tag = TEU
+				tag = SWI
+				tag = SAV
+				tag = PAP
+				tag = ETH
+				tag = BUR
+				tag = ARL
+				tag = SWE
+				tag = SAX
+				tag = MNG ## seriously?? ##
+				tag = MJZ ## Aisin Goro Manchus
+				primary_culture = bavarian
+				has_country_flag = formed_prussia_flag
+				AND = { tag = TUR owns = 151 } ## Turks have taken Konstantinniye
+				AND = { tag = BYZ owns = 149 } ## Greeks have taken Adrianople
+				AND = { tag = LAE owns = 149 } ## Greeks have taken Adrianople
+				AND = { is_year = 1490 tag = POL }
+				AND = { is_year = 1550 tag = ENG }
+				AND = {
+					is_year = 1500
+					OR = {
+						primary_culture = manchu
+						primary_culture = manchu_new
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.2.a
+		every_country = {
+			limit = {  
+				ai = yes
+				was_player = no
+				NOT = { has_country_flag = got_life_buff }
+				is_free_or_tributary_trigger = yes
+				OR = {
+					tag = AZT
+					tag = IRO
+					tag = CSU
+					tag = TEU
+					tag = SWI
+					tag = SAV
+					tag = PAP
+					tag = ETH
+					tag = BUR
+					tag = ARL
+					tag = SWE
+					tag = SAX
+					tag = MNG ## seriously?? ##
+					tag = MJZ ## Aisin Goro Manchus
+					primary_culture = bavarian
+					has_country_flag = formed_prussia_flag
+					AND = { tag = TUR owns = 151 } ## Turks have taken Konstantinniye
+					AND = { tag = BYZ owns = 149 } ## Greeks have taken Adrianopol
+					AND = { tag = LAE owns = 149 } ## Greeks have taken Adrianopol
+					AND = { is_year = 1490 tag = POL }
+					AND = { is_year = 1550 tag = ENG }
+					AND = {
+						is_year = 1500
+						OR = {
+							primary_culture = manchu
+							primary_culture = manchu_new
+						}
+					}
+				}
+			}
+			set_country_flag = got_life_buff
+			add_army_tradition = 60
+			add_years_of_income = 2
+			add_stability = 6
+			add_treasury = 1000
+			add_manpower = 20
+			add_prestige = 100
+			if = {
+				limit = {
+					tag = SWE
+					OR = {
+						DAN = { ai = yes was_player = no }
+						war_with = DAN
+					}
+				}
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = DAN
+						OR = {
+							region = baltic_region
+							region = russia_region
+						}
+					}
+					add_core = SWE
+					cede_province = SWE
+				}
+				if = {
+					limit = {
+						SWE = { ai = yes }
+						DAN = { ai = yes }
+					}
+					every_province = {
+						limit = {
+							OR = {
+								region = baltic_region
+								region = russia_region
+							}
+						}
+						remove_core = DAN
+						remove_claim = DAN
+					}
+				}
+			}
+		}
+	}
+}
+
+# No Longer an Empire
+
+country_event = {
+	id = EVHO_misc_events.3
+	
+	hidden = yes
+
+	trigger = {
+		any_country = {
+			has_country_flag = proclaimed_an_empire
+			OR = {
+				government = republic
+				is_free_or_tributary_trigger = no
+				NOT = { total_development = 100 }
+				AND = {
+					has_country_flag = proclaimed_arabian_empire
+					NOT = { tag = ARB }
+				}
+				AND = {
+					has_country_flag = proclaimed_timurid_empire
+					NOT = { tag = TIM }
+				}
+				AND = {
+					has_country_flag = proclaimed_tibetian_empire
+					NOT = { tag = TIB }
+				}
+				AND = {
+					has_country_flag = proclaimed_swedish_empire
+					NOT = { tag = SWE }
+				}
+				AND = {
+					has_country_flag = proclaimed_spanish_empire
+					NOT = { tag = SPA }
+				}
+				AND = {
+					has_country_flag = proclaimed_songhai_empire
+					NOT = { tag = SON }
+				}
+				AND = {
+					has_country_flag = proclaimed_serbian_empire
+					NOT = { tag = SER }
+				}
+				AND = {
+					has_country_flag = proclaimed_seljuk_empire
+					NOT = { tag = RUM }
+				}
+				AND = {
+					has_country_flag = proclaimed_russian_empire
+					NOT = { tag = RUS }
+				}
+				AND = {
+					has_country_flag = proclaimed_portuguese_empire
+					NOT = { tag = POR }
+				}
+				AND = {
+					has_country_flag = proclaimed_polish_empire
+					NOT = { tag = POL }
+				}
+				AND = {
+					has_country_flag = proclaimed_persian_empire
+					NOT = { tag = PER }
+				}
+				AND = {
+					has_country_flag = proclaimed_ottoman_empire
+					NOT = { tag = TUR }
+				}
+				AND = {
+					has_country_flag = proclaimed_mamlukid
+					NOT = { tag = MAM }
+				}
+				AND = {
+					has_country_flag = proclaimed_mughal_empire
+					NOT = { tag = MUG }
+				}
+				AND = {
+					has_country_flag = proclaimed_moravian_empire
+					NOT = { OR = { tag = MVA tag = SLO } }
+				}
+				AND = {
+					has_country_flag = proclaimed_mexican_empire
+					NOT = { tag = MEX }
+				}
+				AND = {
+					has_country_flag = proclaimed_haitian_empire
+					NOT = { tag = CSR }
+				}
+				AND = {
+					has_country_flag = proclaimed_mayan_empire
+					NOT = { tag = MAY }
+				}
+				AND = {
+					has_country_flag = proclaimed_mali_empire
+					NOT = { tag = MAL }
+				}
+				AND = {
+					has_country_flag = proclaimed_khmer_empire
+					NOT = { tag = KHM }
+				}
+				AND = {
+					has_country_flag = proclaimed_japanese_empire
+					NOT = { tag = JAP }
+				}
+				AND = {
+					has_country_flag = proclaimed_italian_empire
+					NOT = { tag = ITA }
+				}
+				AND = {
+					has_country_flag = proclaimed_incan_empire
+					NOT = { tag = INC }
+				}
+				AND = {
+					has_country_flag = proclaimed_hungarian_empire
+					NOT = { tag = HUN }
+				}
+				AND = {
+					has_country_flag = proclaimed_german_empire
+					NOT = { tag = GER }
+				}
+				AND = {
+					has_country_flag = proclaimed_french_empire
+					NOT = { tag = FRA }
+				}
+				AND = {
+					has_country_flag = proclaimed_ethiopian_empire
+					NOT = { tag = ETH }
+				}
+				AND = {
+					has_country_flag = proclaimed_dutch_empire
+					NOT = { tag = NED }
+				}
+				AND = {
+					has_country_flag = proclaimed_byzantine_empire
+					NOT = { tag = BYZ }
+				}
+				AND = {
+					has_country_flag = proclaimed_bulgarian_empire
+					NOT = { tag = BUL }
+				}
+				AND = {
+					has_country_flag = proclaimed_british_empire
+					NOT = { tag = GBR }
+				}
+				AND = {
+					has_country_flag = proclaimed_brazillian_empire
+					NOT = { tag = BRZ }
+				}
+				AND = {
+					has_country_flag = proclaimed_aztec_empire
+					NOT = { tag = AZT }
+				}
+				AND = {
+					has_country_flag = proclaimed_austrian_empire
+					NOT = { tag = HAB }
+				}
+				AND = {
+					has_country_flag = proclaimed_armenian_empire
+					NOT = { tag = ARM }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.3.a
+		every_country = {
+			limit = {
+				has_country_flag = proclaimed_an_empire
+				OR = {
+					government = republic
+					is_free_or_tributary_trigger = no
+					NOT = { total_development = 100 }
+					AND = {
+						has_country_flag = proclaimed_arabian_empire
+						NOT = { tag = ARB }
+					}
+					AND = {
+						has_country_flag = proclaimed_timurid_empire
+						NOT = { tag = TIM }
+					}
+					AND = {
+						has_country_flag = proclaimed_tibetian_empire
+						NOT = { tag = TIB }
+					}
+					AND = {
+						has_country_flag = proclaimed_swedish_empire
+						NOT = { tag = SWE }
+					}
+					AND = {
+						has_country_flag = proclaimed_spanish_empire
+						NOT = { tag = SPA }
+					}
+					AND = {
+						has_country_flag = proclaimed_songhai_empire
+						NOT = { tag = SON }
+					}
+					AND = {
+						has_country_flag = proclaimed_serbian_empire
+						NOT = { tag = SER }
+					}
+					AND = {
+						has_country_flag = proclaimed_seljuk_empire
+						NOT = { tag = RUM }
+					}
+					AND = {
+						has_country_flag = proclaimed_russian_empire
+						NOT = { tag = RUS }
+					}
+					AND = {
+						has_country_flag = proclaimed_portuguese_empire
+						NOT = { tag = POR }
+					}
+					AND = {
+						has_country_flag = proclaimed_polish_empire
+						NOT = { tag = POL }
+					}
+					AND = {
+						has_country_flag = proclaimed_persian_empire
+						NOT = { tag = PER }
+					}
+					AND = {
+						has_country_flag = proclaimed_ottoman_empire
+						NOT = { tag = TUR }
+					}
+					AND = {
+						has_country_flag = proclaimed_mamlukid
+						NOT = { tag = MAM }
+					}
+					AND = {
+						has_country_flag = proclaimed_mughal_empire
+						NOT = { tag = MUG }
+					}
+					AND = {
+						has_country_flag = proclaimed_moravian_empire
+						NOT = { OR = { tag = MVA tag = SLO } }
+					}
+					AND = {
+						has_country_flag = proclaimed_mexican_empire
+						NOT = { tag = MEX }
+					}
+					AND = {
+						has_country_flag = proclaimed_haitian_empire
+						NOT = { tag = CSR }
+					}
+					AND = {
+						has_country_flag = proclaimed_mayan_empire
+						NOT = { tag = MAY }
+					}
+					AND = {
+						has_country_flag = proclaimed_mali_empire
+						NOT = { tag = MAL }
+					}
+					AND = {
+						has_country_flag = proclaimed_khmer_empire
+						NOT = { tag = KHM }
+					}
+					AND = {
+						has_country_flag = proclaimed_japanese_empire
+						NOT = { tag = JAP }
+					}
+					AND = {
+						has_country_flag = proclaimed_italian_empire
+						NOT = { tag = ITA }
+					}
+					AND = {
+						has_country_flag = proclaimed_incan_empire
+						NOT = { tag = INC }
+					}
+					AND = {
+						has_country_flag = proclaimed_hungarian_empire
+						NOT = { tag = HUN }
+					}
+					AND = {
+						has_country_flag = proclaimed_german_empire
+						NOT = { tag = GER }
+					}
+					AND = {
+						has_country_flag = proclaimed_french_empire
+						NOT = { tag = FRA }
+					}
+					AND = {
+						has_country_flag = proclaimed_ethiopian_empire
+						NOT = { tag = ETH }
+					}
+					AND = {
+						has_country_flag = proclaimed_dutch_empire
+						NOT = { tag = NED }
+					}
+					AND = {
+						has_country_flag = proclaimed_byzantine_empire
+						NOT = { tag = BYZ }
+					}
+					AND = {
+						has_country_flag = proclaimed_bulgarian_empire
+						NOT = { tag = BUL }
+					}
+					AND = {
+						has_country_flag = proclaimed_british_empire
+						NOT = { tag = GBR }
+					}
+					AND = {
+						has_country_flag = proclaimed_brazillian_empire
+						NOT = { tag = BRZ }
+					}
+					AND = {
+						has_country_flag = proclaimed_aztec_empire
+						NOT = { tag = AZT }
+					}
+					AND = {
+						has_country_flag = proclaimed_austrian_empire
+						NOT = { tag = HAB }
+					}
+					AND = {
+						has_country_flag = proclaimed_armenian_empire
+						NOT = { tag = ARM }
+					}
+				}
+			}
+			add_legitimacy = -40
+			add_prestige = -40
+			restore_country_name = yes
+			clr_country_flag = proclaimed_an_empire
+			clr_country_flag = proclaimed_arabian_empire
+			clr_country_flag = proclaimed_timurid_empire
+			clr_country_flag = proclaimed_tibetian_empire
+			clr_country_flag = proclaimed_swedish_empire
+			clr_country_flag = proclaimed_spanish_empire
+			clr_country_flag = proclaimed_songhai_empire
+			clr_country_flag = proclaimed_serbian_empire
+			clr_country_flag = proclaimed_seljuk_empire
+			clr_country_flag = proclaimed_russian_empire
+			clr_country_flag = proclaimed_portuguese_empire
+			clr_country_flag = proclaimed_polish_empire
+			clr_country_flag = proclaimed_persian_empire
+			clr_country_flag = proclaimed_ottoman_empire
+			clr_country_flag = proclaimed_mamlukid_empire
+			clr_country_flag = proclaimed_mughal_empire
+			clr_country_flag = proclaimed_moravian_empire
+			clr_country_flag = proclaimed_mexican_empire
+			clr_country_flag = proclaimed_haitian_empire
+			clr_country_flag = proclaimed_mayan_empire
+			clr_country_flag = proclaimed_mali_empire
+			clr_country_flag = proclaimed_khmer_empire
+			clr_country_flag = proclaimed_japanese_empire
+			clr_country_flag = proclaimed_italian_empire
+			clr_country_flag = proclaimed_incan_empire
+			clr_country_flag = proclaimed_hungarian_empire
+			clr_country_flag = proclaimed_german_empire
+			clr_country_flag = proclaimed_french_empire
+			clr_country_flag = proclaimed_ethiopian_empire
+			clr_country_flag = proclaimed_dutch_empire
+			clr_country_flag = proclaimed_byzantine_empire
+			clr_country_flag = proclaimed_bulgarian_empire
+			clr_country_flag = proclaimed_british_empire
+			clr_country_flag = proclaimed_brazillian_empire
+			clr_country_flag = proclaimed_aztec_empire
+			clr_country_flag = proclaimed_austrian_empire
+			clr_country_flag = proclaimed_armenian_empire
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Needs a Republic Name
+
+country_event = {
+	id = EVHO_misc_events.4
+	
+	hidden = yes
+
+	trigger = {
+		any_country = {
+			government = republic
+			NOT = {
+				OR = {
+					has_country_flag = republic_name
+					has_country_flag = proclaimed_an_empire
+				}
+			}
+			OR = {
+				tag = TUR
+				tag = USA
+				tag = AFU
+				tag = UNK
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.4.a
+		set_country_flag = republic_name
+		ai_chance = { factor = 1 }
+		every_country = {
+			limit = {
+				government = republic
+				NOT = {
+					OR = {
+						has_country_flag = republic_name
+						has_country_flag = proclaimed_an_empire
+					}
+				}
+				OR = {
+					tag = TUR
+					tag = USA
+					tag = AFU
+					tag = UNK
+				}
+			}
+			if = {
+				limit = { tag = TUR }
+				override_country_name = REPUBLIC_OF_TURKEY
+			}
+			if = {
+				limit = { tag = USA }
+				override_country_name = UNITED_STATES
+			}
+			if = {
+				limit = { tag = AFU }
+				override_country_name = TWIN_REPUBLICS
+			}
+			if = {
+				limit = { tag = UNK }
+				override_country_name = UNITED_REPUBLICS
+			}
+		}
+	}
+}
+
+# Needs a Monarchy Name
+
+country_event = {
+	id = EVHO_misc_events.5
+	
+	hidden = yes
+
+	trigger = {
+		any_country = {
+			OR = { tag = USA }
+			government = monarchy
+			NOT = {
+				OR = {
+					has_country_flag = monarchy_name
+					has_country_flag = proclaimed_an_empire
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.5.a
+		ai_chance = { factor = 1 }
+		every_country = {
+			limit = {
+				OR = { tag = USA }
+				government = monarchy
+				NOT = {
+					OR = {
+						has_country_flag = monarchy_name
+						has_country_flag = proclaimed_an_empire
+					}
+				}
+			}
+			set_country_flag = monarchy_name
+			if = {
+				limit = { tag = USA }
+				override_country_name = UNITED_DUCHIES
+			}
+		}
+	}
+}
+
+# No Fancy Names
+
+country_event = {
+	id = EVHO_misc_events.6
+	
+	hidden = yes
+
+	trigger = {
+		any_country = {
+			OR = {
+				AND = {
+					has_country_flag = republic_name
+					NOT = { government = republic }
+				}
+				AND = {
+					has_country_flag = monarchy_name
+					NOT = { government = monarchy }
+				}
+				AND = {
+					has_country_flag = congress_poland
+					NOT = { has_reform = polish_constitutionalism_reform }
+				}
+				AND = {
+					has_country_flag = has_revolutionary_name
+					NOT = {
+						OR = {
+							has_reform = revolutionary_republic_reform
+							has_reform = junior_revolutionary_republic_reform
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.6.a
+		ai_chance = { factor = 1 }
+		every_country = {
+			limit = {
+				OR = {
+					AND = {
+						has_country_flag = republic_name
+						NOT = { government = republic }
+					}
+					AND = {
+						has_country_flag = monarchy_name
+						NOT = { government = monarchy }
+					}
+					AND = {
+						has_country_flag = congress_poland
+						NOT = { has_reform = polish_constitutionalism_reform }
+					}
+					AND = {
+						has_country_flag = has_revolutionary_name
+						NOT = {
+							OR = {
+								has_reform = revolutionary_republic_reform
+								has_reform = junior_revolutionary_republic_reform
+							}
+						}
+					}
+				}
+			}
+			clr_country_flag = republic_name
+			clr_country_flag = monarchy_name
+			clr_country_flag = congress_poland
+			clr_country_flag = has_revolutionary_name
+			restore_country_name = yes
+		}
+	}
+}
+
+country_event = {	## Helps GP AI recover sooner from fucky wars
+	id = EVHO_misc_events.7
+	
+	hidden = yes
+
+	trigger = {
+		any_country = {
+			ai = yes
+			is_at_war = yes
+			NOT = { war_score = -50 }
+			NOT = { has_country_flag = needs_postwar_buff }
+			OR = {
+				is_great_power = yes
+				tag = SWE
+				tag = NOR 	## scandinavia always getting conquered and shit
+				tag = DAN
+				
+				tag = PER 	## persia always getting dicked on
+
+				tag = SAV 	## pasta boi is unlucky for some reason
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.7.a
+		every_country = {
+			limit = {
+				ai = yes
+				is_at_war = yes
+				NOT = { war_score = -50 }
+				OR = {
+					is_great_power = yes
+					tag = SWE
+					tag = NOR 	## scandinavia always getting conquered and shit
+					tag = DAN
+					
+					tag = PER 	## persia always getting dicked on
+
+					tag = SAV 	## pasta boi is unlucky for some reason
+
+					has_country_flag = formed_prussia_flag
+					AND = { 	## prussia boi is unlucky for some reason
+						tag = BRA
+						OR = {
+							is_year = 1550
+							NOT = { num_of_cities = 12 }
+						}
+					}
+				}
+			}
+			set_country_flag = needs_postwar_buff
+		}
+	}
+}
+
+country_event = {	## Helps GP AI recover sooner from fucky wars
+	id = EVHO_misc_events.8
+	
+	hidden = yes
+
+	trigger = {
+		any_country = {
+			ai = yes
+			is_at_war = no
+			has_country_flag = needs_postwar_buff
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.8.a
+		every_country = {
+			limit = {
+				ai = yes
+				is_at_war = no
+				has_country_flag = needs_postwar_buff
+			}
+			clr_country_flag = needs_postwar_buff
+			add_army_tradition = 50
+			add_years_of_income = 1.5
+			add_stability = 3
+			add_treasury = 400
+			add_adm_power = 400
+			add_dip_power = 400
+			add_mil_power = 400
+			add_manpower = 20
+			add_prestige = 60
+		}
+	}
+}
+
+########## forced AI declaration of independence wars ###############
+country_event = {
+	id = EVHO_misc_events.9
+	title = hldvdw_events.1.t
+	desc = hldvdw_events.1.d
+	picture = DECLARATION_INDEPENDENCE_eventPicture
+	
+	hidden = yes
+	trigger = {
+		ai = yes
+		is_subject = yes
+		OR = {
+			liberty_desire = 80
+			AND = {
+				is_year = 1515
+				liberty_desire = 50
+				NOT = { exists = JAP }
+				culture_group = japanese_g
+				OVERLORD = { culture_group = japanese_g }
+			}
+		}
+		OR = {
+			AND = {
+				NOT = { is_year = 1494 }
+				OVERLORD = { tag = TIM }
+			}
+			AND = {
+				luck = yes
+				is_year = 1494
+			}
+			AND = {
+				is_year = 1770
+				is_colonial_nation = yes
+				evho_country_historically_remains_a_colony_trigger = no
+			}
+			AND = {
+				tag = BOH
+				OVERLORD = { NOT = { tag = STY } }
+				OVERLORD = { NOT = { tag = HAB } }
+			}
+			AND = {
+				tag = SWE
+				is_year = 1520
+			}
+			AND = {
+				is_year = 1515
+				NOT = { exists = JAP }
+				culture_group = japanese_g
+				OVERLORD = { culture_group = japanese_g }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		years = 50
+
+		modifier = {
+			factor = 3
+			is_at_war = yes
+		}
+
+		modifier = {
+			factor = 0.6
+			liberty_desire = 85
+		}
+
+		modifier = {
+			factor = 0.6
+			liberty_desire = 90
+		}
+
+		modifier = {
+			factor = 0.6
+			liberty_desire = 95
+		}
+
+		modifier = { # Extra fast for player supported countries
+			factor = 0.5
+			liberty_desire = 90
+			any_country = {
+				is_supporting_independence_of = ROOT
+				ai = no
+			}
+		}
+
+		modifier = { # less likely to take effect for tributaries, as they're semi-independant
+			factor = 1.5
+			OR = {
+				is_subject_of_type = tributary_state
+				is_subject_of_type = protected_ally
+			}
+		}
+	}
+
+	option = {
+		name = hldvdw_events.1.a
+		ai_chance = { factor = 100 }
+		OVERLORD = {
+			every_enemy_country = {
+				limit = { war_with = ROOT }
+				white_peace = ROOT
+			}
+			every_subject_country = {
+				limit = { alliance_with = ROOT }
+				grant_independence = yes
+			}
+		}
+		every_country = {
+			limit = { is_supporting_independence_of = ROOT }
+			create_alliance = ROOT
+			join_all_offensive_wars_of = ROOT
+			join_all_defensive_wars_of = ROOT
+		}
+		if = {
+			limit = { is_colonial_nation = yes }
+
+			declare_war_with_cb = {
+				who = overlord
+				casus_belli = cb_colonial_independence_war
+			}
+		}
+		else_if = {
+			limit = { has_reform = daimyo }
+
+			declare_war_with_cb = {
+				who = overlord
+				casus_belli = cb_daimyo_annex
+			}
+		}
+		else = {
+			declare_war_with_cb = {
+				who = overlord
+				casus_belli = cb_independence_war
+			}
+		}
+		every_ally = {
+			join_all_offensive_wars_of = ROOT
+			join_all_defensive_wars_of = ROOT
+		}
+	}
+}
+
+# Scripted Protestants: Scandinavia, Brandenburg, Saxony, Bohemia, Scotland
+
+country_event = {
+	id = EVHO_misc_events.15
+	title = EVHO_misc_events.15.t
+	desc = EVHO_misc_events.15.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	major = yes
+
+	trigger = {
+		is_religion_enabled = protestant
+		NOT = { has_ruler_flag = heretic_boi }
+		NOT = { has_ruler_flag = protestant_boi }
+		NOT = { has_ruler_flag = bloody_mary }
+		NOT = { has_ruler_flag = catholic_boi }
+		religion = catholic
+		OR = {
+			is_year = 1550
+			any_owned_province = { religion = protestant }
+			tag = DNZ
+			tag = TEU
+			tag = SAX
+			AND = {
+				is_emperor = yes
+				NOT = { capital_scope = { region = south_german_region } }
+				NOT = { capital_scope = { region = italy_region } }
+				NOT = { tag = HAB }
+				NOT = { tag = STY }
+			}
+		}
+		NOT = { is_year = 1615 }
+		OR = {
+			is_free_or_tributary_trigger = yes
+			tag = PRU
+			tag = BRA
+			tag = SWE
+			tag = DNZ
+			tag = TEU
+			tag = SAX
+		}
+		OR = {
+			tag = HOL
+			tag = NED
+			tag = SWE
+			tag = DAN
+			tag = NOR
+			tag = FIN
+			tag = BRA
+			tag = PRU
+			tag = DNZ
+			tag = TEU
+			tag = SAX
+			tag = BOH
+			tag = PAL
+			tag = ENG
+			tag = AFU
+			tag = GBR
+			tag = DAN
+			tag = SWE
+			tag = HUN
+			AND = {
+				is_emperor = yes
+				NOT = { capital_scope = { region = south_german_region } }
+				NOT = { capital_scope = { region = italy_region } }
+				NOT = { tag = HAB }
+				NOT = { tag = STY }
+			}
+		}
+		OR = {
+			is_year = 1550
+			tag = SWE
+			tag = DAN
+			tag = NOR
+			tag = FIN
+			tag = BRA
+			tag = PRU
+			tag = DNZ
+			tag = TEU
+			tag = SAX
+			tag = PAL
+			AND = {
+				is_emperor = yes
+				NOT = { capital_scope = { region = south_german_region } }
+				NOT = { capital_scope = { region = italy_region } }
+				NOT = { tag = HAB }
+				NOT = { tag = STY }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+		modifier = {
+			factor = 0.2
+			OR = {
+				tag = DNZ
+				tag = TEU
+				tag = SAX
+				tag = SWE
+				tag = DAN
+				tag = NOR
+			}
+		}
+	}
+
+	option = {
+		name = EVHO_misc_events.15.a
+		add_legitimacy = -20
+		set_ruler_flag = protestant_boi
+		capital_scope = { change_religion = protestant }
+		change_religion = protestant
+		set_ruler_religion = protestant
+		set_consort_religion = protestant
+		set_heir_religion = protestant
+		every_country = {
+			limit = { is_subject_of = ROOT }
+			capital_scope = { change_religion = protestant }
+			change_religion = protestant
+			set_ruler_religion = protestant
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+	option = {
+		name = EVHO_misc_events.15.b
+		set_ruler_flag = heretic_boi
+		set_ruler_religion = protestant
+		add_adm_power = -100
+		add_stability = -1
+		add_legitimacy = -20
+		#random_owned_province = {
+		#	limit = {
+		#		can_have_center_of_reformation_trigger = {
+		#			RELIGION = protestant
+		#		}
+		#	}
+		#	change_religion = protestant
+		#	add_reform_center = protestant
+		#	add_permanent_province_modifier = {
+		#		name = "religious_zeal_at_conv"
+		#		duration = 9000
+		#	}
+		#	if = {
+		#		limit = {
+		#			NOT = { is_capital = yes }
+		#		}
+		#		root = {
+		#			capital_scope = {
+		#				change_religion = protestant
+		#				add_permanent_province_modifier = {
+		#					name = "religious_zeal_at_conv"
+		#					duration = 9000
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+		#every_country = {
+		#	limit = { is_subject_of = ROOT }
+		#	random_owned_province = {
+		#		limit = {
+		#			can_have_center_of_reformation_trigger = {
+		#				RELIGION = protestant
+		#			}
+		#		}
+		#		change_religion = protestant
+		#		add_reform_center = protestant
+		#		add_permanent_province_modifier = {
+		#			name = "religious_zeal_at_conv"
+		#			duration = 9000
+		#		}
+		#		if = {
+		#			limit = {
+		#				NOT = { is_capital = yes }
+		#			}
+		#			PREV = {
+		#				capital_scope = {
+		#					change_religion = protestant
+		#					add_permanent_province_modifier = {
+		#						name = "religious_zeal_at_conv"
+		#						duration = 9000
+		#					}
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					tag = BRA 		## Protestant Gang
+					tag = PRU
+					tag = DNZ
+					tag = TEU
+					tag = SWE
+					tag = DAN
+					tag = NOR
+					tag = SAX
+					tag = PAL
+					AND = {
+						is_emperor = yes
+						NOT = { capital_scope = { region = south_german_region } }
+						NOT = { capital_scope = { region = italy_region } }
+						NOT = { tag = HAB }
+						NOT = { tag = STY }
+					}
+					AND = {
+						tag = ENG
+						NOT = { has_dlc = "Rule Britannia" }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Papal Betrayal if Italy exits
+
+country_event = {
+	id = EVHO_misc_events.16
+	title = EVHO_misc_events.16.t
+	desc = EVHO_misc_events.16.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		dip_tech = 31
+		tag = PAP
+		exists = ITA
+		ITA = { is_great_power = yes is_free_or_tributary_trigger = yes }
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+	}
+
+	option = {
+		name = EVHO_misc_events.16.a
+		every_province = {
+			limit = {
+				AND = {
+					region = italy_region
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { province_id = 118 }
+				}
+			}
+			add_core = ITA
+			cede_province = ITA
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+# Lithuanian PU under Poland
+country_event = {
+	id = EVHO_misc_events.17
+	title = EVHO_misc_events.17.t
+	desc = EVHO_misc_events.17.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	major = yes
+	
+	trigger = {
+		tag = LIT
+		NOT = { BRA = { is_subject_of = POL } }
+		NOT = { STY = { is_subject_of = POL } }
+		NOT = { HAB = { is_subject_of = POL } }
+		is_year = 1480
+		NOT = { is_year = 1650 }
+		POL = {
+			religion_group = christian
+			government = monarchy 
+			is_free_or_tributary_trigger = yes 
+		}
+		LIT = {
+			religion_group = christian
+			government = monarchy 
+			is_free_or_tributary_trigger = yes
+			OR = {
+				ai = yes
+				has_heir = no
+				marriage_with = HAB
+				has_opinion = { who = HAB value = 100 }
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 50
+	}
+
+	option = {
+		ai_chance = { factor = 0 }
+		name = EVHO_misc_events.17.a
+		POL = {
+			add_casus_belli = {	
+				target = LIT
+				type = cb_restore_personal_union
+				months = 60	
+			}
+		}
+	}
+	option = {
+		name = EVHO_misc_events.17.b
+		ai_chance = { factor = 100 }
+		add_stability_or_adm_power = yes
+		POL = {
+			create_union = LIT
+		}
+	}
+}
+
+# Internal Affects of Nationalism
+
+country_event = {
+	id = EVHO_misc_events.18
+	title = EVHO_misc_events.18.t
+	desc = EVHO_misc_events.18.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		dip_tech = 30
+		is_colonial_nation = no
+		is_former_colonial_nation = no
+		is_free_or_tributary_trigger = yes
+		NOT = { has_country_flag = got_internal_nationalism_effect }
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = EVHO_misc_events.18.a
+		set_country_flag = got_internal_nationalism_effect
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = pommeranian
+				NOT = { owned_by = POM }
+			}
+			add_core = POM
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = prussian
+				NOT = { owned_by = PRU }
+			}
+			add_core = PRU
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = prussian
+				NOT = { owned_by = PRU }
+				NOT = { owned_by = BRA }
+			}
+			add_core = PRU
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = lower_saxon
+				NOT = { owned_by = HAN }
+			}
+			add_core = HAN
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = hannoverian
+				NOT = { owned_by = WES }
+			}
+			add_core = WES
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = hessian
+				NOT = { owned_by = HES }
+			}
+			add_core = HES
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = saxon
+				NOT = { owned_by = SAX }
+			}
+			add_core = SAX
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = franconian
+				NOT = { owned_by = FKN }
+			}
+			add_core = FKN
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = swiss
+				NOT = { owned_by = SWI }
+			}
+			add_core = SWI
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = bavarian
+				NOT = { owned_by = BAV }
+			}
+			add_core = BAV
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = austrian
+				NOT = { owned_by = HAB }
+			}
+			add_core = HAB
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = german_schlesian
+				NOT = { owned_by = SIL }
+			}
+			add_core = SIL
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = german_sudeten
+				NOT = { owned_by = BOH }
+			}
+			add_core = BOH
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = german_sorbian
+				NOT = { owned_by = SOR }
+			}
+			add_core = SOR
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = german_burgundian
+				NOT = { owned_by = BUR }
+			}
+			add_core = BUR
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = ostlander
+				NOT = { owned_by = KUR }
+			}
+			add_core = KUR
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = dutch
+				NOT = { owned_by = NED }
+			}
+			add_core = NED
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = flemish
+				NOT = { owned_by = FLA }
+				NOT = { owned_by = NED }
+				NOT = { owned_by = BEL }
+			}
+			add_core = FLA
+			add_core = BEL
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = frisian
+				NOT = { owned_by = FRI }
+				NOT = { owned_by = NED }
+			}
+			add_core = FRI
+			add_core = NED
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = brabantian
+				NOT = { owned_by = BRB }
+				NOT = { owned_by = NED }
+				NOT = { owned_by = BEL }
+			}
+			add_core = BRB
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = swedish
+				NOT = { owned_by = SWE }
+			}
+			add_core = SWE
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = danish
+				NOT = { owned_by = DAN }
+			}
+			add_core = DAN
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = norwegian
+				NOT = { owned_by = NOR }
+			}
+			add_core = NOR
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = icelandic
+				NOT = { owned_by = ICE }
+			}
+			add_core = ICE
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = english
+				NOT = { owned_by = ENG }
+				NOT = { owned_by = AFU }
+				NOT = { owned_by = GBR }
+				NOT = { owned_by = UNK }
+			}
+			add_core = ENG
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = welsh
+				NOT = { owned_by = WLS }
+				NOT = { owned_by = GBR }
+				NOT = { owned_by = UNK }
+			}
+			add_core = WLS
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = cornish
+				NOT = { owned_by = CRN }
+				NOT = { owned_by = GBR }
+				NOT = { owned_by = UNK }
+			}
+			add_core = CRN
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = scottish
+				NOT = { owned_by = SCO }
+				NOT = { owned_by = GBR }
+				NOT = { owned_by = UNK }
+			}
+			add_core = SCO
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = irish
+				NOT = { owned_by = IRE }
+			}
+			add_core = IRE
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = highland_scottish
+				NOT = { owned_by = HSC }
+				NOT = { owned_by = SCO }
+			}
+    		add_unrest = 200
+			add_core = SCO
+			add_core = HSC
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = breton
+				NOT = { owned_by = BRI }
+			}
+			add_core = BRI
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = lombard
+				NOT = { owned_by = MLO }
+			}
+			add_core = MLO
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = tuscan
+				NOT = { owned_by = TUS }
+			}
+			add_core = TUS
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = sardinian
+				NOT = { owned_by = SAR }
+			}
+			add_core = SAR
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = romagnan
+				NOT = { owned_by = FER }
+			}
+			add_core = FER
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = ligurian
+				NOT = { owned_by = GEN }
+			}
+			add_core = GEN
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = venetian
+				NOT = { owned_by = VEN }
+			}
+			add_core = VEN
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = dalmatian
+				NOT = { owned_by = DAL }
+				NOT = { owned_by = CRO }
+			}
+			add_core = DAL
+			add_core = CRO
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = neapolitan
+				NOT = { owned_by = NAP }
+				NOT = { owned_by = TTS }
+			}
+			add_core = NAP
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = piedmontese
+				NOT = { owned_by = SAV }
+				NOT = { owned_by = SPI }
+			}
+			add_core = SAV
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = sicilian
+				NOT = { owned_by = SIC }
+			}
+			add_core = SIC
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = maltese
+				NOT = { owned_by = JAI }
+			}
+			add_core = JAI
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = romansh
+				NOT = { owned_by = SWI }
+			}
+			add_core = SWI
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = castillian
+				NOT = { owned_by = CAS }
+				NOT = { owned_by = SPA }
+				NOT = { owned_by = IBA }
+			}
+			add_core = CAS
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = leonese
+				NOT = { owned_by = LON }
+				NOT = { owned_by = SPA }
+				NOT = { owned_by = IBA }
+			}
+			add_core = LON
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = aragonese
+				NOT = { owned_by = ARA }
+				NOT = { owned_by = SPA }
+				NOT = { owned_by = IBA }
+			}
+			add_core = ARA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = spaniard
+				NOT = { owned_by = SPA }
+				NOT = { owned_by = IBA }
+			}
+			add_core = SPA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = catalan
+				NOT = { owned_by = CAT }
+			}
+			add_core = CAT
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = galician
+				NOT = { owned_by = GAL }
+			}
+			add_core = GAL
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = andalucian
+				NOT = { owned_by = ADU }
+			}
+			add_core = ADU
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = portugese
+				NOT = { owned_by = POR }
+			}
+			add_core = POR
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = basque
+				NOT = { owned_by = NAV }
+			}
+			add_core = NAV
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = cosmopolitan_french
+				NOT = { owned_by = FRA }
+				NOT = { owned_by = AFU }
+			}
+			add_core = FRA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = gascon
+				NOT = { owned_by = GUY }
+				NOT = { owned_by = FRA }
+				NOT = { owned_by = AFU }
+			}
+			add_core = GUY
+			add_core = FRA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = normand
+				NOT = { owned_by = NRM }
+				NOT = { owned_by = FRA }
+				NOT = { owned_by = AFU }
+			}
+			add_core = NRM
+			add_core = FRA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = aquitaine
+				NOT = { owned_by = TOU }
+				NOT = { owned_by = FRA }
+				NOT = { owned_by = AFU }
+			}
+			add_core = TOU
+			add_core = FRA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = burgundian
+				NOT = { owned_by = BUR }
+				NOT = { owned_by = FRA }
+				NOT = { owned_by = AFU }
+			}
+			add_core = BUR
+			add_core = FRA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = occitain
+				NOT = { owned_by = PRO }
+				NOT = { owned_by = FRA }
+				NOT = { owned_by = AFU }
+			}
+			add_core = PRO
+			add_core = FRA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = wallonian
+				NOT = { owned_by = HAI }
+				NOT = { owned_by = BEL }
+				NOT = { owned_by = FRA }
+				NOT = { owned_by = AFU }
+			}
+			add_core = HAI
+			add_core = BEL
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = swiss_french
+				NOT = { owned_by = SWI }
+			}
+			add_core = SWI
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = finnish
+				NOT = { owned_by = FIN }
+			}
+			add_core = FIN
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = sapmi
+				NOT = { owned_by = SMI }
+			}
+			add_core = SMI
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = greek
+				NOT = { owned_by = GRE }
+			}
+			add_core = GRE
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = russian_culture
+				NOT = { owned_by = RUS }
+			}
+			add_core = RUS
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = russian_culture_new
+				NOT = { owned_by = RUS }
+			}
+			add_core = RUS
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = russian
+				NOT = { owned_by = MOS }
+			}
+			add_core = MOS
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = russian_new
+				NOT = { owned_by = MOS }
+			}
+			add_core = MOS
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = novgorodian
+				NOT = { owned_by = NOV }
+			}
+			add_core = NOV
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = novgorodian_new
+				NOT = { owned_by = NOV }
+			}
+			add_core = NOV
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = ryazanian
+				NOT = { owned_by = RYA }
+			}
+			add_core = RYA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = ryazanian_new
+				NOT = { owned_by = RYA }
+			}
+			add_core = RYA
+    		add_unrest = 100
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = byelorussian
+				NOT = { owned_by = BLR }
+			}
+			add_core = BLR
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = byelorussian_new
+				NOT = { owned_by = BLR }
+			}
+			add_core = BLR
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = ruthenian
+				NOT = { owned_by = UKR }
+			}
+			add_core = UKR
+		}
+		every_province = {
+			limit = {
+				continent = europe
+				country_or_non_sovereign_subject_holds = ROOT
+				culture = ruthenian_new
+				NOT = { owned_by = UKR }
+			}
+			add_core = UKR
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+# Proliferation of American Culture (converts important tiles)
+
+country_event = {
+	id = EVHO_misc_events.19
+	title = EVHO_misc_events.19.t
+	desc = EVHO_misc_events.19.d
+	picture = EXPLORERS_eventPicture
+	
+	major = yes
+
+	trigger = {
+		has_country_flag = loyalists_assimilated_at_least_once
+		NOT = { has_country_flag = got_culture_proliferation }
+		OR = {
+			is_free_or_tributary_trigger = yes
+			AND = {
+				primary_culture = canadian
+				has_country_flag = formed_canada_colony
+			}
+		}
+		any_province = {
+			owned_by = ROOT
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = new_world
+			}
+			OR = {
+				has_port = yes
+				development = 10
+			}
+		}
+		OR = {
+			primary_culture = american
+			primary_culture = confederate
+			primary_culture = canadian
+			primary_culture = brazilian
+			primary_culture = mexican
+			primary_culture = caribeno
+			primary_culture = platinean
+			primary_culture = german_american
+			primary_culture = vinlandic
+			primary_culture = swedish_american
+			primary_culture = italian_american
+			primary_culture = creole
+			primary_culture = west_slav_american
+			primary_culture = east_slav_american
+			primary_culture = west_slav_american_new
+			primary_culture = east_slav_american_new
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.3
+			is_year = 1800
+		}
+	}
+
+	option = {
+		name = EVHO_misc_events.19.a
+		set_country_flag = got_culture_proliferation
+		add_adm_power = -150
+		add_mil_power = -100
+		add_dip_power = -200
+		if = {
+			limit = { primary_culture = american }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							primary_culture = caribeno
+							primary_culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							primary_culture = west_slav_american_new
+							primary_culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = american
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = confederate }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = confederate
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = canadian }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = canadian
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = brazilian }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = brazilian
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = mexican }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = new_world
+						AND = {
+							continent = north_america
+							NOT = { area = florida_area }
+							NOT = { region = carribeans_region }
+						}
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = mexican
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = caribeno }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						region = carribeans_region
+						area = florida_area
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = caribeno
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = platinean }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					continent = south_america
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = platinean
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = german_american }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = german_american
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = vinlandic }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = vinlandic
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = swedish_american }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = swedish_american
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = italian_american }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = creole
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = italian_american
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = creole }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = west_slav_american
+							culture = east_slav_american
+							culture = west_slav_american_new
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = creole
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = west_slav_american }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = east_slav_american
+						}
+					}
+				}
+				change_culture = west_slav_american
+				change_religion = ROOT
+			}
+		}
+		if = {
+			limit = { primary_culture = west_slav_american_new }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = east_slav_american_new
+						}
+					}
+				}
+				change_culture = west_slav_american_new
+				change_religion = ROOT
+			}
+		}
+
+		if = {
+			limit = { primary_culture = east_slav_american }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american
+						}
+					}
+				}
+				change_culture = east_slav_american
+				change_religion = ROOT
+			}
+		}
+
+		if = {
+			limit = { primary_culture = east_slav_american_new }
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						has_port = yes
+						development = 10
+					}
+					NOT = {
+						OR = {
+							culture = american
+							culture = confederate
+							culture = canadian
+							culture = brazilian
+							culture = mexican
+							culture = caribeno
+							culture = platinean
+							culture = german_american
+							culture = vinlandic
+							culture = swedish_american
+							culture = italian_american
+							culture = creole
+							culture = west_slav_american_new
+						}
+					}
+				}
+				change_culture = east_slav_american_new
+				change_religion = ROOT
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+# The Loyalists Assimilate (converts old world culture)
+
+country_event = {
+	id = EVHO_misc_events.199
+	title = EVHO_misc_events.199.t
+	desc = EVHO_misc_events.199.d
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		OR = {
+			primary_culture = american
+			primary_culture = confederate
+			primary_culture = canadian
+			primary_culture = brazilian
+			primary_culture = mexican
+			primary_culture = caribeno
+			primary_culture = platinean
+			primary_culture = vinlandic
+			primary_culture = swedish_american
+			primary_culture = italian_american
+			primary_culture = creole
+			primary_culture = west_slav_american
+			primary_culture = east_slav_american
+			culture_group = african_american
+		}
+		OR = {
+			is_free_or_tributary_trigger = yes
+			has_country_flag = formed_super_colony
+		}
+		OR = { 
+			is_year = 1830
+			NOT = { has_country_flag = fled_to_brazil }
+		}
+		OR = {
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = english
+					culture = scottish
+					culture = welsh
+					culture = irish
+					culture = highland_scottish
+					culture = cornish
+					culture = canadian
+					culture = confederate
+				}
+				NOT = {
+					all_canadian_colonies = yes
+					has_global_flag = canada_got_loyalist_assimilation
+				}
+				OR = {
+					dixie_can_spawn_here = no
+					NOT = { has_global_flag = dixie_exists }
+				}
+			}
+			AND = {
+				has_global_flag = usa_assimulates_french
+				OR = { tag = TTC tag = USA }
+				any_province = {
+					owned_by = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = creole
+						culture = cosmopolitan_french
+						culture = gascon
+						culture = normand
+						culture = aquitaine
+						culture = burgundian
+						culture = occitain
+						culture = wallonian
+						culture = swiss_french
+						culture = breton
+					}
+					OR = {
+						all_canadian_colonies = no
+						NOT = { has_global_flag = canada_got_loyalist_assimilation }
+					}
+					OR = {
+						dixie_can_spawn_here = no
+						NOT = { has_global_flag = dixie_exists }
+					}
+				}
+			}
+			AND = {
+				has_global_flag = usa_assimulates_dutch
+				OR = { tag = TTC tag = USA }
+				any_province = {
+					owned_by = ROOT
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = german_american
+						culture = dutch
+						culture = flemish
+						culture = brabantian
+						culture = frisian
+					}
+					OR = {
+						all_canadian_colonies = no
+						NOT = { has_global_flag = canada_got_loyalist_assimilation }
+					}
+					OR = {
+						dixie_can_spawn_here = no
+						NOT = { has_global_flag = dixie_exists }
+					}
+				}
+			}
+			AND = {
+				has_global_flag = dixie_exists
+				OR = {
+					any_province = {
+						owned_by = ROOT
+						dixie_can_spawn_here = yes
+						OR = {
+							continent = north_america
+							continent = south_america
+						}
+						OR = {
+							culture = english
+							culture = scottish
+							culture = welsh
+							culture = irish
+							culture = highland_scottish
+							culture = cornish
+							culture = canadian
+							culture = american
+						}
+						OR = {
+							all_canadian_colonies = no
+							NOT = { has_global_flag = canada_got_loyalist_assimilation }
+						}
+					}
+					AND = {
+						has_global_flag = usa_assimulates_french
+						OR = { tag = TTC tag = USA }
+						any_province = {
+							owned_by = ROOT
+							dixie_can_spawn_here = yes
+							OR = {
+								continent = north_america
+								continent = south_america
+							}
+							OR = {
+								culture = creole
+								culture = cosmopolitan_french
+								culture = gascon
+								culture = normand
+								culture = aquitaine
+								culture = burgundian
+								culture = occitain
+								culture = wallonian
+								culture = swiss_french
+								culture = breton
+							}
+							OR = {
+								all_canadian_colonies = no
+								NOT = { has_global_flag = canada_got_loyalist_assimilation }
+							}
+						}
+					}
+					AND = {
+						has_global_flag = usa_assimulates_dutch
+						OR = { tag = TTC tag = USA }
+						any_province = {
+							owned_by = ROOT
+							dixie_can_spawn_here = yes
+							OR = {
+								continent = north_america
+								continent = south_america
+							}
+							OR = {
+								culture = german_american
+								culture = dutch
+								culture = flemish
+								culture = brabantian
+								culture = frisian
+							}
+							OR = {
+								all_canadian_colonies = no
+								NOT = { has_global_flag = canada_got_loyalist_assimilation }
+							}
+						}
+					}
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					culture = english
+					culture = scottish
+					culture = irish
+					culture = highland_scottish
+					culture = american
+					culture = confederate
+					culture = cornish
+					culture = welsh
+				}
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				if = {
+					limit = { has_global_flag = america_got_loyalist_assimilation }
+					all_canadian_colonies = no
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				culture = portugese
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = leonese
+					culture = castillian
+					culture = spaniard
+					culture = aragonese
+					culture = catalan
+					culture = galician
+					culture = andalucian
+					culture = basque
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = pommeranian
+					culture = prussian
+					culture = lower_saxon
+					culture = hannoverian
+					culture = hessian
+					culture = saxon
+					culture = franconian
+					culture = swabian
+					culture = swiss
+					culture = bavarian
+					culture = austrian
+					culture = dutch
+					culture = flemish
+					culture = frisian
+					culture = german_schlesian
+					culture = german_sudeten
+					culture = german_sorbian
+					culture = german_burgundian
+					culture = ostlander
+					culture = brabantian
+					culture = afrikaans
+					culture = goths
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = danish
+					culture = norwegian
+					culture = icelandic
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = danish
+					culture = norwegian
+					culture = icelandic
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				culture = swedish
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = lombard
+					culture = tuscan
+					culture = sardinian
+					culture = romagnan
+					culture = ligurian
+					culture = venetian
+					culture = dalmatian
+					culture = neapolitan
+					culture = piedmontese
+					culture = umbrian
+					culture = sicilian
+					culture = maltese
+					culture = romansh
+					culture = libyan
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = cosmopolitan_french
+					culture = gascon
+					culture = normand
+					culture = aquitaine
+					culture = burgundian
+					culture = occitain
+					culture = wallonian
+					culture = swiss_french
+					culture = breton
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = czech
+					culture = polish
+					culture = schlesian
+					culture = sorbian
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = russian_culture
+					culture = russian
+					culture = novgorodian
+					culture = ryazanian
+					culture = byelorussian
+					culture = ruthenian
+				}
+			}
+			any_province = {
+				owned_by = ROOT
+				OR = {
+					continent = north_america
+					continent = south_america
+				}
+				OR = {
+					culture = russian_culture_new
+					culture = russian_new
+					culture = novgorodian_new
+					culture = ryazanian_new
+					culture = byelorussian_new
+					culture = ruthenian_new
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 40
+		modifier = {
+			factor = 0.6
+			is_year = 1800
+		}
+	}
+
+	option = {
+		name = EVHO_misc_events.199.a
+		if = {
+			limit = { NOT = { has_country_flag = loyalists_assimilated_at_least_once } }
+			set_country_flag = loyalists_assimilated_at_least_once
+		}
+		if = {
+			limit = { primary_culture = american }
+			set_ruler_culture = american
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = american
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = english
+						consort_culture = scottish
+						consort_culture = welsh
+						consort_culture = irish
+						consort_culture = highland_scottish
+						consort_culture = cornish
+						consort_culture = canadian
+						consort_culture = confederate
+					}
+				}
+				set_consort_culture = american
+			}
+			if = {
+				limit = { NOT = { has_global_flag = america_got_loyalist_assimilation } }
+				set_global_flag = america_got_loyalist_assimilation
+			}
+		}
+		if = {
+			limit = { primary_culture = confederate }
+			set_ruler_culture = confederate
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = confederate
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = english
+						consort_culture = scottish
+						consort_culture = welsh
+						consort_culture = irish
+						consort_culture = highland_scottish
+						consort_culture = cornish
+						consort_culture = canadian
+						consort_culture = american
+					}
+				}
+				set_consort_culture = confederate
+			}
+		}
+		if = {
+			limit = { primary_culture = canadian }
+			set_ruler_culture = canadian
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = canadian
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = english
+						consort_culture = scottish
+						consort_culture = welsh
+						consort_culture = irish
+						consort_culture = highland_scottish
+						consort_culture = cornish
+						consort_culture = american
+						consort_culture = confederate
+					}
+				}
+				set_consort_culture = canadian
+			}
+			if = {
+				limit = { NOT = { has_global_flag = canada_got_loyalist_assimilation } }
+				set_global_flag = canada_got_loyalist_assimilation
+			}
+		}
+		if = {
+			limit = { primary_culture = brazilian }
+			set_ruler_culture = brazilian
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = brazilian
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = brazilian
+					}
+				}
+				set_consort_culture = brazilian
+			}
+		}
+		if = {
+			limit = { primary_culture = mexican }
+			set_ruler_culture = mexican
+			if = {
+				limit = { has_heir = yes }
+				set_heir_culture = mexican
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = leonese
+						consort_culture = castillian
+						consort_culture = spaniard
+						consort_culture = aragonese
+						consort_culture = catalan
+						consort_culture = galician
+						consort_culture = andalucian
+						consort_culture = basque
+						consort_culture = platinean
+						consort_culture = caribeno
+					}
+				}
+				set_consort_culture = mexican
+			}
+		}
+		if = {
+			limit = { primary_culture = caribeno }
+			set_ruler_culture = caribeno
+			if = {
+				limit = { has_heir = yes }
+				set_heir_culture = caribeno
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = leonese
+						consort_culture = castillian
+						consort_culture = spaniard
+						consort_culture = aragonese
+						consort_culture = catalan
+						consort_culture = galician
+						consort_culture = andalucian
+						consort_culture = basque
+						consort_culture = mexican
+						consort_culture = platinean
+					}
+				}
+				set_consort_culture = caribeno
+			}
+		}
+		if = {
+			limit = { primary_culture = platinean }
+			set_ruler_culture = platinean
+			if = {
+				limit = { has_heir = yes }
+				set_heir_culture = platinean
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = leonese
+						consort_culture = castillian
+						consort_culture = spaniard
+						consort_culture = aragonese
+						consort_culture = catalan
+						consort_culture = galician
+						consort_culture = andalucian
+						consort_culture = basque
+						consort_culture = mexican
+						consort_culture = caribeno
+					}
+				}
+				set_consort_culture = platinean
+			}
+		}
+		if = {
+			limit = { primary_culture = german_american }
+			set_ruler_culture = german_american
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = german_american
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = pommeranian
+						consort_culture = prussian
+						consort_culture = lower_saxon
+						consort_culture = hannoverian
+						consort_culture = hessian
+						consort_culture = saxon
+						consort_culture = franconian
+						consort_culture = swabian
+						consort_culture = swiss
+						consort_culture = bavarian
+						consort_culture = austrian
+						consort_culture = dutch
+						consort_culture = flemish
+						consort_culture = frisian
+						consort_culture = german_schlesian
+						consort_culture = german_sudeten
+						consort_culture = german_sorbian
+						consort_culture = german_burgundian
+						consort_culture = ostlander
+						consort_culture = brabantian
+						consort_culture = afrikaans
+						consort_culture = goths
+					}
+				}
+				set_consort_culture = german_american
+			}
+		}
+		if = {
+			limit = { primary_culture = vinlandic }
+			set_ruler_culture = vinlandic
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = vinlandic
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = danish
+						consort_culture = norwegian
+						consort_culture = icelandic
+					}
+				}
+				set_consort_culture = vinlandic
+			}
+		}
+		if = {
+			limit = { primary_culture = swedish_american }
+			set_ruler_culture = swedish_american
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = swedish_american
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = swedish
+					}
+				}
+				set_consort_culture = swedish_american
+			}
+		}
+		if = {
+			limit = { primary_culture = italian_american }
+			set_ruler_culture = italian_american
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = italian_american
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = lombard
+						consort_culture = tuscan
+						consort_culture = sardinian
+						consort_culture = romagnan
+						consort_culture = ligurian
+						consort_culture = venetian
+						consort_culture = dalmatian
+						consort_culture = neapolitan
+						consort_culture = piedmontese
+						consort_culture = umbrian
+						consort_culture = sicilian
+						consort_culture = maltese
+						consort_culture = romansh
+						consort_culture = libyan
+					}
+				}
+				set_consort_culture = italian_american
+			}
+		}
+		if = {
+			limit = { primary_culture = creole }
+			set_ruler_culture = creole
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = creole
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = cosmopolitan_french
+						consort_culture = gascon
+						consort_culture = normand
+						consort_culture = aquitaine
+						consort_culture = burgundian
+						consort_culture = occitain
+						consort_culture = wallonian
+						consort_culture = swiss_french
+						consort_culture = breton
+					}
+				}
+				set_consort_culture = creole
+			}
+		}
+		if = {
+			limit = { primary_culture = west_slav_american }
+			set_ruler_culture = west_slav_american
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = west_slav_american
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = czech
+						consort_culture = polish
+						consort_culture = schlesian
+						consort_culture = sorbian
+					}
+				}
+				set_consort_culture = west_slav_american
+			}
+		}
+		if = {
+			limit = { primary_culture = west_slav_american_new }
+			set_ruler_culture = west_slav_american_new
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = west_slav_american_new
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = czech_new
+						consort_culture = polish_new
+						consort_culture = schlesian_new
+						consort_culture = sorbian_new
+					}
+				}
+				set_consort_culture = west_slav_american_new
+			}
+		}
+		if = {
+			limit = { primary_culture = east_slav_american_new }
+			set_ruler_culture = east_slav_american_new
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = east_slav_american
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = russian_culture
+						consort_culture = russian
+						consort_culture = novgorodian
+						consort_culture = ryazanian
+						consort_culture = byelorussian
+						consort_culture = ruthenian
+					}
+				}
+				set_consort_culture = east_slav_american
+			}
+		}
+		if = {
+			limit = { primary_culture = east_slav_american_new }
+			set_ruler_culture = east_slav_american_new
+			if = {
+				limit = { has_heir = yes }
+				set_heir_culture = east_slav_american_new
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = russian_culture_new
+						consort_culture = russian_new
+						consort_culture = novgorodian_new
+						consort_culture = ryazanian_new
+						consort_culture = byelorussian_new
+						consort_culture = ruthenian_new
+					}
+				}
+				set_consort_culture = east_slav_american_new
+			}
+		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = american }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = english
+						culture = scottish
+						culture = welsh
+						culture = irish
+						culture = highland_scottish
+						culture = cornish
+						culture = canadian
+						culture = confederate
+					}
+					OR = {
+						all_canadian_colonies = no
+						NOT = { has_global_flag = canada_got_loyalist_assimilation }
+					}
+					OR = {
+						dixie_can_spawn_here = no
+						NOT = { has_global_flag = dixie_exists }
+					}
+				}
+				change_culture = american
+				if = {
+					limit = { 
+						OR = {
+							ROOT = { primary_culture = american }
+							ROOT = { primary_culture = confederate }
+						}
+					}
+					change_religion = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = usa_assimulates_french
+					OR = { tag = TTC tag = USA }
+				}
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						NOT = { culture = american }
+						OR = {
+							continent = north_america
+							continent = south_america
+						}
+						OR = {
+							culture = creole
+							culture = cosmopolitan_french
+							culture = gascon
+							culture = normand
+							culture = aquitaine
+							culture = burgundian
+							culture = occitain
+							culture = wallonian
+							culture = swiss_french
+							culture = breton
+						}
+						OR = {
+							all_canadian_colonies = no
+							NOT = { has_global_flag = canada_got_loyalist_assimilation }
+						}
+						OR = {
+							dixie_can_spawn_here = no
+							NOT = { has_global_flag = dixie_exists }
+						}
+					}
+					change_culture = american
+					if = {
+						limit = { 
+							OR = {
+								ROOT = { primary_culture = american }
+								ROOT = { primary_culture = confederate }
+							}
+						}
+						change_religion = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = usa_assimulates_dutch
+					OR = { tag = TTC tag = USA }
+				}
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						NOT = { culture = american }
+						OR = {
+							continent = north_america
+							continent = south_america
+						}
+						OR = {
+							culture = german_american
+							culture = dutch
+							culture = flemish
+							culture = brabantian
+							culture = frisian
+						}
+						OR = {
+							all_canadian_colonies = no
+							NOT = { has_global_flag = canada_got_loyalist_assimilation }
+						}
+						OR = {
+							dixie_can_spawn_here = no
+							NOT = { has_global_flag = dixie_exists }
+						}
+					}
+					change_culture = american
+					if = {
+						limit = { 
+							OR = {
+								ROOT = { primary_culture = american }
+								ROOT = { primary_culture = confederate }
+							}
+						}
+						change_religion = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { has_global_flag = dixie_exists }
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						NOT = { culture = confederate }
+						dixie_can_spawn_here = yes
+						OR = {
+							continent = north_america
+							continent = south_america
+						}
+						OR = {
+							culture = english
+							culture = scottish
+							culture = welsh
+							culture = irish
+							culture = highland_scottish
+							culture = cornish
+							culture = canadian
+							culture = american
+						}
+						OR = {
+							all_canadian_colonies = no
+							NOT = { has_global_flag = canada_got_loyalist_assimilation }
+						}
+					}
+					change_culture = confederate
+					if = {
+						limit = { 
+							OR = {
+								ROOT = { primary_culture = american }
+								ROOT = { primary_culture = confederate }
+							}
+						}
+						change_religion = ROOT
+					}
+				}
+				if = {
+					limit = {
+						has_global_flag = usa_assimulates_french
+						OR = { tag = TTC tag = USA }
+					}
+					every_province = {
+						limit = {
+							country_or_non_sovereign_subject_holds = ROOT
+							NOT = { culture = confederate }
+							dixie_can_spawn_here = yes
+							OR = {
+								continent = north_america
+								continent = south_america
+							}
+							OR = {
+								culture = creole
+								culture = cosmopolitan_french
+								culture = gascon
+								culture = normand
+								culture = aquitaine
+								culture = burgundian
+								culture = occitain
+								culture = wallonian
+								culture = swiss_french
+								culture = breton
+							}
+							OR = {
+								all_canadian_colonies = no
+								NOT = { has_global_flag = canada_got_loyalist_assimilation }
+							}
+						}
+						change_culture = confederate
+						if = {
+							limit = { 
+								OR = {
+									ROOT = { primary_culture = american }
+									ROOT = { primary_culture = confederate }
+								}
+							}
+							change_religion = ROOT
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_global_flag = usa_assimulates_dutch
+						OR = { tag = TTC tag = USA }
+					}
+					every_province = {
+						limit = {
+							country_or_non_sovereign_subject_holds = ROOT
+							NOT = { culture = confederate }
+							dixie_can_spawn_here = yes
+							OR = {
+								continent = north_america
+								continent = south_america
+							}
+							OR = {
+								culture = german_american
+								culture = dutch
+								culture = flemish
+								culture = brabantian
+								culture = frisian
+							}
+							OR = {
+								all_canadian_colonies = no
+								NOT = { has_global_flag = canada_got_loyalist_assimilation }
+							}
+						}
+						change_culture = confederate
+						if = {
+							limit = { 
+								OR = {
+									ROOT = { primary_culture = american }
+									ROOT = { primary_culture = confederate }
+								}
+							}
+							change_religion = ROOT
+						}
+					}
+				}
+			}
+			if = {
+				limit = { has_global_flag = canadian_culture_exists }
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						NOT = { culture = canadian }
+						all_canadian_colonies = yes
+						OR = {
+							culture = english
+							culture = scottish
+							culture = irish
+							culture = highland_scottish
+							culture = american
+							culture = confederate
+							culture = cornish
+							culture = welsh
+						}
+					}
+					change_culture = canadian
+					if = {
+						limit = { ROOT = { primary_culture = canadian } }
+						change_religion = ROOT
+					}
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = brazilian }
+					OR = { culture = portugese }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+				}
+				change_culture = brazilian
+				if = {
+					limit = { ROOT = { primary_culture = brazilian } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = mexican }
+					OR = {
+						continent = new_world
+						AND = {
+							continent = north_america
+							NOT = { area = florida_area }
+							NOT = { region = carribeans_region }
+						}
+					}
+					OR = {
+						culture = leonese
+						culture = castillian
+						culture = spaniard
+						culture = aragonese
+						culture = catalan
+						culture = galician
+						culture = andalucian
+						culture = basque
+						culture = platinean
+						culture = caribeno
+					}
+				}
+				change_culture = mexican
+				if = {
+					limit = { ROOT = { primary_culture = mexican } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = platinean }
+					continent = south_america
+					OR = {
+						culture = leonese
+						culture = castillian
+						culture = spaniard
+						culture = aragonese
+						culture = catalan
+						culture = galician
+						culture = andalucian
+						culture = basque
+						culture = caribeno
+						culture = mexican
+					}
+				}
+				change_culture = platinean
+				if = {
+					limit = { ROOT = { primary_culture = platinean } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = german_american }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = pommeranian
+						culture = prussian
+						culture = lower_saxon
+						culture = hannoverian
+						culture = hessian
+						culture = saxon
+						culture = franconian
+						culture = swabian
+						culture = swiss
+						culture = bavarian
+						culture = austrian
+						culture = dutch
+						culture = flemish
+						culture = frisian
+						culture = german_schlesian
+						culture = german_sudeten
+						culture = german_sorbian
+						culture = german_burgundian
+						culture = ostlander
+						culture = brabantian
+						culture = afrikaans
+						culture = goths
+					}
+				}
+				change_culture = german_american
+				if = {
+					limit = { ROOT = { primary_culture = german_american } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = vinlandic }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = danish
+						culture = norwegian
+						culture = icelandic
+					}
+				}
+				change_culture = vinlandic
+				if = {
+					limit = { ROOT = { primary_culture = vinlandic } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = swedish_american }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = swedish
+					}
+				}
+				change_culture = swedish_american
+				if = {
+					limit = { ROOT = { primary_culture = swedish_american } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = italian_american }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = lombard
+						culture = tuscan
+						culture = sardinian
+						culture = romagnan
+						culture = ligurian
+						culture = venetian
+						culture = dalmatian
+						culture = neapolitan
+						culture = piedmontese
+						culture = umbrian
+						culture = sicilian
+						culture = maltese
+						culture = romansh
+						culture = libyan
+					}
+				}
+				change_culture = italian_american
+				if = {
+					limit = { ROOT = { primary_culture = italian_american } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = creole }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = cosmopolitan_french
+						culture = gascon
+						culture = normand
+						culture = aquitaine
+						culture = burgundian
+						culture = occitain
+						culture = wallonian
+						culture = swiss_french
+						culture = breton
+					}
+				}
+				change_culture = creole
+				if = {
+					limit = { ROOT = { primary_culture = creole } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = west_slav_american }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = czech
+						culture = polish
+						culture = schlesian
+						culture = sorbian
+					}
+				}
+				change_culture = west_slav_american
+				if = {
+					limit = { ROOT = { primary_culture = west_slav_american } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = west_slav_american_new }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = czech_new
+						culture = polish_new
+						culture = schlesian_new
+						culture = sorbian_new
+					}
+				}
+				change_culture = west_slav_american_new
+				if = {
+					limit = { ROOT = { primary_culture = west_slav_american_new } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = east_slav_american }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = russian_culture
+						culture = russian
+						culture = novgorodian
+						culture = ryazanian
+						culture = byelorussian
+						culture = ruthenian
+					}
+				}
+				change_culture = east_slav_american
+				if = {
+					limit = { ROOT = { primary_culture = east_slav_american } }
+					change_religion = ROOT
+				}
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { culture = east_slav_american_new }
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					OR = {
+						culture = russian_culture_new
+						culture = russian_new
+						culture = novgorodian_new
+						culture = ryazanian_new
+						culture = byelorussian_new
+						culture = ruthenian_new
+					}
+				}
+				change_culture = east_slav_american_new
+				if = {
+					limit = { ROOT = { primary_culture = east_slav_american_new } }
+					change_religion = ROOT
+				}
+			}
+		}
+		ai_chance = {
+			factor = 90
+		}
+	}
+}
+
+# I hate how stupid the Tributary-making AI is
+country_event = {
+	id = EVHO_misc_events.20
+	title = EVHO_misc_events.20
+	desc = EVHO_misc_events.20
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		ai = yes
+		was_player = no
+		is_subject = no
+		OR = {
+			AND = {
+				any_province = {
+					OR = {
+						is_core = ROOT
+						is_claim = ROOT
+					}
+					OWNER = {
+						NOT = { tag = ROOT }
+						truce_with = ROOT
+						is_neighbor_of = ROOT
+						is_subject_of_type_with_overlord = { 
+							who = ROOT 
+							type = tributary_state 
+						}
+					}
+				}
+			}
+			AND = {
+				any_country = {
+					is_neighbor_of = ROOT
+					capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+					is_subject_of_type_with_overlord = { 
+						who = ROOT 
+						type = tributary_state 
+					}
+				}
+				OR = {
+					tag = MCH
+					tag = QNG
+					AND = {
+						NOT = { tag = MNG }
+						is_emperor_of_china = yes
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+					}
+				}
+			}
+		}
+	}
+
+	hidden = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.20.a
+		if = {
+			limit = {
+				any_province = {
+					OR = {
+						is_core = ROOT
+						is_claim = ROOT
+					}
+					OWNER = {
+						NOT = { tag = ROOT }
+						truce_with = ROOT
+						is_neighbor_of = ROOT
+						is_subject_of_type_with_overlord = { 
+							who = ROOT 
+							type = tributary_state 
+						}
+					}
+				}
+			}
+			every_province = {
+				limit = {
+					OR = {
+						is_core = ROOT
+						is_claim = ROOT
+					}
+					OWNER = {
+						NOT = { tag = ROOT }
+						truce_with = ROOT
+						is_neighbor_of = ROOT
+						is_subject_of_type_with_overlord = { 
+							who = ROOT 
+							type = tributary_state 
+						}
+					}
+				}
+				add_core = ROOT
+				cede_province = ROOT
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					tag = MCH
+					tag = QNG
+					AND = {
+						NOT = { tag = MNG }
+						is_emperor_of_china = yes
+						capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+					}
+				}
+				any_country = {
+					is_neighbor_of = ROOT
+					capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+					is_subject_of_type_with_overlord = { 
+						who = ROOT 
+						type = tributary_state 
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					is_neighbor_of = ROOT
+					capital_scope = { evho_province_is_in_historical_qing_zone = yes }
+					is_subject_of_type_with_overlord = { 
+						who = ROOT 
+						type = tributary_state 
+					}
+				}
+				ROOT = { vassalize = PREV }
+			}
+		}
+    	ai_chance = {
+			factor = 100
+		}
+	}
+}
+country_event = {
+	id = EVHO_misc_events.21
+	title = RAC_EVT1TITLE
+	desc = RAC_EVT1DESC
+	picture = ANGRY_MOB_eventPicture
+	hidden = yes
+	
+	fire_only_once = yes
+	trigger = {
+		NOT = { ai = yes }
+		NOT = { has_country_flag = rac_event_started }
+	}
+
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		set_country_flag = rac_event_started
+			
+		maghreb_region = {
+			add_permanent_province_modifier = {
+   				name = rac_modifier
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		add_prestige = 1
+	}
+}
+
+country_event = {	## Resets attempt to gain help from homeland in colonial war
+	id = EVHO_misc_events.25
+	
+	hidden = yes
+
+	trigger = {
+		has_country_flag = has_already_asked_once
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.7.a
+		clr_country_flag = has_already_asked_once
+	}
+}
+
+# Captured by another duchy
+country_event = {
+	id = EVHO_misc_events.26
+	title = EVHO_misc_events.26
+	desc = EVHO_misc_events.26
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		ai = yes
+		is_year = 1500
+		NOT = { exists = BAV }
+		primary_culture = bavarian
+		NOT = { tag = HLR }
+		NOT = { tag = GER }
+		NOT = { tag = SGC }
+		is_free_or_tributary_trigger = yes
+		capital_scope = { region = south_german_region }
+		NOT = { capital_scope = { controlled_by = ROOT } }
+		any_country = {
+			ai = yes
+			primary_culture = bavarian
+			NOT = { tag = HLR }
+			NOT = { tag = GER }
+			NOT = { tag = SGC }
+			is_free_or_tributary_trigger = yes
+			NOT = { tag = ROOT }
+			war_with = ROOT
+			capital_scope = { region = south_german_region }
+		}
+	}
+
+	hidden = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.22.a
+		every_country = {
+			limit = {
+				ai = yes
+				primary_culture = bavarian
+				is_free_or_tributary_trigger = yes
+				NOT = { tag = ROOT }
+				war_with = ROOT
+				capital_scope = { region = south_german_region }
+			}
+			country_event = { id = EVHO_misc_events.27 }
+		}
+    	ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# Expansion of Bavarian duchy
+country_event = {
+	id = EVHO_misc_events.27
+	title = EVHO_misc_events.23
+	desc = EVHO_misc_events.23
+	picture = BATTLE_eventPicture
+	
+	hidden = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { 
+			capital_scope = { controlled_by = ROOT } 
+		}
+	}
+	
+	option = {
+		name = EVHO_misc_events.23.a
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		add_prestige = 25
+		FROM = {
+			every_province = {
+				limit = {
+					owned_by = FROM
+					is_core = FROM
+				}
+				add_core = ROOT
+				cede_province = ROOT
+			}
+			every_province = {
+				limit = {
+					owned_by = FROM
+					NOT = { is_core = FROM }
+				}
+				cede_province = ROOT
+	      	}
+		}
+		every_province = {
+			limit = { 
+				culture = bavarian 
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				alliance_with = ROOT
+				NOT = { total_development = ROOT }
+				NOT = { num_of_cities = ROOT }
+				primary_culture = bavarian
+				capital_scope = { region = south_german_region }
+			}
+			ROOT = { vassalize = PREV }
+		}
+		every_country = {
+			limit = {
+				primary_culture = bavarian
+				is_free_or_tributary_trigger = yes
+				capital_scope = { region = south_german_region }
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = no_longer_friends
+				years = 50
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_country = {
+						war_with = ROOT
+						primary_culture = bavarian
+						OR = {
+							capital_scope = { culture = bavarian  }
+							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								value = 1
+								culture = bavarian 
+							}
+						}
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					war_with = ROOT
+					NOT = {
+						primary_culture = bavarian
+						OR = {
+							capital_scope = { culture = bavarian  }
+							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								value = 1
+								culture = bavarian 
+							}
+						}
+					}
+				}
+				white_peace = ROOT
+			}
+		}
+    	ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# Captured by another duchy
+country_event = {
+	id = EVHO_misc_events.28
+	title = EVHO_misc_events.26
+	desc = EVHO_misc_events.26
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		ai = yes
+		NOT = { exists = HAN }
+		capital_scope = {
+			OR = {
+				area = lower_saxony_area
+				area = braunschweig_area
+				area = weser_area
+			}
+		}
+		NOT = { tag = HLR }
+		NOT = { tag = NGC }
+		NOT = { tag = PAP }
+		NOT = { tag = GER }
+		NOT = { tag = PRU }
+		NOT = { tag = HSA }
+		NOT = { tag = SAX }
+		is_free_or_tributary_trigger = yes
+		capital_scope = { region = north_german_region }
+		NOT = { capital_scope = { controlled_by = ROOT } }
+		any_country = {
+			ai = yes
+			capital_scope = {
+				OR = {
+					area = lower_saxony_area
+					area = braunschweig_area
+					area = weser_area
+				}
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = NGC }
+			NOT = { tag = PAP }
+			NOT = { tag = GER }
+			NOT = { tag = PRU }
+			NOT = { tag = HSA }
+			NOT = { tag = SAX }
+			is_free_or_tributary_trigger = yes
+			NOT = { tag = ROOT }
+			war_with = ROOT
+			capital_scope = { region = north_german_region }
+		}
+	}
+
+	hidden = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.22.a
+		every_country = {
+			limit = {
+				ai = yes
+				primary_culture = lower_saxon
+				capital_scope = {
+					OR = {
+						area = lower_saxony_area
+						area = braunschweig_area
+						area = weser_area
+					}
+				}
+				NOT = { tag = HLR }
+				NOT = { tag = PAP }
+				NOT = { tag = GER }
+				NOT = { tag = PRU }
+				NOT = { tag = HSA }
+				NOT = { tag = SAX }
+				is_free_or_tributary_trigger = yes
+				NOT = { tag = ROOT }
+				war_with = ROOT
+				capital_scope = { region = north_german_region }
+			}
+			country_event = { id = EVHO_misc_events.29 }
+		}
+    	ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# Expansion of Hannoverian duchy
+country_event = {
+	id = EVHO_misc_events.29
+	title = EVHO_misc_events.23
+	desc = EVHO_misc_events.23
+	picture = BATTLE_eventPicture
+	
+	hidden = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { 
+			capital_scope = { controlled_by = ROOT } 
+		}
+	}
+	
+	option = {
+		name = EVHO_misc_events.23.a
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		add_prestige = 25
+		FROM = {
+			every_province = {
+				limit = {
+					owned_by = FROM
+					is_core = FROM
+				}
+				add_core = ROOT
+				cede_province = ROOT
+			}
+			every_province = {
+				limit = {
+					owned_by = FROM
+					NOT = { is_core = FROM }
+				}
+				cede_province = ROOT
+	      	}
+		}
+		every_province = {
+			limit = { 
+				culture = lower_saxon 
+				capital_scope = {
+					OR = {
+						area = lower_saxony_area
+						area = braunschweig_area
+						area = weser_area
+					}
+				}
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				alliance_with = ROOT
+				NOT = { total_development = ROOT }
+				NOT = { num_of_cities = ROOT }
+				primary_culture = lower_saxon
+				capital_scope = {
+					OR = {
+						area = lower_saxony_area
+						area = braunschweig_area
+						area = weser_area
+					}
+				}
+				NOT = { tag = HLR }
+				NOT = { tag = PAP }
+				NOT = { tag = GER }
+				NOT = { tag = PRU }
+				NOT = { tag = HSA }
+				NOT = { tag = SAX }
+				capital_scope = { region = north_german_region }
+			}
+			ROOT = { vassalize = PREV }
+		}
+		every_country = {
+			limit = {
+				primary_culture = lower_saxon
+				is_free_or_tributary_trigger = yes
+				capital_scope = {
+					OR = {
+						area = lower_saxony_area
+						area = braunschweig_area
+						area = weser_area
+					}
+				}
+				NOT = { tag = HLR }
+				NOT = { tag = PAP }
+				NOT = { tag = GER }
+				NOT = { tag = PRU }
+				NOT = { tag = HSA }
+				NOT = { tag = SAX }
+				capital_scope = { region = north_german_region }
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = no_longer_friends
+				years = 50
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					any_country = {
+						war_with = ROOT
+						primary_culture = lower_saxon
+						OR = {
+							capital_scope = { culture = lower_saxon  }
+							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								value = 1
+								culture = lower_saxon 
+							}
+						}
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					war_with = ROOT
+					NOT = {
+						primary_culture = lower_saxon
+						OR = {
+							capital_scope = { culture = lower_saxon  }
+							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								value = 1
+								culture = lower_saxon 
+							}
+						}
+					}
+				}
+				white_peace = ROOT
+			}
+		}
+    	ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+# Scripted Reformed Protestants: Dutch, Swiss
+
+country_event = {
+	id = EVHO_misc_events.30
+	title = EVHO_misc_events.15.t
+	desc = EVHO_misc_events.15.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	major = yes
+
+	trigger = {
+		is_religion_enabled = reformed
+		NOT = { has_ruler_flag = heretic_boi }
+		NOT = { has_ruler_flag = catholic_boi }
+		NOT = { has_ruler_flag = protestant_boi }
+		religion = catholic
+		OR = {
+			is_year = 1550
+			any_owned_province = { religion = reformed }
+		}
+		NOT = { is_year = 1615 }
+		OR = {
+			tag = NED
+			tag = SWI
+			tag = SCO
+			primary_culture = dutch
+			primary_culture = frisian
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+
+	option = {
+		name = EVHO_misc_events.15.a
+		add_legitimacy = -20
+		set_ruler_flag = protestant_boi
+		capital_scope = { change_religion = reformed }
+		change_religion = reformed
+		set_ruler_religion = reformed
+		set_consort_religion = reformed
+		set_heir_religion = reformed
+		every_country = {
+			limit = { is_subject_of = ROOT }
+			capital_scope = { change_religion = reformed }
+			change_religion = reformed
+			set_ruler_religion = reformed
+		}
+		ai_chance = {
+			factor = 99
+		}
+	}
+	option = {
+		name = EVHO_misc_events.15.b
+		set_ruler_flag = heretic_boi
+		set_ruler_religion = reformed
+		add_adm_power = -100
+		add_stability = -1
+		add_legitimacy = -20
+		#random_owned_province = {
+		#	limit = {
+		#		can_have_center_of_reformation_trigger = {
+		#			RELIGION = protestant
+		#		}
+		#	}
+		#	change_religion = protestant
+		#	add_reform_center = protestant
+		#	add_permanent_province_modifier = {
+		#		name = "religious_zeal_at_conv"
+		#		duration = 9000
+		#	}
+		#	if = {
+		#		limit = {
+		#			NOT = { is_capital = yes }
+		#		}
+		#		root = {
+		#			capital_scope = {
+		#				change_religion = protestant
+		#				add_permanent_province_modifier = {
+		#					name = "religious_zeal_at_conv"
+		#					duration = 9000
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+		#every_country = {
+		#	limit = { is_subject_of = ROOT }
+		#	random_owned_province = {
+		#		limit = {
+		#			can_have_center_of_reformation_trigger = {
+		#				RELIGION = protestant
+		#			}
+		#		}
+		#		change_religion = protestant
+		#		add_reform_center = protestant
+		#		add_permanent_province_modifier = {
+		#			name = "religious_zeal_at_conv"
+		#			duration = 9000
+		#		}
+		#		if = {
+		#			limit = {
+		#				NOT = { is_capital = yes }
+		#			}
+		#			PREV = {
+		#				capital_scope = {
+		#					change_religion = protestant
+		#					add_permanent_province_modifier = {
+		#						name = "religious_zeal_at_conv"
+		#						duration = 9000
+		#					}
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+country_event = {
+	id = EVHO_misc_events.31
+	title = ev_nordic.19.t
+	desc = ev_nordic.19.d
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		is_at_war = no
+		has_country_modifier = scorched_earth_policy
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	hidden = yes
+
+	option = {
+		name = ev_nordic.19.a
+		remove_country_modifier = scorched_earth_policy
+	}
+}
+
+country_event = {
+	id = EVHO_misc_events.32
+	title = ev_nordic.19.t
+	desc = ev_nordic.19.d
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		has_country_modifier = guerilla_warfare
+		OR = {
+			war_score = 5
+			is_at_war = no
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	hidden = yes
+
+	option = {
+		name = ev_nordic.19.a
+		remove_country_modifier = guerilla_warfare
+	}
+}
+
+country_event = {
+	id = EVHO_misc_events.33
+	title = ev_nordic.19.t
+	desc = ev_nordic.19.d
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		has_country_flag = SPA_peninsular_war_victim
+		has_global_flag = peninsular_war_happened
+		has_country_flag = sided_against_napoleon
+		is_at_war = yes
+		NOT = { war_score = 0 }
+		OR = {
+			NOT = { war_score = -50 }
+			NOT = { capital_scope = { controlled_by = ROOT } }
+		}
+		revolution_target = {
+			is_great_power = yes
+			war_with = ROOT
+			same_continent = ROOT
+			OR = {
+				has_reform = revolutionary_republic_reform
+				has_reform = junior_revolutionary_republic_reform
+				has_reform = revolutionary_empire_reform
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	hidden = yes
+
+	option = {
+		name = ev_nordic.19.a
+		if = {
+			limit = { NOT = { has_country_modifier = guerilla_warfare } }
+			add_country_modifier = {
+				name = "guerilla_warfare"
+				duration = -1
+			}
+		}
+		capital_scope = {
+			build_to_forcelimit = {
+				infantry = 1
+				cavalry = 1
+				artillery = 1
+			}
+		}
+	}
+}
+
+country_event = {	## independent colonial nation re-integration
+	id = EVHO_misc_events.34
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		is_former_colonial_nation = yes
+		NOT = { has_country_flag = changed_from_colonial_nation }
+		NOT = { tag = BRZ }
+		OR = {
+			AND = {
+				capital_scope = { colonial_region = colonial_brazil }
+				BRZ = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.34.a
+		if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_brazil }
+				BRZ = {
+					exists = yes
+					num_of_cities = ROOT
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			BRZ = { inherit = ROOT }
+		}
+		else_if = {
+			limit = {
+				capital_scope = { colonial_region = colonial_brazil }
+				BRZ = {
+					exists = yes
+					NOT = { num_of_cities = ROOT }
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			inherit = BRZ
+			change_tag = BRZ
+			set_country_flag = changed_from_colonial_nation
+			colonial_brazil = { add_permanent_claim = ROOT }
+		}
+	}
+}
+
+country_event = {	## subject that is part of national union reintegration
+	id = EVHO_misc_events.34001
+
+	hidden = yes
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		OR = {
+			AND = {
+				OR = {
+					tag = GBR
+					tag = UNK
+				}
+				OR = {
+					ENG = { is_subject_of = ROOT }
+					WLS = { is_subject_of = ROOT }
+					SCO = { is_subject_of = ROOT }
+					IRE = { is_subject_of = ROOT }
+				}
+			}
+			AND = {
+				tag = AFU
+				OR = {
+					ENG = { is_subject_of = ROOT }
+					GBR = { is_subject_of = ROOT }
+					FRA = { is_subject_of = ROOT }
+				}
+			}
+			AND = {
+				tag = SPA
+				OR = {
+					CAS = { is_subject_of = ROOT }
+					ARA = { is_subject_of = ROOT }
+				}
+			}
+			AND = {
+				tag = IBA
+				OR = {
+					CAS = { is_subject_of = ROOT }
+					ARA = { is_subject_of = ROOT }
+					SPA = { is_subject_of = ROOT }
+					POR = { is_subject_of = ROOT }
+				}
+			}
+			AND = {
+				tag = SCA
+				OR = {
+					DAN = { is_subject_of = ROOT }
+					NOR = { is_subject_of = ROOT }
+					SWE = { is_subject_of = ROOT }
+				}
+			}
+			AND = {
+				tag = PLC
+				OR = {
+					POL = { is_subject_of = ROOT }
+					LIT = { is_subject_of = ROOT }
+				}
+			}
+			AND = {
+				tag = RUS
+				OR = {
+					MOS = { is_subject_of = ROOT }
+					NOV = { is_subject_of = ROOT }
+					RYA = { is_subject_of = ROOT }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVHO_misc_events.34.a
+		if = {
+			limit = {
+				OR = {
+					tag = GBR
+					tag = UNK
+				}
+				OR = {
+					ENG = { is_subject_of = ROOT }
+					WLS = { is_subject_of = ROOT }
+					SCO = { is_subject_of = ROOT }
+					IRE = { is_subject_of = ROOT }
+				}
+			}
+			inherit = ENG
+			inherit = WLS
+			inherit = SCO
+			inherit = IRE
+		}
+		if = {
+			limit = {
+				tag = AFU
+				OR = {
+					ENG = { is_subject_of = ROOT }
+					GBR = { is_subject_of = ROOT }
+					FRA = { is_subject_of = ROOT }
+				}
+			}
+			inherit = ENG
+			inherit = GBR
+			inherit = FRA
+		}
+		if = {
+			limit = {
+				tag = SPA
+				OR = {
+					CAS = { is_subject_of = ROOT }
+					ARA = { is_subject_of = ROOT }
+				}
+			}
+			inherit = CAS
+			inherit = ARA
+		}
+		if = {
+			limit = {
+				tag = IBA
+				OR = {
+					CAS = { is_subject_of = ROOT }
+					ARA = { is_subject_of = ROOT }
+					SPA = { is_subject_of = ROOT }
+					POR = { is_subject_of = ROOT }
+				}
+			}
+			inherit = CAS
+			inherit = ARA
+			inherit = SPA
+			inherit = POR
+		}
+		if = {
+			limit = {
+				tag = SCA
+				OR = {
+					DAN = { is_subject_of = ROOT }
+					NOR = { is_subject_of = ROOT }
+					SWE = { is_subject_of = ROOT }
+				}
+			}
+			inherit = DAN
+			inherit = NOR
+			inherit = SWE
+		}
+		if = {
+			limit = {
+				tag = PLC
+				OR = {
+					POL = { is_subject_of = ROOT }
+					LIT = { is_subject_of = ROOT }
+				}
+			}
+			inherit = POL
+			inherit = LIT
+		}
+		if = {
+			limit = {
+				tag = RUS
+				OR = {
+					MOS = { is_subject_of = ROOT }
+					NOV = { is_subject_of = ROOT }
+					RYA = { is_subject_of = ROOT }
+				}
+			}
+			inherit = MOS
+			inherit = NOV
+			inherit = RYA
+		}
+	}
+}
+
+# Scripted Anglican Protestants: England
+
+country_event = {
+	id = EVHO_misc_events.39
+	title = EVHO_misc_events.15.t
+	desc = EVHO_misc_events.15.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	major = yes
+
+	trigger = {
+		is_year = 1550
+		is_religion_enabled = anglican
+		NOT = { has_ruler_flag = heretic_boi }
+		NOT = { has_ruler_flag = protestant_boi }
+		NOT = { has_ruler_flag = catholic_boi }
+		NOT = { has_ruler_flag = bloody_mary }
+		religion = catholic
+		OR = {
+			is_year = 1600
+			any_owned_province = { religion = anglican }
+		}
+		NOT = { is_year = 1615 }
+		tag = ENG
+	}
+	
+	mean_time_to_happen = {
+		months = 75
+	}
+
+	option = {
+		name = EVHO_misc_events.15.a
+		add_legitimacy = -20
+		set_ruler_flag = protestant_boi
+		capital_scope = { change_religion = anglican }
+		change_religion = anglican
+		set_ruler_religion = anglican
+		set_consort_religion = anglican
+		set_heir_religion = anglican
+		every_country = {
+			limit = { is_subject_of = ROOT }
+			capital_scope = { change_religion = anglican }
+			change_religion = anglican
+			set_ruler_religion = anglican
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = EVHO_misc_events.15.b
+		set_ruler_flag = heretic_boi
+		set_ruler_religion = anglican
+		add_adm_power = -100
+		add_stability = -1
+		add_legitimacy = -20
+		#random_owned_province = {
+		#	limit = {
+		#		can_have_center_of_reformation_trigger = {
+		#			RELIGION = protestant
+		#		}
+		#	}
+		#	change_religion = protestant
+		#	add_reform_center = protestant
+		#	add_permanent_province_modifier = {
+		#		name = "religious_zeal_at_conv"
+		#		duration = 9000
+		#	}
+		#	if = {
+		#		limit = {
+		#			NOT = { is_capital = yes }
+		#		}
+		#		root = {
+		#			capital_scope = {
+		#				change_religion = protestant
+		#				add_permanent_province_modifier = {
+		#					name = "religious_zeal_at_conv"
+		#					duration = 9000
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+		#every_country = {
+		#	limit = { is_subject_of = ROOT }
+		#	random_owned_province = {
+		#		limit = {
+		#			can_have_center_of_reformation_trigger = {
+		#				RELIGION = protestant
+		#			}
+		#		}
+		#		change_religion = protestant
+		#		add_reform_center = protestant
+		#		add_permanent_province_modifier = {
+		#			name = "religious_zeal_at_conv"
+		#			duration = 9000
+		#		}
+		#		if = {
+		#			limit = {
+		#				NOT = { is_capital = yes }
+		#			}
+		#			PREV = {
+		#				capital_scope = {
+		#					change_religion = protestant
+		#					add_permanent_province_modifier = {
+		#						name = "religious_zeal_at_conv"
+		#						duration = 9000
+		#					}
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Scripted Catholics: Spain, Portugal, Austria, any major Italian
+
+country_event = {
+	id = EVHO_misc_events.40
+	title = EVHO_misc_events.40.t
+	desc = EVHO_misc_events.40.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	major = yes
+
+	trigger = {
+		is_religion_enabled = protestant
+		NOT = { is_year = 1615 }
+		NOT = { has_ruler_flag = catholic_boi }
+		NOT = { has_ruler_flag = heretic_boi }
+		NOT = { has_ruler_flag = protestant_boi }
+		religion_group = christian
+		NOT = { religion = catholic }
+		OR = {
+			is_great_power = yes
+			is_emperor = yes
+		}
+		OR = {
+			primary_culture = bavarian
+			primary_culture = austrian
+			culture_group = iberian
+			culture_group = latin
+			has_ruler_flag = bloody_mary
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+		modifier = {
+			factor = 0.1
+			has_ruler_flag = bloody_mary
+		}
+	}
+
+	option = {
+		name = EVHO_misc_events.40.a
+		add_legitimacy = -20
+		set_ruler_flag = catholic_boi
+		capital_scope = { change_religion = catholic }
+		change_religion = catholic
+		set_ruler_religion = catholic
+		set_consort_religion = catholic
+		set_heir_religion = catholic
+		capital_scope = {
+			area = { 
+				limit = { owned_by = ROOT }
+				change_religion = catholic 
+			}
+		}
+		every_country = {
+			limit = { is_subject_of = ROOT }
+			capital_scope = { change_religion = catholic }
+			change_religion = catholic
+			set_ruler_religion = catholic
+		}
+		ai_chance = {
+			factor = 9
+		}
+	}
+	option = {
+		name = EVHO_misc_events.40.b
+		set_ruler_flag = catholic_boi
+		set_ruler_religion = catholic
+		add_adm_power = -100
+		add_stability = -1
+		add_legitimacy = -20
+		capital_scope = { change_religion = catholic }
+		ai_chance = {
+			factor = 1
+		}
+	}
+}

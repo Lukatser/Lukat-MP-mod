@@ -3,6 +3,7 @@ technology_group = western
 primary_culture = american
 religion = protestant
 capital = 965	# New York
+historical_friend = FRA
 
 
 #1700.1.1 = { decision = agricultural_cultivation }
@@ -107,6 +108,19 @@ capital = 965	# New York
 1812.1.1  = { leader = {	name = "James Wilkinson"	type = general	fire = 2	shock = 3	manuever = 2	siege = 0  death_date = 1825.12.28 } }
 
 1812.1.27 = { leader = {	name = "Henry Dearborn"		type = general	fire = 2	shock = 2	manuever = 3	siege = 0  death_date = 1813.7.6 } }
+
+1813.3.4  = {
+	set_country_flag = has_dixie_culture
+	set_global_flag = dixie_exists
+	add_accepted_culture = confederate
+	every_owned_province = {
+		limit = { 
+			dixie_can_spawn_here = yes
+			culture = american
+		}
+		change_culture = confederate
+	}
+}
 
 1817.3.4  = {
 	monarch = {

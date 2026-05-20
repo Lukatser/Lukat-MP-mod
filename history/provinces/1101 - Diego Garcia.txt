@@ -21,8 +21,9 @@ native_hostileness = 0
 }
 1800.1.1 = { trade_goods = slaves }
 1814.4.11 = {
-	owner = GBR
-	controller = GBR
-	add_core = GBR
+	discovered_by = UNK
+	owner = UNK
+	controller = UNK
+	add_core = UNK
 	remove_core = FRA
 } # Actually confirmed in the Treaty of Paris

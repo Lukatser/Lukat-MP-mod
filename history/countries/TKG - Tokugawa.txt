@@ -5,6 +5,7 @@ primary_culture = togoku
 religion = shinto
 technology_group = chinese
 capital = 4360	# Mikawa
+historical_friend = ODA
 	
 1440.6.14 = { 
 	monarch = {

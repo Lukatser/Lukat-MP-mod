@@ -4,11 +4,12 @@ controller = HAB
 add_core = HAB
 culture = slovene
 religion = catholic
-base_tax = 4
-base_production = 4
+base_tax = 5 
+base_production = 5
 trade_goods = iron
 base_manpower = 2
 capital = "Gorizia"
+estate = estate_nobles
 is_city = yes
 hre = yes
 
@@ -24,6 +25,13 @@ discovered_by = ottoman
 	add_core = STY
 	capital = "Görz"
 } # To the Habsburgs
+
+1444.11.11 = {
+	owner = STY
+	controller = STY
+	add_core = CNO
+}
+
 1452.1.1 = {
 	owner = STY
 	controller = STY

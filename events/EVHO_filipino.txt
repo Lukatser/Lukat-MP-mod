@@ -1,0 +1,133 @@
+namespace = flavor_MHKPHI
+normal_or_historical_nations = yes
+#New Capital
+country_event = {
+	id = flavor_MHKPHI.1
+	title = "flavor_MHKPHI.1.name"
+	desc = "flavor_MHKPHI.1.desc"
+	picture = CITY_VIEW_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		trigger = {
+			NOT = {
+				capital = 656
+			}
+		}
+		name = "flavor_MHKPHI.1.a"
+		656 = { move_capital_effect = yes }
+		656 = {
+			add_base_tax = 4
+			add_base_production = 4
+		}
+		ai_chance = { factor = 99 }
+		if = {
+			limit = {
+				656 = {	
+					NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+			}
+			656 = {
+				add_center_of_trade_level = 1
+			}
+		}
+	}
+	option = {
+		name = "flavor_MHKPHI.1.b"
+		2700 = { move_capital_effect = yes }
+		2700 = {
+			add_base_tax = 4
+			add_base_production = 4
+		}
+		if = {
+			limit = {
+				2700 = {	
+					NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+			}
+			2700 = {
+				add_center_of_trade_level = 1
+			}
+		}
+		ai_chance = { 
+			factor = 0 
+		}
+	}
+	option = {
+		name = "flavor_MHKPHI.1.c"
+		capital_scope = {
+			add_base_tax = 4
+			add_base_production = 4
+		}
+		if = {
+			limit = {
+				capital_scope = {	
+					NOT = { province_has_center_of_trade_of_level = 3 }
+				}
+			}
+			capital_scope = {
+				center_of_trade = 1
+			}
+		}
+		ai_chance = { 
+			factor = 100 
+			modifier = {
+				factor = 0
+				NOT = {
+					capital = 656
+				}
+			}
+		}
+	}
+}
+
+#Viewpoint in Religion
+country_event = {
+	id = flavor_MHKPHI.2
+	title = "flavor_MHKPHI.2.name"
+	desc = "flavor_MHKPHI.2.desc"
+	picture = RELIGION_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_MHKPHI.2.a"
+		add_country_modifier = {
+			name = MHK_tolerance
+			duration = -1
+		}
+		ai_chance = { factor = 100 }
+	}
+	
+	option = {
+		name = "flavor_MHKPHI.2.b"
+		add_country_modifier = {
+			name = MHK_intolerance
+			duration = -1
+		}
+	}
+}
+
+#Discover Europe
+country_event = {
+	id = flavor_MHKPHI.3
+	title = "flavor_MHKPHI.3.name"
+	desc = "flavor_MHKPHI.3.desc"
+	picture = UNIVERSITY_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_MHKPHI.3.a"
+		change_technology_group = western
+		change_unit_type = western
+		ai_chance = { factor = 75 }
+	}
+	
+	option = {
+		name = "flavor_MHKPHI.3.b"
+		add_prestige = 25
+		ai_chance = { factor = 25 }
+	}
+}

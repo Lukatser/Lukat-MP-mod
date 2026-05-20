@@ -26,9 +26,9 @@ discovered_by = sub_saharan
 1740.1.1 = { unrest = 3 } #Baga Migrations in wake of rise of Futa Jallon
 1787.1.1 = { capital = "Freetown" } #British establish settlement for freed slaves
 1808.1.1 = {
-	owner = GBR
-	controller = GBR
-	add_core = GBR
+	owner = UNK
+	controller = UNK
+	add_core = UNK
 	is_city = yes
 	trade_goods = slaves
 } # The British take over Freetown

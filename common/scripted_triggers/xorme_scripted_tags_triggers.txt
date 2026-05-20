@@ -1,0 +1,174 @@
+
+#ADDITIONAL CONDITIONS
+xorme_aristocracy_idea_group_priority_trigger = {
+	OR = {
+		tag = POL
+		tag = HUN
+		tag = LIT
+		tag = QAR
+		tag = TRS
+		tag = PLC ## EVHO ##
+		tag = ARL ## EVHO ##
+		tag = PER ## EVHO ##
+	}
+}
+
+xorme_defensive_idea_group_priority_trigger = {
+	OR = {
+		tag = POL
+		tag = SWI
+		tag = BUR
+		tag = HAB
+		tag = FRA
+		tag = PLC ## EVHO ##
+		tag = ARL ## EVHO ##
+		tag = PER ## EVHO ##
+		tag = SWE ## EVHO ##
+		tag = DAN ## EVHO ##
+		tag = RUS ## EVHO ##
+		tag = SAV ## EVHO ##
+		tag = SPI ## EVHO ##
+		tag = BOH ## EVHO ##
+	}
+}
+
+xorme_administrative_idea_group_priority_trigger = {
+	OR = {
+		tag = TUR
+		tag = TIM
+		tag = FRA
+		tag = PLC
+		tag = RUM
+		tag = QIN
+		tag = AFU ## EVHO ##
+	}
+}
+
+xorme_quality_idea_group_priority_trigger = {
+	OR = {
+		tag = ENG
+		tag = PRU
+		tag = BRA
+		tag = TEU
+		tag = LIV
+		tag = POR
+		tag = SPA
+		tag = CAS
+		tag = MAM
+		tag = SWE
+		tag = AVE ## EVHO ##
+		tag = AFU ## EVHO ##
+	}
+}
+
+xorme_offensive_idea_group_priority_trigger = {
+	OR = {
+		tag = QIN
+		tag = BRA
+		tag = PRU
+		tag = QAR
+		tag = QOM
+		tag = TRS
+	}
+}
+
+xorme_quantity_idea_group_priority_trigger = {
+	OR = {
+		tag = ARA
+		tag = TIM
+		tag = MOS
+		tag = RUS
+		tag = MUG
+		tag = PLC
+		tag = QNG
+		tag = SPA
+		tag = TUR
+		tag = POL ## EVHO ##
+		tag = LIT ## EVHO ##
+		tag = SWE ## EVHO ##
+	}
+}
+
+xorme_innovative_idea_group_priority_trigger = {
+	OR = {
+		tag = KOR
+		tag = MAM
+		tag = MLO
+		tag = LAN
+		tag = HES
+		tag = TUR
+	}
+}
+
+xorme_exploration_idea_group_priority_trigger = {
+	OR = {
+		tag = GBR
+		tag = NED
+		tag = ENG
+		tag = FRA
+		tag = AVE ## EVHO ##
+		tag = AFU ## EVHO ##
+	}
+}
+
+xorme_late_expansion_idea_group_priority_trigger = {
+	OR = {
+		tag = MNG
+		tag = JAP
+	}
+}
+
+
+xorme_nation_with_tolerance_trigger = {
+	OR = {
+		tag = HUN
+		tag = POL
+		tag = LIT
+		tag = ROT
+	}
+}
+
+xorme_nation_with_strong_navy_trade_potential_trigger = {
+	OR = {
+		tag = SPA
+		tag = ENG
+		tag = GBR
+		tag = POR
+		tag = JAP
+		tag = DAN
+		tag = NED
+		tag = ARA
+		tag = HSA
+		tag = GEN
+		tag = AVE ## EVHO ##
+		tag = AFU ## EVHO ##
+	}
+}
+
+xorme_ai_can_explo_trigger = {
+	OR = {
+		tag = GBR
+		tag = NED
+		tag = ENG
+		tag = FRA
+		tag = CAS
+		tag = POR
+		tag = SPA
+		tag = KUR
+		tag = ASU
+		tag = ADU
+		tag = LON
+		tag = MAJ
+		tag = NOR
+		tag = AVE ## EVHO ##
+		tag = AFU ## EVHO ##
+	}
+}
+
+xorme_ai_can_expand_trigger = {
+	OR = {
+		tag = RUS
+		tag = MNG
+		tag = JAP
+	}
+}

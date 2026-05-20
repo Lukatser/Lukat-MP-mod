@@ -7,6 +7,7 @@ technology_group = western
 primary_culture = bavarian
 religion = catholic
 capital = 65	# München!
+historical_rival = BOH
 
 
 1375.1.1 = {

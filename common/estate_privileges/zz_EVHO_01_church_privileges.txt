@@ -1,0 +1,122 @@
+estate_church_evho_right_to_inquisition_in_seperatist_regions = {
+	icon = privilege_tolerance_heretics
+	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+	loyalty = 0.05
+	land_share = 5
+	is_valid = {
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		if = {
+			limit = { NOT = { has_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag } }
+			always = yes
+		}
+		else = {
+			any_province = {
+				owned_by = ROOT
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod
+			}
+		}
+	}
+	can_select = {
+		NOT = { has_country_flag = evho_has_scripted_religious_seperatists_tolerated_flag }
+		OR = {
+			any_owned_province = { has_province_modifier = local_religious_difficulties_lesser }
+			any_owned_province = { has_province_modifier = local_religious_difficulties }
+		}
+	}
+	on_granted = {
+		if = {
+			limit = { has_estate_privilege = estate_church_anti_heresy_act }
+			remove_estate_privilege = estate_church_anti_heresy_act
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = -15
+			}
+		}
+		custom_tooltip = estate_church_evho_right_to_inquisition_in_seperatist_regions_effect_tooltip
+		hidden_effect = { set_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+	}
+	on_granted_province = {
+		if = {
+			limit = { has_province_modifier = local_religious_difficulties_lesser }
+			remove_province_modifier = local_religious_difficulties_lesser
+			hidden_effect = { set_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties }
+			add_province_modifier = {
+				name = estate_church_evho_right_to_inquisition_mod
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { has_province_modifier = local_religious_difficulties }
+			remove_province_modifier = local_religious_difficulties
+			add_province_modifier = {
+				name = estate_church_evho_right_to_inquisition_mod
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_church_evho_right_to_inquisition_in_seperatist_regions_revoke_effect_tooltip
+		hidden_effect = { clr_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+	}
+	on_revoked_province = {
+		if = {
+			limit = { 
+				has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod 
+			}
+			clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			add_province_modifier = {
+				name = local_religious_difficulties_lesser
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			add_province_modifier = {
+				name = local_religious_difficulties
+				duration = -1
+			}
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_church_evho_right_to_inquisition_in_seperatist_regions_revoke_effect_tooltip
+		hidden_effect = { clr_country_flag = evho_has_scripted_religious_seperatists_inquisition_flag }
+	}
+	on_invalid_province = {
+		if = {
+			limit = { 
+				has_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+				has_province_modifier = estate_church_evho_right_to_inquisition_mod 
+			}
+			clr_province_flag = estate_nobles_evho_should_have_lesser_religious_difficulties
+			remove_province_modifier = estate_church_evho_right_to_inquisition_mod
+			add_province_modifier = {
+				name = local_religious_difficulties_lesser
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { has_province_modifier = estate_church_evho_right_to_inquisition_mod }
+			add_province_modifier = {
+				name = local_religious_difficulties
+				duration = -1
+			}
+		}
+	}
+	benefits = {
+		church_loyalty_modifier = 0.1
+	}
+	ai_will_do = {
+		factor = 500
+		modifier = {
+			factor = 0
+			NOT = { government = theocracy }
+		}
+	}
+}

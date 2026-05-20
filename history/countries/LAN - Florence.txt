@@ -7,6 +7,8 @@ religion = catholic
 technology_group = western
 capital = 116 # Firenze
 add_army_professionalism = 0.05
+historical_friend = FRA
+historical_friend = MLO
 
 1421.1.1 = {
 	monarch = {

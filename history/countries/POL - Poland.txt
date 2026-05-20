@@ -1,13 +1,20 @@
 government = monarchy
-add_government_reform = polish_great_sejm
+add_government_reform = feudalism_reform
 primary_culture = polish
 religion = catholic
 technology_group = eastern
-historical_friend = LIT
-historical_rival = TEU
 capital = 262 # Krakow
 add_accepted_culture = ruthenian
-add_truce_with = HUN
+historical_friend = LIT
+historical_friend = HUN
+historical_friend = STY
+historical_friend = HAB
+historical_rival = DAN
+historical_rival = TEU
+historical_rival = TUR
+historical_rival = MOS
+
+national_focus = ADM
 
 1444.10.1 = {
 	set_estate_privilege = estate_nobles_golden_liberty
@@ -15,11 +22,15 @@ add_truce_with = HUN
 
 1444.11.11 = {
 	monarch = {
+		name = "(Interregnum)"
 		adm = 0
 		mil = 0
 		dip = 0
 		regent = yes
 	}
+	add_truce_with = HUN
+	add_truce_with = WAL
+	add_truce_with = BOH
 }
 
 1447.6.25 = {
@@ -189,7 +200,7 @@ add_truce_with = HUN
 	queen = {
 		country_of_origin = TRA
 		name = "Barbara"
-		dynasty = "Zápolya"
+		dynasty = "Zï¿½polya"
 		birth_date = 1490.1.1
 		death_date = 1515.10.2
 		female = yes

@@ -1,0 +1,365 @@
+
+hale_personality = {
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_personality = sickly_personality }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 1
+
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_ruler_flag = henry_viii
+					has_ruler_flag = bloody_mary
+					has_ruler_flag = gustavus_adolphus
+					has_ruler_flag = carolus_rex
+				}
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			NOT = { heir_has_personality = sickly_personality }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 1
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_heir_flag = henry_viii
+					has_heir_flag = bloody_mary
+					has_heir_flag = gustavus_adolphus
+					has_heir_flag = carolus_rex
+				}
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			NOT = { consort_has_personality = sickly_personality }
+		}
+
+		chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+	}
+	allow = {
+		government = monarchy
+		NOT = { has_government_attribute = states_general_mechanic }
+		has_government_attribute = heir
+	}
+	
+	chance = {
+	}
+	
+	monarch_lifespan = 2
+	
+	nation_designer_cost = 2
+}
+
+sickly_personality = {
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_has_personality = hale_personality }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 1
+
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_ruler_flag = suleiman_the_magnificent
+					has_ruler_flag = the_sun_king
+					has_ruler_flag = ivan_the_terrible
+					has_ruler_flag = virgin_queen
+					has_ruler_flag = peter_the_great
+					has_ruler_flag = frederick_the_great
+					has_ruler_flag = maria_theresa
+					has_ruler_flag = catherine_the_great
+				}
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			NOT = { heir_has_personality = hale_personality }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 1
+
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_heir_flag = suleiman_the_magnificent
+					has_heir_flag = the_sun_king
+					has_heir_flag = ivan_the_terrible
+					has_heir_flag = virgin_queen
+					has_heir_flag = peter_the_great
+					has_heir_flag = frederick_the_great
+					has_heir_flag = maria_theresa
+					has_heir_flag = catherine_the_great
+				}
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			NOT = { consort_has_personality = hale_personality }
+		}
+
+		chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+	}
+	allow = {
+		government = monarchy
+		NOT = { has_government_attribute = states_general_mechanic }
+		has_government_attribute = heir
+	}
+	
+	chance = {
+	}
+	
+	monarch_lifespan = -1
+	nation_designer_cost = -2
+}
+
+inbred_personality = {
+	ruler_allow = {
+		allow = {
+			NOT = { ruler_age = 20 }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 0.5
+			}
+			modifier = {
+				factor = 5
+				any_country = {
+					dynasty = ROOT
+					marriage_with = ROOT
+				}
+			}
+			modifier = {
+				factor = 10
+				dynasty = "von Habsburg"
+				is_year = 1625
+				is_lesser_in_union = no
+				NOT = { primary_culture = austrian }
+				NOT = { tag = STY }
+				NOT = { tag = HAB }
+				NOT = { tag = SGC }
+				NOT = { tag = GER }
+				NOT = { tag = HLR }
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			NOT = { heir_age = 20 }
+		}
+	
+	
+		chance = {
+			modifier = {
+				factor = 0.5
+			}
+			modifier = {
+				factor = 2
+				any_country = {
+					dynasty = ROOT
+					marriage_with = ROOT
+				}
+			}
+			modifier = {
+				factor = 2
+				ruler_has_personality = inbred_personality
+			}
+			modifier = {
+				factor = 2
+				consort_has_personality = inbred_personality
+			}
+			modifier = {
+				factor = 4
+				heir_has_ruler_dynasty = yes
+				heir_has_consort_dynasty = yes
+			}
+			modifier = {
+				factor = 15
+				dynasty = "von Habsburg"
+				is_year = 1625
+				is_lesser_in_union = no
+				NOT = { primary_culture = austrian }
+				NOT = { tag = STY }
+				NOT = { tag = HAB }
+				NOT = { tag = SGC }
+				NOT = { tag = GER }
+				NOT = { tag = HLR }
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			NOT = { consort_age = 20 }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 0.5
+			}
+			modifier = {
+				factor = 4
+				any_country = {
+					dynasty = ROOT
+					marriage_with = ROOT
+				}
+			}
+		}
+	}
+	allow = {
+		government = monarchy
+		NOT = { has_government_attribute = states_general_mechanic }
+		has_government_attribute = heir
+	}
+	
+	chance = {
+	}
+	
+	heir_chance = -1
+	monarch_lifespan = -1
+
+	nation_designer_cost = -3
+}
+
+sodomite_personality = {
+	ruler_allow = {
+		allow = {
+			is_female = no
+			NOT = { ruler_age = 50 }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 0.75
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			has_female_heir = no
+			NOT = { heir_age = 50 }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 0.75
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			has_female_consort = no
+			NOT = { consort_age = 50 }
+		}
+
+		chance = {
+			modifier = {
+				factor = 0.75
+			}
+		}
+	}
+	allow = {
+	}
+	
+	chance = {
+	}
+	
+	royal_marriage_acceptance = -10
+	
+	heir_chance = -0.15
+	advisor_cost = -0.1
+	female_advisor_chance = -0.25
+	free_leader_pool = 2
+}
+
+sapphic_personality = {
+	ruler_allow = {
+		allow = {
+			is_female = yes
+			NOT = { ruler_age = 50 }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 1.05
+			}
+		}
+	}
+
+	heir_allow = {
+		allow = {
+			has_female_heir = yes
+			NOT = { heir_age = 50 }
+		}
+	
+		chance = {
+			modifier = {
+				factor = 1.05
+			}
+		}
+	}
+	
+	consort_allow = {
+		allow = {
+			has_female_consort = yes
+			NOT = { consort_age = 50 }
+		}
+
+		chance = {
+			modifier = {
+				factor = 1.05
+			}
+		}
+	}
+	allow = {
+	}
+	
+	chance = {
+	}
+	
+	royal_marriage_acceptance = -10
+	
+	heir_chance = -0.15
+
+	free_leader_pool = 2
+	advisor_cost = -0.1
+	female_advisor_chance = 0.75
+
+	may_recruit_female_generals = yes
+}

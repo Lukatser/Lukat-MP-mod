@@ -1,7 +1,7 @@
 #382 - Damascus
 
-owner = SYR
-controller = SYR
+owner = MAM ## EVHO ##
+controller = MAM ## EVHO ##
 culture = al_suryah_arabic
 religion = sunni
 capital = "Dimashq"

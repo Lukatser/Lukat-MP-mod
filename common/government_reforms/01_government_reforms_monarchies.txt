@@ -47,6 +47,22 @@ autocracy_reform = {
 		harsh_treatment_cost = -0.1
 		global_rebel_suppression_efficiency = 0.1
 	}
+	custom_attributes = {
+		enables_royal_council = yes
+	}
+	effect = {
+		hidden_effect = {
+			country_event = { 
+				id = reform_me_events.52
+				days = 1
+			}
+		}
+	}
+	removed_effect = {
+		hidden_effect = {
+			ge_country_royal_council_remove = yes
+		}
+	}
 	ai = {
 		factor = 0.5 #generic
 	}
@@ -99,6 +115,7 @@ plutocratic_reform = {
 		nobles_influence_modifier = -0.05
 		burghers_influence_modifier = 0.05
 		vaisyas_influence_modifier = 0.05
+		trade_deals_slots = 1
 	}
 	custom_attributes = {
 		enables_plutocratic_idea_group = yes
@@ -1011,11 +1028,11 @@ ottoman_government = {
 	}
 	legacy_equivalent = ottoman_government_legacy
 	maintain_dynasty = yes
-	modifiers = {
-		unjustified_demands = -0.1
-		legitimacy = 0.5
+	modifiers = { ## EVHO ##
+		unjustified_demands = -0.05
+		legitimacy = 0.65
 		max_absolutism = 5
-		governing_capacity = 150
+		governing_capacity = 500
 	}
 
 	removed_effect = {
@@ -3038,32 +3055,30 @@ revolutionary_empire_reform = {
 	valid_for_new_country = no
 	uses_revolutionary_zeal = yes
 	revolutionary = yes
-	is_eligible_for_hre_emperor = no
 	fixed_rank = 3
 	modifiers = {
-		global_manpower_modifier = 0.25
-		land_morale = 0.10
+		ae_impact = 5
+		land_forcelimit_modifier = 0.1
+		global_manpower_modifier = 0.1
+		land_maintenance_modifier = -0.05
+		production_efficiency = 0.25
+		administrative_efficiency = 0.25
+		land_morale = 0.75
+		siege_ability = 1.25
+		movement_speed = 1.25
+		global_regiment_cost = -0.5
+		tolerance_heretic = 2
 		global_autonomy = -0.2
-		governing_capacity = 150
 		max_revolutionary_zeal = 50
-		papal_influence = -100
-		allowed_rev_guard_fraction = 0.2
+		max_absolutism = 40
+		reduced_liberty_desire = 25
+		liberty_desire_from_subject_development = -0.5
 	}
 
 	custom_attributes = {
 		locked_government_type = yes
 	}
 
-	conditional = {
-		allow = {
-			has_dlc = "Rights of Man"
-		}
-		factions = {
-			rr_jacobins
-			rr_royalists
-			rr_girondists
-		}
-	}
 	removed_effect = {
 		hidden_effect = {
 			if = {
@@ -3095,16 +3110,6 @@ revolutionary_empire_reform = {
 				restore_country_name = yes
 				override_country_name = GURKANI_EMPIRE_STRING
 				set_country_flag = is_gurkani_flag
-			}
-			if = {
-				limit = {
-					has_country_flag = is_revolutionary_iran_flag
-					is_revolutionary = no
-				}
-				clr_country_flag = is_revolutionary_iran_flag
-				restore_country_name = yes
-				override_country_name = IRAN_STRING
-				set_country_flag = is_iran_flag
 			}
 		}
 	}
@@ -4764,13 +4769,28 @@ enforce_privileges_reform = {
 	icon = "people_walking"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
+		NOT = { technology_group = eastern }
+		NOT = { culture_group = japanese_g }
+		NOT = { tag = KOR }
+	}
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
 	}
 	modifiers = {
 		global_manpower_modifier = 0.1
 		nobles_influence_modifier = 0.1
 		maratha_exclusive_influence_modifier = 0.1
 		rajput_exclusive_influence_modifier = 0.1
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
@@ -4785,20 +4805,44 @@ quash_noble_power_reform = {
 	icon = "king_2"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
+		NOT = { tag = KOR }
+	}
+	effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = 1
+		}
 	}
 	modifiers = {
 		global_tax_modifier = 0.15
 		nobles_influence_modifier = -0.1
 		maratha_exclusive_influence_modifier = -0.1
 		rajput_exclusive_influence_modifier = -0.1
-		#parliament_effect_duration = -2
+	}
+	removed_effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
 		modifier = {
 			factor = 1.5
 			is_in_deficit = yes
+		}
+		modifier = {
+			factor = 1.5
+			num_of_owned_provinces_with = {
+				OR = {
+					has_building = fort_15th
+					has_building = fort_16th
+					has_building = fort_17th
+					has_building = fort_18th
+				}
+				value = 5
+			}
 		}
 	}
 }
@@ -4807,7 +4851,7 @@ grant_noble_castle_rights_reform = {
 	icon = "castle"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	modifiers = {
 		fort_maintenance_modifier = -0.2
@@ -4817,6 +4861,18 @@ grant_noble_castle_rights_reform = {
 	}
 	custom_attributes = {
 		on_fort_built_nobles_loyalty = yes	#5 Loyalty
+	}
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
@@ -4839,7 +4895,7 @@ maintain_nobles_status_quo_reform = {
 	icon = "conciliarism_reform"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	modifiers = {
 		legitimacy = 0.5
@@ -4848,6 +4904,18 @@ maintain_nobles_status_quo_reform = {
 	}
 	custom_attributes = {
 		free_noble_levies = yes
+	}
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
@@ -4862,7 +4930,7 @@ grant_military_command_reform = {
 	icon = "soldiers"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	modifiers = {
 		army_tradition = 0.25
@@ -4874,6 +4942,18 @@ grant_military_command_reform = {
 	custom_attributes = {
 		recruiting_generals_increases_nobles_loyalty = yes
 	}
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
+	}
 	ai = {
 		factor = 1
 	}
@@ -4883,7 +4963,7 @@ grant_nobles_electorate_reform = {
 	icon = "ballot_box"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	trigger = {
 		has_idea_group = aristocracy_ideas
@@ -4917,10 +4997,18 @@ grant_nobles_electorate_reform = {
 				}
 			}
 		}
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
 	}
 	removed_effect = {
 		hidden_effect = {
 			remove_country_modifier = empowered_regency_modifier
+		}
+		change_variable = {
+			which = Noble_Influence
+			value = -1
 		}
 	}
 	custom_attributes = {
@@ -4949,7 +5037,8 @@ blackmail_nobility_reform = {
 	icon = "blackmailing"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
+		has_idea_group = spy_ideas
 		NOT = { has_estate_privilege = estate_nobles_golden_liberty }
 	}
 	trigger = {
@@ -4964,6 +5053,18 @@ blackmail_nobility_reform = {
 	custom_attributes = {
 		seizing_land_no_rebels_from_estate_nobles = yes
 	}
+	effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = -1
+		}
+	}
 	ai = {
 		factor = 0
 	}
@@ -4972,6 +5073,18 @@ blackmail_nobility_reform = {
 enforce_trader_privileges_reform = {
 	icon = "paper_money_map"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = -1
+		}
+	}
 	potential = {
 		is_reform_available = plutocratic_reform
 		OR = {
@@ -4987,6 +5100,7 @@ enforce_trader_privileges_reform = {
 	modifiers = {
 		trade_range_modifier = 0.3
 		trade_efficiency = 0.05
+		trade_deals_slots = 1
 	}
 	ai = {
 		factor = 2
@@ -5006,6 +5120,18 @@ enforce_trader_privileges_reform = {
 bengali_reform = {
 	icon = "merchant_ship"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = -1
+		}
+	}
 	potential = {
 		has_dlc = "Dharma"
 		primary_culture = bengali
@@ -5014,6 +5140,7 @@ bengali_reform = {
 	modifiers = {
 		merchants = 1
 		trade_efficiency = 0.1
+		trade_deals_slots = 1
 	}
 	ai = {
 		factor = 5
@@ -5023,6 +5150,18 @@ bengali_reform = {
 sufi_syncretism_reform = {
 	icon = "muslim"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Clergy_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Clergy_Influence
+			value = -1
+		}
+	}
 	potential = {
 		has_dlc = "Dharma"
 		primary_culture = bengali
@@ -5040,6 +5179,18 @@ sufi_syncretism_reform = {
 poligar_reform = {
 	icon = "indian_crown"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
+	}
 	potential = {
 		has_dlc = "Dharma"
 		technology_group = indian
@@ -5061,6 +5212,18 @@ poligar_reform = {
 khalsa_reform = {
 	icon = "strength_of_the_khalsa"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Clergy_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Clergy_Influence
+			value = -1
+		}
+	}
 	potential = {
 		has_dlc = "Dharma"
 		religion = sikhism
@@ -5078,9 +5241,21 @@ khalsa_reform = {
 deccani_society_reform = {
 	icon = "noble_indian"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = -1
+		}
+	}
 	potential = {
 		has_dlc = "Dharma"
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 		technology_group = indian
 		religion_group = muslim
 		OR = {
@@ -5099,17 +5274,24 @@ deccani_society_reform = {
 black_army_reform = {
 	icon = "black_army_reform"
 	allow_normal_conversion = yes
-	potential = {
-		OR = {
-			AND = {
-				is_or_was_tag = {
-					tag = HUN
-				}
-				has_country_flag = black_army_reform_flag
-			}
-			tag = AUH
+	effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = 1
 		}
-		is_revolutionary = no
+	}
+	removed_effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = -1
+		}
+	}
+	potential = {
+		is_or_was_tag = {
+			tag = HUN
+		}
+		has_country_flag = black_army_reform_flag
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	modifiers = {
 		merc_maintenance_modifier = -0.15
@@ -5128,7 +5310,7 @@ legion_of_honor_reform = {
 	icon = "legion_of_honor_reform"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = yes
+		EVHO_is_actually_revolutionary_trigger = yes
 	}
 	trigger = {
 		if = {
@@ -5157,7 +5339,7 @@ imperial_nobility_reform = {
 	icon = "imperial_nobility_reform"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = yes
+		EVHO_is_actually_revolutionary_trigger = yes
 	}
 	modifiers = {
 		leader_cost = -0.1
@@ -5249,7 +5431,7 @@ separation_of_boyars_from_court_reform = {
 			has_reform = ruthenian_tsardom
 			has_reform = russian_empire_reform
 		}
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	modifiers = {
 		yearly_government_power = 1.25
@@ -5373,7 +5555,7 @@ centralize_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		if = {
@@ -5490,6 +5672,18 @@ centralize_reform = {
 			#centralize_state_development = yes
 		}
 	}
+	effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = -1
+		}
+	}
 }
 
 centralize_empire_reform = {
@@ -5497,7 +5691,7 @@ centralize_empire_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		if = {
@@ -5606,14 +5800,26 @@ decentralize_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
+		}
+	}
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
 		}
 	}
 	modifiers = {
 		min_autonomy_in_territories = -0.05
 		num_accepted_cultures = 2
 		all_estate_loyalty_equilibrium = 0.05
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
@@ -5625,7 +5831,7 @@ expand_imperial_court_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -5634,6 +5840,18 @@ expand_imperial_court_reform = {
 		reform_progress_growth = 0.2
 		advisor_pool = 1
 	}
+	effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = -1
+		}
+	}
 }
 
 limit_imperial_court_reform = {
@@ -5641,7 +5859,7 @@ limit_imperial_court_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -5654,6 +5872,18 @@ limit_imperial_court_reform = {
 		blocked_call_diet = yes
 		seizing_land_loyalty = yes
 	}
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
+	}
 }
 
 regional_council_reform = {
@@ -5661,7 +5891,7 @@ regional_council_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -5674,6 +5904,18 @@ regional_council_reform = {
 			unlock_special_state_edicts = yes
 		}
 	}
+	effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = -1
+		}
+	}
 }
 
 representation_of_the_crown_reform = {
@@ -5681,7 +5923,7 @@ representation_of_the_crown_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -5693,11 +5935,35 @@ representation_of_the_crown_reform = {
 	custom_attributes = {
 		subject_tax_modifier_25 = yes
 	}
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
+	}
 }
 
 sidhi_recruitment = {
 	icon = "siddhi_recruitment"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = -1
+		}
+	}
 	potential = {
 		has_dlc = "Dharma"
 		technology_group = indian
@@ -5887,7 +6153,7 @@ restoration_of_clergy_reform = {
 	icon = "religious_leader"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = yes
+		EVHO_is_actually_revolutionary_trigger = yes
 		has_dlc = "Emperor"
 	}
 	modifiers = {
@@ -5915,20 +6181,42 @@ restoration_of_clergy_reform = {
 clergy_in_administration_reform = {
 	icon = "religious_leader"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Clergy_Influence
+			value = 1
+		}
+	}
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
+		}
+		OR = {
+			NOT = {
+				check_variable = {
+					which = Clergy_Influence
+					value = 2
+				}
+			}
+			has_reform = clergy_in_administration_reform
 		}
 	}
 	modifiers = {
 		free_adm_policy = 1
-		
+		tolerance_own = 1
+
 		brahmins_hindu_influence_modifier = 0.1
 		brahmins_hindu_loyalty_modifier = 0.05
+
 		church_influence_modifier = 0.1
 		church_loyalty_modifier = 0.05
-		tolerance_own = 1
+	}
+	removed_effect = {
+		change_variable = {
+			which = Clergy_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
@@ -5954,9 +6242,15 @@ clergy_in_administration_reform = {
 of_noble_bearing_reform = {
 	icon = "nobleman"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
+	}
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		NOT = {
@@ -5973,6 +6267,25 @@ of_noble_bearing_reform = {
 				NOT = { has_estate = estate_nobles }
 			}
 		}
+		OR = {
+			NOT = {
+				check_variable = {
+					which = Noble_Influence
+					value = 2
+				}
+			}
+			has_reform = of_noble_bearing_reform
+		}
+		NOT = {
+			OR = {
+				culture_group = east_slavic
+				culture_group = carpathian
+				culture_group = south_slavic
+				culture_group = west_slavic
+				culture_group = baltic
+			}
+		}
+
 	}
 	modifiers = {
 		leader_cost = -0.1
@@ -5982,6 +6295,12 @@ of_noble_bearing_reform = {
 		nobles_loyalty_modifier = 0.05
 		maratha_exclusive_loyalty_modifier = 0.05
 		rajput_exclusive_loyalty_modifier = 0.05
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
@@ -6015,8 +6334,14 @@ meritocratic_focus_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
+		}
+	}
+	effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = 1
 		}
 	}
 	modifiers = {
@@ -6027,6 +6352,12 @@ meritocratic_focus_reform = {
 		burghers_influence_modifier = 0.1
 		burghers_loyalty_modifier = 0.05
 		vaisyas_non_muslim_influence_modifier = 0.1
+	}
+	removed_effect = {
+		change_variable = {
+			which = Burgher_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
@@ -6065,6 +6396,18 @@ meritocratic_focus_reform = {
 dakhni_culture_reform = {
 	icon = "indian_crown"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Noble_Influence
+			value = -1
+		}
+	}
 	potential = {
 		has_dlc = "Dharma"
 		technology_group = indian
@@ -6085,6 +6428,18 @@ dakhni_culture_reform = {
 zabt_reform = {
 	icon = "general_eastern_administrative"
 	allow_normal_conversion = yes
+	effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = -1
+		}
+	}
 	potential = {
 		OR = {
 			has_dlc = "Dharma"
@@ -6105,7 +6460,7 @@ dyanstic_administration_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -6114,6 +6469,18 @@ dyanstic_administration_reform = {
 		all_estate_influence_modifier = -0.1
 		monarch_admin_power = 1
 		advisor_pool = 1
+	}
+	effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = 1
+		}
+	}
+	removed_effect = {
+		change_variable = {
+			which = Royal_Influence
+			value = -1
+		}
 	}
 	ai = {
 		factor = 1
@@ -6265,7 +6632,17 @@ royal_decree_reform = {
 	icon = "king"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
+		OR = {
+			NOT = {
+				check_variable = {
+						which = Royal_Influence
+						value = 3
+				}
+			}
+			has_reform = royal_decree_reform
+		}
+		NOT = { culture_group = latin }
 	}
 	modifiers = {
 		max_absolutism = 5
@@ -6279,6 +6656,17 @@ royal_decree_reform = {
 aristocratic_court_reform = {
 	icon = "soldiers_2"
 	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			NOT = {
+				check_variable = {
+					which = Noble_Influence
+					value = 3
+				}
+			}
+			has_reform = aristocratic_court_reform
+		}
+	}
 	modifiers = {
 		diplomatic_reputation = 1
 		monthly_favor_modifier = 0.25
@@ -6293,7 +6681,7 @@ states_general_reform = {
 	icon = "states_general"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	trigger = {
 		NOT = { is_lesser_in_union = yes }
@@ -6340,7 +6728,16 @@ general_estates_reform = {
 	icon = "power_across_cities"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
+		OR = {
+			NOT = {
+				check_variable = {
+					which = Burgher_Influence
+					value = 3
+				}
+			}
+			has_reform = general_estates_reform
+		}
 	}
 	modifiers = {
 		monthly_reform_progress_modifier = 0.1
@@ -6355,16 +6752,19 @@ general_estates_reform = {
 	}
 }
 
+
 ottoman_siyasah_tax_reform = {
 	icon = "government_for_people_reform"
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			is_revolutionary = no
+			EVHO_is_actually_revolutionary_trigger = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		OR = {
-			has_unlocked_government_reform = { government_reform = ottoman_siyasah_tax_reform }
+			has_unlocked_government_reform = {
+				government_reform = ottoman_siyasah_tax_reform
+			}
 			have_had_reform = ottoman_siyasah_tax_reform
 		}
 	}
@@ -6482,7 +6882,7 @@ imperial_decree_reform = {
 	icon = "king"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = yes
+		EVHO_is_actually_revolutionary_trigger = yes
 	}
 	modifiers = {
 		max_revolutionary_zeal = 20
@@ -6751,7 +7151,7 @@ consulate_reform = {
 	icon = "revolutionary_republic"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = yes
+		EVHO_is_actually_revolutionary_trigger = yes
 	}
 	modifiers = {
 		global_autonomy = -0.05
@@ -6768,7 +7168,7 @@ political_absolutism_reform = {
 	icon = "judge"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	modifiers = {
 		administrative_efficiency = 0.025
@@ -6787,7 +7187,7 @@ legislative_houses_reform = {
 	icon = "parliament_hall"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	modifiers = {
 		free_policy = 1
@@ -6808,7 +7208,7 @@ become_a_republic_reform = {
 	icon = "parliament_highlighted"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
 	}
 	trigger = {
 		NOT = { has_government_attribute_short_desc = locked_government_type }
@@ -6821,9 +7221,11 @@ become_a_republic_reform = {
 		add_stability = -3
 		change_government = republic
 		if = {
-			limit = {
-				tag = AVE
-			}
+			limit = { has_country_flag = evho_post_revolutionary_flag }
+			add_government_reform = post_revolution_republic_reform
+		}
+		if = {
+			limit = { tag = AVE }
 			hidden_effect = {
 				country_event = {
 					id = flavor_gbr.20
@@ -6840,7 +7242,8 @@ install_theocratic_government_reform = {
 	icon = "pope_highlighted"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = no
+		EVHO_is_actually_revolutionary_trigger = no
+		NOT = { has_country_flag = evho_post_revolutionary_flag }
 	}
 	trigger = {
 		NOT = { has_government_attribute_short_desc = locked_government_type }
@@ -6879,7 +7282,7 @@ emperor_of_the_revolution_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Emperor"
-		is_revolutionary = yes
+		EVHO_is_actually_revolutionary_trigger = yes
 	}
 	modifiers = {
 		yearly_revolutionary_zeal = 1.5
@@ -6894,7 +7297,7 @@ enlightened_monarchy_reform = {
 	icon = "enlightened_monarchy_reform"
 	allow_normal_conversion = yes
 	potential = {
-		is_revolutionary = yes
+		EVHO_is_actually_revolutionary_trigger = yes
 	}
 	modifiers = {
 		global_unrest = -2
@@ -6910,7 +7313,7 @@ become_rev_republic_reform = {
 	allow_normal_conversion = yes
 
 	potential = { 
-		is_revolutionary = yes
+		EVHO_is_actually_revolutionary_trigger = yes
 	}
 	
 	trigger = {

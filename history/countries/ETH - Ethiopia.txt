@@ -7,6 +7,7 @@ technology_group = east_african
 unit_type = sub_saharan
 capital = 1224		# Gonder
 add_historical_rival = ADA
+historical_friend = POR
 
 change_estate_land_share = {
 	estate = estate_nobles

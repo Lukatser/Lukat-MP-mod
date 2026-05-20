@@ -1,0 +1,196 @@
+namespace = ev_africa
+
+# Imperial Destiny
+country_event = {
+	id = ev_africa.1
+	title = ev_africa.1.t
+	desc = ev_africa.1.d
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		tag = ETH
+		NOT = { has_country_flag = horn_of_africa_claim }
+		if = {
+			limit = { ai = yes }
+			is_at_war = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = ev_africa.1.a
+		set_country_flag = horn_of_africa_claim
+		horn_of_africa_region = {
+			limit = {
+				NOT = { area = somaliland_area }
+				NOT = { area = mahra_area }
+				NOT = { area = majarteen_area }
+				NOT = { area = ajuuran_area }
+				NOT = { area = mogadishu_area }
+				NOT = { area = jubba_area }
+				NOT = { area = northern_swahili_coast_area }
+				NOT = { area = red_sea_coast_area }
+				NOT = { area = dongola_area }
+				NOT = { area = upper_nubia_area }
+				NOT = { area = sennar_area }
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+
+# The Solomonid Dynasty
+country_event = {
+	id = ev_africa.2
+	title = ev_africa.2.t
+	desc = ev_africa.2.d
+	picture = COURT_eventPicture
+	
+	
+	trigger = {
+		tag = ETH
+		NOT = { has_ruler_flag = spurn_solomonids }
+		OR = {
+			has_heir = no
+			heir_has_ruler_dynasty = yes
+		}
+		is_lesser_in_union = no
+		government = monarchy
+		OR = {
+			NOT = { dynasty = "Solomonid" }
+			AND = {
+				dynasty = "Solomonid"
+				has_heir = yes
+				heir_has_ruler_dynasty = no
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		clr_country_flag = solomonid_mil_heir
+		clr_country_flag = solomonid_adm_heir
+		clr_country_flag = solomonid_dip_heir
+		clr_country_flag = solomonid_female_heir
+		clr_country_flag = solomonid_male_heir
+
+		hidden_effect = {
+			random_list = {
+				90 = {
+					set_country_flag = solomonid_male_heir
+				}
+				10 = {
+					set_country_flag = solomonid_female_heir
+				}
+			}
+			random_list = {
+				40 = { set_country_flag = solomonid_adm_heir }
+				40 = { set_country_flag = solomonid_dip_heir }
+				20 = { set_country_flag = solomonid_mil_heir }
+			}
+		}
+	}
+
+	option = {		# DYNASTY shall continue to rule!
+		name = "ev_africa.2.a"
+		add_legitimacy = 1
+		add_prestige = -10
+		hidden_effect = { set_ruler_flag = spurn_solomonids }
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {		# House solomonid must return!
+		name = "ev_africa.2.b"
+		add_legitimacy = -50
+		# Male heir
+		if = {
+			limit = {
+				has_country_flag = solomonid_male_heir
+			}
+			if = {
+				limit = {
+					has_country_flag = solomonid_adm_heir
+				}
+				define_heir = {
+					dynasty = "Solomonid"
+					ADM = 5		
+					claim = 80
+				}
+				clr_country_flag = solomonid_adm_heir
+			}
+			if = {
+				limit = {
+					has_country_flag = solomonid_dip_heir
+				}
+				define_heir = {
+					dynasty = "Solomonid"
+					DIP = 5
+					claim = 80
+				}
+				clr_country_flag = solomonid_dip_heir
+			}
+			if = {
+				limit = {
+					has_country_flag = solomonid_mil_heir
+				}
+				define_heir = {
+					dynasty = "Solomonid"
+					MIL = 5
+					claim = 80
+				}
+				clr_country_flag = solomonid_mil_heir
+			}
+			clr_country_flag = solomonid_male_heir
+		}
+		# Female heir
+		if = {
+			limit = {
+				has_country_flag = solomonid_female_heir
+			}
+			if = {
+				limit = {
+					has_country_flag = solomonid_adm_heir
+				}
+				define_heir = {
+					dynasty = "Solomonid"
+					female = yes
+					ADM = 5
+					claim = 80
+				}
+				clr_country_flag = solomonid_adm_heir
+			}
+			if = {
+				limit = {
+					has_country_flag = solomonid_dip_heir
+				}
+				define_heir = {
+					dynasty = "Solomonid"
+					female = yes
+					DIP = 5
+					claim = 80
+				}
+				clr_country_flag = solomonid_dip_heir
+			}
+			if = {
+				limit = {
+					has_country_flag = solomonid_mil_heir
+				}
+				define_heir = {
+					dynasty = "Solomonid"
+					female = yes
+					MIL = 5
+					claim = 80
+				}
+				clr_country_flag = solomonid_mil_heir
+			}
+			clr_country_flag = solomonid_female_heir
+		}
+	}
+}

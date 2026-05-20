@@ -1,0 +1,1801 @@
+namespace = ev_americas
+
+# Andean Destiny
+country_event = {
+	id = ev_americas.1
+	title = ev_americas.1.t
+	desc = ev_americas.1.d
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		technology_group = andean
+		OR = {
+			tag = CSU
+			num_of_cities = 4
+		}
+		NOT = { has_country_flag = andean_claim }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = ev_americas.1.a
+		set_country_flag = andean_claim
+		peru_region = {
+			limit = {
+				is_empty = no
+			}
+			add_permanent_claim = ROOT
+		}
+		upper_peru_region = {
+			limit = {
+				is_empty = no
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+
+# Mesoamerican Destiny
+country_event = {
+	id = ev_americas.2
+	title = ev_americas.2.t
+	desc = ev_americas.2.d
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		technology_group = mesoamerican
+		OR = {
+			tag = AZT
+			num_of_cities = 4
+		}
+		NOT = { has_country_flag = mesoamerican_claim }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = ev_americas.2.a
+		set_country_flag = mesoamerican_claim
+		mexico_region = {
+			limit = {
+				is_empty = no
+			}
+			add_permanent_claim = ROOT
+		}
+		central_america_region = {
+			limit = {
+				is_empty = no
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+
+# Iroquois Move West
+country_event = {
+	id = ev_americas.3
+	title = ev_americas.3.t
+	desc = ev_americas.3.d
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		is_year = 1580
+		NOT = { has_country_flag = iroquois_great_lakes }
+		OR = {
+			tag = IRO
+			was_tag = IRO
+		}
+		any_country = {
+			technology_group = western
+			is_neighbor_of = ROOT
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 5
+		modifier = {
+			factor = 0.01
+			NOT = { war_score = -25 }
+		}
+	}
+
+	option = {
+		name = ev_americas.1.a
+		set_country_flag = iroquois_great_lakes
+		every_province = {
+			limit = {
+				is_empty = no
+				OR = {
+					area = hudson_valley_area
+					area = iroquoisia_area
+					area = westsylvania_area
+					area = huronia_area
+					area = upper_canada_area
+					area = ohio_country_area
+					area = michigan_area
+					area = miami_river_area
+				}
+			}
+			add_permanent_claim = ROOT
+		}
+		every_province = {
+			limit = {
+				is_empty = yes
+				OR = {
+					area = hudson_valley_area
+					area = iroquoisia_area
+					area = westsylvania_area
+					area = huronia_area
+					area = upper_canada_area
+					area = ohio_country_area
+					area = michigan_area
+					area = miami_river_area
+				}
+			}
+			change_religion = ROOT
+			cede_province = ROOT
+			add_territorial_core = ROOT
+		}
+	}
+}
+
+# Mexico Start Buff
+country_event = {
+	id = ev_americas.4
+	title = "flavor_rh.10044.RHtit"
+	desc = "flavor_rh.10044.RHdesc"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = mexico_released_buff }
+		exists = MEX
+		exists = USA
+		MEX = { is_neighbor_of = USA }
+	}
+
+	immediate = {
+		set_global_flag = mexico_released_buff
+		MEX = {
+			change_government = monarchy
+			add_government_reform = feudalism_reform
+			set_government_rank = 3
+			add_country_modifier = {
+				name = "ned_sourvenity"
+				duration = 5000
+			}
+			add_stability = 3
+			add_treasury = 4000
+			add_adm_power = 500
+			add_dip_power = 500
+			add_mil_power = 500
+			add_prestige = 50
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 1
+					cavalry = 1
+					artillery = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_port = yes
+				}
+				build_to_forcelimit = {
+					heavy_ship = 0.5
+					light_ship = 0.5
+					transport = 0.5
+				}
+			}
+		}
+	}
+	option = {
+	}
+}
+
+# Baptist and Methodist Churches
+country_event = {
+	id = ev_americas.5
+	title = ev_americas.5.t
+	desc = ev_americas.5.d
+	picture = RELIGION_eventPicture
+	
+	trigger = {
+		tag = USA
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		religion_group = christian
+		NOT = { has_country_flag = america_is_reformed }
+		OR = {
+			NOT = { religion = reformed }
+			NOT = {
+				num_of_owned_provinces_with = {
+					value = 100
+					religion = reformed
+				}
+			}
+		}
+	}
+	
+	major = yes
+	fire_only_once = yes
+	mean_time_to_happen = {
+		years = 1
+	}
+
+	option = {
+		name = ev_americas.5.a
+		set_country_flag = america_is_reformed
+		hidden_effect = {
+			capital_scope = { change_religion = reformed }
+			if = {
+				limit = { NOT = { religion = reformed } }
+				every_owned_province = {
+					limit = { 
+						has_owner_religion = yes 
+						OR = {
+							continent = north_america
+							continent = south_america
+							continent = new_world
+						}
+					}
+					change_religion = reformed
+				}
+			}
+			else = {
+				every_owned_province = {
+					limit = { 
+						has_owner_accepted_culture = yes 
+						OR = {
+							continent = north_america
+							continent = south_america
+							continent = new_world
+						}
+						OR = {
+							has_port = yes
+							development = 10
+						}
+					}
+					change_religion = reformed
+				}
+			}
+		}
+		change_religion = reformed
+	}
+}
+
+# Missouri Compromise
+country_event = {
+	id = ev_americas.6
+	title = ev_americas.6.t
+	desc = ev_americas.6.d
+	picture = CONGRESS_eventPicture
+	
+	major = yes
+	trigger = {
+		tag = USA
+		is_year = 1820
+		is_great_power = yes
+		has_country_flag = USA_slavery_legal
+		any_owned_province = { area = upper_louisiana_area }
+		is_free_or_tributary_trigger = yes
+		OR = {
+			government = republic
+			has_parliament = yes
+		}
+		any_owned_province = {
+			has_province_modifier = usa_slavery
+			OR = {
+				all_canadian_colonies = yes
+				region = california_region
+				region = cascadia_region
+				region = great_lakes_region
+				region = northeast_america_region
+				region = great_plains_region
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = ev_americas.6.a # Prohibit slavery!
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = northwest_ordinance_slavery_prohibited }
+				OR = {
+					all_canadian_colonies = yes
+					region = california_region
+					region = cascadia_region
+					region = great_lakes_region
+					region = northeast_america_region
+					region = great_plains_region
+				}
+			}
+			add_province_modifier = {
+				name = north_and_territories_slavery_prohibited
+				duration = -1
+			}
+		}
+		hidden_effect = {
+			set_country_flag = USA_slavery_banned_in_north
+			every_owned_province = {
+				limit = {
+					has_province_modifier = usa_slavery
+					OR = {
+						all_canadian_colonies = yes
+						region = california_region
+						region = cascadia_region
+						region = great_lakes_region
+						region = northeast_america_region
+						region = great_plains_region
+					}
+				}
+				remove_province_modifier = usa_slavery
+			}
+		}
+	}
+	option = {
+		name = ev_americas.6.b # Let them decide for themselves
+		ai_chance = { factor = 0 }
+		add_stability = -6
+		every_owned_province = {
+			limit = {
+				OR = {
+					all_canadian_colonies = yes
+					region = california_region
+					region = cascadia_region
+					region = great_lakes_region
+					region = northeast_america_region
+					region = great_plains_region
+				}
+			}
+			add_province_modifier = {
+				name = add_unrest_5_modifier
+				duration = 1825
+			}
+		}
+	}
+}
+
+# HIDDEN: Adds slavery modifier to new provinces
+country_event = {
+	id = ev_americas.6001
+	title = ev_americas.6.t
+	desc = ev_americas.6.d
+	picture = CONGRESS_eventPicture
+	
+	trigger = {
+		tag = USA
+		has_country_flag = USA_slavery_legal
+		any_owned_province = {
+			NOT = { has_province_modifier = usa_slavery }
+			NOT = { has_province_modifier = northwest_ordinance_slavery_prohibited }
+			NOT = { has_province_modifier = north_and_territories_slavery_prohibited }
+			OR = {
+				NOT = { has_country_flag = USA_slavery_banned_in_north }
+				NOT = {
+					OR = {
+						all_canadian_colonies = yes
+						region = california_region
+						region = cascadia_region
+						region = great_lakes_region
+						region = northeast_america_region
+						region = great_plains_region
+					}
+				}
+			}
+		}
+	}
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = ev_americas.6.a
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = usa_slavery }
+				OR = {
+					NOT = { has_country_flag = USA_slavery_banned_in_north }
+					NOT = {
+						OR = {
+							all_canadian_colonies = yes
+							region = california_region
+							region = cascadia_region
+							region = great_lakes_region
+							region = northeast_america_region
+							region = great_plains_region
+						}
+					}
+				}
+			}
+			remove_province_modifier = northwest_ordinance_slavery_prohibited
+			remove_province_modifier = north_and_territories_slavery_prohibited
+			add_province_modifier = {
+				name = usa_slavery
+				duration = -1
+			}
+		}
+	}
+}
+
+# HIDDEN: Adds slavery banned modifier to new provinces
+country_event = {
+	id = ev_americas.6002
+	title = ev_americas.6.t
+	desc = ev_americas.6.d
+	picture = CONGRESS_eventPicture
+	
+	trigger = {
+		tag = USA
+		has_country_flag = USA_slavery_banned_in_north
+		any_owned_province = {
+			NOT = { has_province_modifier = northwest_ordinance_slavery_prohibited }
+			NOT = { has_province_modifier = north_and_territories_slavery_prohibited }
+			OR = {
+				all_canadian_colonies = yes
+				region = california_region
+				region = cascadia_region
+				region = great_lakes_region
+				region = northeast_america_region
+				region = great_plains_region
+			}
+		}
+	}
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = ev_americas.6.a
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = northwest_ordinance_slavery_prohibited }
+				NOT = { has_province_modifier = north_and_territories_slavery_prohibited }
+				OR = {
+					NOT = { has_country_flag = USA_slavery_banned_in_north }
+					OR = {
+						all_canadian_colonies = yes
+						region = california_region
+						region = cascadia_region
+						region = great_lakes_region
+						region = northeast_america_region
+						region = great_plains_region
+					}
+				}
+			}
+			remove_province_modifier = usa_slavery
+			add_province_modifier = {
+				name = north_and_territories_slavery_prohibited
+				duration = -1
+			}
+		}
+	}
+}
+
+# HIDDEN: removes slavery-related modifiers from non US tags
+country_event = {
+	id = ev_americas.6003
+	title = ev_americas.6.t
+	desc = ev_americas.6.d
+	picture = CONGRESS_eventPicture
+	
+	trigger = {
+		NOT = { tag = USA }
+		any_owned_province = {
+			OR = {
+				has_province_modifier = northwest_ordinance_slavery_prohibited
+				has_province_modifier = north_and_territories_slavery_prohibited
+				has_province_modifier = usa_slavery
+			}
+		}
+	}
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = ev_americas.6.a
+		every_owned_province = {
+			limit = {
+				OR = {
+					has_province_modifier = northwest_ordinance_slavery_prohibited
+					has_province_modifier = north_and_territories_slavery_prohibited
+					has_province_modifier = usa_slavery
+				}
+			}
+			remove_province_modifier = northwest_ordinance_slavery_prohibited
+			remove_province_modifier = north_and_territories_slavery_prohibited
+			remove_province_modifier = usa_slavery
+		}
+	}
+}
+
+# I wish I was in Dixie
+country_event = {
+	id = ev_americas.7
+	title = ev_americas.7.t
+	desc = ev_americas.7.d
+	picture = COLONIZATION_eventPicture
+	
+	major = yes
+	trigger = {
+		is_year = 1800
+		is_free_or_tributary_trigger = yes
+		NOT = { has_country_flag = has_dixie_culture }
+		any_owned_province = {
+			dixie_can_spawn_here = yes
+			culture = american
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 15
+		modifier = {
+			factor = 0.5
+			is_year = 1815
+		}
+		modifier = {
+			factor = 0.1
+			is_year = 1830
+		}
+		modifier = {
+			factor = 0.01
+			has_global_flag = dixie_exists
+		}
+	}
+
+	option = {
+		name = ev_americas.7.a
+		set_country_flag = has_dixie_culture
+		if = {
+			limit = { NOT = { has_global_flag = dixie_exists } }
+			set_global_flag = dixie_exists
+		}
+		if = {
+			limit = { capital_scope = { dixie_can_spawn_here = yes } }
+			change_primary_culture = confederate
+			set_ruler_culture = confederate
+			if = {
+				limit = {
+					has_heir = yes
+				}
+				set_heir_culture = confederate
+			}
+			if = {
+				limit = {
+					has_consort = yes
+					OR = {
+						consort_culture = english
+						consort_culture = scottish
+						consort_culture = welsh
+						consort_culture = irish
+						consort_culture = highland_scottish
+						consort_culture = cornish
+						consort_culture = canadian
+						consort_culture = american
+					}
+				}
+				set_consort_culture = confederate
+			}
+		}
+		else = {
+			add_accepted_culture = confederate
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = { 
+					dixie_can_spawn_here = yes
+					culture = american
+				}
+				change_culture = confederate
+			}
+		}
+	}
+}
+
+# Assimiliation of the Dutch
+country_event = {
+	id = ev_americas.8
+	title = ev_americas.8.t
+	desc = ev_americas.8.d
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		is_year = 1740
+		owns = 965
+		OR = {
+			tag = USA
+			tag = TTC
+		}
+		OR = {
+			primary_culture = english
+			primary_culture = scottish
+			primary_culture = irish
+			primary_culture = highland_scottish
+			primary_culture = american
+			primary_culture = confederate
+			primary_culture = cornish
+			primary_culture = welsh
+		}
+		any_owned_province = {
+			OR = {
+				culture = german_american
+				culture = dutch
+				culture = flemish
+				culture = brabantian
+				culture = frisian
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 0.1
+			is_year = 1780
+		}
+		modifier = {
+			factor = 0.01
+			is_year = 1820
+		}
+	}
+
+	option = {
+		name = ev_americas.8.a
+		set_global_flag = usa_assimulates_dutch
+	}
+}
+
+# Assimiliation of the French
+country_event = {
+	id = ev_americas.9
+	title = ev_americas.9.t
+	desc = ev_americas.9.d
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		is_year = 1810
+		owns = 893
+		OR = {
+			tag = USA
+			tag = TTC
+		}
+		OR = {
+			primary_culture = english
+			primary_culture = scottish
+			primary_culture = irish
+			primary_culture = highland_scottish
+			primary_culture = american
+			primary_culture = confederate
+			primary_culture = cornish
+			primary_culture = welsh
+		}
+		any_owned_province = {
+			OR = {
+				culture = creole
+				culture = cosmopolitan_french
+				culture = gascon
+				culture = normand
+				culture = aquitaine
+				culture = burgundian
+				culture = occitain
+				culture = wallonian
+				culture = swiss_french
+				culture = breton
+			}
+		}
+	}
+	
+	fire_only_once = yes
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 0.1
+			is_year = 1820
+		}
+		modifier = {
+			factor = 0.01
+			is_year = 1830
+		}
+	}
+
+	option = {
+		name = ev_americas.9.a
+		set_global_flag = usa_assimulates_french
+	}
+}
+
+#Expansion of Boston
+country_event = {
+	id = ev_americas.10
+	title = ev_americas.10.t
+	desc = ev_americas.10.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1665
+		owns_core_province = 968
+		OR = {
+			is_great_power = yes
+			overlord = { is_great_power = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.05
+			is_year = 1690
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			968 = { save_event_target_as = event_city }
+		}
+	}
+
+	option = { #Great!
+		name = ev_americas.10.a
+		968 = {
+			add_base_tax = 7
+			add_base_production = 8
+			add_base_manpower = 6
+			if = {
+				limit = { 
+					ROOT = { 
+						OR = {
+							culture_group = british
+							primary_culture = afro_american
+						}
+					}
+				}
+				change_province_name = "Boston"
+			}
+		}
+		if = {
+			limit = { 
+				ROOT = { 
+					OR = {
+						culture_group = british
+						primary_culture = afro_american
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_new_england
+					NOT = { province_id = 968 }
+				}
+			}
+			set_capital = 968
+		}
+	}
+}
+
+#Expansion of Philadelphia
+country_event = {
+	id = ev_americas.11
+	title = ev_americas.10.t
+	desc = ev_americas.10.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1735
+		owns_core_province = 956
+		OR = {
+			is_great_power = yes
+			overlord = { is_great_power = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.05
+			is_year = 1760
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			956 = { save_event_target_as = event_city }
+		}
+	}
+
+	option = { #Great!
+		name = ev_americas.10.a
+		956 = {
+			add_base_tax = 12
+			add_base_production = 7
+			add_base_manpower = 10
+		}
+		if = {
+			limit = { 
+				ROOT = { 
+					OR = {
+						culture_group = british
+						primary_culture = afro_american
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_eastern_america
+					NOT = { province_id = 956 }
+				}
+			}
+			set_capital = 956
+		}
+	}
+}
+
+#Expansion of New York
+country_event = {
+	id = ev_americas.12
+	title = ev_americas.10.t
+	desc = ev_americas.10.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1785
+		owns_core_province = 965
+		OR = {
+			is_great_power = yes
+			overlord = { is_great_power = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.05
+			is_year = 1810
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			965 = { save_event_target_as = event_city }
+		}
+	}
+
+	option = { #Great!
+		name = ev_americas.10.a
+		965 = {
+			add_base_tax = 12
+			add_base_production = 17
+			add_base_manpower = 14
+		}
+		if = {
+			limit = { 
+				ROOT = { 
+					OR = {
+						culture_group = british
+						primary_culture = afro_american
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_new_amsterdam
+					NOT = { province_id = 965 }
+				}
+			}
+			set_capital = 965
+		}
+	}
+}
+
+# Slavery in Hispaniola
+country_event = {
+	id = ev_americas.13
+	title = ev_americas.13.t
+	desc = ev_americas.13.d
+	picture = BENIN_TRADING_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1600
+		NOT = { current_age = age_of_revolutions }
+		is_free_or_tributary_trigger = yes
+		NOT = { culture_group = iberian }
+		capital_scope = { continent = europe }
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			colonial_region = colonial_santo_domingo
+			value = 3
+		}
+		NOT = { has_country_modifier = abolish_slavery }
+		NOT = { has_country_modifier = the_abolish_slavery_act }
+		NOT = {
+			any_province = {
+				has_province_modifier = hispaniola_slavery
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+	}
+	
+	option = {
+		name = ev_americas.13.a
+		ai_chance = { factor = 0 }
+		add_stability = -2
+		add_years_of_income = -2
+		add_prestige = -25
+	}
+	option = {
+		name = ev_americas.13.b
+		add_stability = 1
+		add_years_of_income = 1
+		add_prestige = 10
+		every_province = {
+			limit = {
+				colonial_region = colonial_santo_domingo
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			add_province_modifier = {
+				name = hispaniola_slavery
+				duration = -1
+			}
+		}
+	}
+}
+
+# Slave Uprising in Saint-Domingue
+country_event = {
+	id = ev_americas.14
+	title = ev_americas.14.t
+	desc = ev_americas.14.d
+	picture = REVOLUTION_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		NOT = { tag = CSR }
+		CSR = { exists = no }
+		NOT = { culture_group = iberian }
+		any_owned_province = {
+			has_province_modifier = hispaniola_slavery
+		}
+		OR = {
+			culture_group = french
+			culture_group = british
+			culture_group = gaelic
+			culture_group = latin
+			culture_group = germanic
+			culture_group = scandinavian
+			culture_group = west_slavic
+			culture_group = south_slavic
+			culture_group = east_slavic
+			culture_group = slavic
+		}
+		OR = {
+			AND = {
+				is_free_or_tributary_trigger = yes
+				OR = {
+					capital_scope = { colonial_region = colonial_santo_domingo }
+					NOT = { stability = -2 }
+					has_reform = revolutionary_republic_reform
+					has_reform = junior_revolutionary_republic_reform
+					has_reform = revolutionary_empire_reform
+				}
+			}
+			AND = {
+				is_year = 1792
+				is_free_or_tributary_trigger = no
+				OVERLORD = {
+					OR = {
+						NOT = { stability = -2 }
+						has_reform = revolutionary_republic_reform
+						has_reform = junior_revolutionary_republic_reform
+						has_reform = revolutionary_empire_reform
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ev_americas.14.a
+		ai_chance = { factor = 1 }
+		hidden_effect = {
+			random_owned_province = {
+				limit = { colonial_region = colonial_santo_domingo }
+				cede_province = CSR
+				add_core = CSR
+				add_permanent_claim = CSR
+				add_territorial_core = CSR
+				remove_core = ROOT
+				if = {
+					limit = {
+						ROOT = { culture_group = french }
+					}
+					change_culture = afro_francois
+					set_global_flag = CSR_is_french
+				}
+				else_if = {
+					limit = {
+						OR = {
+							ROOT = { culture_group = british }
+							ROOT = { culture_group = gaelic }
+						}
+					}
+					change_culture = afro_american
+					set_global_flag = CSR_is_american
+				}
+				else_if = {
+					limit = {
+						OR = {
+							ROOT = { culture_group = latin }
+							ROOT = { culture_group = iberian }
+						}
+					}
+					change_culture = afro_latino
+					set_global_flag = CSR_is_latin
+				}
+				else_if = {
+					limit = {
+						OR = {
+							ROOT = { culture_group = germanic }
+							ROOT = { culture_group = scandinavian }
+						}
+					}
+					change_culture = afro_germanisch
+					set_global_flag = CSR_is_germanic
+				}
+				else_if = {
+					limit = {
+						OR = {
+							ROOT = { culture_group = west_slavic }
+							ROOT = { culture_group = south_slavic }
+							ROOT = { culture_group = east_slavic }
+							ROOT = { culture_group = slavic }
+						}
+					}
+					change_culture = afro_slaviansky
+					set_global_flag = CSR_is_slavic
+				}
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						colonial_region = colonial_santo_domingo
+					}
+				}
+				every_owned_province = {
+					remove_core = ROOT
+					set_province_flag = CSR_should_get
+				}
+			}
+			else = {
+				every_owned_province = {
+					limit = {
+						colonial_region = colonial_santo_domingo
+					}
+					remove_core = ROOT
+					set_province_flag = CSR_should_get
+				}
+			}
+			every_province = {
+				limit = {
+					has_province_flag = CSR_should_get
+				}
+				cede_province = CSR
+				add_permanent_claim = CSR
+				add_core = CSR
+				add_territorial_core = CSR
+			}
+			colonial_santo_domingo = {
+				add_permanent_claim = CSR
+			}
+			CSR = {
+				set_capital = 488
+				set_country_flag = changed_from_colonial_nation
+				add_army_tradition = 100
+				add_adm_power = 5000
+				add_dip_power = 5000
+				add_mil_power = 5000
+				add_manpower = 300
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 5
+						cavalry = 5
+						artillery = 5
+					}
+				}
+				random_owned_province = {
+					limit = {
+						has_port = yes
+					}
+					build_to_forcelimit = {
+						heavy_ship = 1
+						light_ship = 1
+						transport = 1
+					}
+				}
+				every_owned_province = {
+					limit = {
+						has_revolution_in_province = yes
+					}
+					remove_revolution_from_province_effect = yes
+				}
+				if = {
+					limit = { has_global_flag = CSR_is_french }
+					change_primary_culture = afro_francois
+					every_owned_province = {
+						limit = { colonial_region = colonial_santo_domingo }
+						change_culture = afro_francois
+						add_base_tax = -2
+						add_base_production = -2
+						add_base_manpower = -2
+					}
+				}
+				else_if = {
+					limit = { has_global_flag = CSR_is_american }
+					change_primary_culture = afro_american
+					every_owned_province = {
+						limit = { colonial_region = colonial_santo_domingo }
+						change_culture = afro_american
+						add_base_tax = -2
+						add_base_production = -2
+						add_base_manpower = -2
+					}
+				}
+				else_if = {
+					limit = { has_global_flag = CSR_is_latin }
+					change_primary_culture = afro_latino
+					every_owned_province = {
+						limit = { colonial_region = colonial_santo_domingo }
+						change_culture = afro_latino
+						add_base_tax = -2
+						add_base_production = -2
+						add_base_manpower = -2
+					}
+				}
+				else_if = {
+					limit = { has_global_flag = CSR_is_germanic }
+					change_primary_culture = afro_germanisch
+					every_owned_province = {
+						limit = { colonial_region = colonial_santo_domingo }
+						change_culture = afro_germanisch
+						add_base_tax = -2
+						add_base_production = -2
+						add_base_manpower = -2
+					}
+				}
+				else_if = {
+					limit = { has_global_flag = CSR_is_slavic }
+					change_primary_culture = afro_slaviansky
+					every_owned_province = {
+						limit = { colonial_region = colonial_santo_domingo }
+						change_culture = afro_slaviansky
+						add_base_tax = -2
+						add_base_production = -2
+						add_base_manpower = -2
+					}
+				}
+				add_country_modifier = {
+					name = "revolution_buff"
+					duration = 5000
+				}
+				add_country_modifier = {
+					name = "ned_sourvenity"
+					duration = 18250
+				}
+				change_government = monarchy
+				add_government_reform = feudalism_reform
+				set_government_rank = 3
+				change_technology_group = western
+				change_unit_type = western
+				if = {
+					limit = { primary_culture = afro_francois }
+					define_ruler = {
+						name = "Jacques I"
+						dynasty = "Dessalines"
+						culture = afro_francois
+						age = 45
+						claim = 100
+						adm = 2
+						dip = 1
+						mil = 5
+					}
+				}
+				else = {
+					define_ruler = {
+						age = 45
+						culture = ROOT
+						claim = 100
+					}
+				}
+				add_stability = -1
+				add_prestige = -100
+				add_treasury = 5000
+				every_country = {
+					limit = { 
+						is_great_power = yes 
+						OR = {
+							culture_group = french
+							culture_group = british
+							culture_group = gaelic
+							culture_group = latin
+							culture_group = germanic
+							culture_group = scandinavian
+							culture_group = west_slavic
+							culture_group = south_slavic
+							culture_group = east_slavic
+							culture_group = slavic
+						}
+					}
+					add_opinion = {
+					    who = CSR
+					    modifier = no_longer_friends
+					}
+					remove_opinion = {
+					    who = CSR
+					    modifier = new_friends
+					}
+				}
+			}
+		}
+	}
+}
+
+#Port-Au-Prince
+country_event = {
+	id = ev_americas.15
+	title = ev_americas.10.t
+	desc = ev_americas.10.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1765
+		owns_core_province = 488
+		OR = {
+			is_great_power = yes
+			overlord = { is_great_power = yes }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.05
+			is_year = 1790
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			488 = { save_event_target_as = event_city }
+		}
+	}
+
+	option = { #Great!
+		name = ev_americas.15.a
+		488 = {
+			add_base_tax = 1
+			add_base_production = 2
+			add_base_manpower = 3
+			if = {
+				limit = { 
+					ROOT = { 
+						OR = {
+							culture_group = french 
+							primary_culture = afro_francois
+						}
+					} 
+				}
+				rename_capital = "Port-Au-Prince"
+			}
+		}
+		if = {
+			limit = { 
+				ROOT = { 
+					OR = {
+						culture_group = french 
+						primary_culture = afro_francois
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_santo_domingo
+					NOT = { province_id = 488 }
+				}
+			}
+			set_capital = 448
+		}
+	}
+}
+
+#GP's gang up against Slave-controlled Haiti
+country_event = {
+	id = ev_americas.16
+	title = ev_americas.16.t
+	desc = ev_americas.16.d
+	picture = BENIN_TRADING_eventPicture
+	
+	trigger = {
+		NOT = { has_country_flag = got_haiti_beatup_event }
+		NOT = { has_global_flag = haitian_occupation_of_dominica }
+		is_great_power = yes
+		CSR = { exists = yes }
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			region = carribeans_region
+			value = 1
+		}
+		OR = {
+			culture_group = iberian
+			culture_group = french
+			culture_group = british
+			culture_group = gaelic
+			culture_group = latin
+			culture_group = germanic
+			culture_group = scandinavian
+			culture_group = west_slavic
+			culture_group = south_slavic
+			culture_group = east_slavic
+			culture_group = slavic
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = got_haiti_beatup_event
+			if = {
+				limit = { 
+					NOT = { has_global_flag = haiti_beatup_wars_start } 
+				}
+				set_global_flag = haiti_beatup_wars_start
+			}
+		}
+	}
+
+	option = {
+		name = ev_americas.16.a
+		every_province = {
+			limit = { country_or_non_sovereign_subject_holds = CSR }
+			add_claim = ROOT
+		}
+		if = {
+			limit = { ai = yes }
+			declare_war_with_cb = {
+				who = CSR
+				casus_belli = cb_conquest
+				war_goal_province = 488
+			}
+		}
+		ai_chance = { 
+			factor = 1 
+			modifier = {
+				factor = 0
+				NOT = {
+					any_province = {
+						country_or_non_sovereign_subject_holds = ROOT
+						any_neighbor_province = {
+							country_or_non_sovereign_subject_holds = CSR
+						}
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = ev_americas.16.b
+		add_prestige = -15
+		ai_chance = { 
+			factor = 1
+			modifier = {
+				factor = 0
+				any_province = {
+					country_or_non_sovereign_subject_holds = ROOT
+					any_neighbor_province = {
+						country_or_non_sovereign_subject_holds = CSR
+					}
+				}
+			}
+		}
+	}
+}
+
+# Unification of Hispaniola
+
+country_event = {
+	id = ev_americas.17
+	title = ev_americas.17.t
+	desc = ev_americas.17.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		tag = CSR
+		is_free_or_tributary_trigger = yes
+		capital_scope = { colonial_region = colonial_santo_domingo }
+		NOT = {
+			any_province = {
+				colonial_region = colonial_santo_domingo
+				controller = {
+					NOT = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+							alliance_with = ROOT
+						}
+					}
+				}
+			}
+		}
+		OR = {
+			NOT = {
+				any_province = {
+					colonial_region = colonial_santo_domingo
+					OWNER = {
+						NOT = {
+							OR = {
+								tag = ROOT
+								is_subject_of = ROOT
+							}
+						}
+					}
+				}
+			}
+			AND = {
+				is_at_war = yes
+				any_province = {
+					colonial_region = colonial_santo_domingo
+					owner = { war_with = ROOT }
+				}
+				OR = {
+					is_year = 1810
+					had_global_flag = {
+						flag = haiti_beatup_wars_start
+						days = 3000
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = ev_americas.17.a
+		ai_chance = {
+			factor = 100
+		}
+		set_global_flag = haitian_occupation_of_dominica
+		if = {
+			limit = {
+				is_at_war = yes
+				any_province = {
+					colonial_region = colonial_santo_domingo
+					owner = { war_with = ROOT }
+				}
+				OR = {
+					is_year = 1810
+					had_global_flag = {
+						flag = haiti_beatup_wars_start
+						days = 3000
+					}
+				}
+			}
+			every_province = {
+				limit = { colonial_region = colonial_santo_domingo }
+				cede_province = ROOT
+			}
+			every_country = {
+				limit = {
+					war_with = ROOT
+					is_free_or_tributary_trigger = yes
+				}
+				white_peace = ROOT
+			}
+		}
+		add_stability = -1
+		hidden_effect = {
+			every_province = {
+				limit = {
+					colonial_region = colonial_santo_domingo
+					culture_group = iberian
+				}
+				add_core = DOM
+				add_unrest = 50
+			}
+		}
+	}
+	option = {
+		name = ev_americas.17.b
+		trigger = {
+			is_at_war = yes
+			any_province = {
+				colonial_region = colonial_santo_domingo
+				owner = { war_with = ROOT }
+			}
+			OR = {
+				is_year = 1810
+				had_global_flag = {
+					flag = haiti_beatup_wars_start
+					days = 3000
+				}
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -3
+	}
+}
+
+#Port of Santo Domingo
+country_event = {
+	id = ev_americas.18
+	title = ev_americas.18.t
+	desc = ev_americas.18.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1520
+		owns_core_province = 490
+		OR = {
+			is_great_power = yes
+			overlord = { is_great_power = yes }
+		}
+		NOT = {
+			any_province = {
+				colonial_region = colonial_santo_domingo
+				OR = {
+					is_empty = yes
+					is_colony = yes
+					OWNER = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = south_american
+							technology_group = andean
+							technology_group = aboriginal_tech
+							technology_group = polynesian_tech
+							technology_group = high_american
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.05
+			is_year = 1555
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			490 = { save_event_target_as = event_city }
+		}
+	}
+
+	option = { #Great!
+		name = ev_americas.18.a
+		490 = {
+			add_base_tax = 2
+			add_base_production = 3
+			add_base_manpower = 1
+		}
+		if = {
+			limit = { 
+				ROOT = { 
+					OR = {
+						culture_group = iberian
+						primary_culture = afro_latino
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_santo_domingo
+					NOT = { province_id = 490 }
+				}
+			}
+			set_capital = 490
+		}
+	}
+}
+
+#Port of Havana
+country_event = {
+	id = ev_americas.19
+	title = ev_americas.18.t
+	desc = ev_americas.18.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1540
+		owns_core_province = 484
+		OR = {
+			is_great_power = yes
+			overlord = { is_great_power = yes }
+		}
+		NOT = {
+			any_province = {
+				colonial_region = colonial_the_carribean
+				OR = {
+					is_empty = yes
+					is_colony = yes
+					OWNER = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = south_american
+							technology_group = andean
+							technology_group = aboriginal_tech
+							technology_group = polynesian_tech
+							technology_group = high_american
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.05
+			is_year = 1575
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			484 = { save_event_target_as = event_city }
+		}
+	}
+
+	option = { #Great!
+		name = ev_americas.18.a
+		484 = {
+			add_base_tax = 2
+			add_base_production = 3
+			add_base_manpower = 1
+		}
+		if = {
+			limit = { 
+				ROOT = { 
+					OR = {
+						culture_group = iberian
+						primary_culture = afro_latino
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_the_carribean
+					NOT = { province_id = 490 }
+				}
+			}
+			set_capital = 484
+		}
+	}
+}
+
+#Port of San Agustin
+country_event = {
+	id = ev_americas.20
+	title = ev_americas.18.t
+	desc = ev_americas.18.d
+	picture = CITY_VIEW_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		is_year = 1600
+		owns_core_province = 927
+		OR = {
+			is_great_power = yes
+			overlord = { is_great_power = yes }
+		}
+		NOT = {
+			any_province = {
+				colonial_region = colonial_florida
+				OR = {
+					is_empty = yes
+					is_colony = yes
+					OWNER = {
+						OR = {
+							technology_group = north_american
+							technology_group = mesoamerican
+							technology_group = south_american
+							technology_group = andean
+							technology_group = aboriginal_tech
+							technology_group = polynesian_tech
+							technology_group = high_american
+						}
+					}
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.05
+			is_year = 1625
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			927 = { save_event_target_as = event_city }
+		}
+	}
+
+	option = { #Great!
+		name = ev_americas.18.a
+		927 = {
+			add_base_tax = 2
+			add_base_production = 3
+			add_base_manpower = 1
+		}
+		if = {
+			limit = { 
+				ROOT = { 
+					OR = {
+						culture_group = iberian
+						primary_culture = afro_latino
+					}
+				}
+				capital_scope = {
+					colonial_region = colonial_florida
+					NOT = { province_id = 927 }
+				}
+			}
+			set_capital = 927
+		}
+	}
+}

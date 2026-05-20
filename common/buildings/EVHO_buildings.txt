@@ -1,0 +1,138 @@
+fort_19th = {
+	cost = 1000
+	time = 30
+
+
+	make_obsolete = fort_18th
+
+	modifier = {
+		fort_level = 9
+	}
+
+	onmap = yes
+
+	influencing_fort = yes
+
+	ai_will_do = {
+		factor = 1 #Lots of logic in code instead, that multiplies with this value
+	}
+}
+
+road_network = {
+	cost = 200
+	time = 6
+	
+	build_trigger = {
+		NOT = { has_terrain = glacier }
+		NOT = { has_terrain = impassable_mountains }
+		NOT = { has_terrain = jungle }
+		NOT = { has_terrain = desert }
+		NOT = { has_terrain = coastal_desert }
+		NOT = { has_terrain = mountain }
+	}
+	
+	modifier = {
+		local_development_cost = -0.025
+		local_friendly_movement_speed = 0.1
+		local_hostile_movement_speed = 0.1
+		province_trade_power_modifier = 0.05
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+railroad = {
+	cost = 2000
+	time = 6
+	
+	build_trigger = {
+		NOT = { has_terrain = glacier }
+		NOT = { has_terrain = impassable_mountains }
+		NOT = { has_terrain = jungle }
+		NOT = { has_terrain = desert }
+		NOT = { has_terrain = coastal_desert }
+	}
+	
+	modifier = {
+		local_development_cost = -0.1
+		province_trade_power_modifier = 0.1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					development = 20
+					any_neighbor_province = {
+						has_building = railroad
+					}
+				}
+			}
+			add_province_modifier = {
+				name = evho_province_railroad_modifier
+				duration = -1
+			}
+		}
+	}
+	on_destroyed = {
+		if = {
+			limit = { has_province_modifier = evho_province_railroad_modifier }
+			remove_province_modifier = evho_province_railroad_modifier
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			owner = {
+				NOT = { has_institution = industrialization }
+			}
+		}
+		modifier = {
+			factor = 1.1
+			army_size_percentage = 0.5
+		}
+		modifier = {
+			factor = 2
+			owner = {
+				has_institution = revolution_inst
+			}
+		}
+	}
+}
+
+canal = {
+	cost = 500
+	time = 12
+	
+	build_trigger = {
+		has_port = yes
+	}
+	
+	modifier = {
+		local_development_cost = -0.05
+		local_friendly_movement_speed = 0.33
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			owner = {
+				NOT = { has_institution = industrialization }
+			}
+		}
+		modifier = {
+			factor = 1.1
+			army_size_percentage = 0.5
+		}
+		modifier = {
+			factor = 2
+			owner = {
+				has_institution = revolution_inst
+			}
+		}
+	}
+}

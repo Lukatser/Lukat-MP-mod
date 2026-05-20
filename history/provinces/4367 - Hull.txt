@@ -40,3 +40,10 @@ discovered_by = eastern
 	add_core = GBR
 	remove_core = ENG
 }
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

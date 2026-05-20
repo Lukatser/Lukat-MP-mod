@@ -27,3 +27,11 @@ discovered_by = eastern
 	controller = GBR
 	add_core = GBR
 }
+
+1801.1.1 = {
+	discovered_by = UNK
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

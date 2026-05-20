@@ -45,48 +45,16 @@ center_of_trade = 2
 	}
 } # Dutch east india company's capital
 1639.1.1 = {
-	owner = ENG
-	controller = ENG
-	add_core = ENG
+	owner = EIC
+	controller = EIC
+	add_core = EIC
 	remove_core = NED
 	capital = "Madras"
-	add_to_trade_company = ENG
-	add_trade_company_investment = {
-		investment = company_warehouse
-		investor = ENG
-	}
-	add_trade_company_investment = {
-		investment = company_administration
-		investor = ENG
-	}
 } # Ceded by Vijayanagara & Company Capital
-1707.5.12 = {
-	owner = GBR
-	controller = GBR
-	add_core = GBR
-	remove_core = ENG
-	add_to_trade_company = GBR
-	add_trade_company_investment = {
-		investment = company_warehouse
-		investor = GBR
-	}
-	add_trade_company_investment = {
-		investment = military_administration
-		investor = GBR
-	}
-	add_trade_company_investment = {
-		investment = permanent_quarters
-		investor = GBR
-	}
-	add_trade_company_investment = {
-		investment = governor_general_mansion
-		investor = GBR
-	}
-}
 1746.9.1 = { controller = FRA }
-1748.10.18 = { controller = GBR } #Peace of Aachen
+1748.10.18 = { controller = EIC } #Peace of Aachen
 1758.6.7 = { controller = FRA }
-1760.1.22 = { controller = GBR } #Battle of Wandiwash
+1760.1.22 = { controller = EIC } #Battle of Wandiwash
 1806.7.10 = {
 	revolt = {
 		type = nationalist_rebels
@@ -96,5 +64,5 @@ center_of_trade = 2
 } # The Vellore Mutiny
 1806.7.11 = {
 	revolt = {}
-	controller = GBR
+	controller = EIC
 } # British control is restored

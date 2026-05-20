@@ -1,0 +1,1082 @@
+namespace = super_colonies
+
+#Super Colonies
+country_event = {
+	id = super_colonies.7
+	title = "super_colonies.RHtit1"
+	desc = "super_colonies.RHdesc1"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		NOT = {
+			any_country = {
+				war_with = ROOT
+				OR = {
+					is_great_power = yes
+					capital_scope = { continent = north_america }
+				}
+			}
+		}
+		is_year = 1750
+		is_colonial_nation = no
+		#Canada super colony
+		AND = {
+			any_subject_country = {
+				#ai = yes
+				is_colonial_nation = yes
+				is_colonial_nation_of = ROOT
+				capital_scope = {
+					colonial_region = colonial_canada
+				}
+				NOT = { has_country_flag = formed_super_colony }
+				#NOT = { liberty_desire = 90 }
+			}
+			4890 = { country_or_non_sovereign_subject_holds = ROOT }
+			993 = { country_or_non_sovereign_subject_holds = ROOT }
+			994 = { country_or_non_sovereign_subject_holds = ROOT }
+			973 = { country_or_non_sovereign_subject_holds = ROOT }
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				colonial_region = colonial_hudson_bay
+				value = 10
+			}
+			colonial_alberta = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_city = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = {
+		name = "super_colonies.RHans1"	
+		#Canada super colony
+		every_country = {
+			limit = {
+				is_colonial_nation = yes
+				is_colonial_nation_of = ROOT
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_acadia
+						colonial_region = colonial_hudson_bay
+						colonial_region = colonial_alberta
+						colonial_region = colonial_columbia
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					is_colonial_nation = yes
+					is_colonial_nation_of = ROOT
+					capital_scope = {
+						colonial_region = colonial_canada
+					}
+				}
+				set_country_flag = formed_super_colony
+				set_country_flag = formed_canada_colony
+				add_prestige = 25
+				inherit = PREV
+				if = {
+					limit = { ROOT = { culture_group = british } }
+					4890 = {
+						add_base_tax = 3 
+						add_base_production = 2
+						add_base_manpower = 2
+						change_culture = canadian
+						change_religion = ROOT
+					}
+					set_capital = 4890 #Capital now Ottowa
+					change_primary_culture = canadian
+					if = {
+						limit = { NOT = { has_global_flag = canadian_culture_exists } }
+						set_global_flag = canadian_culture_exists
+					}
+				}
+				else_if = {
+					limit = { ROOT = { culture_group = french } }
+					994 = {
+						add_base_tax = 3 
+						add_base_production = 2
+						add_base_manpower = 2
+						change_culture = creole
+						change_religion = ROOT
+					}
+					set_capital = 994 #Capital now Quebec City
+					change_primary_culture = creole
+				}
+				hidden_effect = {
+					if = {
+						limit = { has_custom_ideas = no }
+						country_event = { id = ideagroups.1 } #Swap Ideas
+					}
+					colonial_canada = {
+						add_permanent_claim = PREV
+					}
+					colonial_acadia = {
+						add_permanent_claim = PREV
+					}
+					colonial_hudson_bay = {
+						add_permanent_claim = PREV
+					}
+					colonial_alberta = {
+						add_permanent_claim = PREV
+					}
+					colonial_columbia = {
+						add_permanent_claim = PREV
+					}
+					2005 = {
+						add_permanent_claim = PREV
+					}
+					2598 = {
+						add_permanent_claim = PREV
+					}
+					
+					add_country_modifier = {
+						name = "centralization_modifier"
+						duration = 7300
+					}
+					every_province = {
+						limit = {
+							AND = {
+								OR = {
+									colonial_region = colonial_acadia
+									colonial_region = colonial_canada
+									colonial_region = colonial_hudson_bay
+									colonial_region = colonial_alberta
+									colonial_region = colonial_columbia
+								}
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+						remove_core = THIS
+						remove_core = ROOT
+						cede_province = PREV
+						add_core = PREV
+					}
+					add_liberty_desire = -100
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = super_colonies.4
+	title = "super_colonies.RHtit1"
+	desc = "super_colonies.RHdesc1"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		NOT = {
+			any_country = {
+				war_with = ROOT
+				OR = {
+					is_great_power = yes
+					capital_scope = { continent = north_america }
+				}
+			}
+		}
+		is_year = 1650
+		is_colonial_nation = no
+		#Mexico super colony
+		AND = {
+			any_subject_country = {
+				#ai = yes
+				is_colonial_nation = yes
+				is_colonial_nation_of = ROOT
+				capital_scope = {
+					colonial_region = colonial_mexico
+				}
+				NOT = { has_country_flag = formed_super_colony }
+				#NOT = { liberty_desire = 90 }
+			}
+			texas_plains_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			llano_estacado_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			colorado_plateau_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			great_basin_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			northern_california_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			california_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = {
+		name = "super_colonies.RHans1"	
+		#Mexico super colony
+		every_country = {
+			limit = {
+				is_colonial_nation = yes
+				is_colonial_nation_of = ROOT
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_honduras
+						colonial_region = colonial_texas
+						colonial_region = colonial_arizona
+						colonial_region = colonial_california
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					is_colonial_nation = yes
+					is_colonial_nation_of = ROOT
+					capital_scope = {
+						colonial_region = colonial_mexico
+					}
+				}
+				set_country_flag = formed_super_colony
+				set_country_flag = formed_mexico_colony
+				add_prestige = 25
+				inherit = PREV
+				if = {
+					limit = {
+						OR = {
+							culture_group = iberian
+						}
+						NOT = { primary_culture = mexican }
+					}
+					change_primary_culture = mexican
+				}
+				852 = {
+					add_base_tax = 3 
+					add_base_production = 2
+					add_base_manpower = 1
+					change_culture = ROOT
+					change_religion = ROOT
+				}
+				set_capital = 852 #Capital now Mexico
+				hidden_effect = {
+					if = {
+						limit = { has_custom_ideas = no }
+						country_event = { id = ideagroups.1 } #Swap Ideas
+					}
+					colonial_mexico = {
+						add_permanent_claim = PREV
+					}
+					colonial_honduras = {
+						add_permanent_claim = PREV
+					}
+					colonial_texas = {
+						add_permanent_claim = PREV
+					}
+					colonial_arizona = {
+						add_permanent_claim = PREV
+					}
+					colonial_california = {
+						add_permanent_claim = PREV
+					}
+					
+					add_country_modifier = {
+						name = "centralization_modifier"
+						duration = 7300
+					}
+					every_province = {
+						limit = {
+							AND = {
+								OR = {
+									colonial_region = colonial_mexico
+									colonial_region = colonial_honduras
+									colonial_region = colonial_texas
+									colonial_region = colonial_arizona
+									colonial_region = colonial_california
+								}
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+						remove_core = THIS
+						remove_core = ROOT
+						cede_province = PREV
+						add_core = PREV
+					}
+					add_liberty_desire = -50
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = super_colonies.6
+	title = "super_colonies.RHtit1"
+	desc = "super_colonies.RHdesc1"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		NOT = {
+			any_country = {
+				war_with = ROOT
+				OR = {
+					is_great_power = yes
+					capital_scope = { continent = north_america }
+				}
+			}
+		}
+		is_year = 1750
+		is_colonial_nation = no
+		#The Thirteen Colonies super colony
+		AND = {
+			NOT = { exists = TTC }
+			any_subject_country = {
+				#ai = yes
+				is_colonial_nation = yes
+				is_colonial_nation_of = ROOT
+				capital_scope = {
+					colonial_region = colonial_eastern_america
+				}
+				NOT = { has_country_flag = formed_super_colony }
+				#NOT = { liberty_desire = 90 }
+			}
+			colonial_virginia = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_city = yes
+			}
+			colonial_carolina = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+				is_city = yes
+			}
+			OR = {
+				is_year = 1750
+				AND = {
+					colonial_new_england = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+					}
+					colonial_georgia = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+					}
+				}
+				AND = {
+					colonial_new_england = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+					}
+					colonial_new_amsterdam = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+					}
+				}
+				AND = {
+					colonial_new_amsterdam = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+					}
+					colonial_georgia = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+						is_city = yes
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = {
+		name = "super_colonies.RHans1"	
+		#The Thirteen Colonies super colony
+		every_country = {
+			limit = {
+				is_colonial_nation = yes
+				capital_scope = {
+					colonial_region = colonial_eastern_america
+				}
+				is_colonial_nation_of = ROOT
+			}
+			if = {
+				limit = {
+					OR = {
+						culture_group = british
+					}
+					NOT = { primary_culture = american }
+				}
+				change_primary_culture = american
+			}
+			if = {
+				limit = { 
+					ROOT = {
+						OR = {
+							tag = ENG
+							tag = GBR
+							tag = UNK
+						}
+					}
+				}
+				change_tag = TTC
+				swap_non_generic_missions = yes
+			}
+			set_country_flag = formed_super_colony
+			set_country_flag = formed_thirteen_colonies
+			add_prestige = 25
+			
+			956 = {
+				add_base_tax = 3 
+				add_base_production = 2
+				add_base_manpower = 1
+				change_culture = ROOT
+				change_religion = ROOT
+			}
+			set_capital = 956 #Capital Philidelphia
+			hidden_effect = {
+				if = {
+					limit = { has_custom_ideas = no }
+					country_event = { id = ideagroups.1 } #Swap Ideas
+				}
+				colonial_new_amsterdam = {
+					add_permanent_claim = PREV
+				}
+				colonial_new_england = {
+					add_permanent_claim = PREV
+				}
+				colonial_eastern_america = {
+					add_permanent_claim = PREV
+				}
+				colonial_virginia = {
+					add_permanent_claim = PREV
+				}
+				colonial_carolina = {
+					add_permanent_claim = PREV
+				}
+				colonial_georgia = {
+					add_permanent_claim = PREV
+				}
+				add_country_modifier = {
+					name = "centralization_modifier"
+					duration = 7300
+				}
+				every_province = {
+					limit = {
+						AND = {
+							OR = {
+								colonial_region = colonial_new_amsterdam
+								colonial_region = colonial_new_england
+								colonial_region = colonial_eastern_america
+								colonial_region = colonial_virginia
+								colonial_region = colonial_carolina
+								colonial_region = colonial_georgia
+							}
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					remove_core = THIS
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+				add_liberty_desire = -25
+			}
+		}
+	}
+}
+
+#Straggler Province Events
+country_event = {
+	id = super_colonies.16
+	title = "super_colonies.RHtit2"
+	desc = "super_colonies.RHdesc2"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		is_at_war = no
+		is_colonial_nation = no
+		OR = {
+			AND = {
+				any_subject_country = {
+					is_colonial_nation = yes
+					is_colonial_nation_of = ROOT
+					has_country_flag = formed_canada_colony
+					capital_scope = {
+						OR = {
+							colonial_region = colonial_canada
+							colonial_region = colonial_hudson_bay
+							colonial_region = colonial_alberta
+							colonial_region = colonial_columbia
+							colonial_region = colonial_alaska
+							colonial_region = colonial_acadia
+							province_id = 2005
+							province_id = 2598
+						}
+					}
+				}
+				any_province = {
+					OWNER = {
+						OR = { 
+							tag = ROOT
+							AND = {
+								is_subject_of = ROOT
+								is_colonial_nation = yes
+								NOT = { has_country_flag = formed_canada_colony }
+							}
+						}
+					}
+					OR = {
+						colonial_region = colonial_canada
+						colonial_region = colonial_hudson_bay
+						colonial_region = colonial_alberta
+						colonial_region = colonial_columbia
+						colonial_region = colonial_alaska
+						colonial_region = colonial_acadia
+						province_id = 2005
+						province_id = 2598
+					}
+				}
+			}
+			AND = {
+				any_subject_country = {
+					is_colonial_nation = yes
+					is_colonial_nation_of = ROOT
+					has_country_flag = formed_mexico_colony
+					capital_scope = {
+						OR = {
+							colonial_region = colonial_mexico
+							colonial_region = colonial_honduras
+							colonial_region = colonial_texas
+							colonial_region = colonial_arizona
+							colonial_region = colonial_california
+						}
+					}
+				}
+				any_province = {
+					OWNER = {
+						OR = { 
+							tag = ROOT
+							AND = {
+								is_subject_of = ROOT
+								is_colonial_nation = yes
+								NOT = { has_country_flag = formed_mexico_colony }
+							}
+						}
+					}
+					OR = {
+						colonial_region = colonial_mexico
+						colonial_region = colonial_honduras
+						colonial_region = colonial_texas
+						colonial_region = colonial_arizona
+						colonial_region = colonial_california
+					}
+				}
+			}
+			AND = {
+				any_subject_country = {
+					is_colonial_nation = yes
+					is_colonial_nation_of = ROOT
+					has_country_flag = formed_thirteen_colonies
+					capital_scope = {
+						OR = {
+							colonial_region = colonial_new_amsterdam
+							colonial_region = colonial_new_england
+							colonial_region = colonial_eastern_america
+							colonial_region = colonial_virginia
+							colonial_region = colonial_carolina
+							colonial_region = colonial_georgia
+							colonial_region = colonial_mississippi
+							colonial_region = colonial_kentucky
+							colonial_region = colonial_ohio
+							colonial_region = colonial_florida
+							area = maine_area
+						}
+					}
+				}
+				any_province = {
+					OWNER = {
+						OR = { 
+							tag = ROOT
+							AND = {
+								is_subject_of = ROOT
+								is_colonial_nation = yes
+								NOT = { has_country_flag = formed_thirteen_colonies }
+							}
+						}
+					}
+					OR = {
+						colonial_region = colonial_new_amsterdam
+						colonial_region = colonial_new_england
+						colonial_region = colonial_eastern_america
+						colonial_region = colonial_virginia
+						colonial_region = colonial_carolina
+						colonial_region = colonial_georgia
+						colonial_region = colonial_mississippi
+						colonial_region = colonial_kentucky
+						colonial_region = colonial_ohio
+						colonial_region = colonial_florida
+						area = maine_area
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "super_colonies.RHans3"
+		#Super colonies
+		random_country = {
+			limit = {
+				is_colonial_nation = yes
+				is_colonial_nation_of = ROOT
+				has_country_flag = formed_canada_colony
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_canada
+						colonial_region = colonial_hudson_bay
+						colonial_region = colonial_alberta
+						colonial_region = colonial_columbia
+						colonial_region = colonial_alaska
+						colonial_region = colonial_acadia
+						province_id = 2005
+						province_id = 2598
+					}
+				}
+			}
+			every_province = {
+				limit = {
+					OWNER = {
+						OR = { 
+							tag = ROOT
+							AND = {
+								is_subject_of = ROOT
+								is_colonial_nation = yes
+								NOT = { has_country_flag = formed_canada_colony }
+							}
+						}
+					}
+					OR = {
+						colonial_region = colonial_canada
+						colonial_region = colonial_hudson_bay
+						colonial_region = colonial_alberta
+						colonial_region = colonial_columbia
+						colonial_region = colonial_alaska
+						colonial_region = colonial_acadia
+						province_id = 2005
+						province_id = 2598
+					}
+				}
+				remove_core = THIS
+				remove_core = ROOT
+				cede_province = PREV
+				add_core = PREV
+			}
+		}
+		random_country = {
+			limit = {
+				is_colonial_nation = yes
+				is_colonial_nation_of = ROOT
+				has_country_flag = formed_mexico_colony
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_mexico
+						colonial_region = colonial_honduras
+						colonial_region = colonial_texas
+						colonial_region = colonial_arizona
+						colonial_region = colonial_california
+					}
+				}
+			}
+			every_province = {
+				limit = {
+					OWNER = {
+						OR = { 
+							tag = ROOT
+							AND = {
+								is_subject_of = ROOT
+								is_colonial_nation = yes
+								NOT = { has_country_flag = formed_mexico_colony }
+							}
+						}
+					}
+					OR = {
+						colonial_region = colonial_mexico
+						colonial_region = colonial_honduras
+						colonial_region = colonial_texas
+						colonial_region = colonial_arizona
+						colonial_region = colonial_california
+					}
+				}
+				remove_core = THIS
+				remove_core = ROOT
+				cede_province = PREV
+				add_core = PREV
+			}
+		}
+		random_country = {
+			limit = {
+				is_colonial_nation = yes
+				is_colonial_nation_of = ROOT
+				has_country_flag = formed_thirteen_colonies
+				capital_scope = {
+					OR = {
+						colonial_region = colonial_new_amsterdam
+						colonial_region = colonial_new_england
+						colonial_region = colonial_eastern_america
+						colonial_region = colonial_virginia
+						colonial_region = colonial_carolina
+						colonial_region = colonial_georgia
+					}
+				}
+			}
+			every_province = {
+				limit = {
+					OWNER = {
+						OR = { 
+							tag = ROOT
+							AND = {
+								is_subject_of = ROOT
+								is_colonial_nation = yes
+								NOT = { has_country_flag = formed_thirteen_colonies }
+							}
+						}
+					}
+					OR = {
+						colonial_region = colonial_new_amsterdam
+						colonial_region = colonial_new_england
+						colonial_region = colonial_eastern_america
+						colonial_region = colonial_virginia
+						colonial_region = colonial_carolina
+						colonial_region = colonial_georgia
+					}
+				}
+				remove_core = THIS
+				remove_core = ROOT
+				cede_province = PREV
+				add_core = PREV
+			}
+		}
+	}
+}
+
+#East India Company Colony
+country_event = {
+	id = super_colonies.11
+	title = "super_colonies.RHtit2"
+	desc = "super_colonies.RHdesc2"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		exists = EIC
+		is_colonial_nation = no
+		EIC = {
+			is_colonial_nation_of = ROOT
+			capital_scope = {
+				superregion = india_superregion
+			}
+		}
+		#British EIC super colony
+		any_country = {
+			OR = {
+				tag = ROOT 
+				AND = {
+					is_colonial_nation_of = ROOT
+					NOT = { tag = EIC }
+				}
+			}
+			OR = {
+				india_superregion = {
+					owned_by = THIS
+				}
+				burma_region = {
+					owned_by = THIS
+				}
+				makran_area = {
+					owned_by = THIS
+				}
+				kalat_area = {
+					owned_by = THIS
+				}
+				bhutan_area = {
+					owned_by = THIS
+				}
+				578 = {
+					owned_by = THIS
+				}
+				1248 = {
+					owned_by = THIS
+				}
+				574 = {
+					owned_by = THIS
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "super_colonies.RHans3"
+		#Super colonies
+		#British EIC super colony
+		every_province = {
+			limit = {
+				OWNER = {
+					OR = {
+						tag = ROOT 
+						AND = {
+							is_colonial_nation_of = ROOT
+							NOT = { tag = EIC }
+						}
+					}
+				}
+				colonial_region = colonial_india
+			}
+			remove_core = ROOT
+			cede_province = EIC
+			add_core = EIC
+		}
+	}
+}
+#Japanese China Colony
+country_event = {
+	id = super_colonies.14
+	title = "super_colonies.RHtit2"
+	desc = "super_colonies.RHdesc2"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		is_year = 1700
+		has_country_flag = jap_china_puppet_completed
+		MNG = {
+			is_subject_of = ROOT
+			capital_scope = {
+				OR = {
+					area = shanxi_area
+					area = north_henan_area
+					area = henan_area
+					area = huguang_area
+					area = hunan_area
+					area = shaanxi_area
+					area = chuanbei_area
+					area = gansu_area
+					area = sichuan_area
+					area = yun_gui_area
+					area = chuannan_area
+					area = west_gansu_area
+					area = yun_gui_borderland_area
+					province_id = 664
+					province_id = 2163
+					province_id = 1840
+					
+					#Extra
+					region = tibet_region
+					area = kashgaria_area
+					area = shanshan_area
+					area = tarim_basin_area
+					area = ordos_area
+					area = turpan_kumul_area
+					area = zungaria_area
+					area = north_zungaria
+					province_id = 4670
+					province_id = 2747
+					province_id = 702
+				}
+			}
+			#NOT = { liberty_desire = 90 }
+			#is_at_war = no
+		}
+		#Chinese super colony
+		OR = {
+			shanxi_area = {
+				owned_by = ROOT
+			}
+			north_henan_area = {
+				owned_by = ROOT
+			}
+			henan_area = {
+				owned_by = ROOT
+			}
+			huguang_area = {
+				owned_by = ROOT
+			}
+			hunan_area = {
+				owned_by = ROOT
+			}
+			shaanxi_area = {
+				owned_by = ROOT
+			}
+			chuanbei_area = {
+				owned_by = ROOT
+			}
+			gansu_area = {
+				owned_by = ROOT
+			}
+			sichuan_area = {
+				owned_by = ROOT
+			}
+			yun_gui_area = {
+				owned_by = ROOT
+			}
+			chuannan_area = {
+				owned_by = ROOT
+			}
+			west_gansu_area = {
+				owned_by = ROOT
+			}
+			yun_gui_borderland_area = {
+				owned_by = ROOT
+			}
+			664 = {
+				owned_by = ROOT
+			}
+			2163 = {
+				owned_by = ROOT
+			}
+			1840 = {
+				owned_by = ROOT
+			}
+			
+			#Extra
+			tibet_region = {
+				owned_by = ROOT
+			}
+			kashgaria_area = {
+				owned_by = ROOT
+			}
+			shanshan_area = {
+				owned_by = ROOT
+			}
+			tarim_basin_area = {
+				owned_by = ROOT
+			}
+			ordos_area = {
+				owned_by = ROOT
+			}
+			turpan_kumul_area = {
+				owned_by = ROOT
+			}
+			zungaria_area = {
+				owned_by = ROOT
+			}
+			north_zungaria = {
+				owned_by = ROOT
+			}
+			4670 = {
+				owned_by = ROOT
+			}
+			2747 = {
+				owned_by = ROOT
+			}
+			702 = {
+				owned_by = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "super_colonies.RHans3"
+		#Super colonies
+		#Chinese super colony
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = shanxi_area
+					area = north_henan_area
+					area = henan_area
+					area = huguang_area
+					area = hunan_area
+					area = shaanxi_area
+					area = chuanbei_area
+					area = gansu_area
+					area = sichuan_area
+					area = yun_gui_area
+					area = chuannan_area
+					area = west_gansu_area
+					area = yun_gui_borderland_area
+					province_id = 664
+					province_id = 2163
+					province_id = 1840
+					
+					#Extra
+					region = tibet_region
+					area = kashgaria_area
+					area = shanshan_area
+					area = tarim_basin_area
+					area = ordos_area
+					area = turpan_kumul_area
+					area = zungaria_area
+					area = north_zungaria
+					province_id = 4670
+					province_id = 2747
+					province_id = 702
+				}
+			}
+			remove_core = ROOT
+			add_core = MNG
+			add_territorial_core = MNG
+			cede_province = MNG
+		}
+	}
+}
+#Japanese Burma Colony
+country_event = {
+	id = super_colonies.15
+	title = "super_colonies.RHtit2"
+	desc = "super_colonies.RHdesc2"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		is_year = 1700
+		has_country_flag = jap_burma_puppet_completed
+		TAU = {
+			is_subject_of = ROOT
+			capital_scope = {
+				region = burma_region
+			}
+			#NOT = { liberty_desire = 90 }
+			#is_at_war = no
+		}
+		#Burmanese super colony
+		OR = {
+			burma_region = {
+				owned_by = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "super_colonies.RHans3"
+		#Super colonies
+		#Burmanese super colony
+		every_owned_province = {
+			limit = {
+				OR = {
+					region = burma_region
+				}
+			}
+			remove_core = ROOT
+			add_core = TAU
+			add_territorial_core = TAU
+			cede_province = TAU
+		}
+	}
+}

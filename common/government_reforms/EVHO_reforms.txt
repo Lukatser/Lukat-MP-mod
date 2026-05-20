@@ -1,0 +1,132 @@
+
+post_revolution_republic_reform = {
+	icon = "revolutionary_republic"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			has_reform = post_revolution_republic_reform
+			have_had_reform = post_revolution_republic_reform
+		}
+	}
+	
+	republic = yes
+	lock_level_when_selected = yes
+	valid_for_nation_designer = no
+	republican_name = yes
+	royal_marriage = no
+	uses_revolutionary_zeal = no
+	revolutionary = yes
+	modifiers = {
+		diplomatic_reputation = 1
+		global_spy_defence = 0.1
+		max_absolutism = 10
+	}
+
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+		custom_attributes = {
+			blocked_call_diet = yes
+		}
+	}
+}
+
+post_revolution_kingdom_reform = { ## when adding into reforms, base on "english_monarchy" ##
+	icon = "rioting_burning_2"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			has_reform = post_revolution_kingdom_reform
+			have_had_reform = post_revolution_kingdom_reform
+		}
+	}
+	monarchy = yes
+	lock_level_when_selected = yes
+	valid_for_nation_designer = no
+	republican_name = no
+	royal_marriage = no
+	uses_revolutionary_zeal = no
+	revolutionary = yes
+
+	start_territory_to_estates = 0.3
+	modifiers = {
+		governing_capacity = 50
+		legitimacy = 0.5
+		global_unrest = -1
+		max_absolutism = -30
+	}
+
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+
+		custom_attributes = {
+			blocked_call_diet = yes
+		}
+	}
+}
+
+german_confederation_reform = {
+	icon = "prussian_monarchy"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { has_reform = german_kaiserreich }
+		OR = {
+			tag = SGC
+			tag = NGC
+			has_reform = german_confederation_reform
+			have_had_reform = german_confederation_reform
+		}
+	}
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		OR = {
+			tag = SGC
+			tag = NGC
+			has_reform = german_confederation_reform
+			have_had_reform = german_confederation_reform
+		}
+	}
+	lock_level_when_selected = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	modifiers = {
+		war_exhaustion = -0.02
+		global_unrest = -2
+		global_autonomy = -0.075
+		monarch_military_power = 2
+		nobles_loyalty_modifier = 0.1
+	}
+
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		government_abilities = {
+			prussian_militarization_mechanic_1
+		}
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		government_abilities = {
+			prussian_militarization_mechanic_2
+		}
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		government_abilities = {
+			prussian_militarization_mechanic_3
+		}
+	}
+	conditional = {
+		allow = { has_dlc = "Rights of Man" NOT = { has_dlc = "Domination" } }
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+}

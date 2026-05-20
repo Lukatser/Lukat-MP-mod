@@ -47,3 +47,10 @@ discovered_by = ARW
 1782.1.1 = { owner = GBR controller = GBR add_core = GBR } # The Battle of the Saints, the French administration was over
 1785.1.1 = { unrest = 5 } # Escaped slaves were beginning to start revolts
  # Hurrican in 1779
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

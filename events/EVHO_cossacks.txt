@@ -1,0 +1,1177 @@
+namespace = EVHO_cossacks
+normal_or_historical_nations = yes
+
+
+# ZAZ should stay a Hetmanate
+country_event = {
+	id = EVHO_cossacks.100
+	title = "EVHO_cossacks.100.t"
+	desc = "EVHO_cossacks.100.d"
+	picture = COSSACK_ESTATE_UPSET_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = ZAZ
+		NOT = { owns_core_province = 280 } #Kiev
+		NOT = { owns_core_province = 279 } #Volhynia
+		NOT = { has_reform = cossacks_reform }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVHO_cossacks.100.a" # Accept
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				NOT = {
+					government = republic
+				}
+			}
+			change_government = republic
+		}
+		add_government_reform = cossacks_reform
+	}
+}
+
+
+# First Cossacks
+country_event = {
+	id = EVHO_cossacks.101
+	title = "EVHO_cossacks.101.t"
+	desc = "EVHO_cossacks.101.d"
+	picture = COSSACK_ESTATE_eventPicture
+	
+	trigger = {
+		NOT = { tag = ZAZ }
+		OR = {
+			NOT = { primary_culture = ruthenian }
+			NOT = { religion = orthodox }
+			tag = LIT
+			tag = POL
+			tag = PLC
+		}
+		is_year = 1492
+		owns = 283 # Zaporozhie
+		283 = { is_core = ZAZ }
+		NOT = { has_global_flag = first_cossacks }
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = {
+		name = "EVHO_cossacks.101.a" # Accept
+		if = {
+			limit = {
+				has_estate = estate_cossacks
+			}
+			set_estate_privilege = estate_cossacks_land_rights
+			set_estate_privilege = cossack_self_governance
+			change_estate_land_share = {
+				estate = estate_cossacks
+				share = 10
+			}
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = yedisan_area
+					area = zaporizhia_area
+				}
+				culture = ruthenian
+				religion = orthodox
+			}
+			set_local_autonomy = 100
+			add_core = ZAZ
+		}
+		random_owned_province = {
+			limit = {
+				NOT = {
+					OR = {
+						area = yedisan_area
+						area = zaporizhia_area
+					}
+				}
+				culture = ruthenian
+				religion = orthodox
+			}
+			add_base_manpower = -1
+		}
+		random_owned_province = {
+			limit = {
+				NOT = {
+					OR = {
+						area = yedisan_area
+						area = zaporizhia_area
+					}
+				}
+				culture = ruthenian
+				religion = orthodox
+			}
+			add_base_manpower = -1
+		}
+		random_owned_province = {
+			limit = {
+				NOT = {
+					OR = {
+						area = yedisan_area
+						area = zaporizhia_area
+					}
+				}
+				culture = ruthenian
+				religion = orthodox
+			}
+			add_base_manpower = -1
+		}
+		random_owned_province = {
+			limit = {
+				NOT = {
+					OR = {
+						area = yedisan_area
+						area = zaporizhia_area
+					}
+				}
+				culture = ruthenian
+				religion = orthodox
+			}
+			add_base_tax = -1
+		}
+		283 = {
+			add_base_manpower = 3
+			add_base_tax = 1
+		}
+		set_global_flag = first_cossacks
+	}
+	
+	option = {
+		name = "EVHO_cossacks.101.b" # Decline
+		if = {
+			limit = {
+				has_estate = estate_cossacks
+			}
+			add_estate_loyalty = {
+				estate = estate_cossacks
+				loyalty = -25
+			}
+		}
+		283 = {
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 5
+				friend = ZAZ
+				win = yes
+				culture = ruthenian
+				religion = orthodox
+				unrest = 5
+			}
+		}
+	}
+}
+
+# Sicz
+country_event = {
+	id = EVHO_cossacks.102
+	title = "EVHO_cossacks.102.t"
+	desc = "EVHO_cossacks.102.d"
+	picture = COSSACK_ESTATE_RAIDERS_eventPicture
+	
+	trigger = {
+		NOT = { tag = ZAZ }
+		OR = {
+			NOT = { primary_culture = ruthenian }
+			NOT = { religion = orthodox }
+			tag = LIT
+			tag = POL
+			tag = PLC
+		}
+		is_year = 1540
+		owns = 283 # Zaporozhie
+		283 = { is_core = ZAZ }
+		has_global_flag = first_cossacks
+		NOT = { has_global_flag = sicz_created }
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		months = 144
+	}
+	
+	option = {
+		name = "EVHO_cossacks.102.a" # Accept
+		release = ZAZ
+		283 = { change_province_name = "Chortycia" }
+		hidden_effect = {
+			ZAZ = {
+				add_government_reform = cossacks_reform
+				set_government_rank = 1
+				adopt_reform_progress = ROOT
+				capital_scope = {
+					PREV = { change_religion = PREV }
+				}
+				define_ruler = {
+					name = "Dmytro"
+					dynasty = "Vyshnevetsky"
+					adm = 3
+					dip = 3
+					mil = 3
+					age = 30
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 1
+						cavalry = 0.1
+						artillery = 0.2
+					}
+				}
+				random_owned_province = {
+					limit = {
+						has_port = yes
+					}
+					build_to_forcelimit = {
+						light_ship = 0.8
+						transport = 0.2
+					}
+				}
+			}
+		}
+		create_subject = {
+			subject_type = cossack_autonomy_EP
+			subject = ZAZ
+		}
+		set_global_flag = sicz_created
+	}
+	
+	option = {
+		name = "EVHO_cossacks.102.b" # Decline
+		if = {
+			limit = {
+				has_estate = estate_cossacks
+			}
+			add_estate_loyalty = {
+				estate = estate_cossacks
+				loyalty = -25
+			}
+		}
+		283 = {
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 10
+				friend = ZAZ
+				win = yes
+				unrest = 5
+				leader = "Dmytro"
+				leader_dynasty = "Vyshnevetsky"
+			}
+		}
+		hidden_effect = {
+			283 = { change_province_name = "Chortycia" }
+		}
+	}
+	
+	option = {
+		name = "EVHO_cossacks.102.c" # Switch
+		highlight = yes
+		release = ZAZ
+		283 = { change_province_name = "Chortycia" }
+		hidden_effect = {
+			ZAZ = {
+				add_government_reform = cossacks_reform
+				adopt_reform_progress = ROOT
+				capital_scope = {
+					PREV = { change_religion = PREV }
+				}
+				define_ruler = {
+					name = "Dmytro"
+					dynasty = "Vyshnevetsky"
+					adm = 3
+					dip = 3
+					mil = 3
+					age = 30
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.1
+						artillery = 0.2
+					}
+				}
+				random_owned_province = {
+					limit = {
+						has_port = yes
+					}
+					build_to_forcelimit = {
+						light_ship = 0.8
+						transport = 0.2
+					}
+				}
+			}
+		}
+		create_subject = {
+			subject_type = cossack_autonomy_EP
+			subject = ZAZ
+		}
+		switch_tag = ZAZ
+		set_global_flag = sicz_created
+	}
+}
+
+# Cossack rebellion
+country_event = {
+	id = EVHO_cossacks.103
+	title = "EVHO_cossacks.103.t"
+	desc = "EVHO_cossacks.103.d"
+	picture = COSSACK_ESTATE_UPSET_eventPicture
+	
+	trigger = {
+		tag = ZAZ
+		owns = 283 # Zaporozhie
+		is_subject = yes
+		primary_culture = ruthenian
+		religion = orthodox
+		overlord = {
+			OR = {
+				NOT = { primary_culture = ruthenian }
+				NOT = { religion = orthodox }
+				tag = LIT
+				tag = POL
+				tag = PLC
+			}
+		}
+		liberty_desire = 40
+	}
+	
+	mean_time_to_happen = {
+	
+		months = 180
+		
+		modifier = {
+			factor = 0.8
+			overlord = {
+				NOT = { stability = 0 }
+			}
+		}
+		
+		modifier = {
+			factor = 0.8
+			liberty_desire = 50
+		}
+		
+		modifier = {
+			factor = 0.6
+			liberty_desire = 60
+		}
+		
+		modifier = {
+			factor = 0.4
+			liberty_desire = 70
+		}
+		
+	}
+	
+	immediate = {
+		hidden_effect = {
+			overlord = {
+				save_event_target_as = zaporozhie_overlord_rebellion
+			}
+		}
+	}
+	
+	option = {
+		name = "EVHO_cossacks.103.a" # Accept
+		declare_war_with_cb = {
+			who = event_target:zaporozhie_overlord_rebellion
+			casus_belli = cb_independence_war
+		}
+		
+		set_country_flag = cossack_rebellion
+		
+	}
+	
+	option = {
+		name = "EVHO_cossacks.103.b" # Decline
+		overlord = {
+			random_owned_province = {
+				limit = {
+					culture = ruthenian
+					religion = orthodox
+				}
+				spawn_rebels = {
+					type = anti_tax_rebels
+					size = 3
+					friend = ZAZ
+					culture = ruthenian
+					religion = orthodox
+				}
+			}
+		}
+	}
+}
+
+# Chmielnicki Uprising for ZAZ
+country_event = {
+	id = EVHO_cossacks.200
+	title = "EVHO_cossacks.200.t"
+	desc = "EVHO_cossacks.200.d"
+	picture = MILITARISTICALLY_TALENTED_RULER_eventPicture
+	
+	major = yes
+	
+	trigger = {
+		tag = ZAZ
+		is_year = 1648
+		owns = 283 # Zaporozhie
+		is_subject = yes
+		primary_culture = ruthenian
+		religion = orthodox
+		overlord = {
+			OR = {
+				NOT = { primary_culture = ruthenian }
+				NOT = { religion = orthodox }
+				tag = LIT
+				tag = POL
+				tag = PLC
+			}
+		}
+		liberty_desire = 40
+		has_country_flag = cossack_rebellion
+	}
+	
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			overlord = {
+				save_event_target_as = zaporozhie_overlord_chmielnicki
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVHO_cossacks.200.a" # Accept
+		set_government_rank = 3
+		define_ruler = {
+			name = "Bohdan"
+			dynasty = "Chmielnicki"
+			adm = 4
+			dip = 6
+			mil = 5
+			age = 52
+		}
+		define_ruler_to_general = {
+			fire = 4
+			shock = 5
+			manuever = 4
+			siege = 4
+		}
+		declare_war_with_cb = {
+			who = event_target:zaporozhie_overlord_chmielnicki
+			casus_belli = cb_independence_war
+		}
+		set_global_flag = chmielnicki_uprising
+	}
+	
+	option = {
+		name = "EVHO_cossacks.200.b" # Decline
+		overlord = {
+			random_owned_province = {
+				limit = {
+					culture = ruthenian
+					religion = orthodox
+				}
+				spawn_rebels = {
+					type = anti_tax_rebels
+					size = 4
+					friend = ZAZ
+					culture = ruthenian
+					religion = orthodox
+				}
+			}
+			random_owned_province = {
+				limit = {
+					culture = ruthenian
+					religion = orthodox
+				}
+				spawn_rebels = {
+					type = anti_tax_rebels
+					size = 3
+					friend = ZAZ
+					culture = ruthenian
+					religion = orthodox
+				}
+			}
+			random_owned_province = {
+				limit = {
+					culture = ruthenian
+					religion = orthodox
+				}
+				spawn_rebels = {
+					type = anti_tax_rebels
+					size = 2
+					friend = ZAZ
+					culture = ruthenian
+					religion = orthodox
+				}
+			}
+		}
+	}
+}
+
+# RM with Moldavia
+country_event = {
+	id = EVHO_cossacks.201
+	title = "EVHO_cossacks.201.t"
+	desc = "EVHO_cossacks.201.d"
+	picture = ROYAL_COUPLE_FUTURE_eventPicture
+	
+	major = no
+	
+	trigger = {
+		tag = ZAZ
+		is_year = 1648
+		owns = 283 # Zaporozhie
+		is_subject = no
+		is_in_war = {
+			defender_leader = event_target:zaporozhie_overlord_chmielnicki
+			casus_belli = cb_independence_war
+			duration = 700
+		}
+		primary_culture = ruthenian
+		religion = orthodox
+		has_global_flag = chmielnicki_uprising
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "EVHO_cossacks.201.a" # Accept
+		if = {
+			limit = {
+				MOL = {
+					exists = yes
+				}
+			}
+			add_opinion = {
+				who = MOL
+				modifier = chmielnicki_marriage
+			}
+			reverse_add_opinion = {
+				who = MOL
+				modifier = chmielnicki_marriage
+			}
+		}
+		if = {
+			limit = {
+				MOL = {
+					exists = yes
+					is_subject = no
+				}
+			}
+			create_alliance = MOL
+			create_marriage = MOL
+			MOL = {
+				join_all_offensive_wars_of = ROOT
+			}
+		}
+		if = {
+			limit = {
+				MOL = {
+					exists = yes
+					is_subject = yes
+					overlord = {
+						overlord_of = ROOT
+					}
+				}
+			}
+			MOL = {
+				grant_independence = yes
+				join_all_offensive_wars_of = ROOT
+			}
+		}
+		if = {
+			limit = {
+				MOL = {
+					exists = yes
+					is_subject = yes
+					NOT = {
+						overlord = {
+							overlord_of = ROOT
+						}
+					}
+				}
+			}
+			283 = {
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+			}
+		}
+		if = {
+			limit = {
+				MOL = {
+					exists = no
+				}
+			}
+			every_province = {
+				limit = {
+					owned_by = event_target:zaporozhie_overlord_chmielnicki
+					OR = {
+						is_core = MOL
+						culture = romanian
+					}
+				}
+				change_controller = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "EVHO_cossacks.201.b" # Decline
+	}
+}
+
+# Perejaslav for ZAZ
+country_event = {
+	id = EVHO_cossacks.202
+	title = "EVHO_cossacks.202.t"
+	desc = "EVHO_cossacks.202.d"
+	picture = HRE_eventPicture
+	
+	major = no
+	
+	
+	trigger = {
+		tag = ZAZ
+		is_year = 1654
+		owns = 283 # Zaporozhie
+		is_subject = no
+		is_in_war = {
+			defender_leader = event_target:zaporozhie_overlord_chmielnicki
+			casus_belli = cb_independence_war
+			duration = 2000
+		}
+		primary_culture = ruthenian
+		religion = orthodox
+		has_global_flag = chmielnicki_uprising
+		
+		OR = {
+			AND = {
+				RUS = {
+					exists = yes
+					is_great_power = yes
+				}
+				NOT = { exists = MOS }
+			}
+			AND = {
+				MOS = {
+					exists = yes
+					is_great_power = yes
+				}
+				NOT = { exists = RUS }
+			}
+		}
+		
+	}
+	
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					OR = {
+						tag = RUS
+						tag = MOS
+					}
+				}
+				save_event_target_as = chmielnicki_russia
+			}
+		}
+	}
+	
+	option = {
+		name = "EVHO_cossacks.202.a" # Accept
+		
+		event_target:chmielnicki_russia = {
+			country_event = {
+				id = EVHO_cossacks.2021
+			}
+		}
+		
+	}
+	
+	option = {
+		name = "EVHO_cossacks.202.b" # Decline
+		
+	}
+}
+
+# Perejaslav for RUS
+country_event = {
+	id = EVHO_cossacks.2021
+	title = "EVHO_cossacks.2021.t"
+	desc = "EVHO_cossacks.2021.d"
+	picture = COSSACK_ESTATE_eventPicture
+	
+	major = yes
+	
+	is_triggered_only = yes 
+	
+	fire_only_once = yes
+
+	
+	option = {
+		name = "EVHO_cossacks.2021.a" # Accept
+		every_province = {
+			limit = {
+				controlled_by = ZAZ
+				OR = {
+					area = zaporizhia_area
+					area = east_dniepr_area
+					area = chernigov_area
+					area = sloboda_ukraine_area
+					area = chernigov_area
+					area = smolensk_area
+					area = yedisan_area
+					area = azov_area
+					area = crimea_area
+				}
+			}
+			cede_province = ZAZ
+			add_core = ZAZ
+		}
+		if = {
+			limit = {
+				280 = {
+					controlled_by = ZAZ
+				}
+			}
+			random_list = {
+				50 = {
+					280 = { 
+						cede_province = ZAZ 
+						add_core = ZAZ 
+					}
+				}
+			}
+		}
+		
+		join_all_offensive_wars_of = ZAZ
+		
+		create_subject = {
+			subject_type = cossack_autonomy_EP
+			subject = ZAZ
+		}
+	}
+	
+	option = {
+		name = "EVHO_cossacks.2021.b" # Decline
+		reverse_add_opinion = {
+			who = chmielnicki_russia
+			modifier = perejaslav_failed
+		}
+	}
+}
+
+# Vassalage of the Don Steppe
+
+country_event = {
+	id = EVHO_cossacks.300
+	title = EVHO_cossacks.300.t
+	desc = EVHO_cossacks.300.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+
+	trigger = {
+		is_year = 1530
+		NOT = { is_year = 1680 }
+		OR = {
+			ai = yes
+			governing_capacity_percentage = 0.95
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = BYZ
+			tag = RUM
+		}
+		NOT = { has_global_flag = TUR_released_don_kuban_host }
+		is_free_or_tributary_trigger = yes
+		is_great_power = yes
+		287 = { country_or_non_sovereign_subject_holds = ROOT }
+		2413 = { country_or_non_sovereign_subject_holds = ROOT }
+		crimea_region = { country_or_non_sovereign_subject_holds = ROOT }
+		NOT = { GOL = { is_great_power = yes } }
+		NOT = { GLH = { is_great_power = yes } }
+		NOT = { GOL = { num_of_cities = 20 } }
+		NOT = { GLH = { num_of_cities = 20 } }
+		GOL = {
+			OR = {
+				exists = no
+				ai = yes
+				NOT = { num_of_cities = 10 }
+			}
+		}
+		GLH = {
+			OR = {
+				exists = no
+				ai = yes
+				NOT = { num_of_cities = 10 }
+			}
+		}
+		OR = {
+			GOL = { exists = no }
+			GOL = { is_neighbor_of = ROOT }
+		}
+		OR = {
+			GLH = { exists = no }
+			GLH = { is_neighbor_of = ROOT }
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			OR = {
+				region = russia_region
+				area = sloboda_ukraine_area
+				area = chernigov_area
+				area = smolensk_area
+				area = lower_don_area
+				area = astrakhan_area
+			}
+			value = 5
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 10
+		modifier = {
+			factor = 0.85
+			is_year = 1550
+		}
+		modifier = {
+			factor = 0.65
+			is_year = 1600
+		}
+		modifier = {
+			factor = 0.45
+			is_year = 1625
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					any_province = { culture = russian_culture }
+					NOT = {
+						OR = {
+							AND = {
+								NOT = { GOL = { is_great_power = yes } }
+								NOT = { GOL = { num_of_cities = 20 } }
+								GOL = {
+									exists = yes
+									is_neighbor_of = ROOT
+									OR = {
+										ai = yes
+										NOT = { num_of_cities = 10 }
+									}
+								}
+							}
+							AND = {
+								NOT = { GLH = { is_great_power = yes } }
+								NOT = { GLH = { num_of_cities = 20 } }
+								GLH = {
+									exists = yes
+									is_neighbor_of = ROOT
+									OR = {
+										ai = yes
+										NOT = { num_of_cities = 10 }
+									}
+								}	
+							}
+						}
+					}
+				}
+				azov_area = { add_core = DON }
+				287 = {
+					remove_core = owner
+					cede_province = DON
+					change_culture = russian_culture
+				}
+				2414 = {
+					remove_core = owner
+					cede_province = DON
+					change_culture = russian_culture
+				}
+				DON = { save_event_target_as = don_kuban_host_tag }
+				every_province = {
+					limit = {
+						NOT = { culture = russian_culture }
+						OR = {
+							area = tambov_area
+							area = lower_don_area
+							area = azov_area
+							province_id = 2412
+							province_id = 2418
+							province_id = 2447
+							province_id = 468
+							province_id = 2416
+						}
+					}
+					change_culture = russian_culture
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { GOL = { is_great_power = yes } }
+					NOT = { GOL = { num_of_cities = 20 } }
+					GOL = {
+						exists = yes
+						is_neighbor_of = ROOT
+						OR = {
+							ai = yes
+							NOT = { num_of_cities = 10 }
+						}
+					}
+				}
+				GOL = { save_event_target_as = don_kuban_host_tag }
+			}
+			else_if = {
+				limit = {
+					NOT = { GLH = { is_great_power = yes } }
+					NOT = { GLH = { num_of_cities = 20 } }
+					GLH = {
+						exists = yes
+						is_neighbor_of = ROOT
+						OR = {
+							ai = yes
+							NOT = { num_of_cities = 10 }
+						}
+					}
+				}
+				GLH = { save_event_target_as = don_kuban_host_tag }
+			}
+			else = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							region = russia_region
+							region = ural_region
+							area = sloboda_ukraine_area
+							area = chernigov_area
+							area = smolensk_area
+							area = lower_don_area
+							area = astrakhan_area
+						}
+					}
+					add_core = GOL
+				}
+				release = GOL
+				GOL = { save_event_target_as = don_kuban_host_tag }
+			}
+		}
+	}
+
+	option = {
+		name = EVHO_cossacks.300.a
+		add_prestige = 25
+		set_global_flag = TUR_released_don_kuban_host
+		every_province = {
+			limit = {
+				AND = {
+					NOT = { country_or_non_sovereign_subject_holds = event_target:don_kuban_host_tag }
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						region = russia_region
+						region = ural_region
+						region = central_asia_region
+						area = sloboda_ukraine_area
+						area = chernigov_area
+						area = smolensk_area
+						area = lower_don_area
+						area = astrakhan_area
+					}
+				}
+			}
+			remove_core = owner
+			cede_province = event_target:don_kuban_host_tag
+			add_core = event_target:don_kuban_host_tag
+		}
+		hidden_effect = {
+			every_province = {
+				limit = { 
+					NOT = { owned_by = ROOT }
+					OR = {
+						region = russia_region
+						region = ural_region
+						region = central_asia_region
+						area = sloboda_ukraine_area
+						area = chernigov_area
+						area = smolensk_area
+						area = lower_don_area
+						area = astrakhan_area
+					}
+					OR = {
+						is_core = ROOT
+						is_claim = ROOT
+					}
+				}
+				remove_core = ROOT
+				remove_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					country_or_non_sovereign_subject_holds = event_target:don_kuban_host_tag
+					NOT = {
+						OR = {
+							region = russia_region
+							region = ural_region
+							region = central_asia_region
+							area = sloboda_ukraine_area
+							area = chernigov_area
+							area = smolensk_area
+							area = lower_don_area
+							area = astrakhan_area
+						}
+					}
+				}
+				remove_core = owner
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		if = {
+			limit = { event_target:don_kuban_host_tag = { tag = DON } }
+			event_target:don_kuban_host_tag = {
+				if = {
+					limit = { NOT = { government = republic } }
+					change_government = republic
+				}
+				add_government_reform = cossacks_reform
+				adopt_reform_progress = ROOT
+				capital_scope = {
+					PREV = { change_religion = PREV }
+				}
+			}
+			ROOT = {
+				create_subject = {
+					subject_type = cossack_autonomy_EP
+					subject = event_target:don_kuban_host_tag
+				}
+			}
+		}
+		else = {
+			event_target:don_kuban_host_tag = {
+				if = {
+					limit = { NOT = { government = tribal } }
+					change_government = tribal
+				}
+				add_government_reform = steppe_horde
+				adopt_reform_progress = ROOT
+				capital_scope = {
+					PREV = { change_religion = PREV }
+				}
+			}
+			ROOT = {
+				create_subject = {
+					subject_type = fiefdom_vassal
+					subject = event_target:don_kuban_host_tag
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	option = {
+		name = EVHO_cossacks.300.b
+		add_stability = -2
+		ai_chance = { factor = 0 }
+	}
+}
+
+# HIDDEN: returns provinces retaken by Ottomans to Don Kuban vassal
+country_event = {
+	id = EVHO_cossacks.301
+	title = EVHO_cossacks.300.t
+	desc = EVHO_cossacks.300.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		has_global_flag = TUR_released_don_kuban_host
+		DON = {
+			is_subject_of_type = cossack_autonomy_EP
+			is_subject_of = ROOT
+		}
+		OR = {
+			tag = TUR
+			tag = MAM
+			tag = BYZ
+			tag = RUM
+		}
+		any_province = {
+			NOT = { country_or_non_sovereign_subject_holds = DON }
+			country_or_non_sovereign_subject_holds = ROOT
+			OR = {
+				region = russia_region
+				region = ural_region
+				area = sloboda_ukraine_area
+				area = chernigov_area
+				area = smolensk_area
+				area = lower_don_area
+				area = astrakhan_area
+			}
+		}
+	}
+	
+	hidden = yes
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = EVHO_cossacks.300.a
+		every_province = {
+			limit = {
+				AND = {
+					NOT = { country_or_non_sovereign_subject_holds = DON }
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						region = russia_region
+						region = ural_region
+						area = sloboda_ukraine_area
+						area = chernigov_area
+						area = smolensk_area
+						area = lower_don_area
+						area = astrakhan_area
+					}
+				}
+			}
+			remove_core = owner
+			cede_province = DON
+			add_core = DON
+		}
+	}
+}

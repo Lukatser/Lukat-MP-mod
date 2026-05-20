@@ -66,17 +66,12 @@ center_of_trade = 1
 	revolt = { }
 } # Muhammed Shuja defeated by Aurangzeb
 1698.1.1 = {
-	owner = ENG
-	controller = ENG
-	add_core = ENG
+	owner = EIC
+	controller = EIC
+	add_core = EIC
 	remove_core = MUG
 	capital = "Calcutta"
 	base_production = 11
-} # The area is bought by the East India Company
-1707.5.12 = {
-	owner = GBR
-	controller = GBR
-	add_core = GBR
 }
 1756.1.1 = { controller = BNG } # Captured by Siraj-ud-daullah
-1757.6.23 = { controller = GBR } # Battle of Plassey, a new Nawab is installed by the British
+1757.6.23 = { controller = EIC } # Battle of Plassey, a new Nawab is installed by the British

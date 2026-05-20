@@ -3,6 +3,8 @@ add_government_reform = feudalism_reform
 technology_group = western
 primary_culture = bavarian
 religion = catholic
+historical_friend = STY
+historical_friend = HAB
 capital = 65	# München!
 
 1503.12.1 = {
@@ -250,7 +252,7 @@ capital = 65	# München!
 		birth_date = 1662.7.11
 		death_date = 1726.2.26
 		claim = 95
-		adm = 6
+		adm  = 7
 		dip = 3
 		mil = 2
 		leader = { name = "Max II Emmanuel"	type = general	fire = 2	shock = 3	manuever = 3	siege = 0 }

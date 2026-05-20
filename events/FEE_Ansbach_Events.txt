@@ -459,6 +459,10 @@ country_event = {
 		}
 	}
 
+	mean_time_to_happen = {
+		days = 30
+	}
+
 	option = {
 		name = FEE_Ansbach_Events.9.OPT1
 		ai_chance = {
@@ -498,8 +502,20 @@ country_event = {
 			}
 			change_tag = FKN
 			restore_country_name_effect = yes
-			franconia_area = { add_permanent_claim = ROOT }
-			upper_franconia_area = { add_permanent_claim = ROOT }
+			franconia_area = {
+				limit = {
+					NOT = { owned_by = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			upper_franconia_area = {
+				limit = {
+					NOT = { owned_by = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
@@ -552,6 +568,10 @@ country_event = {
 				value = 2
 			}
 		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
 	}
 
 	option = {

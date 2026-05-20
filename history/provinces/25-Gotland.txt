@@ -25,6 +25,12 @@ center_of_trade = 1
 
 
 #1439.9.24 = { revolt = { type = pretender_rebels size = 1 leader = "Eric Gryf" } controller = REB } # Eric settles at Visborg Castle, living off piracy
+
+1446.12.7 = {
+    owner = STP
+    controller = STP
+    add_core = STP
+}
 1449.1.1 = { controller = DAN owner = DAN } # Eric surrenders the Castle to Denmark
 1523.4.14 = { revolt = { type = revolutionary_rebels size = 1 } controller = REB } # Prelude to 'Grevefejden'(Sören Norrby)
 1525.6.1 = { revolt = {} controller = DAN } # Recaptured after Sören Norrby left (date unknown)

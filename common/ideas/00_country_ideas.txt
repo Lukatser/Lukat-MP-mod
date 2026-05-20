@@ -188,6 +188,7 @@ GBR_ideas = {
 	
 	trigger = {
 		tag = GBR
+		tag = UNK
 	}
 	free = yes		#will be added at load.
 
@@ -740,7 +741,13 @@ SPA_ideas = {
 	}
 	
 	trigger = {
-		tag = SPA
+		OR = {
+			tag = SPA
+			AND = {
+				tag = IBA
+				NOT = { primary_culture = portuguese }
+			}
+		}
 	}
 	free = yes		#will be added at load.
 
@@ -918,10 +925,7 @@ FRA_ideas_2 = {
 
 	trigger = {
 		tag = FRA
-		OR = {
-			is_revolution_target = yes
-			is_revolutionary = yes 
-		} 
+		EVHO_is_actually_revolutionary_trigger = yes
 	}
 	free = yes		#will be added at load.
 	
@@ -1598,7 +1602,10 @@ PRU_ideas = {
 	}
 	
 	trigger = {
-		tag = PRU
+		OR = {
+			tag = PRU
+			tag = NGC
+		}
 	}
 	free = yes		#will be added at load.
 	
@@ -1679,7 +1686,13 @@ POR_ideas = {
 	}
 	
 	trigger = {
-		tag = POR
+		OR = {
+			tag = POR
+			AND = {
+				tag = IBA
+				primary_culture = portuguese
+			}
+		}
 	}
 	free = yes		#will be added at load.
 	
@@ -1844,7 +1857,7 @@ PLC_ideas = {
 	
 	trigger = {
 		tag = PLC
-		NOT = { has_country_flag = is_LPC_flag }
+		NOT = { primary_culture = lithuanian }
 	}
 	free = yes
 	
@@ -1885,7 +1898,7 @@ PLC_LIT_ideas = {
 	
 	trigger = {
 		tag = PLC 
-		has_country_flag = is_LPC_flag 
+		primary_culture = lithuanian
 	}
 	free = yes	
 	
@@ -7592,7 +7605,10 @@ ZAZ_ideas = {
 	}
 	
 	trigger = {
-		tag = ZAZ
+		OR = {
+			tag = ZAZ
+			tag = DON
+		}
 	}
 	free = yes
 	

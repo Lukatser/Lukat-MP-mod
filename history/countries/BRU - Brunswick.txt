@@ -5,6 +5,7 @@ technology_group = western
 primary_culture = lower_saxon
 religion = catholic
 capital = 57 # Brunswick
+historical_friend = LUN
 
 
 1373.1.1 = {

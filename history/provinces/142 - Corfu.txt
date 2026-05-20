@@ -44,8 +44,8 @@ discovered_by = ottoman
 	add_core = FRA
 } # Back under French control after the Treaty of Tilsit
 1815.11.5 = {
-	owner = GBR
-	controller = GBR
-	add_core = GBR
+	owner = UNK
+	controller = UNK
+	add_core = UNK
 	remove_core = FRA
 } # The Second Treaty of Paris

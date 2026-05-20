@@ -6,6 +6,7 @@ religion = catholic
 primary_culture = wallonian
 capital = 93	# Liège
 add_accepted_culture = flemish
+historical_friend = BUR
 
 1389.1.1 = {
 	monarch = {

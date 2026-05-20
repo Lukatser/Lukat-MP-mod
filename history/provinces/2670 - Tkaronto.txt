@@ -17,7 +17,7 @@ native_hostileness = 2
 
 discovered_by = north_american
 
-1615.1.1 = { discovered_by = FRA } # Étienne Brûlé
+1615.1.1 = { discovered_by = FRA } # ï¿½tienne Brï¿½lï¿½
 1629.1.1 = { discovered_by = ENG }
 
 1649.1.1 = {
@@ -35,7 +35,7 @@ discovered_by = north_american
 	religion = catholic
 } #Great Peace of Montreal, French and allies dominant in this area
 1750.1.1 = {	
-	capital = "Fort Rouillé"
+	capital = "Fort Rouillï¿½"
 }
 1763.2.10 = {
 	owner = GBR
@@ -47,3 +47,10 @@ discovered_by = north_american
  	culture = english
 	religion = protestant 
 } #Loyalist migration after the revolution
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

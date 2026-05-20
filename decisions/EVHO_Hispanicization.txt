@@ -1,0 +1,271 @@
+country_decisions = {
+	spanish_mexico = {
+		major = yes
+		potential = {
+			NOT = {
+				OR = {
+					current_age = age_of_discovery
+					current_age = age_of_reformation
+				}
+			}
+			culture_group = iberian
+			capital_scope = {
+				colonial_region = colonial_mexico
+			}
+			NOT = {
+				AND = {
+					colonial_mexico = {
+						type = all
+						culture_group = iberian
+					}
+				}
+			}
+			num_of_cities = 10
+			NOT = { has_country_flag = spanish_mexico }
+		}
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_mexico
+			}
+			is_core = ROOT
+			NOT = {
+				culture = mexican
+			}
+		}
+		allow = {
+			primary_culture = mexican
+			capital_scope = {
+				colonial_region = colonial_mexico
+			}
+			colonial_mexico = {
+				type = all
+				is_core = ROOT
+			}
+			dip_power = 500
+		}
+		effect = {
+			add_dip_power = -500
+			country_event = { id = colony_cultures.5 days = 10 }
+			custom_tooltip = "spanish_mexico.tt"
+			set_country_flag = spanish_mexico
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 500 }
+			}
+		}
+	}
+	spanish_california = {
+		major = yes
+		potential = {
+			NOT = {
+				OR = {
+					current_age = age_of_discovery
+					current_age = age_of_reformation
+				}
+			}
+			culture_group = iberian
+			capital_scope = {
+				OR = {
+					colonial_region = colonial_california
+					colonial_region = colonial_arizona
+				}
+			}
+			NOT = {
+				AND = {
+					colonial_california = {
+						type = all
+						culture_group = iberian
+					}
+					colonial_arizona = {
+						type = all
+						culture_group = iberian
+					}
+				}
+			}
+			num_of_cities = 10
+			NOT = { has_country_flag = spanish_california }
+		}
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_california
+				colonial_region = colonial_arizona
+			}
+			is_core = ROOT
+			NOT = {
+				culture = californian
+			}
+		}
+		allow = {
+			primary_culture = californian
+			capital_scope = {
+				OR = {
+					colonial_region = colonial_california
+					colonial_region = colonial_arizona
+				}
+			}
+			colonial_california = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_arizona = {
+				type = all
+				is_core = ROOT
+			}
+			dip_power = 500
+		}
+		effect = {
+			add_dip_power = -500
+			country_event = { id = colony_cultures.7 days = 10 }
+			custom_tooltip = "spanish_california.tt"
+			set_country_flag = spanish_california
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 500 }
+			}
+		}
+	}
+	american_us = {
+		major = yes
+		potential = {
+			current_age = age_of_revolutions
+			culture_group = british
+			OR = {
+				tag = USA
+				tag = TTC
+			}
+			num_of_cities = 50
+			NOT = { has_country_flag = american_us }
+		}
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_new_england
+				colonial_region = colonial_new_amsterdam
+				colonial_region = colonial_eastern_america 
+				colonial_region = colonial_virginia
+				colonial_region = colonial_carolina
+				colonial_region = colonial_georgia
+				colonial_region = colonial_mississippi
+				colonial_region = colonial_kentucky
+				colonial_region = colonial_ohio
+				colonial_region = colonial_louisiana
+				colonial_region = colonial_florida
+				colonial_region = colonial_california
+				colonial_region = colonial_texas
+				colonial_region = colonial_arizona
+				colonial_region = colonial_oregon
+			}
+			is_core = ROOT
+			OR = {
+				culture = shawnee
+				culture = illini
+				culture = anishinabe
+				culture = cree
+				culture = dakota
+				culture = nakota
+				culture = chiwere
+				culture = osage
+				culture = catawba
+				culture = wichita
+				culture = caddo
+				culture = pawnee
+				culture = creek
+				culture = choctaw
+				culture = chickasaw
+				culture = apache
+				culture = mescalero
+				culture = lipan
+				culture = navajo
+				culture = chipewyan
+				culture = haida
+				culture = athabascan
+				culture = pueblo
+				culture = piman
+				culture = shoshone
+				culture = kiowa
+			}
+		}
+		allow = {
+			primary_culture = american
+			OR = {
+				tag = TTC
+				tag = USA
+			}
+			colonial_new_england = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_new_amsterdam = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_eastern_america = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_virginia = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_carolina = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_georgia = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_mississippi = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_kentucky = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_ohio = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_louisiana = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_california = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_texas = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_arizona = {
+				type = all
+				is_core = ROOT
+			}
+			colonial_oregon = {
+				type = all
+				is_core = ROOT
+			}
+			dip_power = 500
+		}
+		effect = {
+			add_dip_power = -500
+			country_event = { id = colony_cultures.9 days = 10 }
+			custom_tooltip = "american_us.tt"
+			set_country_flag = american_us
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 500 }
+			}
+		}
+	}
+}

@@ -28,3 +28,10 @@ discovered_by = north_american
 	is_city = yes
 	trade_goods = fur 
 } #Split Lake House, later Norway House
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

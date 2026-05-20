@@ -5,6 +5,12 @@ technology_group = western
 primary_culture = english
 add_accepted_culture = gascon
 add_accepted_culture = normand
+historical_rival = FRA
+historical_rival = NED
+historical_friend = BEL
+historical_friend = POR
+historical_friend = CAS
+historical_friend = HAN
 religion = catholic
 capital = 236 # London
 national_focus = DIP
@@ -37,23 +43,11 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = infertile_personality
-	set_ruler_flag = henry_vi_lancaster
 }
 
 #1434.1.1 = { leader = {	name = "Richard Neville"	type = general	fire = 3	shock = 3	manuever = 3	siege = 0	death_date = 1460.12.31 } }
 
-1444.1.1 = {
-	leader = {
-		name = "John Talbot"
-		type = general
-		fire = 2
-		shock = 4
-		manuever = 3
-		siege = 0
-		death_date = 1453.7.17
-	}
-	set_estate_privilege = estate_nobles_english_villeinage
-}
+1444.1.1 = { leader = {	name = "John Talbot"	type = general	fire = 2	shock = 4	manuever = 3	siege = 0	death_date = 1453.7.17 } }
 
 1445.4.23 = {
 	queen = {
@@ -83,7 +77,6 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 		dip = 2
 		mil = 4
 	}
-	remove_estate_privilege = estate_nobles_english_villeinage
 }
 
 1455.1.1 = { leader = {	name = "Edmund Beaufort"	type = general	fire = 3	shock = 2	manuever = 2	siege = 0	death_date = 1461.3.4 } }
@@ -323,7 +316,7 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 	queen = {
 		country_of_origin = ARA
 		name = "Catherine"
-		dynasty = "de Trast·mara"
+		dynasty = "de Trast√°mara"
 		birth_date = 1485.12.16
 		death_date = 1536.1.7
 		female = yes
@@ -580,7 +573,7 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 	}
 }
 
-#1577.1.1 = { leader = {	name = "Humphrey Gilbert"	type = explorer	fire = 2	shock = 1	manuever = 1	siege = 0	death_date = 1583.9.9 } } # Removed /SW÷
+#1577.1.1 = { leader = {	name = "Humphrey Gilbert"	type = explorer	fire = 2	shock = 1	manuever = 1	siege = 0	death_date = 1583.9.9 } } # Removed /SW√ñ
 
 1577.1.1 = { leader = {	name = "Francis Drake"         	type = explorer	fire = 5	shock = 5	manuever = 6	siege = 0	death_date = 1596.1.28 } }
 
@@ -600,7 +593,10 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 
 1598.1.1 = { mercantilism = 10 } # The Canceling of Royal Monopolies
 
-1600.1.1 = { leader = {	name = "John Smith"		type = conquistador	fire = 2	shock = 2	manuever = 6	siege = 0	death_date = 1617.7.11 } }
+1600.1.1 = { 
+	leader = {	name = "John Smith"		type = conquistador	fire = 2	shock = 2	manuever = 6	siege = 0	death_date = 1617.7.11 } 
+	EVHO_establish_the_east_india_company_effect = yes
+}
 
 1603.3.24 = {
 	monarch = {
@@ -788,7 +784,7 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 	queen = {
 		country_of_origin = POR
 		name = "Catherine"
-		dynasty = "de BraganÁa"
+		dynasty = "de Bragan√ßa"
 		birth_date = 1638.11.25
 		death_date = 1705.12.31
 		female = yes
@@ -815,7 +811,7 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 
 1678.1.1 = { leader = {	name = "Arthur Herbert"		type = admiral	fire = 2	shock = 3	manuever = 3	siege = 0	death_date = 1688.3.11 } }
 
-#1679.1.1 = { leader = {	name = "William Dampier"	type = explorer	fire = 2	shock = 3	manuever = 3	siege = 0	death_date = 1715.3.15 } } # Removed /SW÷
+#1679.1.1 = { leader = {	name = "William Dampier"	type = explorer	fire = 2	shock = 3	manuever = 3	siege = 0	death_date = 1715.3.15 } } # Removed /SW√ñ
 
 1685.1.1 = { leader = {	name = "John Churchill"		type = general	fire = 6	shock = 6	manuever = 5	siege = 2	death_date = 1722.6.27 } }
 
@@ -927,7 +923,7 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 
 1690.1.1 = { leader = {	name = "John Benbow"		type = admiral	fire = 2	shock = 4	manuever = 3	siege = 0	death_date = 1702.11.4 } }
 
-#1690.1.1 = { leader = {	name = "Edward Russell"		type = admiral	fire = 2	shock = 3	manuever = 3	siege = 0	death_date = 1727.3.7 } } # Removed /SW÷
+#1690.1.1 = { leader = {	name = "Edward Russell"		type = admiral	fire = 2	shock = 3	manuever = 3	siege = 0	death_date = 1727.3.7 } } # Removed /SW√ñ
 
 1694.1.1 = { leader = {	name = "Thomas Mathews"		type = general	fire = 3	shock = 3	manuever = 4	siege = 0	death_date = 1751.7.19 } }
 

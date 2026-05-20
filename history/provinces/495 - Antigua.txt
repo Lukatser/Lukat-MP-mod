@@ -38,3 +38,10 @@ discovered_by = ARW
 }
 1736.1.1 = { unrest = 3 } # Slave uprising
 1737.1.1 = { unrest = 0 } # The plot was discovered and put down
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

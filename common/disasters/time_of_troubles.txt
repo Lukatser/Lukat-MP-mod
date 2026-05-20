@@ -1,0 +1,138 @@
+time_of_troubles = {
+	potential = {
+		is_free_or_tributary_trigger = yes
+		normal_or_historical_nations = yes
+		NOT = { has_country_flag = rus_had_time_of_troubles }
+		NOT = { has_country_flag = must_always_have_a_romanov }
+		OR = {
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+		}
+		OR = {
+			tag = RUS
+			AND = {
+				tag = MOS
+				NOT = { exists = RUS }
+				NOT = { exists = NOV }
+			}
+			AND = {
+				tag = NOV
+				NOT = { exists = MOS }
+				NOT = { exists = RUS }
+			}
+		}
+	}
+
+	
+	
+	can_start = {
+		has_any_disaster = no
+		government = monarchy
+		OR = {
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+		}
+		OR = {
+			AND = {
+				NOT = { stability = 0 }
+				has_new_dynasty = yes
+				custom_trigger_tooltip = {
+					tooltip = less_than_9_total_stats
+					NOT = {
+						ruler_total_stats = {
+							amount = 9
+						}
+					}
+				}
+			}
+			AND = {
+				is_year = 1590
+				dynasty = "Rurikovich"
+				NOT = { stability = 2 }
+			}
+		}
+	}
+	
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			NOT = { government = monarchy }
+		}
+	}
+	
+	modifier = {
+		global_unrest = 10
+		stability_cost_modifier = 0.20
+		monthly_russian_modernization = -2
+	}
+	
+	
+	progress = {
+		modifier = {
+			factor = 1
+			NOT = { stability = 3 }
+		} 
+		modifier = {
+			factor = 1
+			NOT = { stability = 2 }
+		} 
+		modifier = {
+			factor = 1
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 1
+			war_exhaustion = 5
+		}
+		modifier = {
+			factor = 1
+			war_exhaustion = 10
+		}
+	}
+	
+	
+	can_end = {
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		NOT = { has_ruler_modifier = usurper_on_the_throne }
+		capital_scope = { controlled_by = ROOT }
+		OR = {
+			stability = 3
+			AND = {
+				stability = 1
+				NOT = { dynasty = "Rurikovich" }
+			}
+			AND = {
+				stability = 1
+				custom_trigger_tooltip = {
+					tooltip = had_disaster_for_x_years_dutch
+					had_country_flag = {
+						flag = time_of_troubles
+						days = 7300 # 20 years
+					}
+				}
+			}
+		}
+	}
+
+	
+	on_start = time_of_troubles.1
+	on_end = time_of_troubles.10
+	
+	on_monthly = {
+		events = {
+		}
+		
+		random_events = { 
+			1000 = 0
+			100 = time_of_troubles.2 # The Insanity of MONARCH
+			100 = time_of_troubles.3 # Famine Strikes
+			100 = time_of_troubles.4 # Plague
+			100 = time_of_troubles.5 # Brigands in PROVINCE
+			100 = time_of_troubles.6 # First Dimitri
+			100 = time_of_troubles.9 # False Dimitri Overthrown
+			#time_of_troubles.7, time_of_troubles.11, time_of_troubles.8, 
+		}
+	}
+}
+

@@ -1,5 +1,5 @@
 government = monarchy
-add_government_reform = feudal_france_reform
+add_government_reform = french_feudalism
 primary_culture = cosmopolitan_french
 add_accepted_culture = gascon
 add_accepted_culture = occitain
@@ -7,7 +7,19 @@ religion = catholic
 technology_group = western
 capital = 183 # Paris
 national_focus = DIP
+historical_rival = STY
 historical_rival = HAB
+historical_rival = ENG
+historical_rival = GBR
+historical_rival = UNK
+historical_friend = PRO
+historical_friend = SWI
+historical_friend = MLO
+historical_friend = USA
+historical_friend = NAP
+historical_friend = LAN
+historical_friend = TUS
+historical_friend = SCO
 
 change_estate_land_share = {
 	estate = estate_nobles
@@ -128,6 +140,7 @@ change_estate_land_share = {
 #1435.1.1 = { leader = { name = "Jean de Xaintrailles" 	type = general	fire = 3	shock = 3	manuever = 4	siege = 1	death_date = 1461.10.7 } }
 
 1439.1.1 = {
+	set_estate_privilege = estate_nobles_french_strong_duchies
 	leader = {
 		name = "Jean Bureau"
 		type = general
@@ -139,10 +152,6 @@ change_estate_land_share = {
 		death_date = 1463.7.5
 		personality = siege_specialist_personality
 	}
-}
-
-1444.10.1 = {
-	set_estate_privilege = estate_nobles_french_strong_duchies
 }
 
 1455.1.1 = { add_army_professionalism = 0.1 }
@@ -1108,7 +1117,7 @@ add_government_reform = autocracy_reform }
 
 1814.4.11 = {
 	government_rank = 2
-	add_government_reform = feudalism_reform
+	add_government_reform = post_revolution_kingdom_reform
 	monarch = {
 		name = "Louis XVIII"
 		dynasty = "de Bourbon"

@@ -5,11 +5,13 @@ mercantilism = 25
 primary_culture = novgorodian
 religion = orthodox
 technology_group = eastern
+historical_friend = LIT
 historical_rival = MOS
+historical_rival = TEU
+historical_rival = LIV
 capital = 310	# Novgorod
 fixed_capital = 310 # Cannot move capital away from this province & no power cost to move to it
 
-add_accepted_culture = karelian
 1429.1.1 = {
 	monarch = {
 		name = "Evfimy II"
@@ -18,6 +20,8 @@ add_accepted_culture = karelian
 		mil = 2
 	}
 }
+
+1444.1.1 = { add_truce_with = DAN } ## EVHO ##
 
 1456.2.1 = {
 	government_rank = 1

@@ -45,8 +45,9 @@ discovered_by = ARW
 1791.8.22 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Civil war, The Great slave rebellion
 1800.1.1 = { revolt = {} }
 1804.1.1 = {
-	owner = HAT
-	controller = HAT
-	add_core = HAT
+	owner = CSR
+	controller = CSR
+	add_core = CSR
 	remove_core = FRA
+	culture = afro_francois 
 } # Haiti declares independence

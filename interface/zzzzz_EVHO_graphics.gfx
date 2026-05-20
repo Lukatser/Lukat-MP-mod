@@ -1,0 +1,271 @@
+spriteTypes = {	
+
+	maskedShieldType = {
+		name = "GFX_shield_thin_old"
+		textureFile1 = "gfx/shield_frame_old.dds"
+		textureFile2 = "gfx/shield_mask_old.tga"
+		effectFile = "gfx/FX/maskedflag.lua"
+		textureFile3 = "gfx//interface//client_state_symbols_medium.dds"
+		noOfFrames = 120
+		overlay_frames_per_row = 32
+		overlay_rows = 4
+	}
+	spriteType = {
+		name = "GFX_idea_conquest_ideas"
+		texturefile = "gfx//interface//ideas//idea_conquest_ideas.tga"
+		noOfFrames = 1
+
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+	}
+
+	spriteType = {
+		name = "GFX_idea_intercontinental_wars_ideas"
+		texturefile = "gfx//interface//ideas//idea_intercontinental_wars_ideas.tga"
+		noOfFrames = 1
+
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+	}
+	
+	spriteType = {
+		name = "GFX_idea_professional_ideas"
+		texturefile = "gfx//interface//ideas//idea_professional_ideas.tga"
+		noOfFrames = 1
+
+		effectFile = "gfx/FX/buttonstate_linear.lua"
+	}
+	spriteType = {
+		name = "GFX_icon_cossack_autonomy"
+		texturefile = "gfx//interface//GFX_icon_cossack_autonomy.dds"
+	}
+	spriteType = {
+		name = "GFX_diplomacy_cossack_autonomy"
+		texturefile = "gfx//interface//GFX_diplomacy_cossack_autonomy.dds"
+	}
+	spriteType = {
+		name = "GFX_diplomacy_amcossack_autonomy"
+		texturefile = "gfx//interface//GFX_diplomacy_amcossack_autonomy.dds"
+	}
+	
+	# Build
+	
+	spriteType = {
+		name = "GFX_railroad"
+		texturefile = "gfx//interface//buildings//railroad.tga"
+	}
+	spriteType = {
+		name = "GFX_fort_19th"
+		texturefile = "gfx//interface//buildings//latin_fort07.dds"
+	}
+	spriteType = {
+		name = "GFX_fort_19th_easterngfx"
+		texturefile = "gfx//interface//buildings//eastern_fort07.dds"
+	}
+	spriteType = {
+		name = "GFX_fort_19th_asiangfx"
+		texturefile = "gfx//interface//buildings//chinese_fort07.dds"
+	}
+	spriteType = {
+		name = "GFX_fort_19th_africangfx"
+		texturefile = "gfx//interface//buildings//african_fort07.dds"
+	}
+	spriteType = {
+		name = "GFX_fort_19th_indiangfx"
+		texturefile = "gfx//interface//buildings//indian_fort07.dds"
+	}
+	spriteType = {
+		name = "GFX_fort_19th_muslimgfx"
+		texturefile = "gfx//interface//buildings//muslim_fort07.dds"
+	}
+	spriteType = {
+		name = "GFX_fort_19th_northamericagfx"
+		texturefile = "gfx//interface//buildings//northamerica_fort07.dds"
+	}
+	spriteType = {
+		name = "GFX_fort_19th_southamericagfx"
+		texturefile = "gfx//interface//buildings//southamerica_fort07.dds"
+	}
+	spriteType = {
+		name = "GFX_disaster_indian_rebellion_disaster"
+		texturefile = "gfx//interface//disasters//indian_rebellion_disaster.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_disaster_the_anarchy_disaster"
+		texturefile = "gfx//interface//disasters//the_anarchy_disaster.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "caroleans"
+		texturefile = "gfx//modgfx/caroleans.dds"
+	}
+	spriteType = {
+		name = "caroleans2"
+		texturefile = "gfx//modgfx/caroleans2.dds"
+	}
+	spriteType = {
+		name = "gustav"
+		texturefile = "gfx//modgfx/gustav.dds"
+	}
+	spriteType = {
+		name = "marines"
+		texturefile = "gfx//modgfx/marines.dds"
+	}
+	spriteType = {
+		name = "gustav2"
+		texturefile = "gfx//modgfx/gustav2.dds"
+	}
+	spriteType = {
+		name = "sweden"
+		texturefile = "gfx//modgfx/sweden.dds"
+	}
+	spriteType = {
+		name = "carolus"
+		texturefile = "gfx//modgfx/carolus.dds"
+	}
+	#Enlightenment objetives
+	spriteType = {
+		name = "GFX_age_of_enlightenment"
+		texturefile = "gfx/interface/ages/age_of_enlightenment.tga"
+	}
+	spriteType = {
+		name = "GFX_icon_age_of_enlightenment_g"
+		texturefile = "gfx/interface/ages/icon_age_of_enlightenment_g.dds"
+	}
+	spriteType = {
+		name = "GFX_obj_educated_ruler"
+		texturefile = "gfx/interface/ages/obj_enlightenment1.dds"
+	}	
+	spriteType = {
+		name = "GFX_obj_enlightened_reforms"
+		texturefile = "gfx/interface/ages/obj_enlightenment3.dds"
+	}	
+	spriteType = {
+		name = "GFX_obj_rule_the_waves"
+		texturefile = "gfx/interface/ages/obj_enlightenment2.dds"
+	}	
+	spriteType = {
+		name = "GFX_obj_scientific_innovation"
+		texturefile = "gfx/interface/ages/obj_enlightenment4.dds"
+	}	
+	spriteType = {
+		name = "GFX_obj_court_philosophers"
+		texturefile = "gfx/interface/ages/obj_enlightenment5.dds"
+	}	
+	spriteType = {
+		name = "GFX_obj_colonial_revolution"
+		texturefile = "gfx/interface/ages/obj_enlightenment7.dds"
+	}	
+	spriteType = {
+		name = "GFX_obj_benevolent_despotism"
+		texturefile = "gfx/interface/ages/obj_enlightenment6.tga"
+	}	
+	
+	#Enlightenment abilities
+	spriteType = {
+		name = "GFX_ab_enlightened_absolutism"
+		texturefile = "gfx/interface/ages/enlightened_absolutism.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_flexible_diplomacy"
+		texturefile = "gfx/interface/ages/flexible_diplomacy.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_18_century_army"
+		texturefile = "gfx/interface/ages/18_century_army.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_heyday_of_arts"
+		texturefile = "gfx/interface/ages/heyday_of_arts.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_rationalist_rule"
+		texturefile = "gfx/interface/ages/rationalist_rule.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_first_industrial_revolution"
+		texturefile = "gfx/interface/ages/first_industrial_revolution.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_early_imperialism"
+		texturefile = "gfx/interface/ages/early_imperialism.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_golden_age_of_piracy"
+		texturefile = "gfx/interface/ages/golden_age_of_piracy.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_patchwork_empire"
+		texturefile = "gfx/interface/ages/patchwork_empire.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_colonial_assembly"
+		texturefile = "gfx/interface/ages/colonial_assemblies.dds"
+	}	
+	spriteType = {
+		name = "GFX_ab_westernization"
+		texturefile = "gfx/interface/ages/westernization.dds"
+	}	
+	spriteType = {
+		name = "GFX_advisor_army_general"
+		texturefile = "gfx//interface//advisors/army_general.tga"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_advisor_gfx_army_general_female"
+		texturefile = "gfx//interface//advisors//army_general_female.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_advisor_army_maneuverer"
+		texturefile = "gfx//interface//advisors/army_maneuverer.tga"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_advisor_gfx_army_maneuverer_female"
+		texturefile = "gfx//interface//advisors//army_maneuverer_female.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_advisor_staunch_fighter"
+		texturefile = "gfx//interface//advisors/staunch_fighter.tga"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_advisor_gfx_staunch_fighter_female"
+		texturefile = "gfx//interface//advisors//staunch_fighter_female.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "st_michael_slaying_dragon"
+		texturefile = "gfx/interface/missions/st_michael_slaying_dragon.tga"
+	}
+	spriteType = {
+		name = "GFX_disaster_evho_moroccan_succession_crisis"
+		texturefile = "gfx/interface/disasters/evho_moroccan_succession_crisis.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
+}

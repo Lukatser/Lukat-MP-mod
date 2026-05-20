@@ -1,6 +1,6 @@
 government = republic
 government_rank = 3
-primary_culture = castillian
+primary_culture = platinean
 religion = catholic
 technology_group = western
 capital = 787	# Santiago

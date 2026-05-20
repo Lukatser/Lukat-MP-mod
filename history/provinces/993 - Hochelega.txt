@@ -22,7 +22,7 @@ center_of_trade = 1
 	controller = FRA
 	add_core = FRA
 	is_city = yes
-	capital = "Montréal"
+	capital = "Montrï¿½al"
 	religion = catholic
 	culture = cosmopolitan_french
 }
@@ -38,3 +38,10 @@ center_of_trade = 1
 	add_core = GBR
 	remove_core = FRA
 }# Treaty of Paris - ceded to the British
+
+1801.1.1 = {
+	owner = UNK
+	controller = UNK
+	add_core = UNK
+	remove_core = GBR
+}

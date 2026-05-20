@@ -3,9 +3,11 @@ add_government_reform = steppe_horde
 primary_culture = kirgiz
 religion = sunni
 technology_group = nomad_group
-capital = 2120
+capital = 715
 religious_school = hanafi_school
 add_accepted_culture = uyghur
+historical_friend = AFG
+historical_rival = KAS
 
 #Khans of Mughalistan
 1399.1.1 = {
