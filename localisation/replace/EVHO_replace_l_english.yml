@@ -62,19 +62,12 @@
  colonial_alaska:0 "Colonial Alaska"
  colonial_the_carribean:0 "Colonial Cuba"
  
- TUR:0 "Ottoman Turks"
- MAM:0 "Mamluk Turks"
- QAR:0 "Blacksheep Turks"
+ 
  QAR_ADJ:0 "Qoyunlid"
- AKK:0 "Whitesheep Turks"
+ 
  AKK_ADJ:0 "Qoyunlid"
  EIC:0 "East India Company"
  EIC_ADJ:0 "Company Raj"
- USA:0 "America"
- QNG:0 "Great Qing"
- MNG:0 "Great Ming"
- TIM:0 "Gurkani"
- TIM_ADJ:0 "Gurkanid"
  HAT:0 "Antillea"
  HAT_ADJ:0 "Antillean"
  TRS:0 "Samarqand"

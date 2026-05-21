@@ -777,3 +777,6 @@ desc_indian_rebellion_disaster:0 "Tensions between the native Indians and Compan
  estate_church_evho_right_to_inquisition_in_seperatist_regions_revoke_effect_tooltip:0 "The modifier '§YInquisition Against Religious Seperatists§!' is removed from any owned province that has it. Adds §YReligious Seperatism§! to these provinces."
  estate_church_evho_right_to_inquisition_mod:0 "Inquisition Against Religious Seperatists"
  desc_estate_church_evho_right_to_inquisition_mod:0 "This state has been turned in part over to the hands of the Faith in order to mobilize it against the resident heathen nobility."
+ splendor_triggered_modifier_1: "A bright ruler"
+ splendor_triggered_modifier_2: "Well advised"
+ splendor_triggered_modifier_3: "Bankrupt"
