@@ -62,7 +62,7 @@ country_decisions = {
 			add_prestige = 10
 			on_change_tag_effect = yes
 			restore_country_name_effect = yes
-			add_government_reform = arch_duchy_reform
+			add_government_reform = austrian_archduchy_reform
 			austria_proper_area = {
 				limit = {
 					NOT = { owned_by = ROOT }

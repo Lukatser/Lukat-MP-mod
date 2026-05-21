@@ -177,6 +177,8 @@ austrian_archduchy_reform = {
 		nobles_influence_modifier = 0.05
 		maratha_exclusive_influence_modifier = 0.05
 		rajput_exclusive_influence_modifier = 0.05
+		diplomatic_reputation = 1
+		monthly_splendor = 1
 	}
 	custom_attributes = {
 		buffed_strong_duchies = yes #+5% Loyalty
@@ -1032,7 +1034,7 @@ ottoman_government = {
 		unjustified_demands = -0.05
 		legitimacy = 0.65
 		max_absolutism = 5
-		governing_capacity = 500
+		governing_capacity = 250
 	}
 
 	removed_effect = {

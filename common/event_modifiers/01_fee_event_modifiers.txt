@@ -20,5 +20,5 @@ professional_marines_tm = {
 }
 
 fuck_your_tariffs = {
-	global_tariffs = -0.5
+	reduced_liberty_desire_on_other_continent = -20
 }
