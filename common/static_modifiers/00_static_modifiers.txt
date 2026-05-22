@@ -2245,24 +2245,6 @@ over_governing_capacity_modifier = {
 
 #Scales with used capacity, being at full capacity means 100% of the modifier
 under_governing_capacity_modifier = {
-	ae_impact = 0.025
-	
-	global_tax_modifier = -0.02
-	production_efficiency = -0.02
-	trade_efficiency = -0.02
-	development_cost = 0.025
-	build_cost = 0.025
-	yearly_corruption = 0.025
-
-	technology_cost = 0.025
-	global_institution_spread = -0.025
-	reform_progress_growth = -0.025
-
-	culture_conversion_cost = 0.05
-	promote_culture_cost = 0.05
-
-	global_unrest = 0.40
-	stability_cost_modifier = 0.035
 }
 #Scales with unused capacity, eing at full capacity means 0% of the modifier
 reverse_under_governing_capacity_modifier = {

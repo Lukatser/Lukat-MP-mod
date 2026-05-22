@@ -1,59 +1,3 @@
-# Alaska
-colonial_alaska = {
-	color = { 225 225 225 }
-
-	# Random New World
-	tax_income = 0
-	native_size = 8
-	native_ferocity = 1
-	native_hostileness = 4
-
-	trade_goods = {
-		fur = 10
-		fish = 3
-		naval_supplies = 2
-		gold = 2
-	}
-
-	culture = {
-		inuit = 10
-		aleutian = 8
-	}
-
-	religion = {
-		shamanism = 10
-	}
-
-	provinces = {
-		979 978 977 976 2611 2612 2613
-	}
-	
-	# Specific
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "COLONIAL_ALASKA_Alyeska"
-	}
-	# Generic
-	names = {
-		name = "COLONIAL_ALASKA_Alaska"
-	}
-
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-	names = {
-		name = "COLONIAL_ALASKA_Aleutia"
-	}
-}
-
 # Canada
 colonial_canada = {
 	color = { 255 241 60 }
@@ -69,9 +13,6 @@ colonial_canada = {
 		fish = 3
 		naval_supplies = 4
 		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
 	}
 
 	culture = {
@@ -97,9 +38,9 @@ colonial_canada = {
 		986 994 995 2582 2583
 		990 993 2584 2012
 		992 2579 2580 2581
-		
-		#Ontario
-		991 1001 1007 2015
+		2570 2571 2572 985 984 2568 2569 982 983
+		4896 4891
+		991 1001 2015
 		988 2586 2587 2671
 		987 989 2585 2670
 		
@@ -304,158 +245,6 @@ colonial_canada = {
 	}
 }
 
-# Pennsylvania
-colonial_eastern_america = {
-	color = { 244 164 96 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		953 2553 2554 2556 2555 954 2557 2023 956 955 962 957 2639
-		4875 4876
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				tag = ENG
-				tag = GBR
-				tag = AFU
-				tag = UNK
-				culture_group = british
-			}
-		}
-		name = "COLONIAL_EASTERN_AMERICA_Pennsylvania"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = spaniard
-				primary_culture = castillian
-				primary_culture = mexican
-			}
-		}
-		name = "CAM_Guzmansylvania"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_Sousasylvania"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_TerradeEstevaoGomes"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_Polnareffsylvanie"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_Windtsylvania"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_Hansylvania"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-			NOT = { primary_culture = swedish }
-		}
-		name = "NS_Padersensylvania"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_NewSweden"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_Magnusylvania"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_Orlovsilvaniya"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_Pasternaksylwania"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_Hasimsilvanya"
-	}
-	# Generic
-	names = {
-		trigger = {
-			owns = 957
-		}
-		name = "PROV957" # Delaware
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
 # Louisiana
 colonial_louisiana = {
 	color = { 33 87 161 }
@@ -495,7 +284,7 @@ colonial_louisiana = {
 		907 908 905 904 902 921 1809 2006 2007 2008 2009 2014 2016
 		2501 2502 2503 2504 2505 2506 2507 2508 2509 2510 2511 2512 2513 2514 2515 2516 2672
 		4905 4906 4923 4886 4908 4914 4915 4916 4900 4901 4918 4885
-		4902 4917
+		4902 4917 889 2625
 	}
 
 	# Specific
@@ -642,6 +431,7 @@ colonial_california = {
 		grain = 3
 		salt = 1
 		wool = 2
+		gold = 4
 	}
 
 	culture = {
@@ -660,7 +450,12 @@ colonial_california = {
 		2476 2477 2478 2479 2480
 		4638 4637 4636 4635
 		865 866 2620 4639 # beja california, arizona, and sonoria
-		1808 4947 867
+		1808 4947 867 4633 877 876 2491 881
+		4634 879 2492
+		2493 875 878 2494
+		2495 4632 4631 880 
+		2490 4950 4949 4948
+		2020
 	}
 
 	# Specific
@@ -998,6 +793,9 @@ colonial_the_carribean = {
 		484 485 486
 		2654 2655 2656
 		4624 4622 4623
+		488 489 490
+		2658 2659
+		4618 4619 4620 4621
 	}
 
 	# Specific
@@ -1159,7 +957,7 @@ colonial_colombia = {
 
 	trade_goods = {
 		fur = 3
-		cocoa = 7
+		fish = 7
 		gold = 3
 		grain = 4
 		naval_supplies = 1
@@ -1831,7 +1629,7 @@ colonial_brazil = {
 		749 752 2886 2923 2924 2925 2926 2927 #Maranhao
 		747 748 2890 2928 2929 2930 2933 2934 2935 #Grao-Para
 		2889   2938 #Guyana
-		4953
+		4953 743 744 745 2937 746 2931
 	}
 
 	# Specific
@@ -2219,6 +2017,7 @@ colonial_australia = {
 	}
 }
 
+# Columbia
 colonial_columbia = {
 	color = { 223 0 255 }
 
@@ -2246,6 +2045,8 @@ colonial_columbia = {
 
 	provinces = {
 		972 973 974 2610 2003 2604 2605 2606 2607 975 2022 2609 1814 4951
+		979 978 977 976 2611 2612 2613
+		4946 2484 872 873 874 2481 2482 2483 2485 2486 2487 2488 2489 2019 
 	}
 	
 	names = {
@@ -2275,7 +2076,7 @@ colonial_columbia = {
 				culture_group = west_slavic
 			}
 		}
-		name = "RU_Beringa"
+		name = "COLONIAL_ALASKA_Alyeska"
 	}
 	names = {
 		trigger = {
@@ -2420,294 +2221,6 @@ colonial_columbia = {
 	}
 }
 
-colonial_oregon = {
-	color = { 31 117 254 }
-
-	# Random New World
-	tax_income = 0
-	native_size = 8
-	native_ferocity = 1
-	native_hostileness = 4
-	
-	trade_goods = {
-		fur = 10
-		fish = 3
-		naval_supplies = 2
-		gold = 2
-	}
-	
-	culture = {
-		inuit = 10
-		aleutian = 8
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-
-	provinces = {
-		4946 2484 872 873 874 2481 2482 2483 2485 2486 2487 2488 2489 2019 2020
-	}
-	
-	names = {
-		trigger = {
-			OR = {
-				tag = IBA
-				tag = SPA
-				tag = CAS
-				tag = ARA
-				culture_group = iberian
-			}
-		}
-		name = "COLONIAL_OREGON_Oregon_spa"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_Oregon"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_Oregon"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_GwladOregon"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_Ouaricon"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_Krayina_Orehon"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_Oregonu"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_OregonLand"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_Oregonland"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-		}
-		name = "GE_Oregonland"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_OregonBolgesi"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = vietnamese
-			}
-		}
-		name = "VN_QuocOreqon"
-	}
-
-	names = {
-		trigger = {
-			culture_group = east_asian
-			is_emperor_of_china = no
-		}
-		name = "CN_Eleigang"
-	}
-	names = {
-		trigger = {
-			is_emperor_of_china = yes
-		}
-		name = "CN_EleigangProvince"
-	}
-	names = {
-		trigger = {
-			culture_group = japanese_g
-		}
-		name = "JP_Oregun"
-	}
-	names = {
-		trigger = {
-			culture_group = korean
-		}
-		name = "KR_Oligeon"
-	}
-
-	# Generic
-	names = {
-		name = "COLONIAL_OREGON_Oregon"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
-# Acadia
-colonial_acadia = {
-	color = { 102 153 204 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		2570 2571 2572 985 984 2568 2569 982 983
-		4896 4891
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				tag = ENG
-				tag = GBR
-				tag = AFU
-				tag = UNK
-				culture_group = british
-			}
-		}
-		name = "COLONIAL_CANADA_Nova_Scotia" # Nova Scotia
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "COLONIAL_CANADA_Acadie" # Acadië
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_NeuDanemark"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = spaniard
-				primary_culture = castillian
-				primary_culture = mexican
-			}
-		}
-		name = "CAM_NovaGaliciae"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_NovaCornualha"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-		}
-		name = "NS_NovaAnglia"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_NovaNovgorod"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_NovePrusko"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_NovaRoma"
-	}
-	
-	# Generic
-	names = {
-		name = "COLONIAL_CANADA_Acadia"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
 # Hudson Bay
 colonial_hudson_bay = {
 	color = { 159 129 112 }
@@ -2720,12 +2233,11 @@ colonial_hudson_bay = {
 	
 	trade_goods = {
 		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
+		fish = 8
+		gold = 2
+		grain = 3
+		naval_supplies = 1
+		iron = 2
 	}
 	
 	religion = {
@@ -2736,7 +2248,12 @@ colonial_hudson_bay = {
 		998 999 1000 1003 1004
 		1005 1006 1009 2592 2594
 		1002 2588 2589 2590 2591
-		1811
+		1811 1007 2595 2599 2600 2601 2603
+		2004 2017 2018 2602
+		1011 1813 2597
+		1010 1008
+		2593 2596 4919 4920
+		2005 2598
 	}
 	
 	#Specific
@@ -2845,348 +2362,6 @@ colonial_hudson_bay = {
 	}
 }
 
-# Alberta
-colonial_alberta = {
-	color = { 78 202 78 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		2595 2599 2600 2601 2603
-		2004 2017 2018 2602
-		1011 1813 2597
-		1010 1008
-		2593 2596 4919 4920
-		2005 2598
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				tag = ENG
-				tag = GBR
-				tag = AFU
-				tag = UNK
-				culture_group = british
-			}
-		}
-		name = "COLONIAL_CANADA_Alberta" # Hudson Bay
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = spaniard
-				primary_culture = castillian
-				primary_culture = mexican
-			}
-		}
-		name = "CAM_Isabella"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_Maria"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_Antoinette"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_AnnaVanOranje"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_vonAnsbach"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-			NOT = { primary_culture = swedish }
-		}
-		name = "NS_Caroline"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_Christina"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_Yekaterina"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_Jadwiga"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_Rokselana"
-	}
-	
-	# Generic
-	names = {
-		name = "COLONIAL_CANADA_Alberta"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
-# New England
-colonial_new_england = {
-	color = { 165 0 33 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		2560 2010 967 2561 968 966 970 2564 2562 2563 969
-		2013 4873 2565 2567 971 2566
-		4874 4871
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_NewEngland"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_NewEire"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_CymruNewydd"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_NieuwNederland"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_NeuPreussen"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = spaniard
-				primary_culture = castillian
-				primary_culture = mexican
-			}
-		}
-		name = "CAM_NuevaAsturias"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_PortoNovo"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = vietnamese
-			}
-		}
-		name = "VN_PhuNinh"
-	}
-	names = {
-		trigger = {
-			culture_group = east_asian
-			is_emperor_of_china = no
-		}
-		name = "CN_Jidong"
-	}
-	names = {
-		trigger = {
-			is_emperor_of_china = yes
-		}
-		name = "CN_Woyuan"
-	}
-	names = {
-		trigger = {
-			culture_group = japanese_g
-		}
-		name = "JP_Akitsu"
-	}
-	names = {
-		trigger = {
-			culture_group = korean
-		}
-		name = "KR_Gunwi"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_NeuGermania"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_Westhanse"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_NouvelleFlandres"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_NovayaMoskoviya"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_NoweCzechy"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-			NOT = { primary_culture = swedish }
-		}
-		name = "NS_NyeValhalla"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_NyaValhalla"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_Muhammetli"
-	}
-	
-	# Generic
-	names = {
-		trigger = {
-			owns = 968
-		}
-		name = "PROV968" # Massachusets
-	}
-	names = {
-		trigger = {
-			owns = 2010
-		}
-		name = "PROV2010" # Connecticut
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
 # New Amsterdam
 colonial_new_amsterdam = {
 	color = { 212 69 0 }
@@ -3199,12 +2374,13 @@ colonial_new_amsterdam = {
 	
 	trade_goods = {
 		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
+		fish = 10
+		naval_supplies = 14
+		grain = 14
+		livestock = 8
+		glass = 4
+		dyes = 1
+		cloth = 4
 	}
 	
 	religion = {
@@ -3212,8 +2388,15 @@ colonial_new_amsterdam = {
 	}
 	
 	provinces = {
-		965 2558 963 964 961 960 959 958 2559
-		4872 4912
+		965 2558 963 964 961 960 959 958 2559 2551
+		4872 4912 4887 4921 940 941 4888 2526 951 4889
+		948 2525 946 947 2524 2523 942 943 2520 916 2519 917 915 914 913 912 911 2522 944 2521 945
+		910 2517 2518
+		4907 4904 4903 4922 4898 4899
+		2560 2010 967 2561 968 966 970 2564 2562 2563 969
+		2013 4873 2565 2567 971 2566
+		4874 4871 953 2553 2554 2556 2555 954 2557 2023 956 955 962 957 2639
+		4875 4876
 	}
 
 	#Specific
@@ -3338,295 +2521,6 @@ colonial_new_amsterdam = {
 	}
 }
 
-# Virginia
-colonial_virginia = {
-	color = { 255 218 233 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		950 2549 952 2550 2011 949 2552 2548 951 2551
-		4877 4889
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "COLONIAL_EASTERN_AMERICA_Virginia"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_Brucia"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_Goodda"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = spaniard
-				primary_culture = castillian
-				primary_culture = mexican
-			}
-		}
-		name = "CAM_Cidia"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_Navegadoria"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_Soleilia"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_Zwijgeria"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_Grossland"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-			NOT = { primary_culture = swedish }
-		}
-		name = "NS_Atterdagia"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_Norralejonia"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_Velikaya"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_Spraviedlivy"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_Kanunilar"
-	}
-	# Generic
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
-# Carolina
-colonial_carolina = {
-	color = { 46 139 87 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		2542 2541 933 2544 2545 2543 932 937 2546 938 2547 936
-		4882 4879 4878
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_Carolinas"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_Agnuses"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_Rhiannons"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = castillian
-				primary_culture = spaniard
-				primary_culture = mexican
-			}
-		}
-		name = "CAM_Carmelitas"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_AsAguedas"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_LesAmelias"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_DeCornelias"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_DieErikas"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-			NOT = { primary_culture = swedish }
-		}
-		name = "NS_ToAstrider"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_TvaFrejas"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_Natashi"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_Kateriny"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_IkiAzralar"
-	}
-
-	# Generic
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
 # Georgia
 colonial_georgia = {
 	color = { 255 253 208 }
@@ -3638,13 +2532,15 @@ colonial_georgia = {
 	native_hostileness = 5
 	
 	trade_goods = {
-		fur = 15
 		fish = 3
 		naval_supplies = 4
 		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
+		tobacco = 18
+		cotton = 16
+		sugar = 10
+		coffee = 2
+		cocoa = 4
+		tropical_wood = 2
 	}
 	
 	religion = {
@@ -3654,6 +2550,16 @@ colonial_georgia = {
 	provinces = {
 		2539 929 2540 2538 930 2537 931
 		4880 4881
+		2542 2541 933 2544 2545 2543 932 937 2546 938 2547 936
+		4882 4879 4878
+		923 926 927 928
+		2533 2534 2535 2536
+		4626 4625
+		918 2527 934 939 935
+		4913
+		2530 922 2529 920 2528 919 2531 2532 924 925
+		4883 4884 950 2549 952 2550 2011 949 2552 2548
+		4877 
 	}
 	
 	#Specific
@@ -3762,541 +2668,6 @@ colonial_georgia = {
 	}
 }
 
-# Florida
-colonial_florida = {
-	color = { 128 128 0 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	culture = {
-		creek = 5
-		choctaw = 2
-		chickasaw = 2
-		cherokee = 5
-		shawnee = 5
-		dakota = 2
-		iroquois = 3
-		powhatan = 2
-		delaware = 4
-		susquehannock = 5
-		mahican = 2
-		pequot = 2
-		abenaki = 4
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		923 926 927 928
-		2533 2534 2535 2536
-		4626 4625
-	}
-	
-	# Specific
-	names = {
-		trigger = {
-			OR = {
-				tag = CAS
-				tag = SPA
-				tag = IBA
-				culture_group = iberian
-			}
-		}
-		name = "CAM_Florida"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_TerritorioNoreste"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = catalan
-			}
-		}
-		name = "CT_Florida"
-	}
-
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_Floride"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_Florida"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_Flurland"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_Blodau"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_Bloemenland"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_Blumenland"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-		}
-		name = "NS_Blomsterland"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_Svetochnaya"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_Kwiatowka"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_Laleiye"
-	}
-	# Generic
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-	names = {
-		name = "COLONIAL_EASTERN_AMERICA_Florida"
-	}
-}
-
-# Mississippi
-colonial_mississippi = {
-	color = { 244 164 96 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		2530 922 2529 920 2528 919 2531 2532 924 925
-		4883 4884
-	}
-	
-	# Generic
-	names = {
-		name = "COLONIAL_LOUISIANA_Mississippi"
-	}
-	names = {
-		trigger = {
-			owns = 924
-		}
-		name = "PROV924" # Alabama
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
-# Kentucky
-colonial_kentucky = {
-	color = { 72 60 50 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		918 2527 934 939 940 941 935 2526
-		4913 4921 4887 4888
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_NewTransylvania"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_NewNorthHighlands"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_AlpauNewydd"
-	}
-	names = {
-		trigger = {
-			culture_group = iberian
-		}
-		name = "CAM_NuevaNoruega"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_LaBelle"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_Maagdenland"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_NeueSchweiz"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-		}
-		name = "NS_NyKol"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_NovyyUral"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_NoveKarpaty"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_YeniKurdistan"
-	}
-
-	# Generic
-	names = {
-		name = "COLONIAL_KENTUCKY_Kentucky"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
-# Ohio
-colonial_ohio = {
-	color = { 231 172 65 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		948 2525 946 947 2524 2523 942 943 2520 916 2519 917 915 914 913 912 911 2522 944 2521 945
-		910 2517 2518
-		4907 4904 4903 4922 4898 4899
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_NorthwestTerritory"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_NorthwestWilds"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_TiroeddyGogledd"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = spaniard
-				primary_culture = castillian
-				primary_culture = mexican
-			}
-		}
-		name = "CAM_TerritorioNoreste"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_TerritorioNoreste"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_PaysDenHaut"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_NoordwestelijkeGrondgebied"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_Nordwestlichesland"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-			NOT = { primary_culture = swedish }
-		}
-		name = "NS_SorTerritorium"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_SodraTerritoriet"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_YugoTerritoriya"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_ZapadniTeritorium"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_KuzeyBolgesi"
-	}
-
-	#Generic
-	names = {
-		name = "COLONIAL_OHIO_Ohio"
-	}
-	names = {
-		trigger = {
-			owns = 948 # Ohio
-		}
-		name = "PROV948"
-	}
-	names = {
-		trigger = {
-			OR = {
-				owns = 915 # Illinois
-				owns = 916 # Kaskaskia
-				owns = 917 # Cahokia
-			}
-		}
-		name = "PROV915"
-	}
-
-	names = {
-		trigger = {
-			OR = {
-				owns = 945 # Michigan
-				owns = 944 # Potawatomi
-			}
-		}
-		name = "PROV945"
-	}
-	names = {
-		trigger = {
-			OR = {
-				owns = 912 # Sauk
-				owns = 913 # Fox
-				owns = 914 # Winnebago
-			}
-		}
-		name = "COLONIAL_LOUISIANA_Wisconsin"
-	}
-	names = {
-		trigger = {
-			owns = 905 # Iowa
-		}
-		name = "PROV905"
-	}
-	names = {
-		trigger = {
-			owns = 908 # Minnesota
-		}
-		name = "PROV908"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
 # Honduras
 colonial_honduras = {
 	color = { 79 81 109 }
@@ -4367,265 +2738,6 @@ colonial_honduras = {
 	}
 }
 
-# Guyana
-colonial_guyana = {
-	color = { 255 255 0 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		743 744 745 2937 746 2931
-	}
-	
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_Guyana"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_Strathclyde"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_Glyndwr"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_Guyane"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_Suriname"
-	}
-
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_HanauischIndien"
-	}
-
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = catalan
-			}
-		}
-		name = "CT_TarragonaDIndies"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_Gayana"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_Surinam"
-	}
-	
-	# Generic
-	names = {
-		name = "COLONIAL_GUYANA_Guyana"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
-# Arizona
-colonial_arizona = {
-	color = { 72 60 50 }
-
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-	
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-	
-	religion = {
-		shamanism = 10
-	}
-	
-	provinces = {
-		4633 877 876 2491 881
-		4634 879 2492
-		2493 875 878 2494
-		2495 4632 4631 880 
-		2490 4950 4949 4948
-	}
-	
-	# Specific
-	names = {
-		trigger = {
-			OR = {
-				tag = CAS
-				tag = SPA
-				tag = IBA
-				culture_group = iberian
-			}
-		}
-		name = "COLONIAL_TEXAS_new_mexico"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_NewMassachussets"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_NewMassachusetts"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_NewMassachusetts"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_NouveauQuebec"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_NieuwNieuwAmsterdam"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_vonAnsbach"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-			NOT = { primary_culture = swedish }
-		}
-		name = "NS_NyeVinland"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_NyaVinland"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_NovayaAlyaska"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_NowaKwiatowka"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_YeniMeksika"
-	}
-	# Generic
-	names = {
-		name = "COLONIAL_ARIZONA_Arizona"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-}
-
 # Texas
 colonial_texas = {
 	color = { 88 17 26 }
@@ -4651,8 +2763,7 @@ colonial_texas = {
 	}
 	
 	provinces = {
-		884 888 2665 887 2669 886 2500 883 4627 885 2497 882 4630 2496 4628 2498 4629 889
-		2625
+		884 888 2665 887 2669 886 2500 883 4627 885 2497 882 4630 2496 4628 2498 4629 
 		2499 2666
 		4909 4910 4911
 	}
@@ -4763,191 +2874,6 @@ colonial_texas = {
 	}
 }
 
-# Hispanola
-colonial_santo_domingo = {
-	color = { 205  87  107 }
-
-	# Random New World
-	tax_income = 4
-	native_size = 12
-	native_ferocity = 1
-	native_hostileness = 3
-	
-	trade_goods = {
-		sugar = 10
-		cocoa = 1
-		cotton = 1
-	}
-	
-	culture = {
-		arawak = 15
-		carib = 8
-	}
-	
-	religion = {
-		animism = 10
-	}
-	
-	provinces = {
-		488 489 490
-		2658 2659
-		4618 4619 4620 4621
-	}
-	
-	# Specific
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = spaniard
-				primary_culture = castillian
-				primary_culture = mexican
-			}
-		}
-		name = "COLONIAL_THE_CARRIBEAN_Santo_Domingo"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = aragonese
-				primary_culture = spaniard
-				primary_culture = castillian
-				primary_culture = mexican
-			}
-		}
-		name = "CAM_Hispaniola"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_SaintDomingue"
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_Antilles"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = portugese
-				primary_culture = brazilian
-			}
-		}
-		name = "PB_Antilhas"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = english
-			}
-		}
-		name = "EN_LittleBritain"
-	}
-	names = {
-		trigger = {
-			culture_group = scandinavian
-			NOT = { primary_culture = swedish }
-		}
-		name = "NS_NyeDanmark"
-	}
-	names = {
-		trigger = {
-			primary_culture = swedish
-		}
-		name = "SW_NyaOland"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
-			}
-		}
-		name = "SC_NewShetland"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = welsh
-			}
-		}
-		name = "WS_PrydainNewydd"
-	}
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "DFF_GrootTexel"
-	}
-	names = {
-		trigger = {
-			culture_group = germanic
-		}
-		name = "GE_GrossRugen"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_VilayetAntilia"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_NovyyKrym"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "RU_NowaGotlandia"
-	}
-	names = {
-		trigger = {
-			culture_group = east_asian
-			is_emperor_of_china = no
-		}
-		name = "CN_XiyangShitang"
-	}
-	names = {
-		trigger = {
-			is_emperor_of_china = yes
-		}
-		name = "CN_YueyaChangsha"
-	}
-	names = {
-		trigger = {
-			culture_group = japanese_g
-		}
-		name = "JP_Soshoto"
-	}
-	# Generic
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-	names = {
-		name = "COLONIAL_THE_CARRIBEAN_Hispaniola"
-	}
-}
-
 # Congo
 colonial_congo = {
 	color = { 50 211 206 }
@@ -4955,7 +2881,7 @@ colonial_congo = {
 	provinces = {
 		4078 1166 4079 4080 1168 1169 1901 1170 798 4083 4087 4091 4092 4088 4086 4085 4081 2949 4093 4095 4107 4096 4090 4089
 		4097 4099 4105 4109 4103 4100 4101 4098
-		4068 4108 4104 4102 4050 4046 4106  
+		4068 4108 4104 4102 4050 4046 4106  1172 1167 1171 2948 4082 4084 4094 
 	}
 	
 	#Specific
@@ -5196,33 +3122,6 @@ colonial_nzl = {
 	}
 }
 
-# Angola
-colonial_angola = {
-	color = { 102 0 0 }
-	
-	provinces = {
-		1172 1174 1801 1173 1167 1171 2948 4082 4084 4094 
-	}
-	#Specific
-	names = {
-		trigger = {
-			OR = {
-				tag = POR
-				tag = IBA
-				primary_culture = portugese
-			}
-		}
-		name = "COLONIAL_ANGOLA_Angola_por"
-	}
-	# Generic
-	names = {
-		name = "COLONIAL_ANGOLA_Angola"
-	}
-	names = {
-		name = "TRADE_COMPANY_WEST_AFRICA_Root_Culture_GetName"
-	}
-}
-
 # Madagascar
 colonial_madagascar = {
 	color = { 0 24 168 }
@@ -5324,7 +3223,7 @@ colonial_south_africa = {
 	
 	provinces = {
 		789 833 1175 1176 1177 1178 1179 1180 1181 1182 1800 2856 2864 2880 
-		4781 4782 4783 4784
+		4781 4782 4783 4784 1174
 	}
 	
 	#Specific
@@ -5552,88 +3451,6 @@ colonial_indonesia = {
 	}
 }
 
-# Malaysia
-colonial_malaysia = {
-	color = { 178 34 34 }
-	
-	provinces = {
-		597 2686 596 598 2393 2392 595 599 2394 594 593 2390 2391 2703 2704 2705 636 637
-		2387 592
-		4804 4805 4806 4812 4813 4814 4815 4835
-	}
-	
-	names = {
-		trigger = {
-			OR = {
-				tag = ENG
-				tag = GBR
-				tag = AFU
-				tag = UNK
-				culture_group = british
-			}
-		}
-		name = "COLONIAL_MALAYSIA_Malaysia" # Malaysia
-	}
-	
-	names = {
-		trigger = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
-				primary_culture = frisian
-				primary_culture = brabantian
-				primary_culture = afrikaans
-			}
-		}
-		name = "COLONIAL_MALAYSIA_Maleisie" # Maleisië
-	}
-	names = {
-		trigger = {
-			culture_group = french
-		}
-		name = "FR_Malaisie"
-	}
-	names = {
-		trigger = {
-			culture_group = iberian
-		}
-		name = "CAM_Malasia"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = RUS
-				tag = MOS
-				tag = NOV
-				culture_group = east_slavic
-			}
-		}
-		name = "RU_Malayziya"
-	}
-	names = {
-		trigger = {
-			culture_group = west_slavic
-		}
-		name = "PL_Malezja"
-	}
-	names = {
-		trigger = {
-			OR = {
-				culture_group = turkic
-			}
-		}
-		name = "TUR_Malezya"
-	}
-	
-	# Generic
-	names = {
-		name = "COLONIAL_MALAYSIA_Malaysia"
-	}
-	names = {
-		name = "TRADE_COMPANY_INDONESIA_Root_Culture_GetName"
-	}
-}
-
 # Philippines
 colonial_philippines = {
 	color = { 134 96 142 }
@@ -5765,6 +3582,9 @@ colonial_indochina = {
 		610 1016 2373
 		613 616 2372
 		4825 4826 4830 4831 4834 4832 4833 4836 4841 4842 4838 4839 4827 4828 4829 4824 4823 4822 4821 4819 4820 4837 4840
+		597 2686 596 598 2393 2392 595 599 2394 594 593 2390 2391 2703 2704 2705 636 637
+		2387 592
+		4804 4805 4806 4812 4813 4814 4815 4835
 	}
 	
 	names = {
@@ -5778,7 +3598,7 @@ colonial_indochina = {
 				culture_group = british
 			}
 		}
-		name = "COLONIAL_INDOCHINA_indochina" # Indochina
+		name = "COLONIAL_MALAYSIA_Malaysia" # Malaysia
 	}
 	
 	names = {

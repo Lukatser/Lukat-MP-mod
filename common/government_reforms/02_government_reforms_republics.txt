@@ -5017,6 +5017,7 @@ millenarian_theocracy_reform = {
 			tag = TUS
 		}
 	}
+	lock_level_when_selected = yes
 	trigger = {
 		religion = catholic
 		has_ruler = "Girolamo Savonarola"
