@@ -60,7 +60,7 @@ country_event = {
 	option = {
 		name = EVHO_ottoman_events_2.2.a
 		ai_chance = {
-			factor = 25
+			factor = 2
 		}
 		TUR = {
 			set_global_flag = TUR_had_WAL_as_fiefdom
@@ -236,7 +236,7 @@ country_event = {
 	option = {
 		name = EVHO_ottoman_events_2.5.a
 		ai_chance = {
-			factor = 9
+			factor = 1
 		}
 		OVERLORD = {
 			add_opinion = {
@@ -265,7 +265,7 @@ country_event = {
 	option = {
 		name = EVHO_ottoman_events_2.5.b
 		ai_chance = {
-			factor = 1
+			factor = 100
 			modifier = {
 				factor = 0
 				liberty_desire = 50

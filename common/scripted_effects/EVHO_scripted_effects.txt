@@ -1065,7 +1065,7 @@ EVHO_diplo_core_eyalet_aesthetics_effect = {
 		limit = {
 			ROOT = { tag = TUR }
 		}
-		change_country_color = { color = { 142 32 23 } } ## EVHO ##
+		change_country_color = { color = { 126  203  120 } } ## EVHO ##
 	}
 	else_if = {
 		limit = {

@@ -23,69 +23,6 @@ ducal_vassal_cap_1 = {
 	diplomatic_upkeep = 1
 }
 
-royal_vassal_cap_2 = {
-	potential = {
-		OR = {
-			AND = {
-				government_rank = 2
-				has_dlc = "Common Sense"
-			}
-			AND = {
-				total_development = 300
-				NOT = { has_dlc = "Common Sense" }
-			}
-		}
-		NOT = { has_country_modifier = imperial_vassal_cap_3 }
-		NOT = { has_country_modifier = imperial_vassal_cap_4 }
-	}
-	
-	trigger = {
-		num_of_subjects = 2	
-	}
-	diplomatic_upkeep = 2
-}
-
-imperial_vassal_cap_3 = {
-	potential = {
-		OR = {
-			AND = {
-				government_rank = 3
-				has_dlc = "Common Sense"
-			}
-			AND = {
-				total_development = 1000
-				NOT = { has_dlc = "Common Sense" }
-			}
-		}
-		NOT = { num_of_subjects = 4 }
-		NOT = { has_country_modifier = imperial_vassal_cap_4 }
-	}
-	trigger = {
-		num_of_subjects = 3
-	}
-	diplomatic_upkeep = 3
-}
-
-imperial_vassal_cap_4 = {
-	potential = {
-		OR = {
-			AND = {
-				government_rank = 3
-				has_dlc = "Common Sense"
-			}
-			AND = {
-				total_development = 1000
-				NOT = { has_dlc = "Common Sense" }
-			}
-		}
-		num_of_subjects = 4
-	}
-	trigger = {
-		num_of_subjects = 4
-	}
-	diplomatic_upkeep = 4
-}
-
 ase_jihad_triggered_modifier = {
 	potential = {
 		current_age = age_of_reformation
@@ -679,63 +616,6 @@ EP_historically_big_natives = {
 	administrative_efficiency = 0.4
 	global_manpower_modifier = 0.4
 	siege_ability = 0.4
-}
-
-central_europe_ae = {
-	potential = {
-		capital_scope = { 
-			OR = {
-				region = north_german_region
-				region = south_german_region
-				region = italy_region
-				region = low_countries_region
-			}
-		}
-	}
-	trigger = {
-		num_of_cities = 3
-		NOT = { tag = HLR }
-		NOT = { tag = NGC }
-		NOT = { tag = SGC }
-		NOT = { tag = GER }
-		NOT = { tag = ITA }
-		OR = {
-			ai = no
-			tag = BAV
-			NOT = { primary_culture = bavarian }
-			AND = {
-				NOT = { is_year = 1550 }
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					NOT = { culture = bavarian }
-					value = 2
-				}
-			}
-		}
-		OR = {
-			ai = no
-			tag = HAN
-			NOT = { primary_culture = lower_saxon }
-			AND = {
-				NOT = { is_year = 1650 }
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					NOT = { culture = lower_saxon }
-					value = 2
-				}
-			}
-		}
-		NOT = {
-			is_in_war = {
-				attacker_leader = ROOT
-				casus_belli = cb_restore_personal_union
-			}
-		}
-	}
-	ae_impact = 0.25
-	governing_capacity_modifier = -0.25
-	diplomatic_annexation_cost = 0.25
-	province_warscore_cost = 0.25
-	unjustified_demands = 0.25
-	global_unrest = 0.1
 }
 
 holy_league_member = {

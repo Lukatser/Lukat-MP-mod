@@ -18,6 +18,7 @@ categories =  {
 		is_water = yes
 
 		movement_cost = 1.0
+		combat_width = 2
 	}
 
 	inland_ocean = {
@@ -28,6 +29,7 @@ categories =  {
 		inland_sea = yes
 
 		movement_cost = 1.0
+		combat_width = 1.5
 		
 		terrain_override = {
 			1355 1358 1360
@@ -178,7 +180,7 @@ categories =  {
 		sound_type = mountains
 
 		movement_cost = 1.40
-		defence = 1
+		defence = 0.6
 		local_development_cost = 0.25
 		nation_designer_cost_multiplier = 0.85
 		supply_limit = 5
@@ -322,7 +324,7 @@ categories =  {
 		sound_type = mountains
 
 		movement_cost = 1.5
-		defence = 2
+		defence = 1.2
 		local_development_cost = 0.35
 		nation_designer_cost_multiplier = 0.75
 		supply_limit = 4
@@ -477,7 +479,7 @@ categories =  {
 		supply_limit = 5
 		combat_width = -0.25
 		garrison_growth = -0.2
-		local_defensiveness = 0.6
+		local_defensiveness = 0.5
 		attrition = 0.5
 		
 		terrain_override = {
@@ -523,7 +525,7 @@ categories =  {
 		supply_limit = 5
 		combat_width = -0.25
 		garrison_growth = 0.2
-		local_defensiveness = 1
+		local_defensiveness = 0.6
 
 		terrain_override = {
 			1860 #England

@@ -457,12 +457,6 @@ country_event = {
 		name = ev_france.8.a
 		set_country_flag = corsica_claim 
 		1247 = { add_permanent_claim = ROOT }
-		hidden_effect = {
-			if = {
-				limit = { ai = yes exists = COR }
-				vassalize = COR
-			}
-		}
 		ai_chance = {
 			factor = 10
 		}
@@ -471,117 +465,6 @@ country_event = {
 
 # Retake Burgundy from Succession-Haver IF NOT EMPEROR
 
-country_event = {
-	id = ev_france.9
-	title = ev_france.9.t
-	desc = ev_france.9.d
-	picture = BATTLE_eventPicture
-	
-	fire_only_once = yes
-	
-	trigger = {
-		is_at_war = no
-		is_free_or_tributary_trigger = yes 
-		is_great_power = yes
-		tag = FRA
-		if = {
-			limit = { BUR = { exists = yes is_subject = no } }
-			OR = {
-				has_global_flag = burgundian_succession_happened
-				NOT = { BUR = { has_country_modifier = burgundian_succession_crisis } }
-			}
-		}
-		any_country = {
-			NOT = { tag = FRA }
-			num_of_cities = 6
-			is_free_or_tributary_trigger = yes 
-			192 = { country_or_non_sovereign_subject_holds = PREV }
-			OR = {
-				is_year = 1590
-				has_country_flag = burgundian_succession_non_emperor
-				AND = {
-					is_year = 1490
-					is_emperor = no
-				}
-			}
-			OR = {
-				num_of_owned_provinces_with = {
-					region = france_region
-					value = 6
-				}
-				any_subject_country = {
-					num_of_owned_provinces_with = {
-						region = france_region
-						value = 6
-					}
-				}
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 6
-	}
-
-	option = {
-		name = ev_france.9.a
-		add_stability_or_adm_power = yes
-		random_country = {
-			limit = { 
-				NOT = { tag = FRA }
-				num_of_cities = 6
-				is_free_or_tributary_trigger = yes 
-				192 = { country_or_non_sovereign_subject_holds = PREV }
-				OR = {
-					is_year = 1590
-					has_country_flag = burgundian_succession_non_emperor
-					AND = {
-						is_year = 1490
-						is_emperor = no
-					}
-				}
-				OR = {
-					num_of_owned_provinces_with = {
-						region = france_region
-						value = 6
-					}
-					any_subject_country = {
-						num_of_owned_provinces_with = {
-							region = france_region
-							value = 6
-						}
-					}
-				}
-			}
-			every_province = {
-				limit = {
-					country_or_non_sovereign_subject_holds = PREV
-					OR = {
-						area = ile_de_france_area
-						area = picardy_area
-						area = west_burgundy_area
-						area = champagne_area
-						province_id = 192
-					}
-				}
-				add_core = ROOT
-				cede_province = ROOT
-			}
-			country_event = { id = ev_france.10 days = 1 }
-		}
-		ai_chance = {
-			factor = 1
-		}
-	}
-
-	option = {
-		name = ev_france.9.b
-		add_stability = -1
-		ai_chance = {
-			factor = 0
-		}
-	}
-}
 
 country_event = {
 	id = ev_france.10
@@ -11020,7 +10903,7 @@ country_event = {
 					win = yes
 					should_take_capital = yes
 					culture = revolution_target
-					leader = "Napoléon"
+					leader = "Napolï¿½on"
 					leader_dynasty = "Bonaparte"
 				}
 			}
@@ -11034,7 +10917,7 @@ country_event = {
 					win = yes
 					should_take_capital = yes
 					culture = revolution_target
-					leader = "Napoléon"
+					leader = "Napolï¿½on"
 					leader_dynasty = "Bonaparte"
 				}
 			}
@@ -11048,7 +10931,7 @@ country_event = {
 					win = yes
 					should_take_capital = yes
 					culture = revolution_target
-					leader = "Napoléon"
+					leader = "Napolï¿½on"
 					leader_dynasty = "Bonaparte"
 				}
 			}
@@ -11062,7 +10945,7 @@ country_event = {
 					win = yes
 					should_take_capital = yes
 					culture = revolution_target
-					leader = "Napoléon"
+					leader = "Napolï¿½on"
 					leader_dynasty = "Bonaparte"
 				}
 			}
@@ -11076,7 +10959,7 @@ country_event = {
 					win = yes
 					should_take_capital = yes
 					culture = revolution_target
-					leader = "Napoléon"
+					leader = "Napolï¿½on"
 					leader_dynasty = "Bonaparte"
 				}
 			}
@@ -11090,7 +10973,7 @@ country_event = {
 					win = yes
 					should_take_capital = yes
 					culture = revolution_target
-					leader = "Napoléon"
+					leader = "Napolï¿½on"
 					leader_dynasty = "Bonaparte"
 				}
 			}
