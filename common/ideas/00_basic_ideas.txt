@@ -1755,7 +1755,7 @@ influence_ideas = {
 	}
 
 	tribute_system = {
-		vassal_income = 0.5
+		vassal_income = 0.25
 	}
 	
 	additional_loyalist_recruitment = {
@@ -1764,7 +1764,7 @@ influence_ideas = {
 	}
 	
 	integrated_elites = {
-		diplomatic_annexation_cost = -0.40
+		diplomatic_annexation_cost = -0.30
 	}
 	buffer_states = {
 		diplomatic_upkeep = 2
@@ -1777,7 +1777,7 @@ influence_ideas = {
 		liberty_desire_from_subject_development = -0.2
 	}
 	marcher_lords = {
-		vassal_forcelimit_bonus = 0.5
+		vassal_forcelimit_bonus = 0.25
 	}
 
 	ai_will_do = {
