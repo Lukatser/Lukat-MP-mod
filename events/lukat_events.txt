@@ -1504,6 +1504,11 @@ country_event = {
 		override_country_name = GRAND_PRINCIPALITY_OF_MOSCOW_NAME
 	}
 	option = {
+		name = rename_country_muscovy.b 
+		trigger = { tag = MOS }
+		override_country_name = THE_MUSKOVIAN_REALM_NAME
+	}
+	option = {
 		name = rename_country_russia.a 
 		trigger = { tag = RUS }
 		override_country_name = TSARDOM_OF_RUSSIA_NAME
@@ -1517,5 +1522,75 @@ country_event = {
 		name = rename_country_russia.c 
 		trigger = { tag = RUS }
 		override_country_name = RUSSIAN_REPUBLIC_NAME
+	}
+	option = {
+		name = rename_country_russia.d
+		trigger = { tag = RUS }
+		override_country_name = UNION_OF_SOVEREIGN_SLAVIC_REPUBLICS_NAME
+	}
+	option = {
+		name = rename_country_russia.e 
+		trigger = { tag = RUS }
+		override_country_name = HOLY_RUSSIAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_styria.a
+		trigger = { tag = STY tag = HAB }
+		override_country_name = EISENMARK_NAME
+	}
+	option = {
+		name = rename_country_styria.b
+		trigger = { tag = STY tag = HAB }
+		override_country_name = GRUNEMARK_NAME
+	}
+	option = {
+		name = rename_country_styria.c
+		trigger = { tag = STY tag = HAB }
+		override_country_name = STEIRENMARK_NAME
+	}
+	option = {
+		name = rename_country_styria.d
+		trigger = { tag = STY tag = HAB }
+		override_country_name = OSTERREICH_NAME
+	}
+	option = {
+		name = rename_country_styria.e
+		trigger = { tag = STY tag = HAB }
+		override_country_name = AUSTRALIA_NAME
+	}
+	option = {
+		name = rename_country_styria.f
+		trigger = { tag = STY tag = HAB }
+		override_country_name = HAUS_HABSBURG_NAME
+	}
+	option = {
+		name = rename_country_florence.a
+		trigger = { tag = LAN }
+		override_country_name = FIRENZE_NAME
+	}
+	option = {
+		name = rename_country_italy.a
+		trigger = { tag = ITA }
+		override_country_name = REGNO_DITALIA_NAME
+	}
+	option = {
+		name = rename_country_italy.b
+		trigger = { tag = ITA }
+		override_country_name = LA_REPUBBLICA_ITALIANA_NAME
+	}
+	option = {
+		name = rename_country_burgundy.a
+		trigger = { tag = BUR }
+		override_country_name = PURPLE_FRANCE_NAME
+	}
+	option = {
+		name = rename_country_burgundy.b
+		trigger = { tag = BUR }
+		override_country_name = RED_NETHERLANDS_NAME
+	}
+	option = {
+		name = rename_country_lothringia.a
+		trigger = { tag = LOT }
+		override_country_name = LONGTHARINGIA_NAME
 	}
 }

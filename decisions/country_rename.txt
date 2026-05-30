@@ -42,8 +42,13 @@ country_decisions = {
                 tag = POL 
                 tag = MOS 
                 tag = RUS 
+                tag = STY
                 tag = HAB 
                 tag = MAM
+                tag = BUR
+                tag = LOT
+                tag = LAN
+                tag = ITA 
             }
             NOT = {
                 ai = yes
