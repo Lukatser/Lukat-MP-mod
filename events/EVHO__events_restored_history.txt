@@ -6,67 +6,6 @@ namespace = flavor_fra_rh
 namespace = flavor_usa_rh
 namespace = flavor_rus_rh
 
-# Swedish Delware
-country_event = {
-	id = flavor_rh.10000
-	title = "flavor_swe.RHtit1"
-	desc = "flavor_swe.RHdesc1"
-	picture = EXPLORERS_eventPicture
-
-	fire_only_once = yes
-	
-	trigger = {
-		is_year = 1587
-		NOT = { is_year = 1737 }
-		tag = SWE
-		957 = {
-			OR = {
-				is_empty = yes
-				owner = {
-					capital_scope = {
-						colonial_region = colonial_eastern_america
-					}
-					is_colonial_nation = no
-				}
-			}
-			has_discovered = yes
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 24
-	}
-
-	option = {			# Awesome
-		name = "flavor_swe.RHans1"
-		
-		add_prestige = 5
-		
-		hidden_effect = {
-			957 = {				
-				if = {
-					limit = { is_empty = yes }
-					change_religion = ROOT	
-					change_culture = ROOT
-				}
-				else_if = {
-				limit = { is_colony = yes country_or_non_sovereign_subject_holds = ROOT  }
-				add_colonysize = 999
-				}
-				else_if = {
-					limit = { is_city = yes NOT = { country_or_non_sovereign_subject_holds = ROOT } }
-					add_claim = ROOT
-				}
-				
-				add_territorial_core = ROOT
-			}
-		}
-			
-		957 = {
-			cede_province = ROOT
-		}
-	}
-}
 
 # Demand Jamaica ANSWER
 country_event = {
@@ -4784,6 +4723,7 @@ country_event = {
 	trigger = {
 		NOT = { has_global_flag = netherlands_released }
 		exists = NED
+		ai = yes
 	}
 
 	immediate = {

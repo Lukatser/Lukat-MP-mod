@@ -38,6 +38,12 @@ country_decisions = {
                 tag = NED
                 tag = ARB 
                 tag = SPA
+                tag = SWE
+                tag = POL 
+                tag = MOS 
+                tag = RUS 
+                tag = HAB 
+                tag = MAM
             }
             NOT = {
                 ai = yes

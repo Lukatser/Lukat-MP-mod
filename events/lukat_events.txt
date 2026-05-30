@@ -984,6 +984,11 @@ country_event = {
 		override_country_name = BYZANTINE_ROMAN_EMPIRE_NAME
 	}
 	option = {
+		name = rename_country_ottomans.a
+		trigger = { tag = TUR }
+		override_country_name = THE_EASTERN_SUN_NAME
+	}
+	option = {
 		name = rename_country_ottomans.b
 		trigger = { tag = TUR }
 		override_country_name = OSMAN_NAME
@@ -1027,6 +1032,21 @@ country_event = {
 		name = rename_country_ottomans.j
 		trigger = { tag = TUR }
 		override_country_name = TURKEY_NAME
+	}
+	option = {
+		name = rename_country_ottomans.k
+		trigger = { tag = TUR }
+		override_country_name = SUBLIME_OSMAN_STATE_NAME
+	}
+	option = {
+		name = rename_country_ottomans.l
+		trigger = { tag = TUR }
+		override_country_name = DEVLET_I_ALIYYE_I_OSMANIYYE_NAME
+	}
+	option = {
+		name = rename_country_ottomans.m
+		trigger = { tag = TUR }
+		override_country_name = DEVLET_I_RUM_NAME
 	}
 	option = {
 		name = rename_country_great_britain.b
@@ -1109,6 +1129,26 @@ country_event = {
 		override_country_name = SHINING_CITY_ON_A_HILL_NAME
 	}
 	option = {
+		name = rename_country_poland.a
+		trigger = { tag = POL }
+		override_country_name = KROLESTWO_POLSKIE_NAME
+	}
+	option = {
+		name = rename_country_poland.b
+		trigger = { tag = POL }
+		override_country_name = MARKRABENKA_JAGIELLONOWIE_POLSKI_NAME
+	}
+	option = {
+		name = rename_country_poland.c
+		trigger = { tag = POL }
+		override_country_name = DESOLATE_EASTERN_KINGDOM_NAME
+	}
+	option = {
+		name = rename_country_commonwealth.a
+		trigger = { tag = PLC }
+		override_country_name = RZECZPOSPOLITA_OBOJGA_NARODOW_NAME
+	}
+	option = {
 		name = rename_country_commonwealth.b
 		trigger = { tag = PLC }
 		override_country_name = POLAND_LITHUANIA_NAME
@@ -1117,6 +1157,16 @@ country_event = {
 		name = rename_country_commonwealth.c
 		trigger = { tag = PLC }
 		override_country_name = LITHUANIA_POLAND_NAME
+	}
+	option = {
+		name = rename_country_commonwealth.d
+		trigger = { tag = PLC }
+		override_country_name = THE_POLISH_LITHUANIAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_commonwealth.e
+		trigger = { tag = PLC }
+		override_country_name = WATKA_WSZYSTKICH_SLOWIAN_NAME
 	}
 	option = {
 		name = rename_country_ming.b
@@ -1187,6 +1237,11 @@ country_event = {
 		name = rename_country_joseon.d
 		trigger = { tag = KOR }
 		override_country_name = KOREA_NAME
+	}
+	option = {
+		name = rename_country_joseon.a
+		trigger = { tag = KOR }
+		override_country_name = THE_TRANSGENDER_KINGDOM_OF_JESEON_NAME
 	}
 	option = {
 		name = rename_country_timurids.b
@@ -1405,7 +1460,7 @@ country_event = {
 	}
 	option = {
 		name = rename_country_arabia.a
-		trigger = { tag = ARB }
+		trigger = { OR = { tag = ARB tag = MAM } }
 		override_country_name = DAR_AL_ISLAM_NAME
 	}
 	option = {
@@ -1417,5 +1472,50 @@ country_event = {
 		name = rename_country_arabia.c
 		trigger = { tag = ARB }
 		override_country_name = ARAB_FEDERATION
+	}
+	option = {
+		name = rename_country_mamluks.a
+		trigger = { tag = MAM }
+		override_country_name = UNIVERSAL_CALIPHATE_NAME
+	}
+	option = {
+		name = rename_country_mamluks.b
+		trigger = { tag = MAM }
+		override_country_name = MAMLUK_EARTH_NAME
+	}
+	option = {
+		name = rename_country_sweden.a
+		trigger = { tag = SWE }
+		override_country_name = SVERIGE_NUMMER_ETT_NAME
+	}
+	option = {
+		name = rename_country_sweden.b
+		trigger = { tag = SWE }
+		override_country_name = SVENSKA_TIGER_NAME
+	}
+	option = {
+		name = rename_country_sweden.c
+		trigger = { tag = SWE }
+		override_country_name = IKEA_LAND_NAME
+	}
+	option = {
+		name = rename_country_muscovy.a 
+		trigger = { tag = MOS }
+		override_country_name = GRAND_PRINCIPALITY_OF_MOSCOW_NAME
+	}
+	option = {
+		name = rename_country_russia.a 
+		trigger = { tag = RUS }
+		override_country_name = TSARDOM_OF_RUSSIA_NAME
+	}
+	option = {
+		name = rename_country_russia.b
+		trigger = { tag = RUS }
+		override_country_name = RUSSIAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_russia.c 
+		trigger = { tag = RUS }
+		override_country_name = RUSSIAN_REPUBLIC_NAME
 	}
 }
