@@ -23,8 +23,18 @@ country_event = {
 				has_global_flag = extended_timeline_mod
 				OR = {
 					religion = cathar
+					religion = bogomilism
+					religion = waldensian
+					religion = lollard
 					religion = nestorian
 					religion = arianism
+				}
+			}
+			AND = {
+				is_expanded_mod_active = { mod = religions_and_cultures }
+				OR = {
+					religion = nestorian
+					religion = bogomilist
 				}
 			}
 		}
@@ -171,6 +181,24 @@ country_event = {
 				}
 				else_if = {
 					limit = {
+						religion = bogomilism
+					}
+					set_hre_religion = bogomilism
+				}
+				else_if = {
+					limit = {
+						religion = waldensian
+					}
+					set_hre_religion = waldensian
+				}
+				else_if = {
+					limit = {
+						religion = lollard
+					}
+					set_hre_religion = lollard
+				}
+				else_if = {
+					limit = {
 						religion = nestorian
 					}
 					set_hre_religion = nestorian
@@ -180,6 +208,23 @@ country_event = {
 						religion = arianism
 					}
 					set_hre_religion = arianism
+				}
+			}
+			else_if = {
+				limit = {
+					is_expanded_mod_active = { mod = religions_and_cultures }
+				}
+				if = {
+					limit = {
+						religion = nestorian
+					}
+					set_hre_religion = nestorian
+				}
+				else_if = {
+					limit = {
+						religion = bogomilist
+					}
+					set_hre_religion = bogomilist
 				}
 			}
 			if = {

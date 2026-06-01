@@ -1,8 +1,0 @@
-spriteTypes = {	
-
-	spriteType = {
-		name = "GFX_tge_add"
-		texturefile = "gfx/interface/TGE_add.dds"
-	}	
-	
-}

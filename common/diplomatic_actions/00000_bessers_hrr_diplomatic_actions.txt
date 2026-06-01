@@ -1,4 +1,5 @@
 grant_electorate = {
+	# For HREE:
 	condition = {
 		tooltip = GOLDEN_BULL_TO_MANY_ECCLESIASTICAL_ELECTORS_8_ELECTORS
 		potential = {
@@ -64,6 +65,7 @@ grant_electorate = {
 }
 
 requestpeace = {
+	# For HREE:
 	condition = {
 		tooltip = CANNOT_SIGN_SEPERATE_PEACE_IN_HRE_ITALIAN_WAR
 		potential = {
@@ -167,6 +169,7 @@ requestpeace = {
 }
 
 demand_unlawful_territory_action = {
+	# For HREE:
 	condition = {
 		tooltip = CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_TARGET_OF_CALLED_REICHSTAG
 		potential = {
@@ -177,6 +180,66 @@ demand_unlawful_territory_action = {
 				OR = {
 					NOT = { has_country_flag = was_target_of_called_reichstag }
 					had_country_flag = { flag = was_target_of_called_reichstag days = 365 }
+				}
+			}
+		}
+	}
+	condition = {
+		tooltip = CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_GERMAN_ARCH_CHANCELLOR
+		potential = {
+			FROM = {
+				has_country_modifier = german_erzkanzler
+				is_elector = yes
+				preferred_emperor = ROOT
+			}
+		}
+		allow = {
+			FROM = {
+				any_owned_province = {
+					is_part_of_hre = yes
+					NOT = { is_core = PREV }
+					NOT = { region = north_german_region }
+					NOT = { region = south_german_region }
+				}
+			}
+		}
+	}
+	condition = {
+		tooltip = CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_ITALIAN_ARCH_CHANCELLOR
+		potential = {
+			FROM = {
+				has_country_modifier = italian_erzkanzler
+				is_elector = yes
+				preferred_emperor = ROOT
+			}
+		}
+		allow = {
+			FROM = {
+				any_owned_province = {
+					is_part_of_hre = yes
+					NOT = { is_core = PREV }
+					NOT = { region = italy_region }
+					NOT = { region = balkan_region }
+				}
+			}
+		}
+	}
+	condition = {
+		tooltip = CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_BURGUNDIAN_ARCH_CHANCELLOR
+		potential = {
+			FROM = {
+				has_country_modifier = burgundian_erzkanzler
+				is_elector = yes
+				preferred_emperor = ROOT
+			}
+		}
+		allow = {
+			FROM = {
+				any_owned_province = {
+					is_part_of_hre = yes
+					NOT = { is_core = PREV }
+					NOT = { region = france_region }
+					NOT = { region = low_countries_region }
 				}
 			}
 		}

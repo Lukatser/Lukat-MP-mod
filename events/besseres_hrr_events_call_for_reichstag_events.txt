@@ -24,8 +24,46 @@ country_event = {
 								NOT = { has_construction = core }
 								NOT = { construction_progress = 0.75 }
 							}
+							is_part_of_hre = yes
 							NOT = { has_province_modifier = unlawful_territory }
 							previous_owner = FROM
+							OR = {
+								ROOT = {
+									OR = {
+										AND = {
+											NOT = { has_country_modifier = german_erzkanzler }
+											NOT = { has_country_modifier = italian_erzkanzler }
+											NOT = { has_country_modifier = burgundian_erzkanzler }
+										}
+										is_elector = no
+										AND = {
+											is_elector = yes
+											NOT = { preferred_emperor = emperor }
+										}
+									}
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = german_erzkanzler
+									}
+									NOT = { region = north_german_region }
+									NOT = { region = south_german_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = italian_erzkanzler
+									}
+									NOT = { region = italy_region }
+									NOT = { region = balkan_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = burgundian_erzkanzler
+									}
+									NOT = { region = france_region }
+									NOT = { region = low_countries_region }
+								}
+							}
 							any_neighbor_province = {
 								owned_by = FROM
 							}
@@ -41,8 +79,46 @@ country_event = {
 								NOT = { has_construction = core }
 								NOT = { construction_progress = 0.75 }
 							}
+							is_part_of_hre = yes
 							NOT = { has_province_modifier = unlawful_territory }
 							previous_owner = FROM
+							OR = {
+								ROOT = {
+									OR = {
+										AND = {
+											NOT = { has_country_modifier = german_erzkanzler }
+											NOT = { has_country_modifier = italian_erzkanzler }
+											NOT = { has_country_modifier = burgundian_erzkanzler }
+										}
+										is_elector = no
+										AND = {
+											is_elector = yes
+											NOT = { preferred_emperor = emperor }
+										}
+									}
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = german_erzkanzler
+									}
+									NOT = { region = north_german_region }
+									NOT = { region = south_german_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = italian_erzkanzler
+									}
+									NOT = { region = italy_region }
+									NOT = { region = balkan_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = burgundian_erzkanzler
+									}
+									NOT = { region = france_region }
+									NOT = { region = low_countries_region }
+								}
+							}
 							any_neighbor_province = {
 								owned_by = FROM
 							}
@@ -62,8 +138,46 @@ country_event = {
 								NOT = { has_construction = core }
 								NOT = { construction_progress = 0.75 }
 							}
+							is_part_of_hre = yes
 							NOT = { has_province_modifier = unlawful_territory }
 							previous_owner = FROM
+							OR = {
+								ROOT = {
+									OR = {
+										AND = {
+											NOT = { has_country_modifier = german_erzkanzler }
+											NOT = { has_country_modifier = italian_erzkanzler }
+											NOT = { has_country_modifier = burgundian_erzkanzler }
+										}
+										is_elector = no
+										AND = {
+											is_elector = yes
+											NOT = { preferred_emperor = emperor }
+										}
+									}
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = german_erzkanzler
+									}
+									NOT = { region = north_german_region }
+									NOT = { region = south_german_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = italian_erzkanzler
+									}
+									NOT = { region = italy_region }
+									NOT = { region = balkan_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = burgundian_erzkanzler
+									}
+									NOT = { region = france_region }
+									NOT = { region = low_countries_region }
+								}
+							}
 							has_port = yes
 							sea_zone = {
 								any_neighbor_province = {
@@ -82,8 +196,46 @@ country_event = {
 								NOT = { has_construction = core }
 								NOT = { construction_progress = 0.75 }
 							}
+							is_part_of_hre = yes
 							NOT = { has_province_modifier = unlawful_territory }
 							previous_owner = FROM
+							OR = {
+								ROOT = {
+									OR = {
+										AND = {
+											NOT = { has_country_modifier = german_erzkanzler }
+											NOT = { has_country_modifier = italian_erzkanzler }
+											NOT = { has_country_modifier = burgundian_erzkanzler }
+										}
+										is_elector = no
+										AND = {
+											is_elector = yes
+											NOT = { preferred_emperor = emperor }
+										}
+									}
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = german_erzkanzler
+									}
+									NOT = { region = north_german_region }
+									NOT = { region = south_german_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = italian_erzkanzler
+									}
+									NOT = { region = italy_region }
+									NOT = { region = balkan_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = burgundian_erzkanzler
+									}
+									NOT = { region = france_region }
+									NOT = { region = low_countries_region }
+								}
+							}
 							has_port = yes
 							sea_zone = {
 								any_neighbor_province = {
@@ -107,8 +259,46 @@ country_event = {
 								NOT = { has_construction = core }
 								NOT = { construction_progress = 0.75 }
 							}
+							is_part_of_hre = yes
 							NOT = { has_province_modifier = unlawful_territory }
 							previous_owner = FROM
+							OR = {
+								ROOT = {
+									OR = {
+										AND = {
+											NOT = { has_country_modifier = german_erzkanzler }
+											NOT = { has_country_modifier = italian_erzkanzler }
+											NOT = { has_country_modifier = burgundian_erzkanzler }
+										}
+										is_elector = no
+										AND = {
+											is_elector = yes
+											NOT = { preferred_emperor = emperor }
+										}
+									}
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = german_erzkanzler
+									}
+									NOT = { region = north_german_region }
+									NOT = { region = south_german_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = italian_erzkanzler
+									}
+									NOT = { region = italy_region }
+									NOT = { region = balkan_region }
+								}
+								AND = {
+									ROOT = {
+										has_country_modifier = burgundian_erzkanzler
+									}
+									NOT = { region = france_region }
+									NOT = { region = low_countries_region }
+								}
+							}
 							any_province = {
 								owned_by = FROM
 								NOT = {

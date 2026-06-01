@@ -1,0 +1,3591 @@
+namespace = ae_restricted_expansion
+normal_or_historical_nations = yes
+
+## GEOGRAPHICAL EXPANSION BLOCKS ##
+
+# Inhospitable Interior - AFRICA for NON-AFRICANS
+country_event = {
+	id = ae_restricted_expansion.100
+	title = ae_restricted_expansion.100.t
+	desc = ae_restricted_expansion.100.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		capital_scope = { 
+			NOT = {	continent = africa }
+			NOT = { superregion = near_east_superregion }
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			continent = africa
+			has_port = no
+		}
+		NOT = {
+			OR = {
+				is_year = 1800
+				FROM = { dip_tech = 32 }
+			}
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				continent = africa
+				has_port = no
+			}
+			
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+# Inhospitable Interior - SUBSAHARA for NORTH AFRICANS
+country_event = {
+	id = ae_restricted_expansion.101
+	title = ae_restricted_expansion.100.t
+	desc = ae_restricted_expansion.101.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		OR = {
+			owns_core_province = 361 # Cairo
+			capital_scope = { 
+				OR = {
+					region = maghreb_region
+					region = egypt_region
+				}
+			}
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			continent = africa	  
+			NOT = {		 
+				province_id = 1127
+				province_id = 1128
+				province_id = 2474
+				province_id = 2475
+				region = maghreb_region
+				region = egypt_region
+			}
+			has_port = no
+		}
+		NOT = {
+			OR = {
+				is_year = 1800
+				FROM = { dip_tech = 32 }
+			}
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				continent = africa
+				NOT = {
+					province_id = 1127
+					province_id = 1128
+					province_id = 2474
+					province_id = 2475
+					region = maghreb_region
+					region = egypt_region
+				}
+				has_port = no
+			} 
+			
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+
+# Inhospitable Interior - ARABIA for EVERYONE ELSE
+country_event = {
+	id = ae_restricted_expansion.102
+	title = ae_restricted_expansion.102.t
+	desc = ae_restricted_expansion.102.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		
+		capital_scope = {
+			NOT = {
+				area = qasim_area
+				area = yamamah_area
+				area = nafud_area
+			}
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			OR = {
+				area = qasim_area
+				area = yamamah_area
+				area = nafud_area
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				OR = {
+					area = qasim_area
+					area = yamamah_area
+					area = nafud_area
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+
+# Inhospitable Interior - SOUTH ARABIA for EVERYONE ELSE
+country_event = {
+	id = ae_restricted_expansion.1021
+	title = ae_restricted_expansion.1021.t
+	desc = ae_restricted_expansion.1021.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		capital_scope = { 
+			NOT = {
+				AND = {
+					area = yemen_area
+					NOT = { province_id = 4280 }
+				}
+				area = hadramut_area
+				area = mahra_area
+				area = dhofar_area
+				area = oman_area
+				area = mascat_area
+				province_id = 2999
+			}
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			OR = {
+				AND = {
+					area = yemen_area
+					NOT = { province_id = 4280 }
+				}
+				area = hadramut_area
+				area = mahra_area
+				area = dhofar_area
+				area = oman_area
+				area = mascat_area
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}	
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+				OR = { 
+					AND = {
+						area = yemen_area
+						NOT = { province_id = 4280 }
+					}
+					area = hadramut_area
+					area = mahra_area
+					area = dhofar_area
+					area = oman_area
+					area = mascat_area
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+	
+}
+
+
+# Inhospitable Interior - ASIA for NON-CONTIGUOUS OTHERS
+country_event = {
+	id = ae_restricted_expansion.103
+	title = ae_restricted_expansion.103.t
+	desc = ae_restricted_expansion.103.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		capital_scope = { 
+			NOT = { continent = asia }
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			NOT = { superregion = india_superregion }
+			NOT = { region = arabia_region }
+			continent = asia
+			is_in_capital_area = no
+			has_port = no
+			province_is_on_an_island = no		 
+			NOT = { 						
+				province_id = 4812	#Malaya
+				province_id = 4814	#Malaya
+			} 
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+				NOT = { superregion = india_superregion }
+				continent = asia
+				is_in_capital_area = no
+				has_port = no
+				province_is_on_an_island = no
+				NOT = { 						
+					province_id = 4812	#Malaya
+					province_id = 4814	#Malaya
+				} 
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+# Inhospitable Interior - INDIA
+country_event = {
+	id = ae_restricted_expansion.1031
+	title = ae_restricted_expansion.103.t
+	desc = ae_restricted_expansion.103.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		capital_scope = { 
+			NOT = { continent = asia }
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			superregion = india_superregion
+			continent = asia
+			is_in_capital_area = no
+			has_port = no
+			province_is_on_an_island = no
+			NOT = {
+				area = west_bengal_area
+				area = east_bengal_area
+				area = saurashtra_area
+				province_id = 4479	#Bengal 
+			}
+		}
+		NOT = {
+			OR = {
+				is_year = 1700
+				FROM = { dip_tech = 24 }
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				superregion = india_superregion
+				continent = asia
+				is_in_capital_area = no
+				has_port = no
+				province_is_on_an_island = no
+				NOT = {
+					area = west_bengal_area
+					area = east_bengal_area
+					area = saurashtra_area
+					province_id = 4479	#Bengal 
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+
+# Inhospitable Interior - EASTERN EUROPE for ITALIANS & Co
+country_event = {
+	id = ae_restricted_expansion.104
+	title = ae_restricted_expansion.104.t
+	desc = ae_restricted_expansion.104.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	is_triggered_only = yes
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		
+		
+		
+		capital_scope = { region = italy_region }
+		any_owned_province = {
+			owned_by = ROOT
+			is_in_capital_area = no
+			NOT = { previous_owner = ROOT }
+			OR = {
+				region = balkan_region
+				region = carpathia_region
+				region = crimea_region
+				region = anatolia_region
+				region = caucasia_region 
+				region = ruthenia_region 
+			}
+			NOT = { 							 
+				province_id = 4738	#Triest
+				province_id = 4752	#Fiume
+				province_id = 1826	#Lika 
+				province_id = 4753	#Zara
+				province_id = 136	#Spalato
+				province_id = 137	#Ragusa
+				province_id = 4753	#Cattaro
+				province_id = 138	#Zeta
+				province_id = 4175	#Lezhe
+				province_id = 4750	#Kruje
+				province_id = 143	#Avlonya
+				province_id = 146	#Athens
+				province_id = 1773	#Achaea
+				province_id = 4701	#Corinth
+				province_id = 145	#Morea
+				province_id = 4779	#Gallipoli
+				province_id = 330	#Trebizond
+				province_id = 1756	#Bessarabia
+				province_id = 2410	#Theodoro
+				province_id = 285	#Kafa
+				province_id = 2447	#Matrega
+				province_id = 286	#Azov
+			}
+		}
+	}
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = {
+				owned_by = ROOT
+				is_in_capital_area = no
+				NOT = { previous_owner = ROOT }
+				OR = {
+					region = balkan_region
+					region = carpathia_region
+					region = crimea_region
+					region = anatolia_region
+					region = caucasia_region 
+					region = ruthenia_region 
+				}
+				NOT = { 							 
+					province_id = 4738	#Triest
+					province_id = 4752	#Fiume
+					province_id = 1826	#Lika 
+					province_id = 4753	#Zara
+					province_id = 136	#Spalato
+					province_id = 137	#Ragusa
+					province_id = 4753	#Cattaro
+					province_id = 138	#Zeta
+					province_id = 4175	#Lezhe
+					province_id = 4750	#Kruje
+					province_id = 143	#Avlonya
+					province_id = 146	#Athens
+					province_id = 1773	#Achaea
+					province_id = 4701	#Corinth
+					province_id = 145	#Morea
+					province_id = 4779	#Gallipoli
+					province_id = 330	#Trebizond
+					province_id = 1756	#Bessarabia
+					province_id = 2410	#Theodoro
+					province_id = 285	#Kafa
+					province_id = 2447	#Matrega
+					province_id = 286	#Azov
+				}
+				
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+# Inhospitable Interior - EUROPE for TURKS
+country_event = {
+	id = ae_restricted_expansion.105
+	title = ae_restricted_expansion.105.t
+	desc = ae_restricted_expansion.105.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		primary_culture = turkish 
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			continent = europe
+			NOT = {
+				superregion = near_east_superregion
+				superregion = persia_superregion
+				region = balkan_region
+				area = wallachia_area
+				area = moldavia_area
+				area = transylvania_area
+				area = southern_transylvania_area
+				area = alfold_area
+				province_id = 153
+				province_id = 4126
+				province_id = 4240
+				province_id = 1864
+				province_id = 1318
+				province_id = 162
+				province_id = 154
+				province_id = 282
+				province_id = 2406
+				province_id = 2410
+				province_id = 285
+				province_id = 286
+				province_id = 2447
+				area = podolia_volhynia_area
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = { 
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				continent = europe
+				NOT = {
+					superregion = near_east_superregion
+					superregion = persia_superregion
+					region = balkan_region
+					area = wallachia_area
+					area = moldavia_area
+					area = transylvania_area
+					area = southern_transylvania_area
+					area = alfold_area
+					province_id = 153
+					province_id = 4126
+					province_id = 4240
+					province_id = 1864
+					province_id = 1318
+					province_id = 162
+					province_id = 154
+					province_id = 282
+					province_id = 2406
+					province_id = 2410
+					province_id = 285
+					province_id = 286
+					province_id = 2447
+					area = podolia_volhynia_area
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+# Inhospitable Interior - CAUCASUS/PERSIA for TURKS
+country_event = {
+	id = ae_restricted_expansion.1051
+	title = ae_restricted_expansion.1051.t
+	desc = ae_restricted_expansion.1051.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		primary_culture = turkish 
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			superregion = persia_superregion
+			NOT = {
+				area = samtskhe_area
+				province_id = 4302
+				province_id = 4293
+				province_id = 4294
+				province_id = 415
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = { 
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				superregion = persia_superregion
+				NOT = {
+					area = samtskhe_area
+					province_id = 4302
+					province_id = 4293
+					province_id = 4294
+					province_id = 415
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+# Ethiopians stay in Ethiopia please
+country_event = {
+	id = ae_restricted_expansion.106
+	title = ae_restricted_expansion.106.t
+	desc = ae_restricted_expansion.106.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		culture_group = cushitic
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			OR = {
+				region = egypt_region
+				area = lower_nubia_area
+				region = sahel_region
+				province_id = 2324
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.100.a  
+		every_owned_province = {
+			limit = { 
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				OR = {
+					region = egypt_region
+					area = lower_nubia_area
+					region = sahel_region
+					province_id = 2324
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+# Europeans out of Britain
+country_event = {
+	id = ae_restricted_expansion.107
+	title = ae_restricted_expansion.107.t
+	desc = ae_restricted_expansion.107.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		capital_scope = {
+			NOT = { region = british_isles_region }
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			region = british_isles_region
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.107.a  
+		every_owned_province = {
+			limit = { 
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				region = british_isles_region
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+# Muscovy out of the Scandinavia
+country_event = {
+	id = ae_restricted_expansion.108
+	title = ae_restricted_expansion.108.t
+	desc = ae_restricted_expansion.108.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		culture_group = east_slavic
+		NOT = {
+			primary_culture = ruthenian
+			primary_culture = byelorussian
+		} 
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			region = scandinavia_region
+			NOT = { province_id = 1777 }
+		}
+		NOT = {
+			is_year = 1750
+			mil_tech = 27
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.108.a  
+		every_owned_province = {
+			limit = {  
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+				NOT = { province_id = 1777 }
+				region = scandinavia_region
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+# Russia out of Central Asia and Mongolia
+country_event = {
+	id = ae_restricted_expansion.1081
+	title = ae_restricted_expansion.1081.t
+	desc = ae_restricted_expansion.1081.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		culture_group = east_slavic
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			OR = {
+				AND = {
+					NOT = {
+						is_year = 1750
+						mil_tech = 27
+					}
+					region = central_asia_region
+					NOT = { area = lower_yik_area }
+				}
+				
+				AND = {
+					NOT = {
+						is_year = 1800
+						mil_tech = 32
+					}
+					trade_company_region = trade_company_yumen
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.1081.a  
+		every_owned_province = {
+			limit = {  
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+				OR = {
+					AND = {
+						NOT = {
+							is_year = 1750
+							mil_tech = 27
+						}
+						trade_company_region = trade_company_samarkand
+					}
+					
+					AND = {
+						NOT = {
+							is_year = 1800
+							mil_tech = 32
+						}
+						trade_company_region = trade_company_yumen
+					}
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+
+#Indians in India
+country_event = {
+	id = ae_restricted_expansion.109
+	title = ae_restricted_expansion.109.t
+	desc = ae_restricted_expansion.109.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		capital_scope = { 
+			superregion = india_superregion
+		}
+		any_owned_province = {
+			OR = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+				superregion = china_superregion
+				region = tibet_region
+				region = central_asia_region
+				region = persia_region
+			}
+			NOT = { area = bhutan_area }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.109.a  
+		every_owned_province = {
+			limit = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+				
+				OR = {
+					superregion = china_superregion
+					region = tibet_region
+					region = central_asia_region
+					region = persia_region
+				}
+				NOT = { area = bhutan_area }
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+#Scandinavians out of Russia
+country_event = {
+	id = ae_restricted_expansion.110
+	title = ae_restricted_expansion.110.t
+	desc = ae_restricted_expansion.110.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		NOT = {
+			culture_group = east_slavic
+			primary_culture = sapmi
+			primary_culture = karelian
+			primary_culture = finnish
+		}
+		capital_scope = { 
+			region = scandinavia_region
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			OR = {
+				AND = { 
+					region = russia_region
+					NOT = {
+						area = north_karelia
+						area = karelia_area
+					}
+				}
+				province_id = 1777
+				province_id = 309
+				province_id = 1961
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.110.a  
+		every_owned_province = {
+			limit = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+				OR = {
+					AND = { 
+						region = russia_region
+						NOT = {
+							area = north_karelia
+							area = karelia_area
+						}
+					}
+					province_id = 1777
+					province_id = 309
+					province_id = 1961
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+#Japanese/Koreans out of China/Manchuria
+country_event = {
+	id = ae_restricted_expansion.111
+	title = ae_restricted_expansion.111.t
+	desc = ae_restricted_expansion.111.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		capital_scope = { 
+			OR = {
+				region = korea_region
+				region = japan_region
+			}
+		}
+		any_owned_province = {
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			province_is_on_an_island = no	
+			NOT = { 
+					region = korea_region
+					region = japan_region 
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.111.a  
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ae_exempt_restr_exp }
+				province_is_on_an_island = no	
+				NOT = { 
+						region = korea_region
+						region = japan_region 
+				}
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+#Scotland out of England and non-Ulster Ireland
+country_event = {
+	id = ae_restricted_expansion.112
+	title = ae_restricted_expansion.112.t
+	desc = ae_restricted_expansion.112.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = { 
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		tag = SCO
+		any_owned_province = {
+			region = british_isles_region
+			NOT = { has_province_flag = ae_exempt_restr_exp }
+			NOT = { 
+				area = highlands_area
+				area = lowlands_area 
+				area = kingdom_of_the_isles_area 
+				area = ulster_area 
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.112.a  
+		every_owned_province = {
+			limit = {
+				region = british_isles_region
+				NOT = { has_province_flag = ae_exempt_restr_exp }	
+				NOT = { 
+					area = highlands_area
+					area = lowlands_area 
+					area = kingdom_of_the_isles_area 
+					area = ulster_area 
+				}
+				
+			}
+			cede_province = previous_owner
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		} 
+	}
+}
+
+
+## KEEP IMPORTANT MINORS ALIVE ## 					Brandenburg, Savoy, Scotland, Denmark, Ardabil, Circassia, Georgia
+
+# Save Brandenburg
+country_event = {
+	id = ae_restricted_expansion.200
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	immediate = {
+		BRA = {		 
+		
+			save_event_target_as = ae_province_receiver	
+			if = { 
+				limit = { exists = NO }
+				set_global_flag = ae_restore_province_receiver
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes  
+			AND = {
+	
+				full_ai = yes
+				BRA = { full_ai = yes }
+			}
+		}
+		NOT = { tag = BRA }
+		NOT = { exists = PRU }
+		NOT = { exists = GER }
+		NOT = { exists = HLR }
+		NOT = { is_year = 1650 }	
+		any_owned_province = { 
+			area = mittelmark_area 
+			NOT = { owned_by = BRA }
+			previous_owner = BRA
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+		every_owned_province = {
+			limit = {
+				area = mittelmark_area
+				NOT = { owned_by = BRA }
+				previous_owner = BRA
+			}
+			cede_province = BRA
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+		}
+		add_truce_with = BRA
+	}
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+		
+			BRA = {
+				set_dynasty = "von Hohenzollern"
+				set_capital = 50 
+			}
+		}
+		clr_global_flag = ae_restore_province_receiver
+	}
+}
+
+# Save Savoy
+country_event = {
+	id = ae_restricted_expansion.201
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	immediate = {
+		if = {
+			limit = {
+				any_province = {
+					OR = {
+						is_core = SPI
+						is_claim = SPI 
+					}
+				}
+			}
+			set_global_flag = ae_sard_piedmont
+			SPI = { 
+				save_event_target_as = ae_province_receiver	
+				if = { 
+					limit = { exists = NO }
+					set_global_flag = ae_restore_province_receiver
+				}
+			}
+		}
+		else = {
+			SAV = { 
+				save_event_target_as = ae_province_receiver	
+				if = { 
+					limit = { exists = NO }
+					set_global_flag = ae_restore_province_receiver
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				SAV = { full_ai = yes }
+				SPI = { full_ai = yes }
+			}
+		}
+		NOT = { tag = SAV }
+		NOT = { tag = SPI }
+		NOT = { exists = ITA }
+		NOT = { is_year = 1780 }	
+		any_owned_province = { 
+			OR = {
+				province_id = 205 #Ciamberi
+				province_id = 103 #Turin
+				province_id = 1875 #Cuneo
+				province_id = 102 #Nizza
+			}
+			OR = {
+				AND = { 
+					previous_owner = SAV
+					NOT = { owned_by = SAV }
+				}
+				AND = { 
+					previous_owner = SPI
+					NOT = { owned_by = SPI }
+				}
+			}
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+		if = { 
+			limit = { has_global_flag = ae_sard_piedmont }
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 205 #Ciamberi
+						province_id = 103 #Turin
+						province_id = 1875 #Cuneo
+						province_id = 102 #Nizza
+					}
+					NOT = { owned_by = SPI }
+					previous_owner = SPI
+				}
+				cede_province = SPI
+				every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+			}
+			add_truce_with = SPI
+		}
+		else = { 
+			every_owned_province = {
+				limit = {
+					OR = {
+						province_id = 205 #Ciamberi
+						province_id = 103 #Turin
+						province_id = 1875 #Cuneo
+						province_id = 102 #Nizza
+					}
+					NOT = { owned_by = SAV }
+					previous_owner = SAV
+				}
+				cede_province = SAV
+				every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+			}
+			add_truce_with = SAV
+		}
+	}
+	
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+			if = { 
+				limit = { has_global_flag = ae_sard_piedmont }
+				SPI = {
+					set_dynasty = "di Savoia"
+					set_capital = 103
+				}
+				clr_global_flag = ae_sard_piedmont
+			}
+			else = { 
+				SAV = {
+					set_dynasty = "di Savoia"
+					set_capital = 205
+				}
+			}
+		}
+		clr_global_flag = ae_restore_province_receiver
+	}
+}
+
+
+# Save Scotland
+country_event = {
+	id = ae_restricted_expansion.202
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	immediate = {
+		SCO = {
+			save_event_target_as = ae_province_receiver			 
+			if = { 
+				limit = { exists = NO }
+				set_global_flag = ae_restore_province_receiver
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				SCO = { full_ai = yes }
+			}
+		}
+		NOT = { tag = SCO }
+		NOT = { exists = GBR }
+		NOT = { is_year = 1700 }	
+		any_owned_province = { 
+			OR = {
+				area = lowlands_area
+				area = highlands_area
+				AND = {
+					area = kingdom_of_the_isles_area
+					NOT = { owned_by = LOI }
+				}
+			}
+			NOT = { province_id = 4365 } #Man
+			NOT = { owned_by = SCO }
+			previous_owner = SCO
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+		every_owned_province = {
+			limit = {
+				OR = {
+				area = lowlands_area
+				area = highlands_area
+				AND = {
+						area = kingdom_of_the_isles_area
+						NOT = { owned_by = LOI }
+					}
+				}
+				NOT = { province_id = 4365 } #Man
+				NOT = { owned_by = SCO }
+				previous_owner = SCO
+			}
+			cede_province = SCO
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+		}
+		add_truce_with = SCO
+	}
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+		
+			SCO = {
+				set_dynasty = "Stuart"
+				set_capital = 248 
+			}
+		}
+		clr_global_flag = ae_restore_province_receiver
+	}
+}
+
+
+
+# Save Denmark
+country_event = {
+	id = ae_restricted_expansion.203
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	immediate = {
+		DAN = {
+			save_event_target_as = ae_province_receiver			 
+			if = { 
+				limit = { exists = NO }
+				set_global_flag = ae_restore_province_receiver
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				DAN = { full_ai = yes }
+			}
+		}
+		NOT = { tag = DAN }   
+		NOT = { exists = SCA }
+		any_owned_province = { 
+			OR = {
+				area = jutland_area
+				area = denmark_area 
+			}
+			NOT = { owned_by = DAN }
+			previous_owner = DAN
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+		every_owned_province = {
+			limit = {
+				OR = { 
+					area = jutland_area
+					area = denmark_area 
+				}
+				NOT = { owned_by = DAN }
+				previous_owner = DAN
+			}
+			cede_province = DAN
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+		}
+		add_truce_with = DAN
+	}
+	
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+			DAN = { 
+				set_capital = 12 #Copenhagen
+			}
+		}
+		clr_global_flag = ae_restore_province_receiver
+	}
+}
+
+# Save Ardabil
+country_event = {
+	id = ae_restricted_expansion.204
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	immediate = {
+		ARL = { 
+			save_event_target_as = ae_province_receiver 
+			if = { 
+				limit = { exists = NO }
+				set_global_flag = ae_restore_province_receiver
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				ARL = { full_ai = yes }
+			}
+		}
+		NOT = { tag = ARL }
+		NOT = { exists = PER }
+		any_owned_province = { 
+			province_id = 424 #Ardabil
+			NOT = { owned_by = ARL }
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+		424 = { 
+			cede_province = ARL
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+		}
+		add_truce_with = ARL
+	}
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+			
+			ARL = {
+				set_dynasty = "Safavid"
+				set_capital = 424
+				change_religion = shiite
+				424 = {	change_religion = shiite }
+			}
+		}
+		clr_global_flag = ae_restore_province_receiver
+	}
+}
+
+# Save Circassia
+country_event = {
+	id = ae_restricted_expansion.205
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	immediate = {
+		CIR = { 
+			save_event_target_as = ae_province_receiver 
+			if = { 
+				limit = { exists = NO }
+				set_global_flag = ae_restore_province_receiver
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				CIR = { full_ai = yes }
+			}
+		}
+		NOT = { tag = CIR }
+		any_owned_province = { 
+			province_id = 463 #Circassia
+			NOT = { owned_by = CIR }
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+		463 = { 
+			cede_province = CIR
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+		}
+		add_truce_with = CIR
+	}
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+		clr_global_flag = ae_restore_province_receiver }
+	}
+}
+
+# Save Crimea
+country_event = {
+	id = ae_restricted_expansion.206
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	immediate = {
+		CRI = { 
+			save_event_target_as = ae_province_receiver 
+			if = { 
+				limit = { exists = NO }
+				set_global_flag = ae_restore_province_receiver
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				CRI = { full_ai = yes }
+			}
+		}
+		NOT = { is_year = 1770 }
+		NOT = { tag = CRI }
+		any_owned_province = { 
+			OR = {
+				province_id = 284 #Crimea
+				province_id = 1974 #Yedishkul
+				AND = {
+					NOT = { is_year = 1700 }
+					OR = { 
+						province_id = 2412 #Mariupol
+						AND = {
+							province_id = 287 #Kuban
+							NOT = { owned_by = CIR }
+						}
+					}
+				}
+				AND = {
+					NOT = { is_year = 1600 }
+					OR = {
+						owned_by = POL
+						owned_by = LIT
+						owned_by = PLC
+					}
+					OR = {
+						area = azov_area
+						area = lower_don_area
+						area = astrakhan_area
+						province_id = 299
+					}
+					is_core = CRI
+				}
+			}
+			NOT = { owned_by = CRI }
+			previous_owner = CRI
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+		every_owned_province = { 
+			limit = {
+				OR = {
+					province_id = 284 #Crimea
+					province_id = 1974 #Yedishkul
+					AND = {
+						NOT = { is_year = 1700 }
+						OR = { 
+							province_id = 2412 #Mariupol
+							AND = {
+								province_id = 287 #Kuban
+								NOT = { owned_by = CIR }
+							}
+						}
+					}
+					AND = {
+						NOT = { is_year = 1600 }
+						OR = {
+							owned_by = POL
+							owned_by = LIT
+							owned_by = PLC
+						}
+						OR = {
+							area = azov_area
+							area = lower_don_area
+							area = astrakhan_area
+							province_id = 299
+						}
+						is_core = CRI
+					}
+				}
+				NOT = { owned_by = CRI }
+				previous_owner = CRI
+			}
+			cede_province = CRI
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+			
+		}
+		add_truce_with = CRI
+	}
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+		clr_global_flag = ae_restore_province_receiver }
+	}
+}
+
+# Save Teutons/Prussia
+country_event = {
+	id = ae_restricted_expansion.207
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	
+	immediate = {
+		if = {
+			limit = {
+				any_province = {
+					OR = {
+						is_core = PRU
+						is_claim = PRU 
+					}
+				}
+			}
+			PRU = { 
+				save_event_target_as = ae_province_receiver
+				set_global_flag = ae_prussia
+				if = { 
+					limit = { exists = NO }
+					set_global_flag = ae_restore_province_receiver
+				}
+			}
+		}
+		else = {
+			TEU = { 
+				save_event_target_as = ae_province_receiver 
+				if = { 
+					limit = { exists = NO }
+					set_global_flag = ae_restore_province_receiver
+				}
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				TEU = { full_ai = yes }
+				PRU = { full_ai = yes }
+			}
+		}
+		NOT = { tag = TEU }
+		NOT = { tag = PRU }
+		NOT = { is_year = 1650 }
+		any_owned_province = { 
+			OR = {
+				province_id = 40 #Memel
+				province_id = 41 #Königsberg
+				province_id = 767 #Orstelburg
+				province_id = 2958 #Osterode
+			}
+			 
+			NOT = { owned_by = BRA }
+			NOT = { owned_by = GER }
+			NOT = { owned_by = HLR }
+			
+			
+			OR = {
+				AND = { 
+					previous_owner = TEU
+					NOT = { owned_by = TEU }
+				}
+				AND = { 
+					previous_owner = PRU
+					NOT = { owned_by = PRU }
+				}
+			}
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+	
+		every_owned_province = { 
+			limit = {
+				OR = {
+					province_id = 40 #Memel
+					province_id = 41 #Königsberg
+					province_id = 767 #Orstelburg
+					province_id = 2958 #Osterode
+				}
+				
+				NOT = { 
+					AND = {
+						owned_by = TEU 
+						previous_owner = TEU
+					}
+					AND = {
+						has_global_flag = ae_prussia
+						owned_by = PRU
+						previous_owner = PRU
+					}
+				}
+				NOT = { owned_by = BRA }
+				NOT = { owned_by = GER }
+				NOT = { owned_by = HLR }
+			}
+			
+			if = { 
+				limit = { 
+					has_global_flag = ae_prussia
+				}
+				cede_province = PRU 
+
+				else = {
+					cede_province = TEU 
+				}
+			}
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+		}
+		
+		if = { 
+			limit = { 
+				has_global_flag = ae_prussia
+			}
+			add_truce_with = PRU 
+
+			else = {
+				add_truce_with = TEU 
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+		clr_global_flag = ae_restore_province_receiver }
+	}
+}
+
+
+# Save Livonian Order
+country_event = {
+	id = ae_restricted_expansion.2071
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	
+	immediate = {
+		LIV = { 
+			save_event_target_as = ae_province_receiver 
+		}
+	}
+	
+	trigger = {
+		NOT = { has_global_flag = ae_livonia_divided }
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				LIV = { full_ai = yes }
+			}
+		}
+		NOT = { tag = LIV }
+		NOT = { is_year = 1550 }
+		any_owned_province = { 
+			NOT = { province_id = 38 }
+			NOT = { owned_by = LIV }
+			OR = {
+				area = estonia_ingria_area
+				area = livonia_area
+				area = curonia_area
+			}
+			NOT = { owned_by = GER }
+			NOT = { owned_by = HLR }
+			previous_owner = LIV
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+	
+		
+		every_owned_province = { 
+			limit = {
+				NOT = { province_id = 38 }
+				NOT = { owned_by = LIV }
+				OR = {
+					area = estonia_ingria_area
+					area = livonia_area
+					area = curonia_area
+				}
+				NOT = { owned_by = GER }
+				NOT = { owned_by = HLR }
+				previous_owner = LIV
+			}
+			
+			cede_province = LIV 
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+		}
+		add_truce_with = LIV 
+	}
+	
+	after = {
+		
+	}
+}
+
+# Save Riga
+country_event = {
+	id = ae_restricted_expansion.2072
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	
+	immediate = {
+		RIG = { 
+			save_event_target_as = ae_province_receiver 
+		}
+	}
+	
+	trigger = {
+		NOT = { has_global_flag = ae_livonia_divided }
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				RIG = { full_ai = yes }
+			}
+		}
+		NOT = { tag = RIG }
+		NOT = { is_year = 1550 }
+		38 = { 
+			owned_by = ROOT
+			NOT = { owned_by = LIV } 
+			NOT = { owned_by = RIG } 
+			NOT = { owned_by = GER }
+			NOT = { owned_by = HLR }
+			previous_owner = RIG
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+	
+		
+		38 = {  
+			
+			cede_province = RIG 
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+		}
+		add_truce_with = RIG 
+	}
+	
+	after = {
+		
+	}
+}
+
+# Save Great Horde
+country_event = {
+	id = ae_restricted_expansion.208
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	
+	immediate = { 
+		GOL = { 
+			save_event_target_as = ae_province_receiver 
+			if = { 
+				limit = { exists = NO }
+				set_global_flag = ae_restore_province_receiver
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				GOL = { full_ai = yes }
+			}
+		}
+		NOT = { tag = GOL } 
+		NOT = { tag = CRI } 
+		NOT = { is_year = 1510 }
+		NOT = { has_global_flag = ae_great_horde_divided }
+		any_owned_province = { 
+			is_core = GOL 
+			
+			previous_owner = GOL
+		}
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+	
+		add_truce_with = GOL 
+		every_owned_province = { 
+			limit = {
+				is_core = GOL
+				previous_owner = GOL
+			}
+			cede_province = GOL 
+			every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+		clr_global_flag = ae_restore_province_receiver }
+	}
+}
+
+# Save Hungary
+country_event = {
+	id = ae_restricted_expansion.209
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	
+	immediate = { 
+		HUN = { 
+			save_event_target_as = ae_province_receiver 
+			if = { 
+				limit = { exists = NO }
+				set_global_flag = ae_restore_province_receiver
+			}
+		}
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				HUN = { full_ai = yes }
+			}
+		}
+		NOT = { tag = HUN }   
+		NOT = { is_subject_of = HUN }   
+		NOT = { tag = TUR }   
+		NOT = { tag = TRA }   
+		NOT = { is_year = 1520 }
+		any_owned_province = { 
+			OR = {
+				area = transdanubia_area
+				area = alfold_area
+				area = slovakia_area
+				area = transylvania_area
+				area = southern_transylvania_area
+			}
+			previous_owner = HUN
+		}
+		
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+	
+		every_owned_province = { 
+			limit = {
+				OR = {
+					area = transdanubia_area
+					area = alfold_area
+					area = slovakia_area
+					area = transylvania_area
+					area = southern_transylvania_area
+				}
+				previous_owner = HUN
+			}
+			cede_province = previous_owner 
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		}
+	}
+	
+}
+# No Hungarian vassal for Ottomans until they conquer all of Hungary please!
+country_event = {
+	id = ae_restricted_expansion.2091
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = BAD_WITH_MONARCH_eventPicture 
+	
+	
+	immediate = { 
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				HUN = { full_ai = yes }
+			}
+		}
+		tag = TUR
+		HUN = { is_subject_of = ROOT }
+		any_country = {
+			NOT = { 
+				tag = ROOT 
+				tag = HUN 
+			}
+			any_owned_province = {
+				region = carpathia_region
+				NOT = { 
+					area = moldavia_area
+					area = wallachia_area
+				}
+			}
+		}
+	}
+	
+	
+	mean_time_to_happen = { months = 1 }
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+	
+		inherit = HUN
+	}
+	
+	after = {
+		if = {
+			limit = { has_global_flag = ae_restore_province_receiver }
+		clr_global_flag = ae_restore_province_receiver }
+	}
+}
+
+
+
+# Keep Iberia (excl. Granada, Navarra & Rousillon) as in 1444
+country_event = {
+	id = ae_restricted_expansion.210
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							any_owned_province = { 
+								region = iberia_region
+							}
+							any_core_province = { 							 
+								region = iberia_region
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+		
+		if = {
+			limit = { tag = POR }
+			any_owned_province = {
+				region = iberia_region
+				NOT = {
+					area = beieras_area
+					area = alentejo_area
+				}
+			}
+		}
+		else_if = {
+			limit = { tag = CAS }
+			any_owned_province = {
+				region = iberia_region
+				NOT = {
+					area = lower_andalucia_area
+					area = upper_andalucia_area
+					area = castille_area
+					area = toledo_area
+					area = asturias_area
+					area = leon_area
+					area = basque_country
+					area = galicia_area
+					area = extremadura_area
+				}
+			}
+		}
+		else_if = {
+			limit = { tag = ARA }
+			any_owned_province = {
+				region = iberia_region
+				NOT = {
+					area = aragon_area
+					area = catalonia_area
+					area = valencia_area
+					area = baleares_area
+				}
+			}
+		}
+		else_if = {
+			limit = { tag = SPA }
+			any_owned_province = {
+				region = iberia_region
+				NOT = {
+					area = lower_andalucia_area
+					area = upper_andalucia_area
+					area = castille_area
+					area = toledo_area
+					area = asturias_area
+					area = leon_area
+					area = basque_country
+					area = galicia_area
+					area = extremadura_area
+					area = aragon_area
+					area = catalonia_area
+					area = valencia_area
+					area = baleares_area
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				NOT = { is_year = 1650 }
+				NOT = { culture_group = iberian }
+				capital_scope = {
+					NOT = { region = iberia_region }
+				}
+			}
+			any_owned_province = {
+				region = iberia_region
+				NOT = { 
+					area = lower_andalucia_area
+					province_id = 197 
+					province_id = 226 
+				}
+			}
+		}
+		else_if = {
+			limit = { 
+				NOT = { is_year = 1650 }
+				culture_group = iberian
+				capital_scope = { region = iberia_region }
+				OR = {
+					ae_gamerule_restricted_expansion_on = yes 
+					all_countries_including_self = {
+						if = {
+							limit = { 
+								OR = {
+									any_owned_province = { 
+										region = france_region
+									}
+									any_core_province = { 							 
+										region = france_region
+									}
+								}
+							}
+							full_ai = yes
+						}
+					}
+				}
+			}
+			any_owned_province = {
+				region = france_region
+			}
+		}
+		
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+		if = {
+			limit = {
+				tag = POR
+				any_owned_province = {
+					region = iberia_region
+					NOT = {
+						area = beieras_area
+						area = alentejo_area
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					region = iberia_region
+					NOT = {
+						area = beieras_area
+						area = alentejo_area
+					}
+				}
+				cede_province = previous_owner
+				
+				every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+				owner = {
+					if = {
+						limit = { NOT = { truce_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				tag = SPA
+				any_owned_province = {
+					region = iberia_region
+					NOT = {
+						area = lower_andalucia_area
+						area = upper_andalucia_area
+						area = castille_area
+						area = toledo_area
+						area = asturias_area
+						area = leon_area
+						area = basque_country
+						area = galicia_area
+						area = extremadura_area
+						area = aragon_area
+						area = catalonia_area
+						area = valencia_area
+						area = baleares_area
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					region = iberia_region
+					NOT = {
+						area = lower_andalucia_area
+						area = upper_andalucia_area
+						area = castille_area
+						area = toledo_area
+						area = asturias_area
+						area = leon_area
+						area = basque_country
+						area = galicia_area
+						area = extremadura_area
+						area = aragon_area
+						area = catalonia_area
+						area = valencia_area
+						area = baleares_area
+					}
+				}
+				cede_province = previous_owner
+				
+				every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+				owner = {
+					if = {
+						limit = { NOT = { truce_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				tag = CAS
+				any_owned_province = {
+					region = iberia_region
+					NOT = {
+						area = lower_andalucia_area
+						area = upper_andalucia_area
+						area = castille_area
+						area = toledo_area
+						area = asturias_area
+						area = leon_area
+						area = basque_country
+						area = galicia_area
+						area = extremadura_area
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					region = iberia_region
+					NOT = {
+						area = lower_andalucia_area
+						area = upper_andalucia_area
+						area = castille_area
+						area = toledo_area
+						area = asturias_area
+						area = leon_area
+						area = basque_country
+						area = galicia_area
+						area = extremadura_area
+					}
+				}
+				cede_province = previous_owner
+				
+				every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+				owner = {
+					if = {
+						limit = { NOT = { truce_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				tag = ARA
+				any_owned_province = {
+					region = iberia_region
+					NOT = {
+						area = aragon_area
+						area = catalonia_area
+						area = valencia_area
+						area = baleares_area
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					region = iberia_region
+					NOT = {
+						area = aragon_area
+						area = catalonia_area
+						area = valencia_area
+						area = baleares_area
+					}
+				}
+				cede_province = previous_owner
+				
+				every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+				owner = {
+					if = {
+						limit = { NOT = { truce_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { is_year = 1650 }
+				NOT = { culture_group = iberian }
+				capital_scope = {
+					NOT = { region = iberia_region }
+				}
+				OR = {
+					ae_gamerule_restricted_expansion_on = yes 
+					all_countries_including_self = {
+						if = {
+							limit = { 
+								OR = {
+									any_owned_province = { 
+										region = iberia_region
+									}
+									any_core_province = { 							 
+										region = iberia_region
+									}
+								}
+							}
+							full_ai = yes
+						}
+					}
+				}
+				any_owned_province = {
+					region = iberia_region
+					NOT = { 
+						area = upper_andalucia_area
+						province_id = 197 
+						province_id = 226 
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					region = iberia_region
+					NOT = { 
+						area = upper_andalucia_area
+						province_id = 197 
+						province_id = 226 
+					}
+				}
+				cede_province = previous_owner
+				
+				every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+				owner = {
+					if = {
+						limit = { NOT = { truce_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { is_year = 1650 }
+				culture_group = iberian
+				capital_scope = { region = iberia_region }
+				OR = {
+					ae_gamerule_restricted_expansion_on = yes 
+					all_countries_including_self = {
+						if = {
+							limit = { 
+								OR = {
+									any_owned_province = { 
+										region = france_region
+									}
+									any_core_province = { 							 
+										region = france_region
+									}
+								}
+							}
+							full_ai = yes
+						}
+					}
+				}
+				any_owned_province = {
+					region = france_region
+				}
+			
+			}
+			every_owned_province = {
+				limit = {
+					region = france_region
+				}
+				cede_province = previous_owner
+				
+				every_country = { 
+					limit = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+						PREV = {
+							OR = {
+								is_core = PREV
+								is_claim = PREV
+							}
+						}
+					}
+					PREV = { 
+						remove_core = PREV 
+						remove_claim = PREV 
+					}
+				}
+				owner = {
+					if = {
+						limit = { NOT = { truce_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	
+}
+
+
+
+# Save Poland/PLC
+country_event = {
+	id = ae_restricted_expansion.211
+	title = ae_restricted_expansion.200.t
+	desc = ae_restricted_expansion.200.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	
+	immediate = { 
+		if = {
+			limit = { exists = PLC }
+			PLC = { 
+				save_event_target_as = ae_province_receiver 
+			}
+		}
+		else = {
+			POL = { 
+				save_event_target_as = ae_province_receiver 
+			}
+		}
+		
+	}
+	
+	trigger = {
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			AND = {
+				full_ai = yes
+				POL = { full_ai = yes }
+				PLC = { full_ai = yes }
+				MAZ = { full_ai = yes }
+			}
+		}
+		
+		NOT = { tag = POL }    
+		NOT = { tag = PLC }  
+		NOT = { tag = LIT }  
+		NOT = { tag = MAZ }  
+		NOT = { primary_culture = ruthenian }
+		
+		NOT = { is_year = 1700 }
+		
+		any_owned_province = { 
+			OR = {
+				area = malopolska_area
+				area = sandomierz_area
+				area = mazovia_area
+				area = central_poland_area
+				area = red_ruthenia_area
+				area = volhynia_area
+				province_id = 281
+				province_id = 4524
+				province_id = 4528
+			}
+			OR = {
+				previous_owner = POL
+				previous_owner = PLC 
+				previous_owner = MAZ 
+			}
+		}
+		
+	}
+	
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = ae_restricted_expansion.200.a
+	
+		
+		every_owned_province = { 
+			limit = {
+				OR = {
+					area = malopolska_area
+					area = sandomierz_area
+					area = mazovia_area
+					area = central_poland_area
+					area = red_ruthenia_area
+					area = volhynia_area
+					province_id = 281
+					province_id = 4524
+					province_id = 4528
+				}
+				OR = {
+					previous_owner = POL
+					previous_owner = PLC
+					previous_owner = LIT
+					previous_owner = MAZ 
+				}
+			}
+			cede_province = previous_owner 
+			every_country = { 
+				limit = {
+					OR = {
+						tag = ROOT
+						is_subject_of = ROOT
+					}
+					PREV = {
+						OR = {
+							is_core = PREV
+							is_claim = PREV
+						}
+					}
+				}
+				PREV = { 
+					remove_core = PREV 
+					remove_claim = PREV 
+				}
+			}
+			owner = {
+				if = {
+					limit = { NOT = { truce_with = ROOT } }
+					add_truce_with = ROOT
+				}
+			}
+		}
+	}
+	 
+}
+
+## GENERAL EXPANSION BLOCKS ##
+
+# Cede vassal-adjacent enclaves to vassals
+country_event = {
+	id = ae_restricted_expansion.300
+	title = ae_restricted_expansion.300.t
+	desc = ae_restricted_expansion.300.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = {  
+		NOT = { ae_gamerule_exclaves_off = yes }
+		OR = {
+			ae_gamerule_exclaves_on = yes 
+			full_ai = yes 
+		}
+		any_owned_province = {
+			NOT = {
+				AND = { 
+					ROOT = { tag = TUR }
+					OR = {
+						province_id = 282
+						province_id = 2406
+					}
+				}
+			}
+			NOT = {
+				AND = { 
+					ROOT = { tag = MOS }
+					province_id = 4117
+				}
+			}
+			is_in_capital_area = no
+			NOT = { is_core = ROOT }
+			OR = {
+				ROOT = { capital_scope = { has_port = no } }				
+				has_port = no
+			}
+			any_country = {
+				is_subject_of = ROOT
+				is_colonial_nation = no
+				NOT = { is_subject_of_type = tributary_state }
+				PREV = {
+					is_neighbor_of = PREV
+				}
+				
+				OR = {
+					OR = {
+						capital_scope = { has_port = yes }
+						ROOT = { capital_scope = { has_port = no } }			
+					}
+					PREV = { has_port = no }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}	
+	
+	option = { 
+		name = ae_restricted_expansion.300.a  
+		if = {
+			limit = {
+				tag = DAN
+				owns = 1777
+				SWE = {
+					is_subject_of = ROOT
+					owns = 4151
+				}
+				NOR = {
+					is_subject_of = ROOT 
+					owns = 315
+				}
+			}
+			1777 = {
+				cede_province = SWE
+			}
+		}
+		while = {
+			limit = {
+				any_owned_province = {
+					NOT = {
+						AND = { 
+							ROOT = { tag = TUR }
+							OR = {
+								province_id = 282
+								province_id = 2406
+							}
+						}
+					}
+					
+					NOT = {
+						AND = { 
+							ROOT = { tag = MOS }
+							province_id = 4117
+						}
+					}
+					is_in_capital_area = no
+					NOT = { is_core = ROOT }  
+					any_country = {
+						is_subject_of = ROOT
+						is_colonial_nation = no
+						NOT = { is_subject_of_type = tributary_state }
+						PREV = {
+							is_neighbor_of = PREV
+						}
+						OR = {
+							OR = {
+								capital_scope = { has_port = yes }
+								ROOT = { capital_scope = { has_port = no } }			
+							}
+							PREV = { has_port = no }
+						}
+					}
+					
+				}
+			}
+			random_owned_province = {
+				limit = { 
+					
+					NOT = {
+						AND = { 
+							ROOT = { tag = TUR }
+							OR = {
+								province_id = 282
+								province_id = 2406
+							}
+						}
+					}
+					is_in_capital_area = no
+					NOT = { is_core = ROOT }
+					 
+					any_country = {
+						exists = yes
+						is_subject_of = ROOT
+						is_colonial_nation = no
+						NOT = { is_subject_of_type = tributary_state }
+						PREV = {
+							is_neighbor_of = PREV
+						}
+						OR = {
+							OR = {
+								capital_scope = { has_port = yes }
+								ROOT = { capital_scope = { has_port = no } }			
+							}
+							PREV = { has_port = no }
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						exists = yes
+						is_subject_of = ROOT
+						is_colonial_nation = no
+						PREV = {
+							is_neighbor_of = PREV
+						}
+					}
+					PREV = { cede_province = PREV }
+				}
+			}
+		}
+	}
+}
+
+## DIPLOMATIC EXPANSION BLOCKS ##
+
+# Keep Crimea/Circassia/Georgia etc as Ottoman marches/eyalets
+country_event = {
+	id = ae_restricted_expansion.400
+	title = ae_restricted_expansion.400.t
+	desc = ae_restricted_expansion.400.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = {  
+		
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		tag = TUR 
+		any_country = {
+			capital_scope = {
+				OR = { 
+					region = crimea_region
+					region = caucasia_region
+					region = carpathia_region
+				}
+			}
+			is_subject_of = ROOT
+			NOT = { march_of = ROOT }
+			NOT = { is_subject_of_type = eyalet }
+			NOT = { is_subject_of_type = core_eyalet }
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}	
+	
+	option = { 
+		name = ae_restricted_expansion.400.a  
+		every_country = {
+			limit = {
+				capital_scope = {
+					OR = { 
+						region = crimea_region
+						region = caucasia_region
+						region = carpathia_region
+					}
+				}
+				is_subject_of = ROOT
+				NOT = { march_of = ROOT }
+				NOT = { is_subject_of_type = eyalet }
+				NOT = { is_subject_of_type = core_eyalet }
+			}
+			ROOT = { create_march = PREV }	
+		}
+	}
+}
+
+# Keep Teutons/Prussia/Kurland/Moldavia/Wallachia/Zaporozhia as Polish/Lithuanian/Hungarian march
+country_event = {
+	id = ae_restricted_expansion.401
+	title = ae_restricted_expansion.401.t
+	desc = ae_restricted_expansion.401.d
+	picture = IMPALED_SOLDIERS_eventPicture 
+	
+	trigger = {  
+	
+		NOT = { ae_gamerule_restricted_expansion_off = yes }
+		OR = {
+			ae_gamerule_restricted_expansion_on = yes 
+			full_ai = yes
+		}
+		OR = {
+			tag = LIT
+			tag = POL
+			tag = PLC
+			tag = HUN
+		}
+		any_country = {
+			OR = {
+				tag = TEU
+				tag = PRU
+				tag = MOL
+				tag = WAL
+				tag = KUR
+				tag = ZAZ
+			}
+			is_subject_of = ROOT
+			NOT = { march_of = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}	
+	
+	option = { 
+		name = ae_restricted_expansion.401.a  
+		every_country = {
+			limit = {
+				OR = {
+					tag = TEU
+					tag = PRU 
+					tag = MOL
+					tag = WAL
+					tag = KUR
+					tag = ZAZ
+				}
+				is_subject_of = ROOT
+				NOT = { march_of = ROOT }
+			}
+			ROOT = { create_march = PREV }	
+		}
+	}
+}

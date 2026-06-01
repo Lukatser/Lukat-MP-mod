@@ -29,4 +29,5 @@ fee_child_of_destiny_personality = {
 	global_regiment_cost = -0.2
 	land_forcelimit_modifier = 0.5
 	nation_designer_cost = 800
+	wants_avoid_ugly_borders = yes
 }

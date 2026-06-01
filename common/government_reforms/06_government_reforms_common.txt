@@ -133,6 +133,7 @@ parliamentary_reform = {
 	}
 }
 
+
 restoration_of_the_senate_reform = {
 	icon = "restoration_of_the_senate_reform"
 	modifiers = {
@@ -140,7 +141,7 @@ restoration_of_the_senate_reform = {
 		max_possible_parliament_seats = 8
 	}
 	potential = {
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		NOT = { has_government_attribute = english_parliament }
 		OR = {
@@ -551,13 +552,11 @@ enforced_autocracy_reform = {
 	icon = russian_queen
 	potential = {
 		has_dlc = "Domination"
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
 			have_had_reform = enforced_autocracy_reform
-			has_unlocked_government_reform = {
-				government_reform = enforced_autocracy_reform
-			}
+			has_unlocked_government_reform = { government_reform = enforced_autocracy_reform }
 			has_reform = ruthenian_tsardom
 		}
 	}
@@ -681,7 +680,7 @@ i_am_the_church_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = catholic
@@ -721,7 +720,7 @@ focus_of_the_patriarchy_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = coptic
@@ -747,7 +746,7 @@ lands_for_the_monasteries_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = orthodox
@@ -817,7 +816,7 @@ zoroastrian_focus_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = zoroastrian
@@ -860,7 +859,7 @@ power_to_the_synagogoues_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion_group = jewish_group
@@ -889,7 +888,7 @@ head_of_the_reformed_church_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		NOT = { religion = catholic }
@@ -932,7 +931,7 @@ confucian_governing_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = confucianism
@@ -961,7 +960,7 @@ empower_buddhist_temples_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		OR = {
@@ -997,7 +996,7 @@ public_hindu_practices_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = hinduism
@@ -1027,7 +1026,7 @@ strengthen_shaman_privileges_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = shamanism
@@ -1054,7 +1053,7 @@ abolished_caste_system_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = sikhism
@@ -1078,7 +1077,7 @@ strengthen_the_ulema_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion_group = muslim
@@ -1108,7 +1107,7 @@ strengthen_the_dhimmi_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion_group = muslim
@@ -1123,6 +1122,8 @@ strengthen_the_dhimmi_reform = {
 	}
 	custom_attributes = {
 		free_guarantee_dhimmi_autonomy = yes
+		disables_estate_brahmins = yes
+		enables_estate_dhimmi = yes
 	}
 	
 	ai = {
@@ -1136,7 +1137,7 @@ legacy_of_the_steppes_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = tengri_pagan_reformed
@@ -1161,7 +1162,7 @@ state_and_shrines_intertwined_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = shinto
@@ -1185,7 +1186,7 @@ embedded_norse_government_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		religion = norse_pagan_reformed
@@ -1211,7 +1212,7 @@ strengthen_clergy_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 		has_no_religion_specific_government_available = yes	#This way modders don't have to change this reform explicitly
@@ -1233,7 +1234,7 @@ curtail_clergy_power_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -1257,7 +1258,7 @@ secure_clergy_power_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -1302,7 +1303,7 @@ maintain_clergy_balance_of_power_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -1322,7 +1323,7 @@ separate_clergy_from_state_affairs_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -1356,7 +1357,7 @@ cult_of_reason_reform = {
 	icon = "cult_of_reason"
 	allow_normal_conversion = yes
 	potential = {
-		EVHO_is_actually_revolutionary_trigger = yes
+		is_revolutionary = yes
 		has_dlc = "Emperor"
 	}
 	trigger = {
@@ -1386,7 +1387,7 @@ conserve_the_religion_reform = {
 	icon = "cult_of_supreme_being"
 	allow_normal_conversion = yes
 	potential = {
-		EVHO_is_actually_revolutionary_trigger = yes
+		is_revolutionary = yes
 		has_dlc = "Emperor"
 	}
 	modifiers = {
@@ -1412,7 +1413,7 @@ secularization_of_the_state_reform = {
 	icon = "partial_secularisation_reform"
 	allow_normal_conversion = yes
 	potential = {
-		EVHO_is_actually_revolutionary_trigger = yes
+		is_revolutionary = yes
 		has_dlc = "Emperor"
 	}
 	trigger = {
@@ -1440,13 +1441,11 @@ holy_synod_reform = {
 	icon = "patriarch"
 	potential = {
 		has_dlc = "Domination"
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
 			have_had_reform = holy_synod_reform
-			has_unlocked_government_reform = {
-				government_reform = holy_synod_reform
-			}
+			has_unlocked_government_reform = { government_reform = holy_synod_reform }
 			has_reform = ruthenian_tsardom
 		}
 	}
@@ -1494,13 +1493,11 @@ strengthened_the_patriarchy_reform = {
 	icon = "patriarch"
 	potential = {
 		has_dlc = "Domination"
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
 			have_had_reform = strengthened_the_patriarchy_reform
-			has_unlocked_government_reform = {
-				government_reform = strengthened_the_patriarchy_reform
-			}
+			has_unlocked_government_reform = { government_reform = strengthened_the_patriarchy_reform }
 			has_reform = ruthenian_tsardom
 		}
 	}
@@ -1526,13 +1523,11 @@ head_of_the_patriarchy_reform = {
 	icon = "patriarch"
 	potential = {
 		has_dlc = "Domination"
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
 			have_had_reform = head_of_the_patriarchy_reform
-			has_unlocked_government_reform = {
-				government_reform = head_of_the_patriarchy_reform
-			}
+			has_unlocked_government_reform = { government_reform = head_of_the_patriarchy_reform }
 		}
 	}
 	trigger = {
@@ -1609,13 +1604,11 @@ fiqh_laws_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
 			have_had_reform = fiqh_laws_reform
-			has_unlocked_government_reform = {
-				government_reform = fiqh_laws_reform
-			}
+			has_unlocked_government_reform = { government_reform = fiqh_laws_reform }
 			has_reform = sultanate_of_rum_reform
 		}
 	}
@@ -1642,13 +1635,11 @@ sufism_decree_reform = {
 	allow_normal_conversion = yes
 	potential = {
 		has_dlc = "Domination"
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
 			have_had_reform = sufism_decree_reform
-			has_unlocked_government_reform = {
-				government_reform = sufism_decree_reform
-			}
+			has_unlocked_government_reform = { government_reform = sufism_decree_reform }
 			has_reform = sultanate_of_rum_reform
 		}
 	}
@@ -3769,7 +3760,7 @@ empower_the_burghers_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -3794,7 +3785,7 @@ curtail_the_burghers_reform = {
 	potential = {
 		NOT = { has_government_attribute = is_pirate_republic_reform }
 		OR = {
-			EVHO_is_actually_revolutionary_trigger = no
+			is_revolutionary = no
 			NOT = { has_dlc = "Emperor" }
 		}
 	}
@@ -3815,7 +3806,7 @@ reestablish_the_burgeoisie_reform = {
 	icon = "dutch_republic"
 	allow_normal_conversion = yes
 	potential = {
-		EVHO_is_actually_revolutionary_trigger = yes
+		is_revolutionary = yes
 		has_dlc = "Emperor"
 	}
 	modifiers = {
@@ -3849,7 +3840,7 @@ new_world_exploitation_reform = {
 		}
 		if = {
 			limit = {
-				EVHO_is_actually_revolutionary_trigger = yes
+				is_revolutionary = yes
 				has_dlc = "Emperor"
 				has_government_attribute = enables_estate_burghers
 			}
@@ -3878,7 +3869,7 @@ mercantilistic_approach_reform = {
 	trigger = {
 		if = {
 			limit = {
-				EVHO_is_actually_revolutionary_trigger = yes
+				is_revolutionary = yes
 				has_dlc = "Emperor"
 				has_government_attribute = enables_estate_burghers
 			}
@@ -3909,7 +3900,7 @@ free_trade_reform = {
 	trigger = {
 		if = {
 			limit = {
-				EVHO_is_actually_revolutionary_trigger = yes
+				is_revolutionary = yes
 				has_dlc = "Emperor"
 				has_government_attribute = enables_estate_burghers
 			}
@@ -3949,7 +3940,7 @@ lockean_proviso_reform = {
 		}
 		if = {
 			limit = {
-				EVHO_is_actually_revolutionary_trigger = yes
+				is_revolutionary = yes
 				has_dlc = "Emperor"
 				has_government_attribute = enables_estate_burghers
 			}
@@ -3976,7 +3967,7 @@ embrace_the_economic_theory_reform = {
 	trigger = {
 		if = {
 			limit = {
-				EVHO_is_actually_revolutionary_trigger = yes
+				is_revolutionary = yes
 				has_dlc = "Emperor"
 				has_government_attribute = enables_estate_burghers
 			}

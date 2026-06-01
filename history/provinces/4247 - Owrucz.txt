@@ -1,4 +1,4 @@
-#4247 - Owrucz, Chernobyl, etc.
+#4247 - Zviahel
 
 owner = LIT
 controller = LIT  
@@ -9,7 +9,7 @@ base_tax = 1
 base_production = 2
 trade_goods = grain 
 base_manpower = 1
-capital = "Ovruch"
+capital = "Zviahel"
 is_city = yes
 add_core = KIE
 add_core = LIT

@@ -240,6 +240,17 @@ hree_imperial_ban_member_opinion = {
 	min = -50
 }
 
+hree_imperial_archoffice_granted_opinion = {
+	opinion = 50
+	max = 50
+	yearly_decay = 1
+}
+
+hree_imperial_archoffice_removed_opinion = {
+	opinion = -50
+	yearly_decay = 2
+}
+
 imperial_agenda_failed_opinion = {
 	opinion = -25
 	yearly_decay = 0.5

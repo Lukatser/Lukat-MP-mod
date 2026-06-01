@@ -864,7 +864,7 @@ is_valid_free_city = {
 
 hree_is_valid_hre_emperor = {
 	is_subject = no
-	government = monarchy
+	has_government_attribute = is_eligible_for_hre_emperor
 	has_regency = no
 	OR = {
 		is_female = no
@@ -875,9 +875,22 @@ hree_is_valid_hre_emperor = {
 			has_dlc = "Art of War"
 			hre_religion_treaty = no
 		}
-		religion = FROM
+		religion = emperor
 	}
 	else = {
 		religion_group = christian
+	}
+}
+
+hree_has_any_imperial_archoffice = {
+	OR = {
+		has_country_modifier = german_erzkanzler
+		has_country_modifier = italian_erzkanzler
+		has_country_modifier = burgundian_erzkanzler
+		has_country_modifier = erztruchsess
+		has_country_modifier = erzmarschall
+		has_country_modifier = erzkaemmerer
+		has_country_modifier = erzmundschenk
+		has_country_modifier = erzbannertraeger
 	}
 }

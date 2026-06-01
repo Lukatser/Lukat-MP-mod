@@ -1,0 +1,1316 @@
+namespace = ae_historical_formables 
+normal_or_historical_nations = yes
+
+## FORCE HISTORICAL NATIONS ##
+
+#Force Persia
+country_event = {
+	id = ae_historical_formables.100
+	title = ae_historical_formables.100.t
+	desc = ae_historical_formables.100.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		NOT = { has_global_flag = ae_persia }
+		
+		
+		NOT = { ae_gamerule_formables_off = yes }
+		OR = {
+			ae_gamerule_formables_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							any_owned_province = { 
+								OR = {
+									superregion = near_east_superregion
+									superregion = persia_superregion
+								}
+							}
+							any_core_province = { 							 
+								OR = {
+									superregion = near_east_superregion
+									superregion = persia_superregion
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+		
+		
+		is_year = 1501 
+		PER = { exists = no }
+		if = {
+			limit = { exists = ARL }
+			tag = ARL
+		}
+		else = { owns = 424 }
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}	
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { exists = ARL } 
+			}
+			424 = { add_core = ARL }
+			ROOT = { release = ARL }
+			ARL = {
+				set_dynasty = "Safavid" 
+				change_religion = shiite
+			}
+		}
+	}
+	
+	
+	option = { 
+		name = ae_historical_formables.100.a 
+		set_global_flag = ae_persia
+		
+		ARL = {
+			every_province = {
+				limit = {
+					OR = {
+						area = azerbaijan_area 
+						area = luristan_area
+						area = tabriz_area
+						area = iraq_e_ajam_area 
+					}
+				}
+				cede_province = PREV
+				add_core = PREV
+			}
+			every_country = {
+				limit = {
+					OR = { 
+						tag = QOM
+						tag = QAR
+					}
+					exists = yes
+				}
+				every_owned_province = {
+					limit = { 
+						OR = {
+							area = azerbaijan_area 
+							area = luristan_area
+							area = tabriz_area
+							area = iraq_e_ajam_area 
+						}  
+					}
+					cede_province = ARL
+					add_core = ARL
+				}
+			}
+			
+			if = {
+				limit = { 
+					NOT = { religion = shiite } 
+				}
+				change_religion = shiite
+			}
+			if = {
+				limit = { 
+					was_tag = ARL 
+					NOT = { dynasty = "Safavid" }
+				}
+				set_dynasty = "Safavid" 
+			}
+			change_tag = PER
+			on_change_tag_effect = yes
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+					is_revolutionary = no
+				}
+				change_government = monarchy
+			}
+			set_government_rank = 3
+			if = {
+				limit = { is_revolutionary = no NOT = { religion_group = zoroastrian_group } }
+				add_government_reform = persian_government_reform
+			}
+			if = {
+				limit = { is_revolutionary = no religion_group = zoroastrian_group }
+				add_government_reform = zoroastrian_persian_government_reform
+			}
+			if = {
+				limit = {
+					has_reform = states_general_reform
+				}
+				remove_government_reform = states_general_reform
+			}
+			persia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = PER
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					OR = {
+						NOT = { has_dlc = "King of Kings" }
+						NOT = { primary_culture = mazandarani }
+					}
+					NOT = { primary_culture = persian }
+				}
+				change_primary_culture = persian
+			}
+			set_country_flag = formed_persia_flag
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			if = {
+				limit = { has_dlc = "King of Kings" }
+				unlock_estate = {
+					estate = estate_qizilbash
+				}
+			}
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 0.5
+					cavalry = 0.2
+					artillery = 0.2
+				}
+			}
+		}
+	}
+}
+
+#Force Mughals
+country_event = {
+	id = ae_historical_formables.101
+	title = ae_historical_formables.101.t
+	desc = ae_historical_formables.101.d
+	picture = SULTAN_AND_MERCHANT_eventPicture
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { has_global_flag = ae_mughals }
+		NOT = { ae_gamerule_formables_off = yes }
+		OR = {
+			ae_gamerule_formables_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							any_owned_province = { 
+								OR = {
+									superregion = india_superregion
+									region = khorasan_region
+									region = persia_region
+								}
+							}
+							any_core_province = { 							 
+								OR = {
+									superregion = india_superregion
+									region = khorasan_region
+									region = persia_region
+								}
+							}
+							capital_scope = { trade_company_region = trade_company_samarkand }
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+		is_year = 1506 
+		MUG = { exists = NO }
+		dynasty = "Timurid" 
+		any_neighbor_country = { culture_group = hindusthani }
+		NOT = {
+			any_country = {
+				NOT = { tag = ROOT }
+				NOT = { num_of_cities = ROOT }
+				dynasty = "Timurid" 
+				any_neighbor_country = { culture_group = hindusthani }
+			}
+		}
+		NOT = {
+			any_country = {
+				NOT = { tag = ROOT }
+				dynasty = "Timurid"
+				OR = {
+					owns_core_province = 507 #Lahore
+					owns_core_province = 2075 #Sirhind
+					owns_core_province = 524 #Agra
+				}
+				owns_core_province = 522 	#Delhi
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}	
+	
+	option = { 
+		name = ae_historical_formables.101.a
+		set_global_flag = ae_mughals
+		if = { 
+			any_country = { is_subject_of = ROOT }
+			release_all_subjects = yes
+		}
+		if = {
+			limit = { is_subject = yes }
+			grant_independence = yes
+		} 
+		every_province = {
+			limit = {
+				OR = {
+					area = sind_sagar_area 
+					area = lahore_area
+					area = sirhind_area
+					area = upper_doab_area  
+					area = lower_doab_area  
+					area = katehar_area  
+					area = oudh_area  
+					area = purvanchal_area  
+					area = bihar_area  
+					area = mithila_area  
+				}
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		}
+		if = {
+			limit = { exists = DLH }
+			inherit = DLH
+		} 
+		if = {
+			limit = { exists = JNP }
+			inherit = JNP
+		} 
+		if = {
+			limit = { 
+				NOT = { religion = sunni } 
+			}
+			change_religion = sunni
+		}
+		522 = {
+			move_capital_effect = yes
+		}
+
+			
+		change_tag = MUG
+		on_change_tag_effect = yes
+		restore_country_name = yes
+		swap_non_generic_missions = yes
+		remove_non_electors_emperors_from_empire_effect = yes
+		change_primary_culture = kanauji
+
+		set_government_rank = 3
+		522 = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+		hindusthan_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_core = MUG
+		}
+		india_superregion = {
+			limit = {
+				NOT = { region = coromandel_region }
+				NOT = { area = assam_area }
+				NOT = { area = tripura_area }
+				NOT = { area = naga_hills_area }
+			}
+			add_permanent_claim = MUG
+		}
+		add_prestige = 25
+
+		if = {
+			limit = {
+				NOT = { technology_group = indian }
+			}
+			change_technology_group = indian
+			change_unit_type = indian
+		}
+		if = {
+			limit = {
+				NOT = { government = monarchy }
+				is_revolutionary = no
+			}
+			change_government = monarchy
+		}
+		if = {
+			limit = {
+				has_dlc = "Dharma"
+				is_revolutionary = no
+			}
+			add_government_reform = indian_sultanate_reform
+			add_government_reform = mughal_government
+		}
+		if = {
+			limit = {
+				has_dlc = "Dharma"
+				reform_level = 3
+			}
+			add_government_reform = mansabdari_reform
+		}
+		if = {
+			limit = {
+				has_dlc = "Dharma"
+				reform_level = 4
+			}
+			add_government_reform = zabt_reform
+		}
+		if = {
+			limit = {
+				has_reform = states_general_reform
+			}
+			remove_government_reform = states_general_reform
+		}
+		if = {
+			limit = { has_custom_ideas = no }
+			country_event = { id = ideagroups.1 } #Swap Ideas
+		}
+		custom_tooltip = timurid_claims_abandoned_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = { 
+					OR = {
+						region = persia_region
+						region = khorasan_region
+						region = caucasia_region
+						region = central_asia_region
+					}
+					NOT = { area = kabulistan_area }
+					is_permanent_claim = MUG
+				}
+				remove_claim = MUG
+			}
+			every_province = {
+				limit = {
+					OR = {
+						region = persia_region
+						region = khorasan_region
+						region = caucasia_region
+						region = central_asia_region
+					}
+					NOT = { area = kabulistan_area }
+					is_core = MUG
+				}
+				remove_core = MUG
+			}
+		}
+		
+		while = {
+			limit = {
+				any_owned_province = {
+					OR = {
+						region = persia_region
+						region = khorasan_region
+						region = caucasia_region
+						region = central_asia_region
+					}
+					NOT = { area = kabulistan_area }
+					any_core_country = {
+						NOT = { tag = ROOT }
+						NOT = { tag = TIM }
+					}
+				}
+			} 
+			random_owned_province = { 
+				limit = { 
+					OR = {
+						region = persia_region
+						region = khorasan_region
+						region = caucasia_region
+						region = central_asia_region
+					}
+					NOT = { area = kabulistan_area }
+					any_core_country = {
+						NOT = { tag = ROOT }
+						NOT = { tag = TIM }
+					}
+				}
+				random_core_country = { 
+					limit = { 
+						NOT = { tag = ROOT }
+						NOT = { tag = TIM }
+					}
+					if = {
+						limit = { exists = no }
+						ROOT = { release = PREV }
+					}
+					else = {
+						PREV = { cede_province = PREV }
+					}
+				}
+			}		 
+		} 
+		
+		while = {
+			limit = {
+				any_owned_province = {
+					OR = {
+						region = persia_region
+						region = khorasan_region
+						region = caucasia_region
+						region = central_asia_region
+					}
+					NOT = { area = kabulistan_area }
+					any_core_country = {
+						NOT = { tag = ROOT } 
+					}
+				}
+			} 
+			random_owned_province = { 
+				limit = { 
+					OR = {
+						region = persia_region
+						region = khorasan_region
+						region = caucasia_region
+						region = central_asia_region
+					}
+					NOT = { area = kabulistan_area }
+					any_core_country = {
+						NOT = { tag = ROOT } 
+					}
+				}
+				random_core_country = { 
+					limit = { 
+						NOT = { tag = ROOT } 
+					}
+					if = {
+						limit = { exists = no }
+						ROOT = { release = PREV }
+						PREV = { change_religion = ROOT }
+					}
+					else = {
+						PREV = { cede_province = PREV }
+					}
+				}
+			}		 
+		} 
+		
+		hidden_effect = {
+				
+			every_province = {
+				limit = { 
+					area = kabulistan_area 
+					is_core = MUG
+				}
+				cede_province = MUG
+			}
+			every_owned_province = {
+				limit = { 
+					OR = {
+						area = merv_area 
+						region = central_asia_region  
+					} 
+				}
+				cede_province = TRS 
+				add_claim = TRS
+			} 
+			every_owned_province = {
+				limit = { 
+					OR = {
+						area = birjand_area  
+						area = herat_area  
+						area = mashhad_area  
+						area = tabarestan_area  
+					} 
+					NOT = { province_id = 446 }
+				}
+				cede_province = KHO 
+				add_claim = KHO
+			} 
+			every_owned_province = {
+				limit = { 
+					OR = {
+						area = balkh_area 
+						area = ghor_area 
+						area = sistan_area 
+						province_id = 446 
+					} 
+				}
+				cede_province = AFG 
+				add_claim = AFG
+			} 
+		}
+		
+		
+		set_country_flag = formed_mughal_empire_flag
+	}
+}
+
+
+#Force Manchu
+country_event = {
+	id = ae_historical_formables.102
+	title = ae_historical_formables.102.t
+	desc = ae_historical_formables.102.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+		major = yes
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { is_emperor_of_china = yes }  
+				save_event_target_as = ae_emperor_of_china
+			}
+		}
+	}
+	
+	trigger = {  
+		NOT = { has_global_flag = ae_manchu }
+		NOT = { ae_gamerule_formables_off = yes }
+		OR = {
+			ae_gamerule_formables_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = MCH
+							tag = QNG
+							tag = MNG
+							any_owned_province = { 
+								OR = {
+									region = mongolia_region
+									region = manchuria_region
+									region = korea_region
+									region = tibet_region
+									region = japan_region
+									region = south_china_region
+									region = xinan_region
+									region = north_china_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = mongolia_region
+									region = manchuria_region
+									region = korea_region
+									region = tibet_region
+									region = japan_region
+									region = south_china_region
+									region = xinan_region
+									region = north_china_region
+								}
+							}
+							capital_scope = { 
+								OR = {
+									superregion = tartary_superregion
+									superregion = far_east_superregion
+									superregion = china_superregion
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+		is_year = 1600
+		QNG = { exists = no }
+		MCH = { exists = no }
+		is_emperor_of_china = no
+		OR = {
+			culture = manchu
+			culture = mancae_new
+		}
+		NOT = {
+			any_country = {
+				NOT = { tag = ROOT }
+				OR = {
+					culture = manchu
+					culture = mancae_new
+				}
+				army_size = ROOT
+			}
+		}
+		
+		
+	}
+	
+	
+	mean_time_to_happen = {
+		months = 24
+	}	
+	
+	option = { 
+		name = ae_historical_formables.102.a 
+		set_global_flag = ae_manchu
+		every_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				OR = {
+					culture = manchu
+					culture = mancae_new
+				} 
+			}
+			ROOT = { inherit = PREV }
+		}
+		add_prestige = 25
+		change_tag = MCH
+		on_change_tag_effect = yes
+		swap_non_generic_missions = yes
+		if = {
+			limit = {
+				NOT = { government_rank = 2 }
+			}
+			set_government_rank = 2
+		}
+		change_primary_culture = mancae_new
+		set_ruler_culture = mancae_new
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			set_heir_culture = mancae_new
+		}
+		if = {
+			limit = {
+				has_consort = yes
+				consort_culture = manchu
+			}
+			set_consort_culture = mancae_new
+		}
+		if = {
+			limit = {
+				is_subject = yes
+			}
+			overlord = {
+				country_event = {
+					id = flavor_mch.8
+				}
+			}
+			grant_independence = yes
+		}
+		hidden_effect = {
+			every_province = {
+				limit = {
+					culture = manchu
+				}
+				change_culture = mancae_new
+			}
+			every_country = {
+				limit = {
+					primary_culture = manchu
+				}
+				change_primary_culture = mancae_new
+				set_ruler_culture = mancae_new
+				if = {
+					limit = {
+						has_heir = yes
+					}
+					set_heir_culture = mancae_new
+				}
+				if = {
+					limit = {
+						has_consort = yes
+						consort_culture = manchu
+					}
+					set_consort_culture = mancae_new
+				}
+			}
+			if = {
+				limit = {
+					KOR = { 
+						exists = yes
+						is_subject = yes
+						NOT = { is_subject_of = ROOT }
+					}
+				}
+				KOR = {
+					country_event = {
+						id = flavor_kor.13
+						days = 20
+					}
+				}
+			}
+		}
+		custom_tooltip = mancae_culture_tt
+		730 = {
+			move_capital_effect = yes
+		}
+		manchuria_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				is_city = yes
+			}
+			add_core = MCH
+		}
+		set_country_flag = formed_mancae_flag
+		if = {
+			limit = { 
+				has_custom_ideas = no
+				NOT = { has_idea_group = MCH_ideas }
+			}
+			country_event = { id = ideagroups.1 } #Swap Ideas
+		}
+	}
+}
+
+
+#Force Qing
+country_event = {
+	id = ae_historical_formables.1021
+	title = ae_historical_formables.1021.t
+	desc = ae_historical_formables.1021.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	major = yes
+	fire_only_once = yes
+	
+	
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { is_emperor_of_china = yes }  
+				save_event_target_as = ae_emperor_of_china
+			}
+		}
+	}
+	
+	trigger = {   
+		NOT = { has_global_flag = ae_qing }
+		NOT = { ae_gamerule_formables_off = yes }
+		OR = {
+			ae_gamerule_formables_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = MCH
+							tag = QNG
+							tag = MNG
+							any_owned_province = { 
+								OR = {
+									region = mongolia_region
+									region = manchuria_region
+									region = korea_region
+									region = tibet_region
+									region = japan_region
+									region = south_china_region
+									region = xinan_region
+									region = north_china_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = mongolia_region
+									region = manchuria_region
+									region = korea_region
+									region = tibet_region
+									region = japan_region
+									region = south_china_region
+									region = xinan_region
+									region = north_china_region
+								}
+							}
+							capital_scope = { 
+								OR = {
+									superregion = tartary_superregion
+									superregion = far_east_superregion
+									superregion = china_superregion
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+		
+		current_age = age_of_absolutism
+		tag = MCH
+		QNG = { exists = no } 
+		is_emperor_of_china = no
+		OR = {
+			culture = manchu
+			culture = mancae_new
+		}  
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+	}		
+	
+	
+	option = { 
+		name = ae_historical_formables.1021.a 
+		set_global_flag = ae_qing  
+		trade_company_north_china = { 
+			limit = {
+				owner = { culture_group = east_asian }
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		} 
+		north_china_region = { 
+			limit = {
+				owner = { culture_group = east_asian }
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		} 
+		chahar_area = {
+			limit = {
+				owner = { culture_group = east_asian }
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		}
+		cicigar_area = {
+			limit = {
+				owner = { culture_group = east_asian }
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		}
+		eastern_mongolia = {
+			limit = {
+				owner = { culture_group = east_asian }
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		}
+		every_country = {
+			limit = { is_emperor_of_china = yes }  
+			while = {
+				limit = {
+					 total_development = 300 
+				} 
+				random_owned_province = {  
+					random_core_country = { 
+						limit = { 
+							NOT = { tag = ROOT } 
+							NOT = { is_emperor_of_china = yes } 
+						}
+						if = {
+							limit = { exists = no }
+							random_country = {
+								limit = { is_emperor_of_china = yes }
+								release = PREV
+							}
+						}
+						else = {
+							PREV = { cede_province = PREV }
+						}
+					}
+				}						
+			}
+			every_subject_country  = {
+				limit = { is_subject_of_type = tributary_state }
+				grant_independence = yes
+				ROOT = {
+					create_subject = {
+						subject_type = tributary_state
+						subject = PREV
+					}
+				}
+				add_liberty_desire = -50
+			}
+		}
+		every_country  = {
+			limit = { 
+				capital_scope = { superregion = china_superregion }
+			}
+			ROOT = {
+				create_subject = {
+					subject_type = tributary_state
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -75
+		}
+		set_emperor_of_china = ROOT 
+		1816 = {
+			move_capital_effect = yes
+			change_culture = ROOT
+			add_core = QNG
+		}
+		change_tag = QNG
+		on_change_tag_effect = yes
+		restore_country_name = yes 
+		swap_non_generic_missions = yes
+		set_government_rank = 3
+		south_china_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_core = QNG
+		}
+		xinan_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = QNG
+		}
+		north_china_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_core = QNG
+		}
+		add_country_modifier = {
+			name = "centralization_modifier"
+			duration = 3650
+		}
+		if = {
+			limit = {
+				has_reform = steppe_horde
+			}
+			change_government = monarchy
+			#set_legacy_government = despotic_monarchy
+		}
+		if = {
+			limit = {
+				technology_group = nomad_group
+			}
+			change_technology_group = chinese
+			change_unit_type = chinese
+		}
+		if = {
+			limit = {
+				NOT = { religion = confucianism }
+			}
+			change_religion = confucianism
+			add_harmonized_religion = tengri_pagan_reformed
+		}
+		add_prestige = 10
+		set_country_flag = mancae_dynasty_formed
+		if = {
+			limit = { has_custom_ideas = no }
+			country_event = { id = ideagroups.1 } #Swap Ideas
+		} 
+	}
+}
+
+
+	
+
+
+
+#Force Netherlands
+country_event = {
+	id = ae_historical_formables.103
+	title = ae_historical_formables.103.t
+	desc = ae_historical_formables.103.d
+	picture = REVOLT_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {   
+		NOT = { has_global_flag = ae_netherlands }
+		NOT = { ae_gamerule_formables_off = yes }
+		OR = {
+			ae_gamerule_formables_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = BUR
+							tag = HAB
+							tag = FRA
+							tag = CAS
+							tag = SPA
+							tag = ARA
+							any_owned_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = france_region
+									region = low_countries_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = france_region
+									region = low_countries_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+		capital_scope = { continent = europe }
+		is_year = 1550
+		owns = 97 
+		BUR = { 
+			OR = {
+				exists = no 
+				is_subject = yes
+			}
+		}
+		NED = { exists = no }
+		NOT = { 
+			any_country = {
+				OR = {
+					has_disaster = dutch_revolt_disaster
+					has_disaster_progress = {
+						disaster = dutch_revolt_disaster
+						value = 1
+					}
+				}
+			}
+		}
+		
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+	}		
+	
+	option = { 
+		name = ae_historical_formables.103.a 
+		set_global_flag = ae_netherlands
+		random_country = {
+			limit = { primary_culture = dutch }
+			change_tag = NED
+		
+		}
+		every_province = {
+			limit = {
+				OR = {
+					area = holland_area 
+					area = north_brabant_area
+					area = frisia_area 
+				}
+				NOT = { province_id = 1931 } 
+				NOT = { province_id = 1742 } 
+			}
+			cede_province = NED
+			add_core = NED
+		}
+		NED = {
+			if = { 
+				limit = { is_subject = yes }
+				grant_independence = yes
+			}
+			set_dynasty = "van Oranje"
+			change_religion = reformed
+			change_government = republic
+			add_government_reform = dutch_republic
+			every_country = { 
+				limit = {
+					any_core_province = { owned_by = NED }
+					NOT = {
+						primary_culture = dutch
+						primary_culture = flemish
+						primary_culture = frisian
+						primary_culture = wallonian
+					} 
+				}
+				if = {
+					limit = {
+						NOT = { has_government_attribute = no_more_dutch_revolt }
+					}
+					every_province = {
+						limit = {
+							owned_by = NED 
+							is_core = PREV
+						}
+						remove_core = PREV
+					}
+				}
+			} 
+		}
+		
+	}
+}
+
+
+#Force Bavaria
+country_event = {
+	id = ae_historical_formables.104
+	title = ae_historical_formables.104.t
+	desc = ae_historical_formables.104.d
+	picture = DIPLOMACY_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {   
+		NOT = { has_global_flag = ae_bavaria }
+		NOT = { ae_gamerule_formables_off = yes }
+		OR = {
+			ae_gamerule_formables_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							any_owned_province = { 
+								region = south_german_region
+							}
+							any_core_province = { 
+								region = south_german_region
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+		is_year = 1503
+		capital_scope = { 
+			OR = {
+				area = lower_bavaria_area
+				area = upper_bavaria_area
+				area = east_bavaria_area
+			}
+		}
+		NOT = {
+			any_country = {
+				NOT = { tag = ROOT }
+				capital_scope = { 
+					OR = {
+						area = lower_bavaria_area
+						area = upper_bavaria_area
+						area = east_bavaria_area
+					}
+				}
+				num_of_cities = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+	}		
+	
+	option = { 
+		name = ae_historical_formables.104.a 
+		set_global_flag = ae_bavaria
+		change_tag = BAV
+		on_change_tag_effect = yes
+		restore_country_name_effect = yes
+		if = {
+			limit = {
+				UBV = { exists = yes }
+			}
+			inherit = UBV
+		}
+		if = {
+			limit = {
+				LBV = { exists = yes }
+			}
+			inherit = LBV
+		}
+		if = {
+			limit = {
+				ING = { exists = yes }
+			}
+			inherit = ING
+		}
+		lower_bavaria_area = {
+			limit = {
+				NOT = { owned_by = root }   
+			}
+			add_core = ROOT
+			if = {
+				limit = {
+					NOT = { 
+						province_id = 1757 
+						owned_by = PAL
+					} 
+				}
+				cede_province = ROOT
+			}
+		
+		} 
+		upper_bavaria_area = {
+			limit = { 
+				NOT = { owned_by = root } 
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		}
+		east_bavaria_area = {
+			limit = {
+				NOT = { owned_by = root } 
+				NOT = { 
+					province_id = 76
+					owned_by = SLZ
+				} 
+			}
+			cede_province = ROOT
+			add_core = ROOT 
+		} 
+		upper_swabia_area = {
+			limit = {
+				NOT = { owned_by = root }
+				NOT = { is_permanent_claim = root }
+				NOT = { 
+					province_id = 4715  
+				} 
+			}
+			add_permanent_claim = root
+		}
+		franconia_area = {
+			limit = {
+				NOT = { owned_by = root }
+				NOT = { is_permanent_claim = root }
+			}
+			add_permanent_claim = root
+		}
+		upper_franconia_area = {
+			limit = {
+				NOT = { owned_by = root }
+				NOT = { is_permanent_claim = root }
+				NOT = { province_id = 4716 }
+			}
+			add_permanent_claim = root
+		}
+		add_country_modifier = {
+			name = "centralization_modifier"
+			duration = 7300
+		}
+		add_prestige = 25
+		set_capital = 65
+		65 = { add_base_tax = 2 }
+		set_country_flag = formed_bavaria_flag
+		if = {
+			limit = { 
+				has_custom_ideas = no
+				NOT = { has_idea_group = BAV_ideas }
+			}
+			country_event = { id = ideagroups.1 } #Swap Ideas
+		}
+		if = {
+			limit = {
+				NOT = { tag = UBV }
+				NOT = { tag = LBV }
+				NOT = { tag = ING }
+				NOT = { was_tag = UBV }
+				NOT = { was_tag = LBV }
+				NOT = { was_tag = ING }
+			}
+			swap_non_generic_missions = yes
+		}
+		
+		
+	}
+}
+

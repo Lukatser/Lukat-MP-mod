@@ -12,13 +12,57 @@ revolution = {
 			}
 		}
 		modifier = {
-			factor = 10
-			owner = {
-				owns = FROM
+			factor = 0.05
+			controller = {
+				NOT = {
+					FROM = {
+						owned_by = PREV
+					}
+				}
+				government = monarchy
+				legitimacy = 90
+				stability = 2
+				is_revolution_target = no
+				is_revolutionary = no
+				OR = {
+					is_subject = no
+					overlord = {
+						is_revolutionary = no
+					}
+				}
 			}
 		}
 		modifier = {
-			factor = 0.25
+			factor = 10
+			FROM = {
+				owned_by = PREV
+			}
+		}
+		modifier = {
+			factor = 2
+			controller = {
+				is_revolution_target = yes
+			}
+		}
+		modifier = {
+			factor = 1.5
+			controller = {
+				is_revolution_target = no
+				is_revolutionary = yes
+			}
+		}
+		modifier = {
+			factor = 1.25
+			owner = {
+				is_revolutionary = no
+				is_subject = yes
+				overlord = {
+					is_revolutionary = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
 			NOT = { same_continent = FROM }
 		}
 		modifier = {
@@ -30,20 +74,9 @@ revolution = {
 					any_neighbor_province = {
 						has_revolution_in_province = yes
 					}
-					controller = { 
-						OR = {
-							has_reform = revolutionary_republic_reform
-							has_reform = junior_revolutionary_republic_reform
-							has_reform = revolutionary_empire_reform
-						}
-					}
+					controller = { is_revolutionary = yes }
 				}
 			}
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { superregion = FROM }
-			same_continent = FROM
 		}
 		modifier = {
 			factor = 1.2
@@ -65,6 +98,14 @@ revolution = {
 		modifier = {
 			factor = 2
 			controlled_by = revolutionary_rebels
+		}
+		modifier = {
+			factor = 1.2
+			owner = {
+				any_ally = {
+					is_revolution_target = yes
+				}
+			}
 		}
 		#target absolutist states more
 		modifier = {
@@ -137,201 +178,28 @@ revolution = {
 				}
 			}
 		}
-		modifier = {
-			factor = 0.5
-			controller = { 
-				OR = {
-					has_parliament = yes
-					government = republic
-				}
-			}
-		}
-		modifier = {
-			factor = 5
-			owner = { 
-				capital_scope = { continent = europe }
-				culture_group = french
-			}
-			NOT = {
-				any_country = {
-					is_great_power = yes
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 3
-			owner = { 
-				ai = no
-				capital_scope = { continent = europe }
-				NOT = { culture_group = french }
-			}
-			NOT = {
-				any_country = {
-					is_great_power = yes
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 5
-			owner = { 
-				is_great_power = yes
-			}
-		}
-		modifier = {
-			factor = 4
-			owner = {
-				is_revolution_target = yes
-				OR = {
-					has_reform = revolutionary_republic_reform
-					has_reform = junior_revolutionary_republic_reform
-					has_reform = revolutionary_empire_reform
-				}
-			}
-		}
-		modifier = {
-			factor = 3
-			owner = {
-				is_revolution_target = no
-				has_reform = junior_revolutionary_republic_reform
-			}
-		}
-		modifier = {
-			factor = 2
-			controller = {
-				is_revolution_target = yes
-				OR = {
-					has_reform = revolutionary_republic_reform
-					has_reform = junior_revolutionary_republic_reform
-				}
-			}
-			owner = { 
-				NOT = { 
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = junior_revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				} 
-			}
-		}
-		modifier = {
-			factor = 0
-			controller = { 
-				NOT = { 
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = junior_revolutionary_republic_reform
-					}
-				} 
-			}
-			owner = { 
-				NOT = { 
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = junior_revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				} 
-			}
-			any_country = {
-				is_great_power = yes
-				OR = {
-					has_reform = revolutionary_republic_reform
-					has_reform = revolutionary_empire_reform
-				}
-			}
-		}
-		modifier = {
-			factor = 0
-			revolution_target = {
-				has_reform = revolutionary_empire_reform
-			}
-			owner = { 
-				NOT = { 
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = junior_revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				} 
-			}
-		}
 		modifier = { #so that it stays gone once removed
 			factor = 0
-			controller = { 
-				NOT = { 
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = junior_revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				} 
-			}
+			controller = { NOT = { is_revolutionary = yes } }
 			has_province_modifier = no_revolution_here_dummy
 		}
 		modifier = {
 			factor = 0
-			controller = { 
-				NOT = { 
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = junior_revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				} 
-			}
+			controller = { NOT = { is_revolutionary = yes } }
 			owner = { has_country_modifier = no_revolution_here_country_dummy }
-		}
-		modifier = {
-			factor = 0.005
-			controller = { 
-				OR = {
-					has_reform = post_revolution_republic_reform
-					has_reform = post_revolution_kingdom_reform
-				}
-			}
-		}
-		modifier = {
-			factor = 0
-			has_global_flag = began_last_coalition
-			controller = { 
-				NOT = { 
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = junior_revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				} 
-			}
-			owner = { 
-				NOT = { 
-					OR = {
-						has_reform = revolutionary_republic_reform
-						has_reform = junior_revolutionary_republic_reform
-						has_reform = revolutionary_empire_reform
-					}
-				} 
-			}
 		}
 	}
 
 	# Values at 100 Absolutism
 	revolution_province_modifiers = {
 		local_unrest = 0.25
+		min_local_autonomy = 0.75 # The part that bites. RB.
 	}
 
 	# Values at 100 Revolutionary Zeal
 	zeal_modifiers = {
 		administrative_efficiency = 0.3
-		special_unit_forcelimit = 0.2
+		allowed_rev_guard_fraction = 0.5
 		discipline = 0.05
 	}
 }

@@ -536,12 +536,6 @@ reign_in_eyalet = {
 			subject = FROM
 			keep_liberty_desire = yes
 		}
-		FROM = {
-			if = {
-				limit = { NOT = { has_country_flag = has_eyalet_country_name } }
-				EVHO_diplo_core_eyalet_aesthetics_effect = yes
-			}
-		}
 	}
 	on_decline = {
 	}
@@ -2163,11 +2157,11 @@ request_access_to_modern_ideas = {
 	is_allowed = {
 		if = {
 			limit = {
-				FROM = { NOT = { tech_difference = 0 } }
+				FROM = { NOT = { tech_difference = 1 } }
 			}
 			custom_trigger_tooltip = {
 				tooltip = FROM_HAS_LESS_THAN_ROOT_TECHNOLOGY
-				FROM = { tech_difference = 0 }
+				FROM = { tech_difference = 1 }
 			}
 		}
 		if = {
@@ -2191,12 +2185,8 @@ request_access_to_modern_ideas = {
 	}
 	on_accept = {
 		if = {
-			limit = { FROM = { tech_difference = 0 } }
-			add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 2.0 }
-		}
-		if = {
 			limit = { FROM = { tech_difference = 1 } }
-			add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 0.5 }
+			add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 2.0 }
 		}
 		if = {
 			limit = { FROM = { tech_difference = 2 } }
@@ -2216,6 +2206,10 @@ request_access_to_modern_ideas = {
 		}
 		if = {
 			limit = { FROM = { tech_difference = 6 } }
+			add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 0.5 }
+		}
+		if = {
+			limit = { FROM = { tech_difference = 7 } }
 			add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 0.5 }
 		}
 		FROM = {
@@ -2464,11 +2458,11 @@ share_modern_ideas = {
 	is_allowed = {
 		if = {
 			limit = {
-				FROM = { ROOT = { NOT = { tech_difference = 0 } } }
+				FROM = { tech_difference = 1 }
 			}
 			custom_trigger_tooltip = {
 				tooltip = ROOT_HAS_LESS_THAN_ROOT_TECHNOLOGY
-				FROM = { ROOT = { tech_difference = 0 } }
+				FROM = { NOT = { tech_difference = 1 } }
 			}
 		}
 		if = {
@@ -2481,12 +2475,8 @@ share_modern_ideas = {
 	}
 	on_accept = {
 		if = {
-			limit = { FROM = { ROOT = { tech_difference = 0 } } }
-			FROM = { add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 2.0 } }
-		}
-		if = {
 			limit = { FROM = { ROOT = { tech_difference = 1 } } }
-			FROM = { add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 0.5 } }
+			FROM = { add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 2.0 } }
 		}
 		if = {
 			limit = { FROM = { ROOT = { tech_difference = 2 } } }
@@ -2506,6 +2496,10 @@ share_modern_ideas = {
 		}
 		if = {
 			limit = { FROM = { ROOT = { tech_difference = 6 } } }
+			FROM = { add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 0.5 } }
+		}
+		if = {
+			limit = { FROM = { ROOT = { tech_difference = 7 } } }
 			FROM = { add_government_power = { mechanic_type = russian_modernization_mechanic power_type = russian_modernization value = 0.5 } }
 		}
 		FROM = {
@@ -2594,6 +2588,18 @@ share_modern_ideas = {
 	}
 
 	ai_acceptance = {
+		add_entry = {
+			name = all_nations	#"Base", using this loc key 
+			limit = { always = yes }
+			export_to_variable = {
+				variable_name = ai_value
+				value = 1
+			}
+			multiply_variable = {
+				which = ai_value
+				value = 25
+			}
+		}
 		add_entry = {
 			name = HAS_DEFICIT
 			limit = {

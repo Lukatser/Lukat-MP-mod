@@ -497,7 +497,7 @@ prussian_republic = {
 		global_unrest = -2
 		global_autonomy = -0.075
 		republican_tradition = -0.5
-		governing_capacity_modifier = -0.5
+		governing_capacity_modifier = -0.2
 	}
 	
 	conditional = {
@@ -1942,7 +1942,7 @@ prussian_monarchy_legacy = {
 		global_autonomy = -0.075
 		max_absolutism = 10
 		monarch_military_power = 3
-		governing_capacity_modifier = -0.5
+		governing_capacity_modifier = -0.2
 	}
 
 	conditional = {
@@ -2804,7 +2804,7 @@ shaka_regime_legacy = {
 		monarch_military_power = 2
 		global_unrest = -2
 		war_exhaustion = -0.02
-		governing_capacity_modifier = -0.5
+		governing_capacity_modifier = -0.2
 	}
 
 	conditional = {

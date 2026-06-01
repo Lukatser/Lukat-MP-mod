@@ -2621,3 +2621,28 @@ hree_imperial_ban_triggered_modifier = {
 	meritocracy = -0.5
 	republican_tradition = -0.25
 }
+
+hree_emperor_all_imperial_archoffices_granted_triggered_modifier = {
+	potential = {
+		is_emperor = yes
+		has_global_flag = hre_golden_bull_enacted
+		NOT = { has_global_flag = hre_golden_bull_removed }
+	}
+
+	trigger = {
+		is_emperor = yes
+		custom_trigger_tooltip = {
+			tooltip = HREE_ALL_IMPERIAL_ARCHOFFICCES_ARE_GRANTED_TT
+			has_saved_global_event_target = hre_german_erzkanzler
+			has_saved_global_event_target = hre_burgundian_erzkanzler
+			has_saved_global_event_target = hre_italian_erzkanzler
+			has_saved_global_event_target = hre_erztruchsess
+			has_saved_global_event_target = hre_erzmarschall
+			has_saved_global_event_target = hre_erzkaemmerer
+			has_saved_global_event_target = hre_erzmundschenk
+			has_saved_global_event_target = hre_erzbannertraeger
+		}
+	}
+
+	reasons_to_elect = 10
+}

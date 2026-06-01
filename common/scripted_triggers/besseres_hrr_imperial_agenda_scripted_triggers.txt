@@ -1046,7 +1046,7 @@ imperial_agenda_completed_trigger_make_x_a_free_city = {
 		custom_trigger_tooltip = {
 			tooltip = IS_FREE_CITY
 			exists = yes
-			has_country_flag = is_a_free_city
+			has_government_attribute = free_city
 		}
 	}
 }

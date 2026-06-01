@@ -61,7 +61,7 @@ po_hre_italian_war_pope = {
 				is_shadow_kingdom_eligible_trigger = yes
 				NOT = {
 					is_in_war = {
-						attackers = ROOT
+						attackers = THIS
 						casus_belli = cb_hre_italian_war
 					}
 				}

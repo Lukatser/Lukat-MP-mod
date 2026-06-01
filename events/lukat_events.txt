@@ -1535,32 +1535,32 @@ country_event = {
 	}
 	option = {
 		name = rename_country_styria.a
-		trigger = { tag = STY tag = HAB }
+		trigger = { is_or_was_tag = { tag = STY } }
 		override_country_name = EISENMARK_NAME
 	}
 	option = {
 		name = rename_country_styria.b
-		trigger = { tag = STY tag = HAB }
+		trigger = { is_or_was_tag = { tag = STY } }
 		override_country_name = GRUNEMARK_NAME
 	}
 	option = {
 		name = rename_country_styria.c
-		trigger = { tag = STY tag = HAB }
+		trigger = { is_or_was_tag = { tag = STY } }
 		override_country_name = STEIRENMARK_NAME
 	}
 	option = {
 		name = rename_country_styria.d
-		trigger = { tag = STY tag = HAB }
+		trigger = { is_or_was_tag = { tag = STY } }
 		override_country_name = OSTERREICH_NAME
 	}
 	option = {
 		name = rename_country_styria.e
-		trigger = { tag = STY tag = HAB }
+		trigger = { is_or_was_tag = { tag = STY } }
 		override_country_name = AUSTRALIA_NAME
 	}
 	option = {
 		name = rename_country_styria.f
-		trigger = { tag = STY tag = HAB }
+		trigger = { is_or_was_tag = { tag = STY } }
 		override_country_name = HAUS_HABSBURG_NAME
 	}
 	option = {

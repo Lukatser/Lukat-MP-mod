@@ -1,0 +1,1541 @@
+
+namespace = ae_historical_expansion
+normal_or_historical_nations = yes
+
+## FORCE HISTORICAL ANNEXATIONS/PARTITIONS ##
+
+#Force Conquest of Granada
+country_event = {
+	id = ae_historical_expansion.100
+	title = ae_historical_expansion.100.t
+	desc = ae_historical_expansion.100.d
+	picture = BORDER_TENSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1492 
+		tag = CAS 
+		is_at_war = no
+		upper_andalucia_area = {
+			NOT = { owned_by = ROOT }
+		}
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = CAS
+							tag = ARA
+							tag = NAV
+							tag = POR
+							tag = GRA
+							any_owned_province = { 
+								OR = {
+									region = iberia_region
+									region = maghreb_region 
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = iberia_region
+									region = maghreb_region 
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ae_historical_expansion.100.a
+		set_global_flag = ae_castilegranada
+		upper_andalucia_area = {
+			cede_province = ROOT
+			add_core = ROOT
+		}
+	}
+}
+
+#Force Ottoman Egypt
+country_event = {
+	id = ae_historical_expansion.101
+	title = ae_historical_expansion.101.t
+	desc = ae_historical_expansion.101.d
+	picture = BATTLE_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1517 
+		tag = TUR 
+		is_neighbor_of = MAM 
+		army_size = MAM
+		
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = TUR
+							tag = MAM
+							tag = SYR
+							any_owned_province = { 
+								OR = {
+									region = anatolia_region
+									region = mashriq_region
+									region = egypt_region
+									area = arabia_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = anatolia_region
+									region = mashriq_region
+									region = egypt_region
+									area = arabia_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ae_historical_expansion.101.a
+		set_global_flag = ae_ottomanegypt 
+		MAM = {
+			remove_historical_rival = ROOT
+			every_subject_country = {
+				limit = {
+					NOT = { total_development = 75 }
+					capital_scope = {
+						superregion = near_east_superregion
+					}
+				}
+				overlord = {
+					inherit = PREV
+				}
+			}
+			change_tag = EGY
+			on_change_tag_effect = yes
+		}
+		create_subject = {
+			who = EGY
+			subject_type = core_eyalet
+		}
+		EGY = {
+			if = {
+				limit = { NOT = { government = monarchy } }
+				change_government = monarchy
+			}
+			add_government_reform = eyalet_government
+			eyalet_cosmetic_effect = { #Other eyalets won't change color
+				tag = EY7
+			}
+			add_liberty_desire = -50
+			add_country_modifier = {
+				name = tur_mamlukian_administration
+				duration = -1
+				desc = tur_mamlukian_administration_tt
+			}
+		}
+	}
+	
+}
+
+
+#Make sure Turkey has Balkans
+country_event = {
+	id = ae_historical_expansion.1011
+	title = ae_historical_expansion.1011.t
+	desc = ae_historical_expansion.1011.d
+	picture = BORDER_TENSION_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1485 
+		tag = TUR
+		is_at_war = no
+		any_country = {
+			OR = {
+				tag = BYZ
+				tag = ALB
+				tag = SER
+				tag = BOS
+				tag = HRZ
+			}
+			exists = yes
+			is_neighbor_of = TUR
+			TUR = { army_size = PREV }
+		}
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = TUR
+							tag = BYZ
+							tag = SER
+							tag = BOS
+							tag = HRZ
+							tag = ALB
+							any_owned_province = { 
+								OR = {
+									region = balkan_region
+									region = carpathia_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = balkan_region
+									region = carpathia_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			} 
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	} 
+	
+	
+	option = {
+		name = ae_historical_expansion.1011.a
+		set_global_flag = ae_ottomanbalkans
+		every_country = {
+			limit = {
+				OR = {
+					tag = BYZ
+					tag = ALB
+					tag = SER
+					tag = BOS
+					tag = HRZ
+				}
+				exists = yes
+				is_neighbor_of = TUR
+			}
+			TUR = { inherit = PREV }
+		}
+	}
+	
+}
+
+#Force Division of Hungary
+country_event = {
+	id = ae_historical_expansion.1012
+	title = ae_historical_expansion.1012.t
+	desc = ae_historical_expansion.1012.d
+	picture = BORDER_TENSION_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1526 
+		tag = HUN
+		is_neighbor_of = TUR
+		NOT = { army_size = TUR }
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = HUN
+							tag = TUR
+							tag = HAB
+							tag = CRO
+							tag = TRA
+							any_owned_province = { 
+								OR = {
+									region = balkan_region
+									region = carpathia_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = balkan_region
+									region = carpathia_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+					
+				}
+			} 
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	immediate = {
+		
+		if = { 
+			limit = {
+				HUN = { senior_union_with = CRO }
+			}
+			HUN = { inherit = CRO }
+		}
+	}
+	
+	
+	option = {
+		name = ae_historical_expansion.1012.a
+		set_global_flag = ae_ottomanhungary
+		white_peace = TUR
+		every_owned_province = {
+			limit = {
+				OR = {
+					AND = {
+						region = balkan_region
+						NOT = {
+							province_id = 152
+							province_id = 4756
+							province_id = 4752
+							province_id = 1826
+							province_id = 131
+						}
+					}
+					AND = {
+						area = transdanubia_area
+						NOT = { province_id = 135 }
+					}
+					AND = {
+						area = alfold_area
+						NOT = { province_id = 1953 }
+					}
+					province_id = 156
+				}
+			}
+			cede_province = TUR
+		}
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = transylvania_area
+					area = southern_transylvania_area
+					province_id = 1953
+				}
+			}
+			cede_province = TRA
+		}
+		TUR = { create_march = TRA }
+		every_owned_province = {
+			limit = { is_core = WAL }
+			cede_province = WAL
+		}
+		every_owned_province = {
+			limit = { is_core = MOL }
+			cede_province = MOL
+		}
+		if = {
+			limit = { 
+				HAB = { exists = yes }
+			}
+			HAB = {
+				create_subject = {
+					subject_type = integrated_personal_union
+					subject = HUN
+				}
+				add_truce_with = TUR
+			}
+		}
+	}
+	
+	after = {
+	}
+}
+
+
+
+#Force Novgorod Submission
+country_event = {
+	id = ae_historical_expansion.102
+	title = ae_historical_expansion.102.t
+	desc = ae_historical_expansion.102.d
+	picture = BORDER_TENSION_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1490 
+		OR = {
+			tag = MOS 
+			tag = RUS 
+		}
+		NOV = { 
+			NOT = {
+				any_owned_province = {
+					region = scandinavia_region
+					NOT = { province_id = 1777 }
+				}
+			} 
+		}
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = NOV
+							tag = RUS
+							tag = MOS
+							tag = SWE
+							tag = DAN
+							tag = NOR
+							tag = LIV
+							any_owned_province = { 
+								OR = {
+									region = russia_region
+									region = ruthenia_region
+									region = scandinavia
+									area = estonia_ingria_area
+									area = livonia_area
+									area = curonia_area
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = russia_region
+									region = ruthenia_region
+									region = scandinavia
+									area = estonia_ingria_area
+									area = livonia_area
+									area = curonia_area
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ae_historical_expansion.102.a
+		set_global_flag = ae_muscovynovgorod
+		
+		1777 = {
+			cede_province = ROOT
+			add_core = ROOT
+		}
+		pomor_area = {
+			cede_province = ROOT
+			add_core = ROOT
+		}
+		north_karelia = {
+			limit = { 
+				NOT = { owned_by = SWE }
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		} 
+		karelia_area = {
+			limit = { 
+				NOT = { owned_by = SWE }
+			}
+			cede_province = ROOT
+			add_core = ROOT
+		}
+		inherit = NOV
+	}
+	
+}
+
+
+#Force Division of Livonia
+country_event = {
+	id = ae_historical_expansion.103
+	title = ae_historical_expansion.103.t
+	desc = ae_historical_expansion.103.d
+	picture = BORDER_TENSION_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 36
+		current_age = age_of_reformation
+		OR = {
+			is_year = 1580 
+			AND = {
+				is_at_war = yes
+				NOT = { controls = 36 }
+			}
+		}
+		any_country = { is_liv_partition_muscovy = yes }
+		any_country = { is_liv_partition_sweden = yes }
+		any_country = { is_liv_partition_denmark = yes }
+		any_country = { is_liv_partition_plc = yes }
+		
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = SWE
+							tag = RUS
+							tag = MOS
+							tag = NOV
+							tag = DAN
+							tag = PLC
+							tag = LIT
+							tag = POL
+							tag = LIV
+							tag = PSK
+							is_liv_partition_muscovy = yes
+							is_liv_partition_sweden = yes
+							is_liv_partition_denmark = yes
+							is_liv_partition_plc = yes 
+							any_owned_province = { livonian_region = yes }
+							any_core_province = { livonian_region = yes }
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_country = {
+			limit = { is_liv_partition_muscovy = yes }
+			save_event_target_as = liv_partition_muscovy
+		}
+		random_country = {
+			limit = { is_liv_partition_sweden = yes }
+			save_event_target_as = liv_partition_sweden
+		}
+		random_country = {
+			limit = { is_liv_partition_denmark = yes }
+			save_event_target_as = liv_partition_denmark
+		}
+		random_country = {
+			limit = { is_liv_partition_plc = yes }
+			save_event_target_as = liv_partition_plc
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ae_historical_expansion.103.a 
+		set_global_flag = ae_livonia_divided
+		every_province = {
+			if = {
+				limit = { estland_area = yes }
+				cede_province = event_target:liv_partition_sweden
+				add_core = event_target:liv_partition_sweden
+			}
+			if = {
+				limit = { livland_area = yes }
+				if = {
+					limit = {
+						event_target:liv_partition_plc = { army_size = event_target:liv_partition_sweden }
+					}
+					cede_province = event_target:liv_partition_plc
+					add_core = event_target:liv_partition_plc
+				}
+				else = {
+					cede_province = event_target:liv_partition_sweden
+					add_core = event_target:liv_partition_sweden
+				}
+			}
+			if = {
+				limit = { kurland_area = yes }
+				cede_province = KUR
+				add_core = KUR
+				event_target:liv_partition_plc = { create_march = KUR }
+			}
+			if = {
+				limit = { province_id = 35 } #Ösel
+				cede_province = event_target:liv_partition_denmark
+				add_core = event_target:liv_partition_denmark
+			}
+			if = {
+				limit = { province_id = 273 } #Latgalia
+				cede_province = event_target:liv_partition_plc
+				add_core = event_target:liv_partition_plc
+			}
+			if = {
+				limit = { province_id = 38 } #Riga
+				cede_province = RIG
+				add_core = RIG
+				if = {
+					limit = {
+						event_target:liv_partition_plc = { army_size = event_target:liv_partition_sweden }
+					}
+					event_target:liv_partition_plc = { create_march = RIG }
+				}
+				else = {
+					event_target:liv_partition_sweden = { create_march = RIG }
+				}
+			}
+		}
+		every_country = {
+			limit = { livonian_country = yes }
+			every_owned_province = {
+				if = {
+					limit = { region = russia_region }
+					cede_province = event_target:liv_partition_muscovy
+				}
+				else = { cede_province = event_target:liv_partition_plc }
+			}
+		}
+	}
+	
+}
+
+
+#Everything around Zaporozhie
+
+country_event = { #Kodak from Crimea to PLC
+	id = ae_historical_expansion.104
+	title = ae_historical_expansion.104.t 
+	desc = ae_historical_expansion.104.d 
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes  
+	trigger = { 
+		is_year = 1470
+		full_ai = yes 
+		OR = { 
+			tag = PLC 
+			tag = LIT 
+			tag = POL
+		}
+		
+		2411 = {
+			is_neighbor_of = ROOT
+			owner = { 
+				NOT = { army_size = ROOT } 
+			}
+		}
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = CRI
+							tag = PLC
+							tag = LIT
+							tag = POL
+							any_owned_province = { 
+								region = crimea_region
+							}
+							any_core_province = { 		
+								region = crimea_region
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}	
+	 
+	
+	option = {
+		name = ae_historical_expansion.104.a 
+		set_global_flag = ae_crimeaplc
+		2411 = {
+			cede_province = ROOT
+			add_core = ROOT
+			
+		}
+	}
+	
+}
+country_event = { #Yedisan from PLC to Ottomans
+	id = ae_historical_expansion.1041
+	title = ae_historical_expansion.1041.t 
+	desc = ae_historical_expansion.1041.d 
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes  
+	trigger = { 
+		is_year = 1480
+		full_ai = yes 
+		tag = TUR
+		owns = 4706 
+		NOT = {
+			owns = 1756
+			owns = 282
+			owns = 2406
+		}
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			ROOT = {
+				all_countries_including_self = {
+					if = {
+						limit = { 
+							OR = {
+								tag = TUR
+								tag = PLC
+								tag = LIT
+								tag = POL
+								tag = MOL
+								tag = WAL
+								any_owned_province = { 
+									region = crimea_region
+								}
+								any_core_province = { 		
+									region = crimea_region
+								}
+							}
+						}
+						full_ai = yes
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}	
+	 
+	
+	option = {
+		name = ae_historical_expansion.1041.a 
+		set_global_flag = ae_ottomanplc
+		1756 = {
+			cede_province = TUR
+			add_core = TUR
+		}
+		282 = {
+			cede_province = TUR
+			add_core = TUR
+		}
+		2406 = {
+			cede_province = TUR
+			add_core = TUR 
+		}
+	}
+	
+}
+country_event = { #Moldavia/Wallachia to Ottoman marches
+	id = ae_historical_expansion.10411
+	title = ae_historical_expansion.10411.t 
+	desc = ae_historical_expansion.10411.d 
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes  
+	trigger = { 
+		is_year = 1498
+		full_ai = yes 
+		tag = TUR
+		owns = 4706
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = TUR
+							tag = PLC
+							tag = LIT
+							tag = POL
+							tag = MOL
+							tag = WAL
+							any_owned_province = { 
+								OR = {
+									region = crimea_region
+									region = carpathia_region
+								}
+							}
+							any_core_province = { 	
+								OR = {
+									region = crimea_region
+									region = carpathia_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}	
+	 
+	
+	option = {
+		name = ae_historical_expansion.10411.a 
+		set_global_flag = ae_ottomanromania
+		moldavia_area = {
+			limit = {
+				NOT = { province_id = 1756 }
+			}
+			cede_province = MOL
+			add_core = MOL
+		} 
+		wallachia_area = {
+			cede_province = WAL
+			add_core = WAL
+		}
+		create_march = MOL
+		create_march = WAL
+	}
+	
+}
+
+country_event = { #Chernigov/Smolensk from PLC to Russia
+	id = ae_historical_expansion.1042
+	title = ae_historical_expansion.1042.t 
+	desc = ae_historical_expansion.1042.d 
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes  
+	trigger = { 
+		is_year = 1500
+		full_ai = yes 
+		is_at_war = no
+		OR = { 
+			tag = PLC 
+			tag = LIT 
+			tag = POL
+		}
+		if = {
+			limit = { exists = RUS }
+			is_neighbor_of = RUS
+			NOT = { army_size = RUS }
+			RUS = { full_ai = yes is_at_war = no }
+		}
+		else_if = { 
+			limit = { exists = MOS }
+			is_neighbor_of = MOS
+			NOT = { army_size = MOS }
+			MOS = { full_ai = yes is_at_war = no }
+		}
+		else = { always = no }
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = POL
+							tag = LIT
+							tag = PLC
+							tag = RUS
+							tag = MOS
+							any_owned_province = { 
+								region = ruthenia_region
+							}
+							any_core_province = { 		
+								region = ruthenia_region
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = RUS }
+			RUS = { save_event_target_as = russia }
+		}
+		else_if = { 
+			limit = { exists = MOS }
+			MOS = { save_event_target_as = russia }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}	
+	 
+	
+	option = {
+		name = ae_historical_expansion.1042.a 
+		set_global_flag = ae_russiaplc
+		every_owned_province = {
+			limit = {
+				NOT = { province_id = 275 } #Polotsk
+				OR = {
+					region = russia_region
+					area = smolensk_area
+					area = chernigov_area
+					area = sloboda_ukraine_area 
+					province_id = 4542 #Okhtyrka
+					trade_company_region = trade_company_astrakhan 
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						area = chernigov_area
+						province_id = 293 #Smolensk
+					}
+				}
+				remove_core = POL
+				remove_core = LIT
+				remove_core = PLC
+			}
+			cede_province = event_target:russia
+		}
+	}
+	
+}
+
+country_event = { #Cossack Autonomy in PLC
+	id = ae_historical_expansion.1043
+	title = ae_historical_expansion.1043.t 
+	desc = ae_historical_expansion.1043.d 
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes 
+	trigger = {
+		is_year = 1540
+		OR = { 
+			tag = PLC 
+			tag = LIT 
+			tag = POL
+		}
+		any_owned_province = { 
+			OR = {
+				region = crimea_region
+				province_id = 1756
+				has_terrain = steppe
+			} 
+		}
+	}
+	
+	mean_time_to_happen = { months = 120 }
+	
+	option = {
+		name = ae_historical_expansion.1043.a 
+	  
+		set_global_flag = ae_zaporozhie
+		every_owned_province = {
+			limit = {
+				OR = {
+					region = crimea_region
+					province_id = 1756
+					has_terrain = steppe
+				}
+			}
+			add_core = ZAZ 
+		}
+		
+		release = ZAZ
+		create_march = ZAZ  
+		
+		2411 = {
+			if = {
+				is_neighbor_of = ZAZ
+			}
+			add_core = ZAZ
+			cede_province = ZAZ
+		}
+
+		ZAZ = {
+			change_religion = orthodox
+			change_government = republic
+			add_government_reform = cossacks_reform 
+		}
+		add_prestige = -25
+	}
+	
+}
+
+country_event = { #Transfer steppe provs to ZAZ
+	id = ae_historical_expansion.10431
+	title = ae_historical_expansion.10431.t 
+	desc = ae_historical_expansion.10431.d 
+	picture = REVOLUTION_eventPicture
+	trigger = { 
+		NOT = { is_year = 1750 }
+		full_ai = yes 
+		NOT = { tag = RUS }
+		NOT = { tag = TUR }
+		ZAZ = { 
+			exists = yes  
+			is_subject_of = ROOT 
+		}
+		any_owned_province = {   
+			OR = {
+				region = crimea_region
+				province_id = 1756
+				has_terrain = steppe
+			}
+			ZAZ = { 
+				PREV = {
+					is_neighbor_of = PREV
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}	
+	 
+	
+	option = {
+		name = ae_historical_expansion.10431.a 
+		while = {
+			limit = {
+				any_owned_province = {   
+					OR = {
+						region = crimea_region
+						province_id = 1756
+						has_terrain = steppe
+					}
+					is_neighbor_of = ZAZ
+				}
+			}
+			random_owned_province = {
+				limit = { 
+					OR = {
+							region = crimea_region
+							province_id = 1756
+							has_terrain = steppe
+						}
+						is_neighbor_of = ZAZ
+				}
+				cede_province = ZAZ 
+			}
+		}
+	}
+	
+}
+
+country_event = { #fast forward Andrusov Truce 
+	id = ae_historical_expansion.1044
+	title = ae_historical_expansion.1044.t 
+	desc = ae_historical_expansion.1044.d 
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes  
+	trigger = { 
+		is_year = 1665
+		OR = { 
+			tag = PLC 
+			tag = LIT 
+			tag = POL
+		}
+		
+		exists = ZAZ
+		is_at_war = no
+		NOT = { has_disaster = ae_polish_deluge }
+		if = {
+			limit = { exists = RUS }
+			is_neighbor_of = RUS
+			NOT = { army_size = RUS }
+			RUS = { full_ai = yes is_at_war = no }
+		}
+		else_if = { 
+			limit = { exists = MOS }
+			is_neighbor_of = MOS
+			NOT = { army_size = MOS }
+			MOS = { full_ai = yes is_at_war = no }
+		}
+		else = { always = no }
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = POL
+							tag = LIT
+							tag = PLC
+							tag = RUS
+							tag = MOS
+							tag = ZAZ
+							any_owned_province = { 
+								region = ruthenia_region
+								region = crimea_region
+							}
+							any_core_province = { 		
+								region = ruthenia_region
+								region = crimea_region
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { exists = RUS }
+			RUS = { save_event_target_as = russia }
+		}
+		else_if = { 
+			limit = { exists = MOS }
+			MOS = { save_event_target_as = russia }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}	
+	 
+	
+	option = {
+		name = ae_historical_expansion.1044.a 
+		set_global_flag = ae_andrusiv
+		
+		ZAZ = {
+			if = {
+				limit = { is_subject = yes }
+			}
+			grant_independence = yes
+		}
+
+		every_province = {
+			limit = {
+				owner = {
+					OR = {
+						tag = PLC 
+						tag = POL 
+						tag = LIT
+					}
+				}
+				OR = {
+					region = russia_region
+					area = smolensk_area
+				}
+				NOT = { province_id = 275 } #Polotsk
+			}
+			cede_province = event_target:russia
+			add_core = event_target:russia
+		}
+		every_province = {
+			limit = {
+				owner = {
+					OR = {
+						tag = PLC 
+						tag = POL 
+						tag = LIT
+					}
+				}
+				OR = {
+					province_id = 280
+					area = chernigov_area
+					area = sloboda_ukraine_area 
+					area = east_dniepr_area 
+					region = crimea_region 
+				}
+			}
+			cede_province = ZAZ
+			add_core = ZAZ
+		}
+		event_target:russia = {
+			every_owned_province = {
+				limit = {
+					area = chernigov_area
+				}
+				cede_province = ZAZ
+				add_core = ZAZ
+			}
+			create_march = ZAZ
+		}
+		
+	}
+	
+}
+
+country_event = { #Dissolve the Commonwealth
+	id = ae_historical_expansion.1045
+	title = ae_historical_expansion.1045.t 
+	desc = ae_historical_expansion.1045.d 
+	picture = REVOLUTION_eventPicture
+	fire_only_once = yes  
+	is_triggered_only = yes
+	 
+	option = {
+		name = ae_historical_expansion.1045.a 
+		if = {
+			limit = {
+				capital_scope = {
+					NOT = { is_core = POL }
+				}
+			}
+			set_capital = 262 #Krakow
+		}
+		release = LIT 
+		change_tag = POL
+		on_change_tag_effect = yes
+		hidden_effect = {
+			POL = {
+				every_core_province = { 
+					limit = { owned_by = LIT }
+					remove_core = POL
+				}
+			}
+			LIT = {
+				every_core_province = { 
+					limit = { owned_by = POL }
+					remove_core = LIT
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					force_limit_percentage = 0.4
+				}
+				create_unit_forcelimit_percentage = {
+					type = cavalry
+					force_limit_percentage = 0.2
+				}
+				create_unit_forcelimit_percentage = {
+					type = artillery
+					force_limit_percentage = 0.2
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = ae_historical_expansion.1045.b 
+		if = {
+			limit = {
+				capital_scope = {
+					NOT = { is_core = LIT }
+				}
+			}
+			set_capital = 272 #Vilna
+		}
+		release = POL 
+		change_tag = LIT 
+		on_change_tag_effect = yes
+		hidden_effect = {
+			LIT = {
+				every_core_province = { 
+					limit = { owned_by = POL }
+					remove_core = LIT
+				}
+			}
+			POL = {
+				every_core_province = { 
+					limit = { owned_by = LIT }
+					remove_core = POL
+				}
+				create_unit_forcelimit_percentage = {
+					type = infantry
+					force_limit_percentage = 0.3
+				}
+				create_unit_forcelimit_percentage = {
+					type = cavalry
+					force_limit_percentage = 0.3
+				}
+				create_unit_forcelimit_percentage = {
+					type = artillery
+					force_limit_percentage = 0.2
+				}
+			}
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			LIT = {
+				every_core_province = { 
+					limit = { owned_by = POL }
+					remove_core = LIT
+				}
+				if = {
+					limit = { 
+						NOT = { tag = ROOT }
+					}
+					build_to_forcelimit = {
+						infantry = 0.6
+						cavalry = 0.2
+						artillery = 0.2
+					}
+				}
+			}
+			POL = {
+				every_core_province = { 
+					limit = { owned_by = LIT }
+					remove_core = POL
+				}
+				if = {
+					limit = { 
+						NOT = { tag = ROOT }
+					}
+					build_to_forcelimit = {
+						infantry = 0.4
+						cavalry = 0.4
+						artillery = 0.2
+					}
+				}
+			}
+		}
+		POL = {
+			if = {
+				limit = { 
+					NOT = { has_reform = polish_elective_monarchy }
+				}
+				add_government_reform = polish_elective_monarchy
+			}
+		}
+		LIT = {
+			if = {
+				limit = { has_reform = polish_elective_monarchy }
+				remove_government_reform = polish_elective_monarchy 
+			}
+		}
+	}
+	
+}
+
+#Force surrender of Normandy
+country_event = {
+	id = ae_historical_expansion.105
+	title = ae_historical_expansion.105.t
+	desc = ae_historical_expansion.105.d
+	picture = BORDER_TENSION_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1490 
+		tag = ENG
+		is_subject = no
+		is_neighbor_of = FRA
+		NOT = { army_size = FRA }
+		any_owned_province = {
+			region = france_region
+			NOT = { province_id = 87 } #Calais
+		}
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = ENG
+							tag = FRA
+							any_owned_province = { 
+								OR = {
+									region = france_region
+									region = british_isles_region
+									region = low_countries_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = france_region
+									region = british_isles_region
+									region = low_countries_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		 
+	}
+	
+	
+	option = {
+		name = ae_historical_expansion.105.a
+		
+		set_global_flag = ae_francenormandy
+		every_owned_province = {
+			limit = {
+				region = france_region
+				NOT = { province_id = 87 } #Calais
+			}
+			cede_province = FRA 
+		}
+	}
+	
+}
+
+#Force division of Great Horde
+country_event = {
+	id = ae_historical_expansion.106
+	title = ae_historical_expansion.106.t
+	desc = ae_historical_expansion.106.d
+	picture = BORDER_TENSION_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1502 
+		tag = GOL
+		is_neighbor_of = CRI 
+		
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = CRI
+							tag = MOS
+							tag = RUS
+							tag = GOL
+							tag = KAZ
+							tag = NOG
+							any_owned_province = { 
+								OR = {
+									region = caucasia_region
+									region = crimea_region
+									region = ruthenia_region
+									region = central_asia_region
+									region = russia_region
+									region = ural_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = caucasia_region
+									region = crimea_region
+									region = ruthenia_region
+									region = central_asia_region
+									region = russia_region
+									region = ural_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		 
+	}
+	
+	
+	option = {
+		name = ae_historical_expansion.106.a 
+		set_global_flag = ae_great_horde_divided
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = astrakhan_area
+					region = caucasia_region
+				}
+			}
+			cede_province = AST
+			add_core = AST
+		} 
+		every_owned_province = {
+			limit = {
+				OR = {
+					area = saratov_area
+					region = ural_region
+				}
+			}
+			if = {
+				limit = { ROOT = { is_neighbor_of = KAZ } }
+				cede_province = KAZ
+				add_core = KAZ
+			}
+			else_if = {
+				limit = { ROOT = { is_neighbor_of = RUS } }
+				cede_province = RUS
+				add_core = RUS
+			}
+			else_if = {
+				limit = { ROOT = { is_neighbor_of = MOS } }
+				cede_province = MOS
+				add_core = MOS
+			}
+			else_if = { 
+				cede_province = NOG
+				add_core = NOG
+			}
+		}
+		
+		every_owned_province = {
+			limit = {
+				region = central_asia_region
+			}
+			cede_province = NOG
+			add_core = NOG
+		} 
+
+		every_owned_province = { 
+			cede_province = CRI
+			add_core = CRI
+		} 		
+	}
+	
+}

@@ -88,64 +88,19 @@ country_event = {
 			limit = {
 				has_global_flag = hre_golden_bull_incident_active
 			}
-			custom_tooltip = GOLDEN_BULL_NO_ANTI_KING_CB
+			custom_tooltip = ELECTORS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL
+			custom_tooltip = MEMBERS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL
+			add_ruler_modifier = {
+				name = enacted_golden_bull
+				duration = -1
+			}
 			custom_tooltip = ELECTORS_NOW_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL
 			custom_tooltip = CURRENT_ELECTORS_COMPOSITION_1
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							is_elector = yes
-							is_an_ecclesiastical_country = yes
-						}
-						any_elector = {
-							is_an_ecclesiastical_country = yes
-						}
-					}
-				}
-				every_province = {
-					limit = {
-						is_capital = yes
-						owner = {
-							is_elector = yes
-							is_an_ecclesiastical_country = yes
-						}
-					}
-					custom_tooltip = THIS_OWNER_ELECTOR_NAME
-				}
-			}
-			else = {
-				custom_tooltip = THIS_NO_ELECTOR_NAME
-			}
 			custom_tooltip = CURRENT_ELECTORS_COMPOSITION_2
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							is_elector = yes
-							is_a_secular_country = yes
-						}
-						any_elector = {
-							is_a_secular_country = yes
-						}
-					}
-				}
-				every_province = {
-					limit = {
-						is_capital = yes
-						owner = {
-							is_elector = yes
-							is_a_secular_country = yes
-						}
-					}
-					custom_tooltip = THIS_OWNER_ELECTOR_NAME
-				}
-			}
-			else = {
-				custom_tooltip = THIS_NO_ELECTOR_NAME
-			}
 			custom_tooltip = CURRENT_ELECTORS_COMPOSITION_3
 			custom_tooltip = " "
+			custom_tooltip = GOLDEN_BULL_ENABLE_IMPERIAL_ARCHOFFICES
+			custom_tooltip = GOLDEN_BULL_NO_ANTI_KING_CB
 			if = {
 				limit = {
 					allows_female_emperor = yes
@@ -156,15 +111,9 @@ country_event = {
 			else = {
 				custom_tooltip = HRE_GOLDEN_BULL_ONLY_MALE_EMPERORS
 			}
-			add_ruler_modifier = {
-				name = enacted_golden_bull
-				duration = -1
-			}
 			custom_tooltip = EMPEROR_GAINS_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL
 			custom_tooltip = ELECTORS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL
 			custom_tooltip = MEMBERS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL
-			custom_tooltip = ELECTORS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL
-			custom_tooltip = MEMBERS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL
 			hidden_effect = {
 				every_elector = {
 					limit = {
@@ -241,6 +190,7 @@ country_event = {
 
 		add_legitimacy = -20
 		add_prestige = -10
+		set_global_flag = hre_golden_bull_rejected
 	}
 
 	after = {

@@ -52,22 +52,22 @@
  HRE_GOLDEN_BULL_ONLY_MALE_EMPERORS: "Die §YGoldene Bulle§! schreibt fest, dass nur Männer Kaiser des HRR werden dürfen. Das heißt, die \"Pragmatische Sanktion\" kann nicht verabschiedet werden, solange die Gesetze der §YGoldenen Bulle§! in Kraft sind.\n"
  HRE_GOLDEN_BULL_NOT_ONLY_MALE_EMPERORS: "Die \"Pragmatische Sanktion\" kann nun wieder verabschiedet werden.\n"
 
- GOLDEN_BULL_NO_ANTI_KING_CB: "Reichsmitglieder können dem Kaiser nicht mehr mit dem \"§YErhebung zum Gegenkönig§!\"-Kriegsgrund den Krieg erklären. \n\n§YKaiserliche Privilegien§! werden deaktiviert.\n"
- NO_GOLDEN_BULL_ANTI_KING_CB: "Reichsmitglieder können dem Kaiser wieder mit dem \"§YErhebung zum Gegenkönig§!\"-Kriegsgrund den Krieg erklären. \n\n§YKaiserliche Privilegien§! werden wieder aktiviert.\n"
+ GOLDEN_BULL_NO_ANTI_KING_CB: "§YKaiserliche Privilegien§! werden deaktiviert. \nReichsmitglieder können dem Kaiser nicht mehr mit dem \"§YErhebung zum Gegenkönig§!\"-Kriegsgrund den Krieg erklären."
+ NO_GOLDEN_BULL_ANTI_KING_CB: "§YKaiserliche Privilegien§! werden wieder aktiviert. \nReichsmitglieder können dem Kaiser wieder mit dem \"§YErhebung zum Gegenkönig§!\"-Kriegsgrund den Krieg erklären.\n"
  ELECTORS_NOW_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL: "Das Gesetz für die Ernennung von §YKurfürsten§! wird festgeschrieben: Von nun an müssen die §Y7§! Kurfürsten §Y4§! weltliche und §Y3§! (§Y4§! bei Erhöhung der Maximalanzahl der Kurfürsten) geistliche Fürsten des Reiches sein. \nSollte die Zusammensetzung der derzeitigen Kurfürsten von diesem Gesetz abweichen, verlieren wir für jeden weltlichen oder geistlichen Kurfürsten zuviel §R0.02§! Reichsautorität."
- CURRENT_ELECTORS_COMPOSITION_1: "Momentan gibt es §Y[GetNumberOfEcclesiasticalElectors]§! £icon_church_elector_small£ geistliche Kurfürsten:"
- CURRENT_ELECTORS_COMPOSITION_2: "Momentan gibt es §Y[GetNumberOfSecularElectors]§! £icon_elector_small£ weltliche Kurfürsten:"
- CURRENT_ELECTORS_COMPOSITION_3: "Aufgrund dessen würden wir [Root.GetReducedAmoutOfIABecauseOfGoldenBull] Reichsautorität weniger monatlich erhalten."
- THIS_OWNER_ELECTOR_NAME: "   - @[This.Owner.GetTag] §Y[This.Owner.GetName]§!"
- THIS_NO_ELECTOR_NAME: "   - §YEs gibt keine Kurfürsten in dieser Kategorie§!"
- ELECTORS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL: "Die Meinung aller §YKurfürsten§! über §Y[Root.GetName]§! verändert sich um §G35§!. §Y[Root.GetName]§! erhält einen Waffenstillstand mit allen §YKurfürsten§!.\n"
- MEMBERS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL: "Die Meinung aller anderen §YReichsmitglieder§! über §Y[Root.GetName]§! verändert sich um §G10§! für §Y12 Monate§!."
+ CURRENT_ELECTORS_COMPOSITION_1: "Momentan gibt es §Y[GetNumberOfEcclesiasticalElectors]§! £icon_church_elector_small£ geistliche Kurfürsten."
+ CURRENT_ELECTORS_COMPOSITION_2: "Momentan gibt es §Y[GetNumberOfSecularElectors]§! £icon_elector_small£ weltliche Kurfürsten."
+ CURRENT_ELECTORS_COMPOSITION_3: "Aufgrund dessen würden wir [Root.GetReducedAmoutOfIABecauseOfGoldenBull] Reichsautorität monatlich verlieren."
+ GOLDEN_BULL_ENABLE_IMPERIAL_ARCHOFFICES: "Der Kaiser kann nun §YKaiserliche Erzämter§! an Mitglieder des Reiches vergeben."
+ GOLDEN_BULL_DISABLE_IMPERIAL_ARCHOFFICES: "Der Kaiser kann keine §YKaiserlichen Erzämter§! mehr an Mitglieder des Reiches vergeben. Die derzeitigen Inhaber verlieren ihr Amt und die damit verknüpften Boni."
+ ELECTORS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL: "Die Meinung aller §YKurfürsten§! über §Y[Root.GetName]§! verändert sich um §G35§!. §Y[Root.GetName]§! erhält einen Waffenstillstand mit allen §YKurfürsten§!."
+ MEMBERS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL: "Die Meinung aller anderen §YReichsmitglieder§! über §Y[Root.GetName]§! verändert sich um §G10§! für §Y12 Monate§!.\n"
  ELECTORS_DO_NOT_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL_ANYMORE: "Das Gesetz für die Ernennung von §YKurfürsten§! wird für ungültig erklärt. Von nun an ist die Zusammensetzung der §Y7§! Kurfürstentümer nicht mehr auf §Y4§! weltliche und §Y3§! geistliche Fürsten festgelegt.\n"
- EMPEROR_GAINS_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "Der Kaiser erhält aufgrund der §YGoldenen Bulle§! folgende Boni, bis §YErbkaisertum§! verordnet wurde:\nLegitimität (Jährlich): §G+0.25§! \nBeziehungen Verbessern: §G+10.0%§! \nReichsautorität (Modifikator): §G+0.05§!\n"
- ELECTORS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "Die Kurfürsten erhalten aufgrund der §YGoldenen Bulle§! folgende Boni, bis §YErbkaisertum§! verordnet wurde:\nSteuereinnahmen: §G+12.00§!¤ \n"
- MEMBERS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "Die Mitglieder des HRR erhalten aufgrund der §YGoldenen Bulle§! folgende Boni, bis §YErbkaisertum§! verordnet wurde:\nUnruhe (Global): §G-1.00§! \n"
+ EMPEROR_GAINS_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "Der Kaiser erhält aufgrund der §YGoldenen Bulle§! folgende Boni, bis §YErbkaisertum§! verordnet wurde:\n[yearly_legitimacy]: §G+0.25§! \n[improve_relation_modifier]: §G+10.0%§! \n[imperial_authority_value]: §G+0.05§!\n"
+ ELECTORS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "Die Kurfürsten erhalten aufgrund der §YGoldenen Bulle§! folgende Boni, bis §YErbkaisertum§! verordnet wurde:\n[global_tax_income]: §G+12.00§!¤ \n"
+ MEMBERS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "Die Mitglieder des HRR erhalten aufgrund der §YGoldenen Bulle§! folgende Boni, bis §YErbkaisertum§! verordnet wurde:\n[global_unrest]: §G-1.00§! \n"
+ HRE_GOLDEN_BULL_REMOVE_OPINION_HIT_WITH_MEMBERS: "Die Meinung aller anderen §YReichsmitglieder§! über §Y[Root.GetName]§! verändert sich um §R-10§!."
 
- ERZKANZLER_NOW_RULES_EMPEROR: "Der Erzkanzler von @[hre_erzkanzler.GetTag] [hre_erzkanzler.GetName], §Y[hre_erzkanzler.Monarch.GetName]§! (§G[hre_erzkanzler.Monarch.GetAdm]§!£adm£/§G[hre_erzkanzler.Monarch.GetDip]§!£dip£/§G[hre_erzkanzler.Monarch.GetMil]§!£mil£), übernimmt die Regentschaft bis [Root.Heir.GetName] mündig ist."
  ASK_HRE_MEMBER_TO_SUPPORT_EMPEROR_WITH_MANPOWER: "Bittet sie um Mannstärke."
  ASK_ERZMARSCHALL_TO_SUPPORT_EMPEROR_WITH_GENERAL: "Bittet sie um einen ihrer fähigsten Männer, um unsere Armee anzuführen."
  GIVES_EMPEROR_THIS_AMOUNT_OF_MANPOWER: "Verliert: §R-[Root.manpower_to_send.GetValue],000§! Rekrutenreserve."
@@ -104,6 +104,7 @@
  REICHSTAG_EFFECTS_ALL_PRINCES_GAIN_MINUS_OPINION_US: "Die Meinung aller HRR-Mitglieder über uns ändert sich um §R-25§!."
 
  IS_NOT_CORE_OF_FROM: "Ist NICHT Kernprovinz von §Y[From.GetName]§!"
+ IS_NOT_IN_THE_REGION_OF_FROM_IF_FROM_IS_ARCH_CHANCELLOR_AND_LOYAL: "Einer der folgenden Punkte muss zutreffen: \n      §Y[From.GetName]§! ist KEIN Kurfürst \n      §Y[From.GetName]§! ist ein Kurfürst und stimmt NICHT für §Y[Emperor.GetName]§! \n      §Y[From.GetName]§! ist NICHT der §YErzkanzler für Germanien§!, §YErzkanzler für Burgund§! oder §YErzkanzler für Italien§! \n      §Y[From.GetName]§! ist der §YErzkanzler für Germanien§! und die Provinz ist NICHT in der Region §YNorddeutschland§! oder §YSüddeutschland§! \n      §Y[From.GetName]§! ist der §YErzkanzler von Burgund§! und die Provinz ist NICHT in der Region §YFrankreich§! oder §YNiederlande§! \n   §Y[From.GetName]§! ist der §YErzkanzler von Italien§! und die Provinz ist NICHT in der Region §YItalien§! oder §YBalkan§!"
  NO_REICHSTAG_WITHIN_THE_LAST_YEAR: "In den letzten §Y365 Tagen§! wurde KEIN Reichstag wegen unrechtmäßigen Territoriums eingerufen"
  IS_NEIGHBOR_OR_CLOSE_PROVINCE_OF_ROOT: "Ist entweder eine Nachbarprovinz von §Y[Root.GetName]§! oder liegt in der unmittelbaren Nähe ihrer Provinzen"
 
@@ -227,6 +228,9 @@
 
  CANNOT_SIGN_SEPERATE_PEACE_IN_HRE_ITALIAN_WAR: "Im Kaiserlichen Krieg der Vorherrschaft in Italien sind keine Separatfrieden erlaubt."
  CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_TARGET_OF_CALLED_REICHSTAG: "Wir können von einem Land, das innerhalb des letzten Jahres das Ziel eines Reichstags über unrechtmäßiges Territorium war, nicht verlangen, unrechtmäßiges Territorium zurückzugeben."
+ CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_GERMAN_ARCH_CHANCELLOR: "Wir können keine Rückgabe von unrechtmäßigem Territorium von dem §YErzkanzler für Germanien§! fordern, wenn dieser für uns in der Kaiserwahl stimmt und nur unrechtmäßiges Territorium in den Regionen §YNorddeutschland§! oder §YSüddeutschland§! besitzt."
+ CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_ITALIAN_ARCH_CHANCELLOR: "Wir können keine Rückgabe von unrechtmäßigem Territorium von dem §YErzkanzler für Italien§! fordern, wenn dieser für uns in der Kaiserwahl stimmt und nur unrechtmäßiges Territorium in den Regionen §YItalien§! oder §YBalkan§! besitzt."
+ CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_BURGUNDIAN_ARCH_CHANCELLOR: "Wir können keine Rückgabe von unrechtmäßigem Territorium von dem §YErzkanzler für Burgund§! fordern, wenn dieser für uns in der Kaiserwahl stimmt und nur unrechtmäßiges Territorium in den Regionen §YFrankreich§! oder §YNiederlande§! besitzt."
 
  ANTI_KING_BECOMES_EMPROR_TT: "§Y[This.Monarch.GetName] [This.Monarch.Dynasty.GetName]§!, Herrscher[This.GetMinFemale] von @[This.GetTag] §Y[This.GetName]§!, wird [This.GetMzumzur] [This.GetHREemperorKing][This.GetMinFemale] des HRR ernannt.\n"
 
@@ -254,3 +258,7 @@
  besseres_hrr_events.37.tt2: "§gDies ist die Standardfarbe.§!"
  besseres_hrr_events.37.tt3: "§gDies ist eine Alternativfarbe, die für jeden, der das Heilige Römische Reich vereint, verfügbar ist.§!"
  hree_change_hre_color_tt: "--------------\nWir können aus den folgenden Farben wählen: \n£hre_color_default£ £yes£ Immer (Standardfarbe) \n£hre_color_alternative£ £yes£ Immer \n£hre_color_HAB£ [Root.hree_hre_color_change_HAB] War §Y[HAB.GetName]§! \n£hre_color_BUR£ [Root.hree_hre_color_change_BUR] War §Y[BUR.GetName]§! oder §Y[GEL.GetName]§! \n£hre_color_SOR£ [Root.hree_hre_color_change_SOR] War §Y[SOR.GetName]§! [Root.hree_hre_color_change_SWA_full] \n£hre_color_WUR£ [Root.hree_hre_color_change_WUR] War §Y[WUR.GetName]§! [Root.hree_hre_color_change_LOT_full]  \n£hre_color_BAV£ [Root.hree_hre_color_change_BAV] War §Y[BAV.GetName]§!, §Y[UBV.GetName]§!, §Y[LBV.GetName]§!, §Y[ING.GetName]§!,\n           §Y[PSS.GetName]§!, §Y[SWE.GetName]§!, §Y[NOR.GetName]§! oder §Y[SCA.GetName]§! \n£hre_color_SAX£ [Root.hree_hre_color_change_SAX] War §Y[SAX.GetName]§! \n£hre_color_FKN£ [Root.hree_hre_color_change_FKN] War §Y[FKN.GetName]§! \n£hre_color_BRA£ [Root.hree_hre_color_change_BRA] War §Y[BRA.GetName]§! \n£hre_color_PRU£ [Root.hree_hre_color_change_PRU] War §Y[PRU.GetName]§! \n£hre_color_DTT£ [Root.hree_hre_color_change_DTT] War §Y[DTT.GetName]§! oder §Y[SPI.GetName]§! \n£hre_color_TEU£ [Root.hree_hre_color_change_TEU] War §Y[TEU.GetName]§! \n£hre_color_FRA£ [Root.hree_hre_color_change_FRA] War §Y[FRA.GetName]§! \n£hre_color_POL£ [Root.hree_hre_color_change_POL] War §Y[POL.GetName]§!, §Y[PLC.GetName]§! oder §Y[DAN.GetName]§! [Root.hree_hre_color_change_MLO_full] \n£hre_color_NAP£ [Root.hree_hre_color_change_NAP] War §Y[NAP.GetName]§!, §Y[BYZ.GetName]§! oder\n           §Y[AVE.GetName]§! \n£hre_color_ENG£ [Root.hree_hre_color_change_ENG] War §Y[ENG.GetName]§!, §Y[GBR.GetName]§!, §Y[ARA.GetName]§!,\n           §Y[EFR.GetName]§! oder §Y[ROM.GetName]§! \n£hre_color_ITA£ [Root.hree_hre_color_change_ITA] War §Y[ITA.GetName]§! oder §Y[SIC.GetName]§! \n£hre_color_SPA£ [Root.hree_hre_color_change_SPA] War §Y[SPA.GetName]§!, §Y[CAS.GetName]§! oder §Y[NAV.GetName]§! [Root.hree_hre_color_change_NED_full] [Root.hree_hre_color_change_BOH_full] \n£hre_color_LUX£ [Root.hree_hre_color_change_LUX] War §Y[LUX.GetName]§! oder §Y[BRB.GetName]§! \n£hre_color_CLI£ [Root.hree_hre_color_change_CLI] War §Y[CLI.GetName]§!"
+
+ HREE_ALL_IMPERIAL_ARCHOFFICCES_ARE_GRANTED_TT: "Alle §Y8§! Kaiserlichen Erzämter sind vergeben"
+
+ HAS_NO_FIXED_GOVERNMENT_RANK_FROM_REFORMS_TT: "Hat keinen §Ybeschränkten§! Regierungsrang aufgrund einer Regierungsreform"

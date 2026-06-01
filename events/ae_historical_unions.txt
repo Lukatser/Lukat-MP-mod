@@ -1,0 +1,2066 @@
+
+namespace = ae_historical_unions
+normal_or_historical_nations = yes
+
+
+
+## FORCE HISTORICAL UNIONS ##
+
+#Force England-Scotland
+country_event = {
+	id = ae_historical_unions.100
+	title = ae_historical_unions.100.t
+	desc = ae_historical_unions.100.d
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ENG
+		government = monarchy
+		
+		is_at_war = no
+		SCO = { 
+			exists = yes 
+			dynasty = "Stuart"
+			government = monarchy
+			NOT = { junior_union_with = ENG }
+			is_at_war = no
+		} 
+		is_subject = no
+		OR = {
+			is_year = 1600
+			AND = {
+				is_year = 1540
+				NOT = {
+					dynasty = "Lancaster"
+					dynasty = "York"
+					dynasty = "Tudor"			
+				} 
+			}
+		}
+		
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = ENG
+							tag = SCO
+							any_owned_province = { 
+								region = british_isles_region
+							}
+							any_core_province = { 
+								region = british_isles_region
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	} 
+	
+	option = { 
+		name = ae_historical_unions.100.a 
+		set_global_flag = ae_engsco
+		SCO = { exile_ruler_as = { name = ae_new_english_king } }
+		ENG = { set_ruler = ae_new_english_king }
+		create_union = SCO
+		every_province = {
+			limit = {
+				OR = {
+					area = lowlands_area 
+					area = highlands_area
+					area = kingdom_of_the_isles_area 
+				}
+				NOT = { province_id = 4365 }
+			}
+			cede_province = SCO 
+		}
+	}
+}
+
+
+#Force France-Brittany
+country_event = {
+	id = ae_historical_unions.101
+	title = ae_historical_unions.101.t
+	desc = ae_historical_unions.101.d
+	picture = ROYAL_COUPLE_FUTURE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1540
+		NOT = { is_year = 1600 }
+		tag = FRA
+		is_at_war = no
+		government = monarchy
+		num_of_cities = BRI 
+		BRI = { 
+			government = monarchy
+			exists = yes 
+			is_subject = no 
+			is_at_war = no
+		} 
+		
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = BRI
+							tag = FRA
+							any_owned_province = { 
+								OR = {
+									region = france_region
+									region = british_isles_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = france_region
+									region = british_isles_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = ae_historical_unions.101.a
+		create_union = BRI
+	}
+}
+#Force France-Provence
+country_event = {
+
+	id = ae_historical_unions.1011
+	title = ae_historical_unions.1011.t
+	desc = ae_historical_unions.1011.d
+	picture = ROYAL_COUPLE_FUTURE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1480 
+		NOT = { is_year = 1580 }
+		tag = FRA
+		government = monarchy
+		PRO = { 
+			exists = yes 
+			is_subject = no 
+			government = monarchy
+			is_at_war = no
+		}
+		FRA = { 
+			is_subject = no 
+			num_of_cities = PRO 
+			government = monarchy
+			is_at_war = no
+		}
+		
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = PRO
+							tag = FRA
+							any_owned_province = { 
+								OR = {
+									region = france_region
+									region = british_isles_region
+									region = italy_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = france_region
+									region = british_isles_region
+									region = italy_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = ae_historical_unions.1011.a
+		ROOT = {
+			create_union = PRO
+		}
+	}
+}
+#Force Brandenburg-Prussia
+country_event = {
+	id = ae_historical_unions.102
+	title = ae_historical_unions.102.t
+	desc = ae_historical_unions.102.d
+	picture = GREAT_BUILDING_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = { 
+		is_year = 1618 
+		government = monarchy
+		tag = BRA 
+		is_at_war = no
+		PRU = { is_at_war = no }
+		OR = {
+			religion = protestant
+			religion = reformed
+		} 
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = BRA
+							tag = PRU
+							any_owned_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = baltic_region
+									region = poland_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = baltic_region
+									region = poland_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	immediate = {
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = ae_historical_unions.102.a
+		set_global_flag = ae_brapru
+		if = {
+			limit = { PRU = { exists = yes } }
+			PRU = { grant_independence = yes }
+		}
+		east_prussia_area = {
+			limit = {
+				OR = {
+					owned_by = POL
+					owned_by = LIT
+					owned_by = PLC
+				}
+				NOT = { province_id = 42 }
+			}
+			cede_province = PRU 
+		}
+		if = { 
+			limit = { 
+				TEU = { exists = yes }
+				PRU = { inherit = TEU }
+			}
+		}
+		PRU = { change_religion = BRA }
+		
+		BRA = { 
+			if = {
+				limit = { is_subject = no }
+				create_union = PRU 
+			}
+			else = {
+				inherit = PRU 
+				change_tag = PRU 
+			}
+			
+		}
+	}
+}
+
+#Force Austria-Hungary
+country_event = {
+	id = ae_historical_unions.103
+	title = ae_historical_unions.103.t
+	desc = ae_historical_unions.103.d
+	picture = LIBERUM_VETO_eventPicture
+	
+	fire_only_once = yes   
+	
+	trigger = { 
+		is_year = 1550
+		tag = HUN
+		government = monarchy
+		is_subject = no
+		HAB = { 
+			is_subject = no
+			government = monarchy
+		} 
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = HAB
+							tag = HUN
+							any_owned_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = carpathia_region
+									region = poland_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = carpathia_region
+									region = poland_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		HUN = {
+			kill_ruler = yes
+			remove_heir = { allow_new_heir = no }
+			define_ruler = {
+				name = "(Interregnum)"
+				adm = 0
+				dip = 0
+				mil = 0
+				regency = yes
+			}
+		}
+	}
+	
+	option = {
+		name = ae_historical_unions.103.a
+		set_global_flag = ae_austriahungary
+		if = { 
+			limit = {
+				HUN = { senior_union_with = CRO }
+			}
+			HUN = { inherit = CRO }
+		}
+		HAB = { create_union = HUN }
+	}
+}
+
+#Force Austria-Bohemia
+country_event = {
+	id = ae_historical_unions.1031
+	title = ae_historical_unions.1031.t
+	desc = ae_historical_unions.1031.d
+	picture = LIBERUM_VETO_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1526 
+		tag = BOH
+		government = monarchy
+		is_subject = no
+		HAB = { government = monarchy }
+
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = HAB
+							tag = BOH
+							any_owned_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = carpathia_region
+									region = poland_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = carpathia_region
+									region = poland_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}		
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+		BOH = {
+			kill_ruler = yes
+			remove_heir = { allow_new_heir = no }
+			define_ruler = {
+				name = "(Interregnum)"
+				adm = 0
+				dip = 0
+				mil = 0
+				regency = yes
+			}
+		}
+	}
+	
+	
+	option = {
+		name = ae_historical_unions.1031.a
+		set_global_flag = ae_austriabohemia
+		HAB = { create_union = BOH }
+	}
+}
+
+#Force Burgundian Succession
+country_event = {
+	id = ae_historical_unions.1032
+	title = ae_historical_unions.1032.t
+	desc = ae_historical_unions.1032.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	trigger = {
+		is_year = 1485 
+		tag = BUR
+		government = monarchy 
+		is_subject = no 		
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = BUR
+							tag = HAB
+							tag = FRA
+							is_emperor = yes
+							any_owned_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = france_region
+									region = low_countries_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = france_region
+									region = low_countries_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+	}
+	
+	
+	option = {
+		name = ae_historical_unions.1031.a
+		set_global_flag = ae_austriaburgundy
+		BUR = {
+			country_event = {
+				id = incidents_bur_inheritance.1   
+			}
+		}
+	}
+}
+
+#Force Burgundian IntPU
+country_event = {
+	id = ae_historical_unions.1033
+	title = ae_historical_unions.1033.t
+	desc = ae_historical_unions.1033.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	trigger = {
+		is_year = 1490 
+		tag = BUR
+		government = monarchy 
+		is_subject = yes 
+		overlord = { is_emperor = yes }
+		NOT = {
+			is_subject_of_type = integrated_personal_union
+		}
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = BUR
+							tag = HAB
+							tag = FRA
+							is_emperor = yes
+							any_owned_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = france_region
+									region = low_countries_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = south_german_region
+									region = north_german_region
+									region = france_region
+									region = low_countries_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+	}
+	
+	
+	option = {
+		name = ae_historical_unions.1033.a
+		set_global_flag = ae_austriaburgundy_ipu
+		overlord = {
+			country_event = {
+				id = incidents_bur_inheritance.501
+			}
+		}
+	}
+}
+
+#Force Burgundian Annexation
+country_event = {
+	id = ae_historical_unions.1034
+	title = ae_historical_unions.1034.t
+	desc = ae_historical_unions.1034.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	fire_only_once = yes
+	hidden = yes
+	trigger = {
+		is_year = 1510 
+		tag = BUR
+		government = monarchy 
+		is_subject = yes 
+		overlord = { is_emperor = yes }
+		is_subject_of_type = integrated_personal_union
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	immediate = {
+	}
+	
+	
+	option = {
+		name = ae_historical_unions.1034.a
+		set_global_flag = ae_austriaburgundy_annex
+		overlord = {
+			inherit = ROOT
+		}
+	}
+}
+
+
+
+country_event = { #BUR breaks union
+	id = ae_historical_unions.1035
+	title = ae_historical_unions.1035.t 
+	desc = ae_historical_unions.1035.d 
+	picture = BATTLE_eventPicture
+	 
+	hidden = yes
+	trigger = {
+		tag = BUR
+		is_subject = no
+	}
+	
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	option = {
+		name = ae_historical_unions.1035.a 
+		restore_country_name = yes
+		restore_country_color = yes
+		
+		ai_chance = { factor = 1 } 
+	}
+ 
+}
+   
+
+
+#Force Poland-Lithuania
+country_event = {
+	id = ae_historical_unions.104
+	title = ae_historical_unions.104.t
+	desc = ae_historical_unions.104.d
+	picture = CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1470 
+		tag = POL 
+		government = monarchy 
+		LIT = { 
+			NOT = { junior_union_with = ROOT }
+			government = monarchy 
+		}
+		
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = POL
+							tag = LIT
+							any_owned_province = { 
+								OR = {
+									region = poland_region
+									region = ruthenia_region
+									region = baltic_region
+									region = russia_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = poland_region
+									region = ruthenia_region
+									region = baltic_region
+									region = russia_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ae_historical_unions.104.a
+		set_global_flag = ae_polandlithuania
+		if = {
+			limit = {
+				LIT = { dynasty = "Jagiellon" }
+			}
+			LIT = { exile_ruler_as = { name = ae_new_polish_king } }
+			POL = { set_ruler = ae_new_polish_king } 
+		}
+		else = {
+			set_dynasty = "Jagiellon"
+		}
+		create_union = LIT
+	}
+}
+
+#Force Polish Prussia
+ 
+country_event = {
+	id = ae_historical_unions.105
+	title = ae_historical_unions.105.t
+	desc = ae_historical_unions.105.d
+	picture = CIVIL_WAR_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1460 
+		tag = POL 
+		is_at_war = no
+		NOT = {
+			owns = 43 
+			owns = 2997 
+			owns = 1859 
+		}
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = POL
+							tag = LIT
+							tag = TEU
+							tag = PRU
+							tag = BRA
+							any_owned_province = { 
+								OR = { 
+									region = baltic_region 
+								}
+							}
+							any_core_province = { 
+								OR = { 
+									region = baltic_region 
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ae_historical_unions.105.a
+		set_global_flag = ae_polandprussia
+		43 = {
+			owner = { add_truce_with = POL }
+			cede_province = POL
+			add_core = POL
+		}
+		2997 = {
+			owner = { add_truce_with = POL }
+			cede_province = POL
+			add_core = POL
+		}
+		1859 = {
+			owner = { add_truce_with = POL }
+			cede_province = POL
+			add_core = POL
+		}
+		if = {
+			limit = {
+				exists = BRA
+				neumark_area = {
+					NOT = { owned_by = BRA }
+				}
+			}
+			neumark_area = {
+				limit = { owned_by = TEU }
+				owner = { add_truce_with = POL }
+				cede_province = BRA 
+				add_core = BRA
+			}
+		}
+	}
+}
+country_event = {
+	id = ae_historical_unions.106
+	title = ae_historical_unions.105.t
+	desc = ae_historical_unions.105.d
+	picture = CIVIL_WAR_eventPicture
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1480 
+		tag = POL 
+		is_at_war = no
+		TEU = {
+			is_neighbor_of = ROOT
+			NOT = { num_of_cities = 7 }
+			is_at_war = no
+		}
+		NOT = { ae_gamerule_historical_expansion_off = yes }
+		OR = {
+			ae_gamerule_historical_expansion_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = POL
+							tag = LIT
+							tag = TEU
+							tag = PRU
+							any_owned_province = { 
+								OR = { 
+									region = baltic_region 
+								}
+							}
+							any_core_province = { 
+								OR = { 
+									region = baltic_region 
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ae_historical_unions.105.a
+		set_global_flag = ae_polandprussiamarch
+		POL = { create_march = TEU }
+	}
+}
+
+#Force Iberian Wedding
+country_event = {
+	id = ae_historical_unions.106
+	title = ae_historical_unions.106.t
+	desc = ae_historical_unions.106.d
+	picture = CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_year = 1492 
+		tag = CAS 
+		is_at_war = no
+		NOT = { junion_unior_with = ARA } 
+		ARA = { 
+			is_at_war = no
+			NOT = { junior_union_with = ROOT }   
+		}
+		
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = CAS
+							tag = ARA
+							tag = NAV
+							tag = POR
+							tag = FRA
+							any_owned_province = { 
+								OR = {
+									region = iberia_region
+									region = france_region
+									region = italy_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = iberia_region
+									region = france_region
+									region = italy_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = ae_historical_unions.106.a
+		set_global_flag = ae_castilearagon
+		if = {
+			limit = {
+				ARA = { government = monarchy }
+			}
+			if = {
+				limit = {
+					ROOT = { is_female = yes }
+					ARA = { is_female = no } 
+				}
+				ARA = { exile_ruler_as = { name = ae_new_castillian_king } }
+				CAS = { set_ruler = ae_new_castillian_king } 
+			} 
+			create_union = ARA
+		}
+		else = {
+			vassalize = ARA
+		}
+		ARA = { add_liberty_desire = -200 }
+	}
+}
+
+#########################
+# CHARLES V event chain #
+#########################
+
+namespace = ae_charlesV
+normal_or_historical_nations = yes
+
+
+country_event = { 
+	id = ae_charlesV.100
+	title = ae_charlesV.100.t 
+	desc = ae_charlesV.100.d 
+	picture = RELIGION_eventPicture
+	
+	fire_only_once = yes 
+	
+	
+	trigger = {
+		OR = {		#Fires for Spain or Castille
+			tag = SPA
+			AND = {
+				tag = CAS
+				NOT = { exists = SPA }
+			}
+		}
+		is_year = 1500
+		NOT = { is_year = 1550 } #Fairly wide window, to give Spain time to realize she hates France
+		NOT = { has_global_flag = ae_charlesV_born }
+		has_global_flag = ae_burgundian_succession_crisis
+		num_of_cities = 15
+		is_subject = no
+		government = monarchy
+		NOT = { has_regency = yes }
+		capital_scope = { continent = europe }
+		HAB = { 
+			is_emperor = yes
+			dynasty = "von Habsburg" 
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 8
+				region = low_countries_region
+			}
+			NOT = { has_heir_flag = ae_maximilian }
+			religion = catholic
+		}
+		religion = catholic
+		
+		
+		NOT = { ae_gamerule_unions_off = yes }
+		OR = {
+			ae_gamerule_unions_on = yes 
+			all_countries_including_self = {
+				if = {
+					limit = { 
+						OR = {
+							tag = PREV
+							tag = CAS
+							tag = ARA
+							tag = NAV
+							tag = POR
+							tag = FRA
+							tag = HAB
+							tag = BUR
+							any_owned_province = { 
+								OR = {
+									region = iberia_region
+									region = france_region
+									region = italy_region
+									region = low_countries_region
+									region = north_german_region
+									region = south_german_region
+								}
+							}
+							any_core_province = { 
+								OR = {
+									region = iberia_region
+									region = france_region
+									region = italy_region
+									region = low_countries_region
+									region = north_german_region
+									region = south_german_region
+								}
+							}
+						}
+					}
+					full_ai = yes
+				}
+			}
+		}
+		
+		
+		
+	}
+	
+	immediate = {
+		save_global_event_target_as = ae_charlesv_spain
+	}
+	
+	option = {
+		name = ae_charlesV.100.a 
+		
+		define_heir = {
+			name = "Carlos"
+			dynasty = "von Habsburg"
+			culture = burgundian	
+			religion = catholic
+			adm = 4
+			dip = 5
+			mil = 5
+			fixed = yes
+		}
+		set_heir_flag = ae_charlesV_tag
+		set_country_flag = ae_charlesV_made_heir
+		set_global_flag = ae_charlesV_born
+		HAB = { country_event = { id = ae_charlesV.101 } }
+		ai_chance = { factor = 1 } 
+	}
+
+	option = {
+		name = ae_charlesV.100.b 
+		ai_chance = { factor = 0 }
+	}
+}
+
+
+country_event = { 
+	id = ae_charlesV.101
+	title = ae_charlesV.100.t 
+	desc = ae_charlesV.100.d 
+	picture = RELIGION_eventPicture
+	
+	fire_only_once = yes  
+	is_triggered_only = yes
+	
+	option = {
+		name = ae_charlesV.100.a 
+		define_heir = {
+			name = "Karl"
+			dynasty = "von Habsburg"
+			culture = burgundian	
+			religion = catholic
+			adm = 4
+			dip = 5
+			mil = 5
+			fixed = yes
+		}
+		set_heir_flag = ae_charlesV_tag
+		set_country_flag = ae_charlesV_made_heir
+		ai_chance = { factor = 1 } 
+	}
+
+	option = {
+		name = ae_charlesV.11.b 
+		ai_chance = { factor = 0 }
+	}
+}
+
+
+
+country_event = { #Charles dies prematurely
+	id = ae_charlesV.200
+	title = ae_charlesV.200.t 
+	desc = ae_charlesV.200.d 
+	picture = RELIGION_eventPicture
+	
+	fire_only_once = yes   
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			tag = HAB 
+			tag = event_target:ae_charlesv_spain
+		}
+		HAB = { has_country_flag = ae_charlesV_made_heir }
+		event_target:ae_charlesv_spain = { has_country_flag = ae_charlesV_made_heir }
+		
+		ROOT = { 
+			NOT = { 
+				has_heir_flag = ae_charlesV_tag 
+				has_ruler_flag = ae_charlesV_tag 
+			}
+		}
+		NOT = {	has_global_flag = ae_charlesV_union }
+	}
+	
+	option = {
+		name = ae_charlesV.200.a 
+		random_country = {
+			limit = { 
+				OR = {
+					tag = HAB 
+					tag = event_target:ae_charlesv_spain
+				}
+				NOT = { tag = ROOT }
+				OR = {
+					has_heir_flag = ae_charlesV_tag
+					has_ruler_flag = ae_charlesV_tag
+				}
+			}
+			save_event_target_as = ae_charlesV_other_country
+			country_event = { id = ae_charlesV.201 }
+		}
+		
+		ai_chance = { factor = 1 } 
+	}
+ 
+}
+
+country_event = { #Charles dies prematurely
+	id = ae_charlesV.201
+	title = ae_charlesV.200.t 
+	desc = ae_charlesV.201.d 
+	picture = RELIGION_eventPicture
+	
+	fire_only_once = yes   
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = ae_charlesV.201.a 
+		trigger = {
+			has_heir_flag = ae_charlesV_tag
+		}
+		kill_heir = {}
+		random_owned_province = {
+			limit = {
+				NOT = {
+					has_building = temple
+				}
+				NOT = { has_building = cathedral }
+				num_free_building_slots = 1
+			}
+			add_building = temple
+		}
+		
+		ai_chance = { factor = 1 } 
+	}
+	
+	option = {
+		name = ae_charlesV.201.b 
+		trigger = {
+			has_heir_flag = ae_charlesV_tag
+		}
+		kill_heir = { allow_new_heir = no }
+		define_heir = {
+			dynasty = ROOT
+			claim = 30
+		}
+		
+		
+		ai_chance = { factor = 1 } 
+	}
+	
+	option = {
+		name = ae_charlesV.201.c 
+		trigger = {
+			has_ruler_flag = ae_charlesV_tag
+		}
+		if = {
+			limit = { has_heir = no }
+			define_heir = {
+				dynasty = ROOT
+				claim = 30
+			}
+		}
+		
+		kill_ruler = yes 
+		
+		ai_chance = { factor = 1 } 
+	} 
+}
+
+country_event = { #Charles ascends to the throne in both countries
+	id = ae_charlesV.300
+	title = ae_charlesV.300.t 
+	desc = ae_charlesV.300.d 
+	picture = RELIGION_eventPicture
+	
+	fire_only_once = yes   
+	
+	trigger = {
+		OR = {
+			tag = HAB 
+			tag = event_target:ae_charlesv_spain
+		}
+		
+		OR = {
+			ai = no 
+			AND = {
+				HAB = { ai = yes }
+				event_target:ae_charlesv_spain = { ai = yes }
+			}
+		}
+		HAB = { has_country_flag = ae_charlesV_made_heir }
+		event_target:ae_charlesv_spain = { has_country_flag = ae_charlesV_made_heir }
+		
+		HAB = { has_ruler_flag = ae_charlesV_tag }
+		event_target:ae_charlesv_spain = { has_ruler_flag = ae_charlesV_tag }
+		
+		
+	}
+	
+	immediate = {
+		set_global_flag = ae_transferring_subjects
+		if = {
+			limit = { HAB = { is_emperor = yes } }
+			HAB = { set_country_flag = ae_emperor }
+		}
+		
+		HAB = {
+			every_subject_country = {
+				if = {
+					limit = { is_subject_of_type = personal_union }
+					grant_independence = yes
+					set_country_flag = hab_pu
+				}
+				if = {
+					limit = { is_subject_of_type = integrated_personal_union }
+					grant_independence = yes
+					set_country_flag = hab_ipu
+				}
+				if = {
+					limit = { is_subject_of_type = se_integrated_personal_union }
+					grant_independence = yes
+					set_country_flag = hab_se_ipu
+				}
+				if = {
+					limit = { is_subject_of_type = brother_kingdom }
+					grant_independence = yes
+					set_country_flag = hab_bk
+				}
+			}
+		}
+		event_target:ae_charlesv_spain = {
+			every_subject_country = {
+				if = {
+					limit = { is_subject_of_type = personal_union }
+					grant_independence = yes
+					set_country_flag = spa_pu
+				}
+				if = {
+					limit = { is_subject_of_type = integrated_personal_union }
+					grant_independence = yes
+					set_country_flag = spa_ipu
+				}
+				if = {
+					limit = { is_subject_of_type = se_integrated_personal_union }
+					grant_independence = yes
+					set_country_flag = spa_se_ipu
+				}
+				if = {
+					limit = { is_subject_of_type = brother_kingdom }
+					grant_independence = yes
+					set_country_flag = spa_bk
+				}
+			}
+		}  
+
+
+	}
+	
+	option = {
+		name = ae_charlesV.300.a 
+		event_target:ae_charlesv_spain = {  
+			set_ruler_flag = ae_charlesV_ruler
+			set_country_flag = ae_charlesV_country
+			set_global_flag = ae_charlesV_union
+			if = {
+				limit = {
+					HAB = { is_emperor = yes }
+				}
+				set_emperor = yes
+				hidden_effect = {
+					set_government_rank_force = 2
+					HAB = { set_government_rank_force = 3 } 
+				}
+			}
+			
+		} 
+		
+		 
+		every_country = { 
+			limit = { 
+				NOT = { is_subject_of = event_target:ae_charlesv_spain }
+				has_country_flag = hab_ipu  
+			}
+			event_target:ae_charlesv_spain = { 
+				create_subject = {
+					subject_type = integrated_personal_union
+					subject = PREV
+				}
+			}
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = hab_se_ipu  
+			}
+			event_target:ae_charlesv_spain = { 
+				create_subject = {
+					subject_type = se_integrated_personal_union
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = hab_bk  
+			}
+			event_target:ae_charlesv_spain = { 
+				create_subject = {
+					subject_type = brother_kingdom
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		 
+		every_country = { 
+			limit = { 
+				NOT = { is_subject_of = event_target:ae_charlesv_spain }
+				has_country_flag = hab_pu 
+			} 
+			event_target:ae_charlesv_spain = { 
+				create_union = PREV
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = spa_ipu  
+			}
+			event_target:ae_charlesv_spain = { 
+				create_subject = {
+					subject_type = integrated_personal_union
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = spa_se_ipu  
+			}
+			event_target:ae_charlesv_spain = { 
+				create_subject = {
+					subject_type = se_integrated_personal_union
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = spa_bk  
+			}
+			event_target:ae_charlesv_spain = { 
+				create_subject = {
+					subject_type = brother_kingdom
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		
+		every_country = { 
+			limit = {  
+				has_country_flag = spa_pu 
+			} 
+			event_target:ae_charlesv_spain = { 
+				create_union = PREV
+			}
+			add_liberty_desire = -100
+		}
+
+		BUR = { 
+			limit = { 
+				is_subject_of = event_target:ae_charlesv_spain
+				is_subject_of_type = integrated_personal_union
+			} 
+			restore_country_color = yes	
+			change_country_color = { country = event_target:ae_charlesv_spain } 
+			set_country_flag = has_overriden_color_flag 
+			restore_country_name = yes
+			override_country_name = BUR_HabsburgNetherlands
+			add_liberty_desire = -100
+		}
+		
+		event_target:ae_charlesv_spain = { create_union = HAB }
+		HAB = { add_liberty_desire = -100 }
+		every_country = {
+			limit = {
+				OR = {
+					has_country_flag = hab_pu
+					has_country_flag = hab_ipu
+					has_country_flag = hab_se_ipu
+					has_country_flag = hab_bk
+					has_country_flag = spa_pu
+					has_country_flag = spa_ipu
+					has_country_flag = spa_se_ipu
+					has_country_flag = spa_bk
+				}
+			} 
+			clr_country_flag = hab_pu
+			clr_country_flag = hab_ipu
+			clr_country_flag = hab_se_ipu
+			clr_country_flag = hab_bk
+			clr_country_flag = spa_pu
+			clr_country_flag = spa_ipu
+			clr_country_flag = spa_se_ipu
+			clr_country_flag = spa_bk
+		}
+		
+		ai_chance = { factor = 1 } 
+	}
+	
+	option = {
+		name = ae_charlesV.300.b
+		HAB = { 
+			set_ruler_flag = ae_charlesV_ruler
+			set_country_flag = ae_charlesV_country
+			set_global_flag = ae_charlesV_union
+			hidden_effect = { event_target:ae_charlesv_spain = { set_government_rank_force = 2 } }
+			
+			
+		} 
+		 
+		every_country = { 
+			limit = {  
+				has_country_flag = spa_ipu  
+			}
+			HAB = { 
+				create_subject = {
+					subject_type = integrated_personal_union
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = spa_se_ipu  
+			}
+			HAB = { 
+				create_subject = {
+					subject_type = se_integrated_personal_union
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = spa_bk  
+			}
+			HAB = { 
+				create_subject = {
+					subject_type = brother_kingdom
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		
+		every_country = { 
+			limit = {  
+				has_country_flag = spa_pu 
+			} 
+			HAB = { 
+				create_union = PREV
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = hab_ipu  
+			}
+			HAB = { 
+				create_subject = {
+					subject_type = integrated_personal_union
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = hab_se_ipu  
+			}
+			HAB = { 
+				create_subject = {
+					subject_type = se_integrated_personal_union
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		every_country = { 
+			limit = {  
+				has_country_flag = hab_bk  
+			}
+			HAB = { 
+				create_subject = {
+					subject_type = brother_kingdom
+					subject = PREV
+				}
+			}
+			add_liberty_desire = -100
+		}
+		
+		every_country = { 
+			limit = {  
+				has_country_flag = hab_pu 
+			} 
+			HAB = { 
+				create_union = PREV
+			}
+			add_liberty_desire = -100
+		}
+
+		BUR = { 
+			limit = { 
+				is_subject_of = HAB
+				is_subject_of_type = integrated_personal_union
+			} 
+			restore_country_color = yes	
+			change_country_color = { country = HAB } 
+			set_country_flag = has_overriden_color_flag 
+			restore_country_name = yes
+			override_country_name = BUR_HabsburgNetherlands
+			add_liberty_desire = -100
+		}
+		
+		HAB = { create_union = event_target:ae_charlesv_spain  }
+		event_target:ae_charlesv_spain = { add_liberty_desire = -100 }
+		every_country = {
+			limit = {
+				OR = {
+					has_country_flag = hab_pu
+					has_country_flag = hab_ipu
+					has_country_flag = hab_se_ipu
+					has_country_flag = hab_bk
+					has_country_flag = spa_pu
+					has_country_flag = spa_ipu
+					has_country_flag = spa_se_ipu
+					has_country_flag = spa_bk
+				}
+			} 
+			clr_country_flag = hab_pu
+			clr_country_flag = hab_ipu
+			clr_country_flag = hab_se_ipu
+			clr_country_flag = hab_bk
+			clr_country_flag = spa_pu
+			clr_country_flag = spa_ipu
+			clr_country_flag = spa_se_ipu
+			clr_country_flag = spa_bk
+		}
+		
+		after = { clr_global_flag = ae_transferring_subjects }
+		
+		ai_chance = { factor = 1 } 
+	}
+ 
+}
+
+
+country_event = { #Move court from Austria to Spain
+	id = ae_charlesV.500
+	title = ae_charlesV.500.t 
+	desc = ae_charlesV.500.d 
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	
+	immediate = {
+	
+		set_global_flag = ae_transferring_subjects 
+		if = {
+			limit = {
+				HAB = { is_emperor = yes }
+			}
+			HAB = { set_country_flag = ae_emperor }
+		}
+		if = {
+			limit = { exists = SPA }
+			SPA = { save_event_target_as = ae_move_spain }
+		}
+		else = { CAS = { save_event_target_as = ae_move_spain } }
+		
+	}
+	
+	option = {
+		name = ae_charlesV.500.a 
+		add_adm_power = -200
+		add_years_of_income = -1	
+		tooltip = { add_stability = -1 }
+		custom_tooltip = ae_move_to_spain_tt 
+		hidden_effect = {
+			HAB = {
+				break_union = event_target:ae_move_spain 
+				every_country = {
+					if = {
+						limit = { alliance_with = HAB }
+						create_alliance = event_target:ae_move_spain 
+					}
+					if = {
+						limit = { marriage_with = HAB }
+						create_marriage = event_target:ae_move_spain 
+					}
+					if = {
+						limit = { guaranteed_by = HAB }
+						event_target:ae_move_spain = { create_guarantee = PREV }
+					}
+				}
+				exile_ruler_as = { name = ae_hab_ruler }
+				exile_heir_as = ae_hab_heir
+				exile_consort_as = ae_hab_consort 					
+			} 
+			
+			event_target:ae_move_spain = { 
+				set_ruler = ae_hab_ruler
+				set_heir = ae_hab_heir
+				set_consort = ae_hab_consort 		
+			}
+			
+			
+			
+			HAB = {
+				every_subject_country = {
+					if = {
+						limit = { is_subject_of_type = integrated_personal_union }
+						grant_independence = yes
+						set_country_flag = hab_ipu
+					}
+				}
+			}
+			every_country = { 
+				limit = {  
+					has_country_flag = hab_ipu  
+				}
+				event_target:ae_move_spain = { 
+					create_subject = {
+						subject_type = integrated_personal_union
+						subject = PREV
+					}
+				}
+			}
+			HAB = {
+				every_subject_country = {
+					if = {
+						limit = { is_subject_of_type = se_integrated_personal_union }
+						grant_independence = yes
+						set_country_flag = se_hab_ipu
+					}
+				}
+			}
+			every_country = { 
+				limit = {  
+					has_country_flag = se_hab_ipu  
+				}
+				event_target:ae_move_spain = { 
+					create_subject = {
+						subject_type = se_integrated_personal_union
+						subject = PREV
+					}
+				}
+			}
+			HAB = {
+				every_subject_country = {
+					if = {
+						limit = { is_subject_of_type = brother_kingdom }
+						grant_independence = yes
+						set_country_flag = hab_bk
+					}
+				}
+			} 
+			every_country = { 
+				limit = {  
+					has_country_flag = hab_bk  
+				}
+				event_target:ae_move_spain = { 
+					create_subject = {
+						subject_type = brother_kingdom
+						subject = PREV
+					}
+				}
+			}
+			HAB = {
+				every_subject_country = {
+					if = {
+						limit = { is_subject_of_type = personal_union }
+						grant_independence = yes
+						set_country_flag = hab_pu
+					}
+				}
+			} 
+			every_country = { 
+				limit = {  
+					has_country_flag = hab_pu  
+				}
+				event_target:ae_move_spain = { 
+					create_union = PREV
+				}
+			}
+			event_target:ae_move_spain = { 
+				create_union = HAB 
+				if = {
+					limit = {
+						HAB = { has_country_flag = ae_emperor }
+					}
+					set_emperor = yes
+					event_target:ae_move_spain = { 
+						clr_country_flag = ae_emperor 
+						set_government_rank_force = 2
+					}
+					HAB = { set_government_rank_force = 3 }
+					
+				}
+			}
+			
+			BUR = { 
+				limit = { 
+					is_subject_of = event_target:ae_move_spain
+					is_subject_of_type = integrated_personal_union
+				} 
+				restore_country_color = yes	
+				change_country_color = { country = event_target:ae_move_spain } 
+				set_country_flag = has_overriden_color_flag 
+				restore_country_name = yes
+				override_country_name = BUR_SpanishNetherlands
+			}
+
+			every_country = {
+				limit = {
+					OR = {
+						has_country_flag = hab_pu
+						has_country_flag = hab_ipu
+						has_country_flag = hab_se_ipu
+						has_country_flag = hab_bk
+						has_country_flag = spa_pu
+						has_country_flag = spa_ipu
+						has_country_flag = spa_se_ipu
+						has_country_flag = spa_bk
+					}
+				} 
+				clr_country_flag = hab_pu
+				clr_country_flag = hab_ipu
+				clr_country_flag = hab_se_ipu
+				clr_country_flag = hab_bk
+				clr_country_flag = spa_pu
+				clr_country_flag = spa_ipu
+				clr_country_flag = spa_se_ipu
+				clr_country_flag = spa_bk
+			}
+		}
+		switch_tag = event_target:ae_move_spain 
+	} 
+	option = {
+		name = ae_charlesV.500.b 
+		 
+	} 
+	
+	after = { clr_global_flag = ae_transferring_subjects }
+}
+
+
+country_event = { #Move court from Spain to Austria
+	id = ae_charlesV.501
+	title = ae_charlesV.501.t 
+	desc = ae_charlesV.500.d 
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	
+	immediate = {
+	
+		set_global_flag = ae_transferring_subjects 
+		if = {
+			limit = {
+				ROOT = { is_emperor = yes }
+			}
+			ROOT = { set_country_flag = ae_emperor }
+		} 
+		
+		if = {
+			limit = {
+				HAB = { is_emperor = yes }
+			}
+			HAB = { set_country_flag = ae_emperor }
+		}
+		if = {
+			limit = { exists = SPA }
+			SPA = { save_event_target_as = ae_move_spain }
+		}
+		else = { CAS = { save_event_target_as = ae_move_spain } }
+		
+	}
+	
+	option = {
+		name = ae_charlesV.500.a 
+		add_adm_power = -200
+		add_years_of_income = -1	
+		tooltip = { add_stability = -1 }
+		custom_tooltip = ae_move_to_austria_tt 
+		hidden_effect = {
+			ROOT = {  
+				break_union = HAB
+				every_country = {
+					if = {
+						limit = { alliance_with = ROOT }
+						create_alliance = HAB
+					}
+					if = {
+						limit = { marriage_with = ROOT }
+						create_marriage = HAB
+					}
+					if = {
+						limit = { guaranteed_by = ROOT }
+						HAB = { create_guarantee = PREV }
+					}
+				} 
+				exile_ruler_as = { name = ae_spa_ruler }
+				exile_heir_as = ae_spa_heir
+				exile_consort_as = ae_spa_consort 			
+			} 
+			HAB = { 
+				set_ruler = ae_spa_ruler
+				set_heir = ae_spa_heir
+				set_consort = ae_spa_consort
+			}
+			
+			event_target:ae_move_spain = {
+				every_subject_country = {
+					if = {
+						limit = { is_subject_of_type = integrated_personal_union }
+						grant_independence = yes
+						set_country_flag = spa_ipu
+					}
+				}
+			}
+			every_country = { 
+				limit = {  
+					has_country_flag = spa_ipu  
+				}
+				HAB = { 
+					create_subject = {
+						subject_type = integrated_personal_union
+						subject = PREV
+					}
+				}
+			}
+			event_target:ae_move_spain = {
+				every_subject_country = {
+					if = {
+						limit = { is_subject_of_type = se_integrated_personal_union }
+						grant_independence = yes
+						set_country_flag = se_spa_ipu
+					}
+				}
+			}
+			every_country = { 
+				limit = {  
+					has_country_flag = se_spa_ipu  
+				}
+				HAB = { 
+					create_subject = {
+						subject_type = se_integrated_personal_union
+						subject = PREV
+					}
+				}
+			}
+			event_target:ae_move_spain = {
+				every_subject_country = {
+					if = {
+						limit = { is_subject_of_type = brother_kingdom }
+						grant_independence = yes
+						set_country_flag = spa_bk
+					}
+				}
+			} 
+			every_country = { 
+				limit = {  
+					has_country_flag = spa_bk  
+				}
+				HAB = { 
+					create_subject = {
+						subject_type = brother_kingdom
+						subject = PREV
+					}
+				}
+			}
+			event_target:ae_move_spain = {
+				every_subject_country = {
+					if = {
+						limit = { is_subject_of_type = personal_union }
+						grant_independence = yes
+						set_country_flag = spa_pu
+					}
+				}
+			} 
+			
+			every_country = { 
+				limit = {  
+					has_country_flag = spa_pu  
+				}
+				HAB = { 
+					create_union = PREV
+				}
+			}
+			HAB = { 
+				create_union = event_target:ae_move_spain
+				if = {
+					limit = {
+						event_target:ae_move_spain = { has_country_flag = ae_emperor }
+					}
+					set_emperor = yes
+					event_target:ae_move_spain = { 
+						clr_country_flag = ae_emperor 
+						set_government_rank_force = 2
+					}
+					HAB = { set_government_rank_force = 3 }
+					
+				}
+			}
+			
+			BUR = { 
+				limit = { 
+					is_subject_of = HAB
+					is_subject_of_type = integrated_personal_union
+				} 
+				restore_country_color = yes	
+				change_country_color = { country = HAB } 
+				set_country_flag = has_overriden_color_flag 
+				restore_country_name = yes
+				override_country_name = BUR_HabsburgNetherlands
+			}
+		}
+		
+		every_country = {
+			limit = {
+				OR = {
+					has_country_flag = hab_pu
+					has_country_flag = hab_ipu
+					has_country_flag = hab_se_ipu
+					has_country_flag = hab_bk
+					has_country_flag = spa_pu
+					has_country_flag = spa_ipu
+					has_country_flag = spa_se_ipu
+					has_country_flag = spa_bk
+				}
+			} 
+			clr_country_flag = hab_pu
+			clr_country_flag = hab_ipu
+			clr_country_flag = hab_se_ipu
+			clr_country_flag = hab_bk
+			clr_country_flag = spa_pu
+			clr_country_flag = spa_ipu
+			clr_country_flag = spa_se_ipu
+			clr_country_flag = spa_bk
+		}
+			
+		
+		switch_tag = HAB
+		
+		ai_chance = { factor = 1 } 
+	} 
+	option = {
+		name = ae_charlesV.500.b 
+		 
+	} 
+	
+	
+	after = { 
+	
+	
+	clr_global_flag = ae_transferring_subjects 
+	
+	
+	}
+	
+}
+

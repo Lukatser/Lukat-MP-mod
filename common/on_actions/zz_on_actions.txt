@@ -1,0 +1,58 @@
+on_startup = { 
+	
+	events = {
+		ae_gamerule.100
+	}
+}
+
+on_conquest = {
+	owner = {
+	
+		country_event = { id = ae_restricted_expansion.100 }
+		country_event = { id = ae_restricted_expansion.101 }
+		country_event = { id = ae_restricted_expansion.102 }
+		country_event = { id = ae_restricted_expansion.1021 }
+		country_event = { id = ae_restricted_expansion.103 }
+		country_event = { id = ae_restricted_expansion.1031 }
+		country_event = { id = ae_restricted_expansion.104 }
+		country_event = { id = ae_restricted_expansion.105 }
+		country_event = { id = ae_restricted_expansion.1051 }
+		country_event = { id = ae_restricted_expansion.106 }
+		country_event = { id = ae_restricted_expansion.107 }
+		country_event = { id = ae_restricted_expansion.108 }
+		country_event = { id = ae_restricted_expansion.1081 }
+		country_event = { id = ae_restricted_expansion.109 }
+		country_event = { id = ae_restricted_expansion.110 }
+		country_event = { id = ae_restricted_expansion.111 }
+		country_event = { id = ae_restricted_expansion.112 }
+		
+		country_event = { id = ae_restricted_expansion.200 }
+		country_event = { id = ae_restricted_expansion.201 }
+		country_event = { id = ae_restricted_expansion.202 }
+		country_event = { id = ae_restricted_expansion.203 } 
+		country_event = { id = ae_restricted_expansion.204 }
+		country_event = { id = ae_restricted_expansion.205 } 
+		country_event = { id = ae_restricted_expansion.206 }
+		country_event = { id = ae_restricted_expansion.207 }
+		country_event = { id = ae_restricted_expansion.2071 }
+		country_event = { id = ae_restricted_expansion.2072 }
+		country_event = { id = ae_restricted_expansion.208 } 
+		country_event = { id = ae_restricted_expansion.209 } 
+		country_event = { id = ae_restricted_expansion.210 } 
+		country_event = { id = ae_restricted_expansion.211 } 
+		
+		
+	}
+}
+
+
+on_monarch_death = {
+	country_event = { id = ae_charlesV.200 }
+	country_event = { id = ae_charlesV.300 }
+}
+
+
+on_heir_death = {
+	country_event = { id = ae_charlesV.200 }
+	country_event = { id = ae_charlesV.300 }
+}

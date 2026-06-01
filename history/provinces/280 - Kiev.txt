@@ -11,6 +11,7 @@ trade_goods = grain
 base_manpower = 2
 capital = "Kiev"
 is_city = yes
+fort_15th = yes
 add_core = KIE
 add_core = LIT
 discovered_by = western
@@ -21,7 +22,6 @@ discovered_by = nomad_group
 extra_cost = 16
 center_of_trade = 2
 
-1550.1.1 = { fort_15th = yes }
 1569.7.1 = {
 	owner = PLC
 	controller = PLC

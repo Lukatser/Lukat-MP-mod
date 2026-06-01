@@ -2,7 +2,7 @@
 
 owner = MAZ
 controller = MAZ
-capital = "Rawa"
+capital = "Siedlce"
 culture = polish
 religion = catholic
 trade_goods = grain

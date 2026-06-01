@@ -1,4 +1,4 @@
-#2413 - Tyn
+#2413 - Bahmut
 
 latent_trade_goods = {
 	coal
@@ -13,7 +13,7 @@ base_tax = 3
 base_production = 3
 trade_goods = livestock
 base_manpower = 2
-capital = "Tyn"
+capital = "Bahmut"
 is_city = yes
 add_core = CRI
 discovered_by = western

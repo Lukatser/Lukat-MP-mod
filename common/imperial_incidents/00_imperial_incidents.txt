@@ -15,8 +15,8 @@ incident_burgundian_succ_emp = {
 		factor = 1
 	}
 	
-	1 = { ## concessions to france ##
-		factor = 4 ## EVHO ##
+	1 = {
+		factor = 1
 	}
 	
 	2 = {
@@ -34,8 +34,8 @@ incident_burgundian_succ_strong_ally = {
 		}
 	}
 	
-	0 = { ## demand the lowlands ##
-		factor = 6 ## EVHO ##
+	0 = {
+		factor = 1
 	}
 	
 	1 = {
@@ -1034,6 +1034,105 @@ incident_reformer_dissension = {
 			NOT = {
 				religion = reformed
 			}
+		}
+	}
+}
+
+incident_hussite_protest = {
+	event = hussite_protest.1
+	default_option = 1
+	
+	can_stop = {
+		always = no
+	}
+	
+	0 = { # stay protestant
+		factor = 1
+		modifier = {
+			factor = 50
+			religion = protestant
+		}
+	}
+	
+	1 = { # religion treaty
+		factor = 1
+		modifier = {
+			factor = 50
+			OR = {
+				religion = catholic
+				religion = reformed
+				has_idea_group = humanist_ideas
+			}
+		}
+	}
+	
+	2 = { # change hre religion to hussite
+		factor = 1
+		modifier = {
+			factor = 100
+			religion = hussite
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				religion = hussite
+			}
+		}
+	}
+}
+
+incident_universal_empire = {
+	event = universal_empire.1
+	default_option = 1
+	
+	can_stop = {
+		always = no
+	}
+
+	0 = { # Split Habsburg Realm up
+		factor = 1
+		modifier = {
+			factor = 100
+			is_subject_of = HAB
+		}
+		modifier = {
+			factor = 15
+			alliance_with = HAB
+		}
+		modifier = {
+			factor = 10
+			has_opinion = {
+				who = HAB
+				value = 100
+			}
+		}
+		modifier = {
+			factor = 3
+			religion = HAB
+		}
+	}
+	
+	1 = { # Keep Habsburg Realm United
+		factor = 2
+		modifier = {
+			factor = 1000
+			OR = {
+				is_rival = HAB
+				is_enemy = HAB
+			}
+		}
+		modifier = {
+			factor = 50
+			NOT = {
+				has_opinion = {
+					who = HAB
+					value = -40
+				}
+			}
+		}
+		modifier = {
+			factor = 20
+			is_elector = yes
 		}
 	}
 }

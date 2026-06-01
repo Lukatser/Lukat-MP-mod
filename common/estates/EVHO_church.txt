@@ -1,6 +1,0 @@
-estate_church = {
-	privileges = {
-		### EVHO ###
-		estate_church_evho_right_to_inquisition_in_seperatist_regions
-	}
-}

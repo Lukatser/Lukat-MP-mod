@@ -1,8 +1,8 @@
-#4533 - Weielun
+#4533 - Myslowice
 
 owner = POL
 controller = POL
-capital = "Wielun"
+capital = "Myslowice"
 culture = polish
 religion = catholic
 trade_goods = cloth

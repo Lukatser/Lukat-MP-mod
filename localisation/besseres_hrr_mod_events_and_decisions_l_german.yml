@@ -41,10 +41,6 @@
  besseres_hrr_events.EVTDESC12: "[Root.GetMDerDie] [GetHREemperorKing][Root.GetMinFemale] §Y[Root.Monarch.GetName]§! hat die Gesetze, die mit der §YGoldenen Bulle§! verabschiedet wurden, für ungültig erklärt!. Dies dürfte [Root.Monarch.GetHerHis]e Position im Reich schwächen, jedoch wird [Root.Monarch.GetSheHe] [Root.Monarch.GetHerHis]e Gründe dafür gehabt haben..."
  besseres_hrr_events12.EVTOPT1: "Unsere Gründe dafür sind gut genug."
 
- besseres_hrr_events.EVTNAME14: "Erzkanzler [hre_erzkanzler.Monarch.GetName] übernimmt Regentschaft"
- besseres_hrr_events.EVTDESC14: "Der Erzkanzler des Reiches übernimmt die Regierung, bis der Kaiser volljährig ist."
- besseres_hrr_events14.EVTOPT1: "In Ordnung."
-
  besseres_hrr_events.EVTNAME15: "Erbittet Hilfe im Reich"
  besseres_hrr_events.EVTDESC15: "Wir befinden uns nun schon seit einiger Zeit im Krieg und unsere Reserven sind aufgebraucht. Erbittet Hilfe von [hre_member_gives_manpower.GetName], damit wir die Reichsregimenter an der Front mit neuen Rekruten verstärken können!"
  besseres_hrr_events15.EVTOPT1: "Bittet sie darum, uns neue Rekruten zu schicken."
@@ -157,6 +153,14 @@
  besseres_hrr_events37.EVTOPT24: "Neue Farbe: £hre_color_BOH£"
  besseres_hrr_events37.EVTOPT25: "Neue Farbe: £hre_color_LUX£"
  besseres_hrr_events37.EVTOPT26: "Neue Farbe: £hre_color_CLI£"
+
+ besseres_hrr_events.EVTNAME38: "Kaiserliches Erzamt entfernt"
+ besseres_hrr_events.EVTDESC38: "[GetHREemperorKing] [From.Monarch.GetName] hat sich dazu entschlossen, unser kaiserliches Erzamt zu entfernen. \nWir verlieren alle damit verbundenen Boni."
+ besseres_hrr_events38.EVTOPT1: "Darf [From.Monarch.GetSheHe] das?"
+
+ besseres_hrr_events.EVTNAME39: "Kaiserliches Erzamt erhalten"
+ besseres_hrr_events.EVTDESC39: "[GetHREemperorKing] [From.Monarch.GetName] hat uns ein kaiserliches Erzamt verliehen."
+ besseres_hrr_events39.EVTOPT1: "Wundervoll."
 
 
  besseres_hrr_anti_king_events.EVTNAME1: "Gegenkönig nun offizieller Herrscher des HRR"

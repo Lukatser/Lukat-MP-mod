@@ -43,6 +43,51 @@
  emperor_lift_imperial_ban_action_desc: "Wollt Ihr die §YReichsacht§!, die gegen §Y[From.GetName]§! verhängt wurde, aufheben?"
  emperor_lift_imperial_ban_action_tooltip: "Hebt die gegen §Y[From.GetName]§! verhängte §YReichsacht§! auf.\n"
 
+ hree_remove_imperial_arch_office_title: "Erzamt entfernen"
+ hree_remove_imperial_arch_office_desc: "§Y[From.GetName]§! wurde ein Erzamt verliehen, das ihnen spezifische Boni gewährt. Dieses Amt wieder zu entfernen wird uns §R5§! Reichsautorität kosten und ihre Meinung über uns um §R-50§! verändern. \n\nWollt Ihr ihr Erzamt entfernen?"
+ hree_remove_imperial_arch_office_tooltip: "Entfernt das Erzamt von §Y[From.GetName]§!.\n"
+
+ hree_grant_imperial_arch_office_alert_tooltip: "Ein Erzamt verleihen"
+
+ hree_grant_imperial_arch_office_german_erzkanzler_title: "Ger. Erzkanzler ernennen"
+ hree_grant_imperial_arch_office_german_erzkanzler_desc: "Wollt Ihr §Y[From.GetName]§! das Erzamt des §YErzkanzlers für Germanien§! verleihen? \n\nDies wird die folgenden Effekte für sie haben: \n[diplomatic_reputation]: §G+1.00§! \n[yearly_devotion]: §G+0.25§! \n\nAußerdem wird sich die Meinung von §Y[From.GetName]§! über uns um §G50§! verändern."
+ hree_grant_imperial_arch_office_german_erzkanzler_tooltip: "Verleiht das Erzamt des §YErzkanzlers für Germanien§! an §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_german_erzkanzler_dialog: "Der [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) möchte uns das Erzamt des §YArchchancellor of Germany§! verleihen. \n\nDies würde uns die folgenden Effekte geben: \n[diplomatic_reputation]: §G+1.00§! \n[yearly_devotion]: §G+0.25§! \n\nWollt Ihr dies akzeptieren?"
+
+ hree_grant_imperial_arch_office_italian_erzkanzler_title: "Ital. Erzkanzler ernennen"
+ hree_grant_imperial_arch_office_italian_erzkanzler_desc: "Wollt Ihr §Y[From.GetName]§! das Erzamt des §YErzkanzlers für Italien§! verleihen? \n\nDies wird die folgenden Effekte für sie haben: \n[diplomats]: §G+1§! \n[yearly_devotion]: §G+0.25§! \n\nAußerdem wird sich die Meinung von §Y[From.GetName]§! über uns um §G50§! verändern."
+ hree_grant_imperial_arch_office_italian_erzkanzler_tooltip: "Verleiht das Erzamt des §YErzkanzlers für Italien§! an §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_italian_erzkanzler_dialog: "Der [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) möchte uns das Erzamt des §YErzkanzlers für Italien§! verleihen. \n\nDies würde uns die folgenden Effekte geben: \n[diplomats]: §G+1§! \n[yearly_devotion]: §G+0.25§! \n\nWollt Ihr dies akzeptieren?"
+
+ hree_grant_imperial_arch_office_burgundian_erzkanzler_title: "Bur. Erzkanzler ernennen"
+ hree_grant_imperial_arch_office_burgundian_erzkanzler_desc: "Wollt Ihr §Y[From.GetName]§! das Erzamt des §YErzkanzlers für Burgund§! verleihen? \n\nDies wird die folgenden Effekte für sie haben: \n[improve_relation_modifier]: §G+15.0%§! \n[yearly_devotion]: §G+0.25§! \n\nAußerdem wird sich die Meinung von §Y[From.GetName]§! über uns um §G50§! verändern."
+ hree_grant_imperial_arch_office_burgundian_erzkanzler_tooltip: "Verleiht das Erzamt des §YErzkanzlers für Burgund§! an §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_burgundian_erzkanzler_dialog: "Der [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) möchte uns das Erzamt des §YErzkanzlers für Burgund§! verleihen. \n\nDies würde uns die folgenden Effekte geben: \n[improve_relation_modifier]: §G+15.0%§! \n[yearly_devotion]: §G+0.25§! \n\nWollt Ihr dies akzeptieren?"
+
+ hree_grant_imperial_arch_office_erztruchsess_title: "Erztruchsess ernennen"
+ hree_grant_imperial_arch_office_erztruchsess_desc: "Wollt Ihr §Y[From.GetName]§! das Erzamt des §YErztruchsess§! verleihen? \n\nDies wird die folgenden Effekte für sie haben: \n[yearly_prestige]: §G+0.50§! \n[yearly_legitimacy]: §G+0.25§! \n\nAußerdem wird sich die Meinung von §Y[From.GetName]§! über uns um §G50§! verändern."
+ hree_grant_imperial_arch_office_erztruchsess_tooltip: "Verleiht das Erzamt des §YErztruchsess§! an §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erztruchsess_dialog: "Der [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) möchte uns das Erzamt des §YErztruchsess§! verleihen. \n\nDies würde uns die folgenden Effekte geben: \n[yearly_prestige]: §G+0.50§! \n[yearly_legitimacy]: §G+0.25§! \n\nWollt Ihr dies akzeptieren?"
+
+ hree_grant_imperial_arch_office_erzmarschall_title: "Erzmarschall ernennen"
+ hree_grant_imperial_arch_office_erzmarschall_desc: "Wollt Ihr §Y[From.GetName]§! das Erzamt des §YErzmarschalls§! verleihen? \n\nDies wird die folgenden Effekte für sie haben: \n[own_territory_dice_roll_bonus]: §G+1.00§! \n[yearly_legitimacy]: §G+0.25§! \n\nAußerdem wird sich die Meinung von §Y[From.GetName]§! über uns um §G50§! verändern."
+ hree_grant_imperial_arch_office_erzmarschall_tooltip: "Verleiht das Erzamt des §YErzmarschalls§! an §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erzmarschall_dialog: "Der [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) möchte uns das Erzamt des §YErzmarschalls§! verleihen. \n\nDies würde uns die folgenden Effekte geben: \n[own_territory_dice_roll_bonus]: §G+1.00§! \n[yearly_legitimacy]: §G+0.25§! \n\nWollt Ihr dies akzeptieren?"
+
+ hree_grant_imperial_arch_office_erzkaemmerer_title: "Erzkämmerer ernennen"
+ hree_grant_imperial_arch_office_erzkaemmerer_desc: "Wollt Ihr §Y[From.GetName]§! das Erzamt des §YErzkämmerers§! verleihen? \n\nDies wird die folgenden Effekte für sie haben: \n[global_tax_modifier]: §G+10.0%§! \n[yearly_legitimacy]: §G+0.25§! \n\nAußerdem wird sich die Meinung von §Y[From.GetName]§! über uns um §G50§! verändern."
+ hree_grant_imperial_arch_office_erzkaemmerer_tooltip: "Verleiht das Erzamt des §YErzkämmerers§! an §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erzkaemmerer_dialog: "Der [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) möchte uns das Erzamt des §YErzkämmerers§! verleihen. \n\nDies würde uns die folgenden Effekte geben: \n[global_tax_modifier]: §G+10.0%§! \n[yearly_legitimacy]: §G+0.25§! \n\nWollt Ihr dies akzeptieren?"
+
+ hree_grant_imperial_arch_office_erzmundschenk_title: "Erzmundschenk ernennen"
+ hree_grant_imperial_arch_office_erzmundschenk_desc: "Wollt Ihr §Y[From.GetName]§! das Erzamt des §YErzmundschenks§! verleihen? \n\nDies wird die folgenden Effekte für sie haben: \n[global_trade_goods_size_modifier]: §G+5.0%§! \n[yearly_legitimacy]: §G+0.25§! \n\nAußerdem wird sich die Meinung von §Y[From.GetName]§! über uns um §G50§! verändern."
+ hree_grant_imperial_arch_office_erzmundschenk_tooltip: "Verleiht das Erzamt des §YErzmundschenks§! an §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erzmundschenk_dialog: "Der [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) möchte uns das Erzamt des §YErzmundschenks§! verleihen. \n\nDies würde uns die folgenden Effekte geben: \n[global_trade_goods_size_modifier]: §G+5.0%§! \n[yearly_legitimacy]: §G+0.25§! \n\nWollt Ihr dies akzeptieren?"
+
+ hree_grant_imperial_arch_office_erzbannertraeger_title: "Erzbannerträger ernennen"
+ hree_grant_imperial_arch_office_erzbannertraeger_desc: "Wollt Ihr §Y[From.GetName]§! das Erzamt des §YErzbannerträgers§! verleihen? \n\nDies wird die folgenden Effekte für sie haben: \n[land_morale]: §G+5.0%§! \n[yearly_legitimacy]: §G+0.25§! \n[yearly_devotion]: §G+0.25§! \n\nAußerdem wird sich die Meinung von §Y[From.GetName]§! über uns um §G50§! verändern."
+ hree_grant_imperial_arch_office_erzbannertraeger_tooltip: "Verleiht das Erzamt des §YErzbannerträgers§! an §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erzbannertraeger_dialog: "Der [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) möchte uns das Erzamt des §YErzbannerträgers§! verleihen. \n\nDies würde uns die folgenden Effekte geben: \n[land_morale]: §G+5.0%§! \n[yearly_legitimacy]: §G+0.25§! \n[yearly_devotion]: §G+0.25§! \n\nWollt Ihr dies akzeptieren?"
 
  AI_ACC_NUM_OF_CITIES: "Anzahl ihrer Städte"
  WRONG_RELIGION: "Sie folgen der falschen Religion"
@@ -60,6 +105,5 @@
  OWNS_HRE_PROVINCES: "Wir besitzen Provinzen des HRR"
  EMPEROR_DIPLOMATIC_REPUTATION: "Kaiserliche Diplomatische Reputation"
  NUM_OF_HRE_MEMBERS: "Derzeitige Anzahl an HRR-Mitgliedern"
- OUR_DIPLOMATIC_REPUTATION: "Diplomatische Reputation"
  ROOT_IS_GREAT_POWER: "Wir sind eine Großmacht"
  FROM_LEFT_THE_HRE_PERMANENTLY: "Sie haben das HRR verlassen"

@@ -200,6 +200,7 @@ hre_set_up_hre_duchy = {
 			set_government_rank_force = 2
 		}
 	]
+	hree_update_imperial_archoffices = yes
 }
 
 hre_give_land_to_hre_duchy_with_diplo_action = {

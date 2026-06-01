@@ -136,6 +136,7 @@ jack_of_all_trades_personality = {
 	}
 	
 	administrative_efficiency = 0.05
+	wants_avoid_ugly_borders = yes
 	
 	nation_designer_cost = 3
 }
@@ -193,6 +194,7 @@ renaissance_man_personality = {
 	custom_ai_explanation = "AI_RULER_SPEND_UNLOCK_INSTIT"
 	
 	knowledge_sharing = yes
+	wants_avoid_ugly_borders = yes
 	
 	idea_cost = -0.05
 	administrative_efficiency = 0.05
@@ -252,6 +254,7 @@ renaissance_woman_personality = {
 	custom_ai_explanation = "AI_RULER_SPEND_UNLOCK_INSTIT"
 	
 	knowledge_sharing = yes
+	wants_avoid_ugly_borders = yes
 	
 	idea_cost = -0.05
 	administrative_efficiency = 0.05
@@ -318,7 +321,7 @@ ambitious_personality = {
 	war_exhaustion = -0.1
 	claim_duration = 0.25
 	nation_designer_cost = 2
-	
+	wants_avoid_ugly_borders = yes
 	easy_war_chance_multiplier = 0.8
 	war_chance_multiplier = 1.5
 	wants_land = yes
@@ -369,7 +372,7 @@ chaste_personality = {
 	church_power_modifier = 0.25
 	monthly_karma = 0.05
 	heir_chance = -0.05
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -420,7 +423,7 @@ filially_pious_personality = {
 	
 	legitimacy = 1
 	yearly_harmony = 1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -490,7 +493,7 @@ crusader_personality = {
 	heathen_ally_acceptance = -500
 	wants_heathen_land = yes
 	wants_heretic_land = yes
-	
+	wants_avoid_ugly_borders = yes
 	army_tradition_from_battle = 0.05
 	leader_land_shock = 1
 	tolerance_heathen = -3
@@ -582,7 +585,7 @@ bishamonten_personality = {
 	shock_damage_received = -0.1
 	spy_offence = -0.15
 	rebel_support_efficiency = -0.25 	
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -662,7 +665,7 @@ farr_gifted_personality = {
 	
 	legitimacy = 1
 	global_unrest = -1
-
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -738,7 +741,7 @@ peaceful_trader_personality = {
 	placed_merchant_power = 3
 	trade_efficiency = 0.1
 	army_tradition_decay = 0.05
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -806,7 +809,7 @@ expert_propagandist_personality = {
 	reelection_cost = -0.1
 	legitimacy = 0.5
 	global_unrest = -1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -860,7 +863,7 @@ gregarious_personality = {
 	
 	improve_relation_modifier = 0.1
 	advisor_pool = 1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -924,7 +927,7 @@ sotapanna_personality = {
 	}
 	
 	war_chance_multiplier = 0.33
-	
+	wants_avoid_ugly_borders = yes
 	monthly_karma = 0.5
 	
 	nation_designer_cost = 2
@@ -971,7 +974,7 @@ spiritual_personality = {
 	heretic_ally_acceptance = -5
 	
 	tolerance_own = 1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1022,7 +1025,7 @@ keen_recruiter_personality = {
 	leader_naval_maneuver = 1
 	leader_land_shock = 1
 	leader_land_maneuver = 1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1061,7 +1064,7 @@ talented_poet_personality = {
 	}
 	
 	prestige = 0.5
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1115,7 +1118,7 @@ logistics_expert_personality = {
 	
 	naval_attrition = -0.2
 	land_attrition = -0.2
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1168,7 +1171,7 @@ humble_personality = {
 	gift_chance = 60
 	
 	advisor_pool = 1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1201,7 +1204,7 @@ earthwork_expert_personality = {
 	
 	build_time = -0.1
 	development_cost = -0.1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1234,7 +1237,7 @@ cultured_personality = {
 	knowledge_sharing = yes
 	
 	diplomatic_reputation = 1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1276,7 +1279,7 @@ crafty_merchant_personality = {
 	
 	trade_efficiency = 0.1
 	embargo_efficiency = 0.2
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1313,7 +1316,7 @@ impartial_personality = {
 	
 	stability_cost_modifier = -0.1
 	reduced_liberty_desire = 2.5
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1349,7 +1352,7 @@ puppet_master_personality = {
 	
 	vassal_forcelimit_bonus = 0.2
 	vassal_income = 0.1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
 
@@ -1402,7 +1405,7 @@ galvanizing_orator_personality = {
 	}
 	
 	wants_land = yes
-	
+	wants_avoid_ugly_borders = yes
 	global_regiment_recruit_speed = -0.2
 	
 	nation_designer_cost = 2
@@ -1459,7 +1462,7 @@ reliable_personality = {
 	
 	other_ai_help_us_multiplier = 2
 	alliance_acceptance = 10
-	
+	wants_avoid_ugly_borders = yes
 	diplomatic_reputation = 1
 	
 	nation_designer_cost = 2
@@ -1494,7 +1497,7 @@ defiant_personality = {
 	}
 	
 	peace_desire = -10
-	
+	wants_avoid_ugly_borders = yes
 	defensiveness = 0.1
 	
 	nation_designer_cost = 2
@@ -1535,7 +1538,7 @@ provacateur_personality = {
 	}
 	
 	random_insults = yes
-	
+	wants_avoid_ugly_borders = yes
 	power_projection_from_insults = 0.25
 	spy_offence = 0.1
 	
@@ -1583,7 +1586,7 @@ populist_personality = {
 	}
 	
 	war_chance_multiplier = 0.5
-	
+	wants_avoid_ugly_borders = yes
 	global_unrest = -1
 	advisor_pool = 1
 	
@@ -1642,7 +1645,7 @@ avowed_pacifist_personality = {
 	
 	war_chance_multiplier = 0.4
 	easy_war_chance_multiplier = 0.2
-	
+	wants_avoid_ugly_borders = yes
 	ae_impact = -0.1
 	
 	nation_designer_cost = 2
@@ -1701,7 +1704,7 @@ good_caesar_personality = {
 	}
 	
 	administrative_efficiency = 0.05
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 3
 }
 
@@ -1741,7 +1744,7 @@ prodigy_personality = {
 	}
 	
 	administrative_efficiency = 0.05
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 3
 }
 
@@ -1867,7 +1870,7 @@ impaler_personality = {
 	loot_amount = 0.1
 	harsh_treatment_cost = -0.25
 	improve_relation_modifier = -0.4
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 0
 }
 
@@ -1929,7 +1932,7 @@ extravagant_personality = {
 	
 	wants_loans = yes
 	gift_chance = 40
-	
+	wants_avoid_ugly_borders = yes
 	build_cost = +0.1
 	global_tax_modifier = -0.05
 	improve_relation_modifier = 0.4
@@ -1980,7 +1983,7 @@ easygoing_personality = {
 	}
 	
 	lower_autonomy = no
-	
+	wants_avoid_ugly_borders = yes
 	discipline = -0.025
 	global_unrest = -1
 	nation_designer_cost = 0
@@ -2051,7 +2054,7 @@ puritan_personality = {
 	}
 	
 	heretic_ally_acceptance = -10
-	
+	wants_avoid_ugly_borders = yes
 	church_power_modifier = 0.5
 	monthly_fervor_increase = 1
 	tolerance_heretic = -2
@@ -2109,7 +2112,7 @@ seducer_personality = {
 		
 	}
 	other_ai_peace_term_bonus = 10
-	
+	wants_avoid_ugly_borders = yes
 	papal_influence = -0.05
 	church_power_modifier = -0.05
 	monthly_karma = -0.05
@@ -2171,7 +2174,7 @@ seductress_personality = {
 		
 	}
 	other_ai_peace_term_bonus = 10
-	
+	wants_avoid_ugly_borders = yes
 	papal_influence = -0.05
 	church_power_modifier = -0.05
 	monthly_karma = -0.05
@@ -2223,7 +2226,7 @@ proud_personality = {
 	
 	diplomatic_reputation = -1
 	prestige = 0.25
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 0
 }
 
@@ -2269,7 +2272,7 @@ cynical_personality = {
 	}
 	
 	alliance_acceptance = -20
-	
+	wants_avoid_ugly_borders = yes
 	global_spy_defence = 0.2
 	tolerance_own = -1
 	
@@ -2369,7 +2372,7 @@ trusting_personality = {
 	alliance_acceptance = 20
 	royal_marriage_acceptance = 20
 	underestimate_ae = yes
-	
+	wants_avoid_ugly_borders = yes
 	global_spy_defence = -0.2
 	improve_relation_modifier = 0.2
 	
@@ -2474,7 +2477,7 @@ hotheaded_personality = {
 	
 	diplomatic_reputation = -0.5
 	recover_army_morale_speed = 0.1
-	
+	wants_avoid_ugly_borders = yes
 	peace_desire = -10
 	war_chance_multiplier = 1.5
 	
@@ -2537,7 +2540,7 @@ reckless_leader_personality = {
 	
 	war_exhaustion = 0.1
 	shock_damage = 0.1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 0
 } 
 
@@ -2596,7 +2599,7 @@ unorthodox_personality = {
 	
 	tolerance_own = -1
 	tolerance_heretic  = 1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 0
 }
 
@@ -2663,7 +2666,7 @@ ethnocentric_personality = {
 	culture_conversion_cost = -0.2
 	expel_minorities_cost = -0.05
 	promote_culture_cost = 0.1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 1
 }
 
@@ -2735,7 +2738,7 @@ pyromaniac_personality = {
 	raze_power_gain = 0.1
 	loot_amount = 0.1
 	years_of_nationalism = 1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 0
 }
 
@@ -2792,7 +2795,7 @@ ruthless_personality = {
 	
 	easy_war_chance_multiplier = 1.25
 	wants_threaten_war = yes
-	
+	wants_avoid_ugly_borders = yes
 	raze_power_gain = 0.1
 	loot_amount = 0.1
 	harsh_treatment_cost = -0.25
@@ -2854,7 +2857,7 @@ two_faced_personality = {
 	
 	wants_betray_allies = yes
 	gift_chance = 40
-	
+	wants_avoid_ugly_borders = yes
 	diplomatic_reputation = 1
 	global_unrest = 2
 	
@@ -2913,7 +2916,7 @@ overly_generous_personality = {
 	
 	global_tax_modifier = -0.05
 	global_unrest = -2
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 0
 }
 
@@ -3038,7 +3041,7 @@ paranoid_personality = {
 	royal_marriage_acceptance = -10
 	alliance_acceptance = -10
 	wants_betray_allies = yes
-	
+	wants_avoid_ugly_borders = yes
 	advisor_pool = -1
 	improve_relation_modifier = -0.2
 	global_spy_defence = 0.33
@@ -3153,7 +3156,7 @@ immature_personality = {
 	}
 	royal_marriage_acceptance = -5
 	random_insults = yes
-	
+	wants_avoid_ugly_borders = yes
 	diplomatic_reputation = -1
 	ae_impact = -0.05
 	nation_designer_cost = -1
@@ -3283,7 +3286,7 @@ lustful_personality = {
 	church_power_modifier = -0.25
 	global_spy_defence = -0.1
 	heir_chance = 0.5
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = -1
 }
 
@@ -3403,7 +3406,7 @@ unfaithful_personality = {
 	}
 	
 	wants_betray_allies = yes
-	
+	wants_avoid_ugly_borders = yes
 	ae_impact = 0.05
 	monthly_karma = -0.05
 	church_power_modifier = -0.1
@@ -3508,7 +3511,7 @@ overbearing_personality = {
 	}
 	
 	alliance_acceptance = -5
-	
+	wants_avoid_ugly_borders = yes
 	reduced_liberty_desire = -5
 	nation_designer_cost = -2
 }
@@ -3619,7 +3622,7 @@ indecisive_personality = {
 	
 	war_chance_multiplier = 0.8
 	#random_troop_moves = yes
-	
+	wants_avoid_ugly_borders = yes
 	movement_speed = -0.1
 	nation_designer_cost = -2	
 	
@@ -3728,7 +3731,7 @@ sadistic_personality = {
 	}
 	razing = yes
 	other_ai_help_us_multiplier = 0.75
-	
+	wants_avoid_ugly_borders = yes
 	reduced_liberty_desire = -2.5
 	global_unrest = 1
 	stability_cost_modifier = -0.1
@@ -3843,7 +3846,7 @@ barbaric_personality = {
 	}
 	
 	random_insults = yes
-	
+	wants_avoid_ugly_borders = yes
 	possible_mercenaries = 0.25
 	merc_maintenance_modifier = -0.1
 	improve_relation_modifier = -0.2
@@ -3963,7 +3966,7 @@ inferiority_complex_personality = {
 	rival_change_cost = -0.1
 	build_cost = 0.1
 	global_ship_cost = 0.1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = -2	
 	
 }
@@ -4086,7 +4089,7 @@ xenophobic_personality = {
 	}
 	
 	heathen_ally_acceptance = -1000
-	
+	wants_avoid_ugly_borders = yes
 	promote_culture_cost = 1
 	same_culture_advisor_cost = -0.2
 	
@@ -4197,7 +4200,7 @@ dull_personality = {
 	}
 	
 	underestimate_ae = yes
-	
+	wants_avoid_ugly_borders = yes
 	idea_cost = 0.1
 	heir_chance = -0.05
 	
@@ -4308,7 +4311,7 @@ treacherous_personality = {
 	}
 	
 	wants_betray_allies = yes
-	
+	wants_avoid_ugly_borders = yes
 	diplomatic_reputation = -2
 	fabricate_claims_cost= -0.25
 	
@@ -4411,7 +4414,7 @@ timid_personality = {
 	}
 	war_chance_multiplier = 0.8
 	peace_desire = 5
-	
+	wants_avoid_ugly_borders = yes
 	harsh_treatment_cost = 0.2
 	
 	nation_designer_cost = -2
@@ -4537,7 +4540,7 @@ kinslayer_personality = {
 		
 	}
 	royal_marriage_acceptance = 10
-	
+	wants_avoid_ugly_borders = yes
 	diplomatic_reputation = -1
 	heir_chance = -0.05
 	legitimacy = 0.25
@@ -4660,7 +4663,7 @@ content_personality = {
 	easy_war_chance_multiplier = 0.75
 	
 	spy_offence = -0.1
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = -1
 }
 
@@ -4769,7 +4772,7 @@ delusional_personality = {
 	
 	war_exhaustion = 0.1
 	improve_relation_modifier = -0.2
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = -1
 }
 
@@ -4877,7 +4880,7 @@ envious_personality = {
 	
 	rival_change_cost = 0.1
 	improve_relation_modifier = -0.25
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = -2	
 	
 }
@@ -4979,7 +4982,7 @@ slothful_personality = {
 	
 	envoy_travel_time = 0.25
 	build_time = 0.25
-	
+	wants_avoid_ugly_borders = yes
 	nation_designer_cost = -2	
 	
 }
@@ -5091,7 +5094,7 @@ ignorant_personality = {
 	
 	random_insults = yes
 	underestimate_ae = yes
-	
+	wants_avoid_ugly_borders = yes
 	idea_cost = 0.05
 	
 	nation_designer_cost = -2	
@@ -5198,7 +5201,7 @@ unprincipled_ruffian_personality = {
 	}
 	
 	razing = yes
-	
+	wants_avoid_ugly_borders = yes
 	global_unrest = 2
 	harsh_treatment_cost = -0.1
 	
@@ -5299,7 +5302,7 @@ senile_personality = {
 	random_insults = yes
 	underestimate_ae = yes
 	wants_disclose_attack = yes
-	
+	wants_avoid_ugly_borders = yes
 	diplomatic_reputation = -1
 	
 	nation_designer_cost = -2	

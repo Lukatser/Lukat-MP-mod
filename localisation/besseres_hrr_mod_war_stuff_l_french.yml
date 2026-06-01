@@ -104,7 +104,7 @@
  CB_ALLOWED_po_remove_country_from_hre: "Imperial Banishment"
  PEACE_po_remove_country_from_hre: "Remove from the HRE"
 
- po_revoke_elector_golden_bull_desc: "Revoke the Electorate of @[From.GetTag] §Y[From.GetName]§!."
+ po_revoke_elector_golden_bull_desc: "Revoke the Electorate of @[From.GetTag] §Y[From.GetName]§!. The Imperial Authority is changed by §R-5.00§!."
  CB_ALLOWED_po_revoke_elector_golden_bull: "Revoke Electorate"
  PEACE_po_revoke_elector_golden_bull: "Revoke Electorate"
 
@@ -127,3 +127,6 @@
  po_become_legitimate_foreign_emperor_desc: "@[Root.GetTag] §Y[Root.GetName]§! gains §G15§! Imperial Authority and will never be a target of an §YImperial Revolt§! again. If @[From.GetTag] §Y[From.GetName]§! is an Elector, they will lose the Electorship."
  CB_ALLOWED_po_become_legitimate_foreign_emperor: "Crush the Imperial Revolt"
  PEACE_po_become_legitimate_foreign_emperor: "Crush the Imperial Revolt"
+
+ # Mercenary Companies:
+ merc_hree_imperial_mercenaries: "Imperial Mercenary Company"

@@ -213,6 +213,7 @@ cb_remove_country_from_hre = {
 	valid_for_subject = no
 
 	prerequisites_self = {
+		ai = no # AI shouldn't use this CB
 		is_emperor = yes
 		is_part_of_hre = yes
 		imperial_influence = 10
@@ -241,18 +242,6 @@ cb_remove_country_from_hre = {
 				AND = {
 					hre_religion_locked = yes
 					NOT = { religion = ROOT }
-				}
-			}
-		}
-		OR = {
-			ai = no
-			AND = {
-				ai = yes
-				FROM = {
-					OR = {
-						is_elector = no
-						NOT = { preferred_emperor = ROOT }
-					}
 				}
 			}
 		}
@@ -306,10 +295,10 @@ cb_revoke_electorate_golden_bull = {
 	no_opinion_hit = yes
 
 	prerequisites_self = {
+		is_emperor = yes
 		has_global_flag = hre_golden_bull_enacted
 		NOT = { has_global_flag = hre_golden_bull_removed }
-		is_emperor = yes
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		OR = {
 			NOT = { has_dlc = "Art of War" }
 			hre_leagues_enabled = no
@@ -323,12 +312,27 @@ cb_revoke_electorate_golden_bull = {
 			OR = {
 				AND = {
 					is_an_ecclesiastical_country = yes
-					calc_true_if = {
-						all_countries_including_self = {
-							is_elector = yes
-							is_an_ecclesiastical_country = yes
+					OR = {
+						AND = {
+							num_of_max_electors = { value = 8 }
+							calc_true_if = {
+								all_countries_including_self = {
+									is_elector = yes
+									is_an_ecclesiastical_country = yes
+								}
+								amount = 5
+							}
 						}
-						amount = 4
+						AND = {
+							NOT = { num_of_max_electors = { value = 8 } }
+							calc_true_if = {
+								all_countries_including_self = {
+									is_elector = yes
+									is_an_ecclesiastical_country = yes
+								}
+								amount = 4
+							}
+						}
 					}
 					any_country = {
 						is_part_of_hre = yes
@@ -466,7 +470,7 @@ cb_hree_imperial_ban = {
 
 	prerequisites_self = {
 		is_part_of_hre = yes
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 		NOT = { has_ruler_flag = hree_imperial_ban }
 		NOT = { has_heir_flag = hree_imperial_ban }
 	}
@@ -501,7 +505,7 @@ cb_hree_liberate_subject_hre_member = {
 	prerequisites_self = {
 		is_emperor = yes
 		is_imperial_ban_allowed = yes
-		EVHO_is_actually_revolutionary_trigger = no
+		is_revolutionary = no
 	}
 
 	prerequisites = {

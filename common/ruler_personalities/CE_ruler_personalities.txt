@@ -15,4 +15,5 @@ glory_hound_personality = {
 	war_chance_multiplier = 1000
 	enemy_strength_multiplier = 0.75
 	underestimate_ae = yes
+	wants_avoid_ugly_borders = yes
 }

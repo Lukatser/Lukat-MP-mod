@@ -200,6 +200,9 @@ country_event = {
 					who = FROM
 					modifier = revoke_elector_opinion
 				}
+				FROM = {
+					add_imperial_influence = -5
+				}
 			}
 		}
 	}
@@ -598,15 +601,8 @@ country_event = {
 				is_emperor = yes
 			}
 		}
-		capital_scope = { ## EVHO ##
-			OR = {
-				region = north_german_region
-				region = south_german_region
-				region = low_countries_region
-				region = italy_region
-				region = france_region
-				area = silesia_area
-			}
+		capital_scope = {
+			continent = europe
 		}
 		OR = {
 			religion = catholic
@@ -661,15 +657,8 @@ country_event = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
+					continent = europe
 					is_part_of_hre = no
-					OR = { ## EVHO ##
-						region = north_german_region
-						region = south_german_region
-						region = low_countries_region
-						region = italy_region
-						region = france_region
-						area = silesia_area
-					}
 				}
 				set_in_empire = yes
 			}
@@ -765,7 +754,6 @@ country_event = {
 	major = yes
 	major_trigger = {
 		OR = {
-			is_emperor = yes
 			is_part_of_hre = yes
 			has_country_flag = debug_gets_major_hre_events
 		}
@@ -774,11 +762,13 @@ country_event = {
 	option = {
 		name = "besseres_hrr_events12.EVTOPT1"
 
+		custom_tooltip = ELECTORS_DO_NOT_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL_ANYMORE
+		custom_tooltip = GOLDEN_BULL_DISABLE_IMPERIAL_ARCHOFFICES
 		custom_tooltip = NO_GOLDEN_BULL_ANTI_KING_CB
 	}
 }
 
-# Give imperial arch-offices
+# Update Imperial Archoffices Targets
 country_event = {
 	id = besseres_hrr_events.13
 	title = "besseres_hrr_events.EVTNAME13"
@@ -789,197 +779,94 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		NOT = { tag = JMN }
 		is_emperor = yes
 		has_global_flag = hre_golden_bull_enacted
+		NOT = { has_global_flag = hre_golden_bull_removed }
 		OR = {
 			AND = {
-				has_global_flag = hre_golden_bull_removed
-				any_country = {
+				has_saved_global_event_target = hre_german_erzkanzler
+				event_target:hre_german_erzkanzler = {
 					OR = {
-						has_country_modifier = german_erzkanzler
-						has_country_modifier = italian_erzkanzler
-						has_country_modifier = burgundian_erzkanzler
-						has_country_modifier = erztruchsess
-						has_country_modifier = erzmarschall
-						has_country_modifier = erzkaemmerer
-						has_country_modifier = erzmundschenk
+						exists = no
+						NOT = { has_country_modifier = german_erzkanzler }
+						is_elector = no
+						NOT = { is_an_ecclesiastical_country = yes }
 					}
 				}
 			}
 			AND = {
-				NOT = { has_global_flag = hre_golden_bull_removed }
-				OR = {
-					AND = {
-						NOT = {
-							any_elector = {
-								has_country_modifier = german_erzkanzler
-							}
-						}
-						any_elector = {
-							is_an_ecclesiastical_country = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
+				has_saved_global_event_target = hre_burgundian_erzkanzler
+				event_target:hre_burgundian_erzkanzler = {
+					OR = {
+						exists = no
+						NOT = { has_country_modifier = burgundian_erzkanzler }
+						is_elector = no
+						NOT = { is_an_ecclesiastical_country = yes }
 					}
-					AND = {
-						NOT = {
-							any_elector = {
-								has_country_modifier = italian_erzkanzler
-							}
-						}
-						any_elector = {
-							is_an_ecclesiastical_country = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
+				}
+			}
+			AND = {
+				has_saved_global_event_target = hre_italian_erzkanzler
+				event_target:hre_italian_erzkanzler = {
+					OR = {
+						exists = no
+						NOT = { has_country_modifier = italian_erzkanzler }
+						is_elector = no
+						NOT = { is_an_ecclesiastical_country = yes }
 					}
-					AND = {
-						NOT = {
-							any_elector = {
-								has_country_modifier = burgundian_erzkanzler
-							}
-						}
-						any_elector = {
-							is_an_ecclesiastical_country = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
-					}
-					AND = {
+				}
+			}
+			AND = {
+				has_saved_global_event_target = hre_erztruchsess
+				event_target:hre_erztruchsess = {
+					OR = {
+						exists = no
 						NOT = { has_country_modifier = erztruchsess }
-						NOT = {
-							any_elector = {
-								has_country_modifier = erztruchsess
-							}
-						}
-						OR = {
-							AND = {
-								is_elector = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							any_elector = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
+						is_elector = no
+						NOT = { is_a_secular_country = yes }
 					}
-					AND = {
+				}
+			}
+			AND = {
+				has_saved_global_event_target = hre_erzmarschall
+				event_target:hre_erzmarschall = {
+					OR = {
+						exists = no
 						NOT = { has_country_modifier = erzmarschall }
-						NOT = {
-							any_elector = {
-								has_country_modifier = erzmarschall
-							}
-						}
-						OR = {
-							AND = {
-								is_elector = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							any_elector = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
+						is_elector = no
+						NOT = { is_a_secular_country = yes }
 					}
-					AND = {
+				}
+			}
+			AND = {
+				has_saved_global_event_target = hre_erzkaemmerer
+				event_target:hre_erzkaemmerer = {
+					OR = {
+						exists = no
 						NOT = { has_country_modifier = erzkaemmerer }
-						NOT = {
-							any_elector = {
-								has_country_modifier = erzkaemmerer
-							}
-						}
-						OR = {
-							AND = {
-								is_elector = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							any_elector = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
+						is_elector = no
+						NOT = { is_a_secular_country = yes }
 					}
-					AND = {
+				}
+			}
+			AND = {
+				has_saved_global_event_target = hre_erzmundschenk
+				event_target:hre_erzmundschenk = {
+					OR = {
+						exists = no
 						NOT = { has_country_modifier = erzmundschenk }
-						NOT = {
-							any_elector = {
-								has_country_modifier = erzmundschenk
-							}
-						}
-						OR = {
-							AND = {
-								is_elector = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							any_elector = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
+						is_elector = no
+						NOT = { is_a_secular_country = yes }
+					}
+				}
+			}
+			AND = {
+				has_saved_global_event_target = hre_erzbannertraeger
+				event_target:hre_erzbannertraeger = {
+					OR = {
+						exists = no
+						NOT = { has_country_modifier = erzbannertraeger }
+						is_part_of_hre = no
 					}
 				}
 			}
@@ -988,681 +875,18 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			if = {
-				limit = {
-					NOT = { has_global_flag = hre_golden_bull_removed }
-				}
-				every_country = {
-					limit = {
-						is_elector = no
-						OR = {
-							has_country_modifier = german_erzkanzler
-							has_country_modifier = italian_erzkanzler
-							has_country_modifier = burgundian_erzkanzler
-							has_country_modifier = erztruchsess
-							has_country_modifier = erzmarschall
-							has_country_modifier = erzkaemmerer
-							has_country_modifier = erzmundschenk
-						}
-					}
-					remove_country_modifier = german_erzkanzler
-					remove_country_modifier = italian_erzkanzler
-					remove_country_modifier = burgundian_erzkanzler
-					remove_country_modifier = erztruchsess
-					remove_country_modifier = erzmarschall
-					remove_country_modifier = erzkaemmerer
-					remove_country_modifier = erzmundschenk
-				}
-
-				if = {
-					limit = {
-						NOT = {
-							any_elector = {
-								has_country_modifier = german_erzkanzler
-							}
-						}
-						any_elector = {
-							is_an_ecclesiastical_country = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
-					}
-					clear_global_event_target = hre_erzkanzler
-					if = {
-						limit = {
-							MAI = {
-								exists = yes
-								is_elector = yes
-								is_an_ecclesiastical_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-						MAI = {
-							add_country_modifier = {
-								name = german_erzkanzler
-								duration = -1
-							}
-							save_global_event_target_as = hre_erzkanzler
-						}
-					}
-					else = {
-						random_elector = {
-							limit = {
-								is_an_ecclesiastical_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							add_country_modifier = {
-								name = german_erzkanzler
-								duration = -1
-							}
-							save_global_event_target_as = hre_erzkanzler
-						}
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							any_elector = {
-								has_country_modifier = italian_erzkanzler
-							}
-						}
-						any_elector = {
-							is_an_ecclesiastical_country = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
-					}
-					if = {
-						limit = {
-							KOL = {
-								exists = yes
-								is_elector = yes
-								is_an_ecclesiastical_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-						KOL = {
-							add_country_modifier = {
-								name = italian_erzkanzler
-								duration = -1
-							}
-						}
-					}
-					else = {
-						random_elector = {
-							limit = {
-								is_an_ecclesiastical_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							add_country_modifier = {
-								name = italian_erzkanzler
-								duration = -1
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						NOT = {
-							any_elector = {
-								has_country_modifier = burgundian_erzkanzler
-							}
-						}
-						any_elector = {
-							is_an_ecclesiastical_country = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
-					}
-					if = {
-						limit = {
-							TRI = {
-								exists = yes
-								is_elector = yes
-								is_an_ecclesiastical_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-						TRI = {
-							add_country_modifier = {
-								name = burgundian_erzkanzler
-								duration = -1
-							}
-						}
-					}
-					else = {
-						random_elector = {
-							limit = {
-								is_an_ecclesiastical_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							add_country_modifier = {
-								name = burgundian_erzkanzler
-								duration = -1
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_country_modifier = erztruchsess }
-						NOT = {
-							any_elector = {
-								has_country_modifier = erztruchsess
-							}
-						}
-						OR = {
-							AND = {
-								is_elector = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							any_elector = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-					}
-					if = {
-						limit = {
-							PAL = {
-								exists = yes
-								is_elector = yes
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-						PAL = {
-							add_country_modifier = {
-								name = erztruchsess
-								duration = -1
-							}
-						}
-					}
-					else_if = {
-						limit = {
-							is_elector = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
-						add_country_modifier = {
-							name = erztruchsess
-							duration = -1
-						}
-					}
-					else = {
-						random_elector = {
-							limit = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							add_country_modifier = {
-								name = erztruchsess
-								duration = -1
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_country_modifier = erzmarschall }
-						NOT = {
-							any_elector = {
-								has_country_modifier = erzmarschall
-							}
-						}
-						OR = {
-							AND = {
-								is_elector = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							any_elector = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-					}
-					if = {
-						limit = {
-							SAX = {
-								exists = yes
-								is_elector = yes
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-						SAX = {
-							add_country_modifier = {
-								name = erzmarschall
-								duration = -1
-							}
-						}
-					}
-					else_if = {
-						limit = {
-							is_elector = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
-						add_country_modifier = {
-							name = erzmarschall
-							duration = -1
-						}
-					}
-					else = {
-						random_elector = {
-							limit = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							add_country_modifier = {
-								name = erzmarschall
-								duration = -1
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_country_modifier = erzkaemmerer }
-						NOT = {
-							any_elector = {
-								has_country_modifier = erzkaemmerer
-							}
-						}
-						OR = {
-							AND = {
-								is_elector = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							any_elector = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-					}
-					if = {
-						limit = {
-							BRA = {
-								exists = yes
-								is_elector = yes
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-						BRA = {
-							add_country_modifier = {
-								name = erzkaemmerer
-								duration = -1
-							}
-						}
-					}
-					else_if = {
-						limit = {
-							is_elector = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
-						add_country_modifier = {
-							name = erzkaemmerer
-							duration = -1
-						}
-					}
-					else = {
-						random_elector = {
-							limit = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							add_country_modifier = {
-								name = erzkaemmerer
-								duration = -1
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_country_modifier = erzmundschenk }
-						NOT = {
-							any_elector = {
-								has_country_modifier = erzmundschenk
-							}
-						}
-						OR = {
-							AND = {
-								is_elector = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							any_elector = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-					}
-					if = {
-						limit = {
-							BOH = {
-								exists = yes
-								is_elector = yes
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-						}
-						BOH = {
-							add_country_modifier = {
-								name = erzmundschenk
-								duration = -1
-							}
-						}
-					}
-					else_if = {
-						limit = {
-							is_elector = yes
-							NOT = { has_country_modifier = german_erzkanzler }
-							NOT = { has_country_modifier = italian_erzkanzler }
-							NOT = { has_country_modifier = burgundian_erzkanzler }
-							NOT = { has_country_modifier = erztruchsess }
-							NOT = { has_country_modifier = erzmarschall }
-							NOT = { has_country_modifier = erzkaemmerer }
-							NOT = { has_country_modifier = erzmundschenk }
-						}
-						add_country_modifier = {
-							name = erzmundschenk
-							duration = -1
-						}
-					}
-					else = {
-						random_elector = {
-							limit = {
-								is_a_secular_country = yes
-								NOT = { has_country_modifier = german_erzkanzler }
-								NOT = { has_country_modifier = italian_erzkanzler }
-								NOT = { has_country_modifier = burgundian_erzkanzler }
-								NOT = { has_country_modifier = erztruchsess }
-								NOT = { has_country_modifier = erzmarschall }
-								NOT = { has_country_modifier = erzkaemmerer }
-								NOT = { has_country_modifier = erzmundschenk }
-							}
-							add_country_modifier = {
-								name = erzmundschenk
-								duration = -1
-							}
-						}
-					}
-				}
-			}
-			else = {
-				clear_global_event_target = hre_erzkanzler
-				every_country = {
-					limit = {
-						OR = {
-							has_country_modifier = german_erzkanzler
-							has_country_modifier = italian_erzkanzler
-							has_country_modifier = burgundian_erzkanzler
-							has_country_modifier = erztruchsess
-							has_country_modifier = erzmarschall
-							has_country_modifier = erzkaemmerer
-							has_country_modifier = erzmundschenk
-						}
-					}
-					remove_country_modifier = german_erzkanzler
-					remove_country_modifier = italian_erzkanzler
-					remove_country_modifier = burgundian_erzkanzler
-					remove_country_modifier = erztruchsess
-					remove_country_modifier = erzmarschall
-					remove_country_modifier = erzkaemmerer
-					remove_country_modifier = erzmundschenk
-				}
-			}
+			hree_update_imperial_archoffices = yes
 		}
 	}
 
 	option = {
-		name = "besseres_hrr_events13.EVTOPT1"
+		name = besseres_hrr_events13.EVTOPT1
 
 		ai_chance = { factor = 100 }
 	}
 }
 
-# Imperial Regency now lead by the Erzkanzler
-country_event = {
-	id = besseres_hrr_events.14
-	title = "besseres_hrr_events.EVTNAME14"
-	desc = "besseres_hrr_events.EVTDESC14"
-	picture = HRE_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		NOT = { tag = JMN }
-		is_emperor = yes
-		NOT = { has_country_flag = erzkanzler_became_ruler }
-		has_regency = yes
-		has_consort_regency = no
-		NOT = { has_ruler_flag = erzkanzler_rules_emperor }
-		NOT = { has_country_modifier = german_erzkanzler }
-		any_elector = {
-			has_country_modifier = german_erzkanzler
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			set_country_flag = erzkanzler_became_ruler
-			export_to_variable = {
-				which = erzkanzler_adm_var
-				value = ADM
-				who = event_target:hre_erzkanzler
-			}
-			export_to_variable = {
-				which = erzkanzler_dip_var
-				value = DIP
-				who = event_target:hre_erzkanzler
-			}
-			export_to_variable = {
-				which = erzkanzler_mil_var
-				value = MIL
-				who = event_target:hre_erzkanzler
-			}
-		}
-	}
-
-	option = {
-		name = "besseres_hrr_events14.EVTOPT1"
-
-		custom_tooltip = ERZKANZLER_NOW_RULES_EMPEROR
-
-		hidden_effect = {
-			define_ruler = {
-				name = "(Erzkanzler)"
-				regency = yes
-				ADM = 0
-				DIP = 0
-				MIL = 0
-				male = yes
-			}
-			while = {
-				limit = {
-					check_variable = { which = erzkanzler_adm_var value = 1 }
-				}
-				change_variable = { which = erzkanzler_adm_var value = -1 }
-				change_adm = 1
-			}
-			while = {
-				limit = {
-					check_variable = { which = erzkanzler_dip_var value = 1 }
-				}
-				change_variable = { which = erzkanzler_dip_var value = -1 }
-				change_dip = 1
-			}
-			while = {
-				limit = {
-					check_variable = { which = erzkanzler_mil_var value = 1 }
-				}
-				change_variable = { which = erzkanzler_mil_var value = -1 }
-				change_mil = 1
-			}
-			set_ruler_flag = erzkanzler_rules_emperor
-			clr_country_flag = erzkanzler_became_ruler
-		}
-	}
-}
+# .14 deleted (Erzkanzler Regency)
 
 # Emperor demands soldiers from members
 country_event = {
@@ -4589,5 +3813,327 @@ country_event = {
 			clr_country_flag = has_overriden_color_flag
 			set_country_flag = has_overriden_color_flag
 		}
+	}
+}
+
+# Emperor removed Imperial Archoffice
+country_event = {
+	id = besseres_hrr_events.38
+	title = besseres_hrr_events.EVTNAME38
+	desc = besseres_hrr_events.EVTDESC38
+	picture = HRE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = besseres_hrr_events38.EVTOPT1
+
+		ai_chance = { factor = 100 }
+
+		tooltip = {
+			add_opinion = {
+				who = FROM
+				modifier = hree_imperial_archoffice_removed_opinion
+			}
+		}
+	}
+}
+
+# Emperor granted Imperial Archoffice
+country_event = {
+	id = besseres_hrr_events.39
+	title = besseres_hrr_events.EVTNAME39
+	desc = besseres_hrr_events.EVTDESC39
+	picture = HRE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = besseres_hrr_events39.EVTOPT1
+
+		ai_chance = { factor = 100 }
+
+		tooltip = {
+			if = {
+				limit = {
+					has_country_modifier = german_erzkanzler
+				}
+				add_country_modifier = {
+					name = german_erzkanzler
+					duration = -1
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_modifier = italian_erzkanzler
+				}
+				add_country_modifier = {
+					name = italian_erzkanzler
+					duration = -1
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_modifier = burgundian_erzkanzler
+				}
+				add_country_modifier = {
+					name = burgundian_erzkanzler
+					duration = -1
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_modifier = erztruchsess
+				}
+				add_country_modifier = {
+					name = erztruchsess
+					duration = -1
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_modifier = erzmarschall
+				}
+				add_country_modifier = {
+					name = erzmarschall
+					duration = -1
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_modifier = erzkaemmerer
+				}
+				add_country_modifier = {
+					name = erzkaemmerer
+					duration = -1
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_modifier = erzmundschenk
+				}
+				add_country_modifier = {
+					name = erzmundschenk
+					duration = -1
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_modifier = erzbannertraeger
+				}
+				add_country_modifier = {
+					name = erzbannertraeger
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+# Arch-Marshall called to arms against HRE Enemy
+country_event = {
+	id = besseres_hrr_events.40
+	title = besseres_hrr_events.EVTNAME40
+	desc = besseres_hrr_events.EVTDESC40
+	picture = HRE_eventPicture
+
+	major = yes
+	major_trigger = {
+		OR = {
+			is_emperor = yes
+			tag = event_target:hre_attacker
+			tag = event_target:defended_hre_member
+		}
+	}
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = hree_arch_marshall_called_to_arms }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = hree_arch_marshall_called_to_arms
+		}
+	}
+
+	option = {
+		name = besseres_hrr_events40.EVTOPT1
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				is_at_war = no
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = {
+					who = emperor
+					value = 50
+				}
+				NOT = {
+					has_opinion = {
+						who = emperor
+						value = 100
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				has_opinion = {
+					who = emperor
+					value = 100
+				}
+				NOT = {
+					has_opinion = {
+						who = emperor
+						value = 150
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = emperor
+					value = 150
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = {
+					who = event_target:defended_hre_member
+					value = 50
+				}
+				NOT = {
+					has_opinion = {
+						who = event_target:defended_hre_member
+						value = 100
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				has_opinion = {
+					who = event_target:defended_hre_member
+					value = 100
+				}
+				NOT = {
+					has_opinion = {
+						who = event_target:defended_hre_member
+						value = 150
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = event_target:defended_hre_member
+					value = 150
+				}
+			}
+		}
+
+		join_all_defensive_wars_of = event_target:defended_hre_member
+	}
+
+	option = {
+		name = besseres_hrr_events40.EVTOPT2
+
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 3
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 10
+				is_in_important_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = {
+					who = emperor
+					value = -100
+				}
+				NOT = {
+					has_opinion = {
+						who = emperor
+						value = -50
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				has_opinion = {
+					who = emperor
+					value = -150
+				}
+				NOT = {
+					has_opinion = {
+						who = emperor
+						value = -100
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					has_opinion = {
+						who = emperor
+						value = -150
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = {
+					who = event_target:defended_hre_member
+					value = -100
+				}
+				NOT = {
+					has_opinion = {
+						who = event_target:defended_hre_member
+						value = -50
+					}
+				}
+			}
+			modifier = {
+				factor = 1.75
+				has_opinion = {
+					who = event_target:defended_hre_member
+					value = -150
+				}
+				NOT = {
+					has_opinion = {
+						who = event_target:defended_hre_member
+						value = -100
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					has_opinion = {
+						who = event_target:defended_hre_member
+						value = -150
+					}
+				}
+			}
+		}
+
+		add_prestige = -10
+		reverse_add_opinion = {
+			who = emperor
+			modifier = refused_join_war
+		}
+		reverse_add_opinion = {
+			who = event_target:hre_attacker
+			modifier = refused_join_war_vs_us
+		}
+	}
+
+	after = {
+		clr_country_flag = hree_arch_marshall_called_to_arms
 	}
 }

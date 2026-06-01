@@ -124,7 +124,7 @@ country_event = {
 			factor = 0.33
 			modifier = {
 				factor = 2
-				NOT = { legitimacy = 50 }
+				legitimacy = 80
 			}
 			modifier = {
 				factor = 2
@@ -265,7 +265,6 @@ country_event = {
 		hidden_effect = {
 			capital_scope = {
 				set_in_empire = yes
-				set_province_flag = EVHO_added_to_hre_provflag
 			}
 			every_country = {
 				limit = {
@@ -287,10 +286,6 @@ country_event = {
 			modifier = {
 				factor = 1.25
 				is_at_war = no
-			}
-			modifier = {
-				factor = 1.25
-				legitimacy = 80
 			}
 			modifier = {
 				factor = 3

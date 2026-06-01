@@ -18,7 +18,3 @@ professional_marines_tm = {
 	discipline = 0.075
 	shock_damage_received = -0.20
 }
-
-fuck_your_tariffs = {
-	reduced_liberty_desire_on_other_continent = -20
-}

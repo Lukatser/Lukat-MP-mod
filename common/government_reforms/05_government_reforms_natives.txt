@@ -266,7 +266,7 @@ native_settle_down_reform = {
 	modifiers = {
 		global_institution_spread = 0.2
 		add_tribal_land_cost = 2.0
-		governing_capacity_modifier = -0.25
+		governing_capacity_modifier = -0.1
 	}
 	conditional = {
 		allow = { has_dlc = "Conquest of Paradise" }

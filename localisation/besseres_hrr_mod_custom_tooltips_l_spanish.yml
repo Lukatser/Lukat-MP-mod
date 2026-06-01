@@ -52,22 +52,22 @@
  HRE_GOLDEN_BULL_ONLY_MALE_EMPERORS: "The §YGolden Bull§! defines that only men can become the emperor of the HRE. This means, the \"Pragmatic Sanction\" can not be enacted, while the laws of the §YGolden Bull§! are in effect.\n"
  HRE_GOLDEN_BULL_NOT_ONLY_MALE_EMPERORS: "The \"Pragmatic Sanction\" can be enacted again.\n"
 
- GOLDEN_BULL_NO_ANTI_KING_CB: "Members of the HRE can not declare war on the emperor with the \"§YDeclare anti-king status§!\" Casus Belli anymore. \n\n§YImperial Privileges§! are disabled.\n"
- NO_GOLDEN_BULL_ANTI_KING_CB: "Members of the HRE can declare war on the emperor with the \"§YDeclare anti-king status§!\" Casus Belli again. \n\n§YImperial Privileges§! are enabled again.\n"
+ GOLDEN_BULL_NO_ANTI_KING_CB: "§YImperial Privileges§! are disabled. \nMembers of the HRE can not declare war on the emperor with the \"§YDeclare anti-king status§!\" Casus Belli anymore."
+ NO_GOLDEN_BULL_ANTI_KING_CB: "§YImperial Privileges§! are enabled again. \nMembers of the HRE can declare war on the emperor with the \"§YDeclare anti-king status§!\" Casus Belli again.\n"
  ELECTORS_NOW_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL: "The law to appoint §Yelectors§! is determined: From now on the §Y7§! electors have to be §Y4§! secular and §Y3§! (§Y4§! if the maximum amount of electors is increased) ecclesiastical princes of the HRE. \nIf the current composition of electors doesn't match this law, we will lose §R0.02§! imperial authority per secular or ecclesiastical elector above the max. allowed value."
- CURRENT_ELECTORS_COMPOSITION_1: "Currently there are §Y[GetNumberOfEcclesiasticalElectors]§! £icon_church_elector_small£ ecclesiastical electors:"
- CURRENT_ELECTORS_COMPOSITION_2: "Currently there are §Y[GetNumberOfSecularElectors]§! £icon_elector_small£ secular electors:"
- CURRENT_ELECTORS_COMPOSITION_3: "Because of that we would gain [Root.GetReducedAmoutOfIABecauseOfGoldenBull] imperial authority less each month."
- THIS_OWNER_ELECTOR_NAME: "   - @[This.Owner.GetTag] §Y[This.Owner.GetName]§!"
- THIS_NO_ELECTOR_NAME: "   - §YThere are no electors of this category§!"
- ELECTORS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL: "The opinion of all §Yelectors§! about §Y[Root.GetName]§! changes by §G35§!. §Y[Root.GetName]§! gains a truce with all §Yelectors§!.\n"
- MEMBERS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL: "The opinion of all other §YHRE members§! about §Y[Root.GetName]§! changes by §G10§! for §Y12 months§!."
+ CURRENT_ELECTORS_COMPOSITION_1: "Currently there are §Y[GetNumberOfEcclesiasticalElectors]§! £icon_church_elector_small£ ecclesiastical electors."
+ CURRENT_ELECTORS_COMPOSITION_2: "Currently there are §Y[GetNumberOfSecularElectors]§! £icon_elector_small£ secular electors."
+ CURRENT_ELECTORS_COMPOSITION_3: "Because of that we would lose [Root.GetReducedAmoutOfIABecauseOfGoldenBull] imperial authority each month."
+ GOLDEN_BULL_ENABLE_IMPERIAL_ARCHOFFICES: "The Emperor may now grant §YImperial Archoffices§! to members of the Empire."
+ GOLDEN_BULL_DISABLE_IMPERIAL_ARCHOFFICES: "The Emperor cannot grant §YImperial Archoffices§! to members of the Empire anymore. The current holders lose their office and its bonuses."
+ ELECTORS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL: "The opinion of all §YElectors§! about §Y[Root.GetName]§! changes by §G35§!. §Y[Root.GetName]§! gains a truce with all §Yelectors§!."
+ MEMBERS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL: "The opinion of all other §YHRE Members§! about §Y[Root.GetName]§! changes by §G10§! for §Y12 months§!.\n"
  ELECTORS_DO_NOT_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL_ANYMORE: "The law for appointing §Yelectors§! is annulled. From now on the composition of the §Y7§! electors is not tied to §Y4§! secular and §Y3§! ecclesiastical princes anymore.\n"
- EMPEROR_GAINS_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "The emperor gains these bonuses because of the §YGolden Bull§!, until §YErbkaisertum§! is proclaimed:\nYearly Legitimacy: §G+0.25§! \nImprove Relations: §G+10.0%§! \nImperial Authoritiy Modifier: §G+0.05§!\n"
- ELECTORS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "The electors gain these bonuses because of the §YGolden Bull§!, until §YErbkaisertum§! is proclaimed:\nTax Income: §G+12.00§!¤ \n"
- MEMBERS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "The members of the HRE gain these bonuses because of the §YGolden Bull§!, until §YErbkaisertum§! is proclaimed:\nNational Unrest: §G-1.00§! \n"
+ EMPEROR_GAINS_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "The emperor gains these bonuses because of the §YGolden Bull§!, until §YErbkaisertum§! is proclaimed:\n[yearly_legitimacy]: §G+0.25§! \n[improve_relation_modifier]: §G+10.0%§! \n[imperial_authority_value]: §G+0.05§!\n"
+ ELECTORS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "The electors gain these bonuses because of the §YGolden Bull§!, until §YErbkaisertum§! is proclaimed:\n[global_tax_income]: §G+12.00§!¤ \n"
+ MEMBERS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL: "The members of the HRE gain these bonuses because of the §YGolden Bull§!, until §YErbkaisertum§! is proclaimed:\n[global_unrest]: §G-1.00§! \n"
+ HRE_GOLDEN_BULL_REMOVE_OPINION_HIT_WITH_MEMBERS: "The opinion of all other §YHRE Members§! of §Y[Root.GetName]§! changes by §R-10§!."
 
- ERZKANZLER_NOW_RULES_EMPEROR: "The Archchancellor of @[hre_erzkanzler.GetTag] [hre_erzkanzler.GetName], §Y[hre_erzkanzler.Monarch.GetName]§! (§G[hre_erzkanzler.Monarch.GetAdm]§!£adm£/§G[hre_erzkanzler.Monarch.GetDip]§!£dip£/§G[hre_erzkanzler.Monarch.GetMil]§!£mil£), leads the regency council til [Root.Heir.GetName] comes of age."
  ASK_HRE_MEMBER_TO_SUPPORT_EMPEROR_WITH_MANPOWER: "Ask for manpower."
  ASK_ERZMARSCHALL_TO_SUPPORT_EMPEROR_WITH_GENERAL: "Ask for one of their most capable men to lead our army."
  GIVES_EMPEROR_THIS_AMOUNT_OF_MANPOWER: "Lose: §R-[Root.manpower_to_send.GetValue],000§! manpower."
@@ -104,6 +104,7 @@
  REICHSTAG_EFFECTS_ALL_PRINCES_GAIN_MINUS_OPINION_US: "All HRE members' opinion of us changed by §R-25§!."
 
  IS_NOT_CORE_OF_FROM: "Is NOT a core of §Y[From.GetName]§!"
+ IS_NOT_IN_THE_REGION_OF_FROM_IF_FROM_IS_ARCH_CHANCELLOR_AND_LOYAL: "One of the following must be true: \n      §Y[From.GetName]§! is NOT an Elector \n      §Y[From.GetName]§! is an Elector and does NOT vote for §Y[Emperor.GetName]§! \n      §Y[From.GetName]§! is NOT the §YArch-Chancellor of Germany§!, §YArch-Chancellor of Burgundy§! or §YArch-Chancellor of Italy§! \n      §Y[From.GetName]§! is the §YArch-Chancellor of Germany§! and the province is NOT in the §YNorth Germany§! or §YSouth Germany§! region \n      §Y[From.GetName]§! is the §YArch-Chancellor of Burgundy§! and the province is NOT in the §YFrance§! or §YLow Countries§! region \n   §Y[From.GetName]§! is the §YArch-Chancellor of Italy§! and the province is NOT in the §YItaly§! or §YBalkans§! region"
  NO_REICHSTAG_WITHIN_THE_LAST_YEAR: "There was NO Reichstag called within the last §Y365 days§! because of unlawful territory"
  IS_NEIGHBOR_OR_CLOSE_PROVINCE_OF_ROOT: "Is either a neighbor province of §Y[Root.GetName]§! or is very close to their owned provinces"
 
@@ -227,6 +228,9 @@
 
  CANNOT_SIGN_SEPERATE_PEACE_IN_HRE_ITALIAN_WAR: "Separate peaces are not allowed in the Imperial War of Italian Domination."
  CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_TARGET_OF_CALLED_REICHSTAG: "We cannot demand unlawful territory from a country that was the target of a Reichstag about unlawful territory within the last year."
+ CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_GERMAN_ARCH_CHANCELLOR: "We cannot demand unlawful territory from the §YArch-Chancellor of Germany§!, if they vote for us as the next Emperor and they only have unlawful territory in the §YNorth Germany§! or §YSouth Germany§! region."
+ CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_ITALIAN_ARCH_CHANCELLOR: "We cannot demand unlawful territory from the §YArch-Chancellor of Italy§!, if they vote for us as the next Emperor and they only have unlawful territory in the §YItaly§! or §YBalkans§! region."
+ CANNOT_DEMAND_UNLAWFUL_TERRITORY_ON_BURGUNDIAN_ARCH_CHANCELLOR: "We cannot demand unlawful territory from the §YArch-Chancellor of Burgundy§!, if they vote for us as the next Emperor and they only have unlawful territory in the §YFrance§! or §YLow Countries§! region."
 
  ANTI_KING_BECOMES_EMPROR_TT: "§Y[This.Monarch.GetName] [This.Monarch.Dynasty.GetName]§!, ruler of @[This.GetTag] §Y[This.GetName]§!, becomes Emperor of the HRE.\n"
 
@@ -254,3 +258,7 @@
  besseres_hrr_events.37.tt2: "§gThis is the default color.§!"
  besseres_hrr_events.37.tt3: "§gThis is an alternative color available to anyone forming the Holy Roman Empire.§!"
  hree_change_hre_color_tt: "--------------\nWe can pick out of the following colors: \n£hre_color_default£ £yes£ Always (Default Color) \n£hre_color_alternative£ £yes£ Always \n£hre_color_HAB£ [Root.hree_hre_color_change_HAB] Was §Y[HAB.GetName]§! \n£hre_color_BUR£ [Root.hree_hre_color_change_BUR] Was §Y[BUR.GetName]§! or §Y[GEL.GetName]§! \n£hre_color_SOR£ [Root.hree_hre_color_change_SOR] Was §Y[SOR.GetName]§! [Root.hree_hre_color_change_SWA_full] \n£hre_color_WUR£ [Root.hree_hre_color_change_WUR] Was §Y[WUR.GetName]§! [Root.hree_hre_color_change_LOT_full]  \n£hre_color_BAV£ [Root.hree_hre_color_change_BAV] Was §Y[BAV.GetName]§!, §Y[UBV.GetName]§!, §Y[LBV.GetName]§!, §Y[ING.GetName]§!,\n           §Y[PSS.GetName]§!, §Y[SWE.GetName]§!, §Y[NOR.GetName]§! or §Y[SCA.GetName]§! \n£hre_color_SAX£ [Root.hree_hre_color_change_SAX] Was §Y[SAX.GetName]§! \n£hre_color_FKN£ [Root.hree_hre_color_change_FKN] Was §Y[FKN.GetName]§! \n£hre_color_BRA£ [Root.hree_hre_color_change_BRA] Was §Y[BRA.GetName]§! \n£hre_color_PRU£ [Root.hree_hre_color_change_PRU] Was §Y[PRU.GetName]§! \n£hre_color_DTT£ [Root.hree_hre_color_change_DTT] Was §Y[DTT.GetName]§! or §Y[SPI.GetName]§! \n£hre_color_TEU£ [Root.hree_hre_color_change_TEU] Was §Y[TEU.GetName]§! \n£hre_color_FRA£ [Root.hree_hre_color_change_FRA] Was §Y[FRA.GetName]§! \n£hre_color_POL£ [Root.hree_hre_color_change_POL] Was §Y[POL.GetName]§!, §Y[PLC.GetName]§! or §Y[DAN.GetName]§! [Root.hree_hre_color_change_MLO_full] \n£hre_color_NAP£ [Root.hree_hre_color_change_NAP] Was §Y[NAP.GetName]§!, §Y[BYZ.GetName]§! or §Y[AVE.GetName]§! \n£hre_color_ENG£ [Root.hree_hre_color_change_ENG] Was §Y[ENG.GetName]§!, §Y[GBR.GetName]§!, §Y[ARA.GetName]§!,\n           §Y[EFR.GetName]§! or §Y[ROM.GetName]§! \n£hre_color_ITA£ [Root.hree_hre_color_change_ITA] Was §Y[ITA.GetName]§! or §Y[SIC.GetName]§! \n£hre_color_SPA£ [Root.hree_hre_color_change_SPA] Was §Y[SPA.GetName]§!, §Y[CAS.GetName]§! or §Y[NAV.GetName]§! [Root.hree_hre_color_change_NED_full] [Root.hree_hre_color_change_BOH_full] \n£hre_color_LUX£ [Root.hree_hre_color_change_LUX] Was §Y[LUX.GetName]§! or §Y[BRB.GetName]§! \n£hre_color_CLI£ [Root.hree_hre_color_change_CLI] Was §Y[CLI.GetName]§!"
+
+ HREE_ALL_IMPERIAL_ARCHOFFICCES_ARE_GRANTED_TT: "All §Y8§! Imperial Archoffices are granted"
+
+ HAS_NO_FIXED_GOVERNMENT_RANK_FROM_REFORMS_TT: "Does NOT have a §Yfixed§! government rank due to a government reform"

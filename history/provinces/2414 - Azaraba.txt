@@ -1,4 +1,4 @@
-#2414 - Azaraba
+#2414 - Egerlik
 
 owner = CRI
 controller = CRI
@@ -9,7 +9,7 @@ base_tax = 3
 base_production = 3
 trade_goods = livestock
 base_manpower = 3
-capital = "Azaraba"
+capital = "Egerlik"
 is_city = yes
 add_core = CRI
 discovered_by = western

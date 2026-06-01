@@ -41,10 +41,6 @@
  besseres_hrr_events.EVTDESC12: "The [GetHREemperorKing] §Y[Root.Monarch.GetName]§! has annulled the laws of the §YGolden Bull§!!. This probably weakens [Root.Monarch.GetHerHis] position in the HRE, but [Root.Monarch.GetSheHe] probably had good reasons for doing it..."
  besseres_hrr_events12.EVTOPT1: "Our reasons are good enough."
 
- besseres_hrr_events.EVTNAME14: "Archchancellor [hre_erzkanzler.Monarch.GetName] leads regency council"
- besseres_hrr_events.EVTDESC14: "The Archchancellor of the Empire now leads the regency councile til the emperor comes of age."
- besseres_hrr_events14.EVTOPT1: "All right."
-
  besseres_hrr_events.EVTNAME15: "Request aid from HRE members"
  besseres_hrr_events.EVTDESC15: "We are at war for some time and our reserves are exhausted. Request aid from [hre_member_gives_manpower.GetName], to reinforce the Imperial Regiments at the frontline!"
  besseres_hrr_events15.EVTOPT1: "Ask them to send us new recruits."
@@ -128,6 +124,11 @@
  besseres_hrr_events36.EVTOPT1: "No change is needed."
  besseres_hrr_events36.EVTOPT2: "Allow larger nations to join."
 
+ besseres_hrr_events.EVTNAME40: "Arsh-Marshal: Defense of the Empire"
+ besseres_hrr_events.EVTDESC40: "An enemy of the Empire, §Y[hre_attacker.GetName]§!, has attacked a member, §Y[defended_hre_member.GetName]§!. The Emperor has stepped in to come to their aid, now we as the Arch-Marshal are asked to do the same. Declining the call to arms will affect our relations with the Emperor."
+ besseres_hrr_events40.EVTOPT1: "Help §Y[defended_hre_member.GetName]§!. For the Empire!"
+ besseres_hrr_events40.EVTOPT2: "We cannot help them."
+
  besseres_hrr_events.EVTNAME37: "Holy Roman Empire: Map Color"
  besseres_hrr_events.EVTDESC37: "The Holy Roman Empire has been united! Now it is time to decide what color it should have on the map."
  besseres_hrr_events37.EVTOPT0: "New Color: £hre_color_default£"
@@ -157,6 +158,14 @@
  besseres_hrr_events37.EVTOPT24: "New Color: £hre_color_BOH£"
  besseres_hrr_events37.EVTOPT25: "New Color: £hre_color_LUX£"
  besseres_hrr_events37.EVTOPT26: "New Color: £hre_color_CLI£"
+
+ besseres_hrr_events.EVTNAME38: "Imperial Archoffice Removed"
+ besseres_hrr_events.EVTDESC38: "[GetHREemperorKing] [From.Monarch.GetName] has chosen to remove our Imperial Archoffice. \nWe will lose all related bonuses."
+ besseres_hrr_events38.EVTOPT1: "[From.Monarch.GetSheHeCap] can do that?"
+
+ besseres_hrr_events.EVTNAME39: "Imperial Archoffice Granted"
+ besseres_hrr_events.EVTDESC39: "[GetHREemperorKing] [From.Monarch.GetName] has granted us an Imperial Archoffice."
+ besseres_hrr_events39.EVTOPT1: "Wonderful."
 
 
  besseres_hrr_anti_king_events.EVTNAME1: "Anti-king now official ruler of the HRE"

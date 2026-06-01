@@ -6,7 +6,7 @@
  RB_ClampDiscovery:0 "Low Centralization"
  RB_ClampReformation:0 "Growing Centralization"
  RB_ClampAbsolutism:0 "Significant Centralization"
- RB_ClampRevolutions:0 "Modernizing Centralization" ##EVHO##
+ RB_ClampRevolutions:0 "Prevailent Centralization"
  RB_MicroState:0 "Micro-State"
  RB_AgileState:0 "Agile State"
  RB_GrowingState:0 "Growing State"
@@ -14,4 +14,3 @@
  RB_BrimmingState:0 "Brimming State"
  RB_CorruptState:0 "Decaying State"
  RB_MissionToCivilize:0 "Mission To Civilize"
-

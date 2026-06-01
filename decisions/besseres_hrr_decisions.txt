@@ -609,67 +609,19 @@ country_decisions = {
 		}
 		effect = {
 			set_global_flag = hre_golden_bull_enacted
-			custom_tooltip = GOLDEN_BULL_NO_ANTI_KING_CB
+			custom_tooltip = ELECTORS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL
+			custom_tooltip = MEMBERS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL
+			add_ruler_modifier = {
+				name = enacted_golden_bull
+				duration = -1
+			}
 			custom_tooltip = ELECTORS_NOW_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL
 			custom_tooltip = CURRENT_ELECTORS_COMPOSITION_1
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							is_elector = yes
-							is_an_ecclesiastical_country = yes
-						}
-						any_elector = {
-							is_an_ecclesiastical_country = yes
-						}
-					}
-				}
-				every_province = {
-					limit = {
-						is_capital = yes
-						owner = {
-							is_elector = yes
-							is_an_ecclesiastical_country = yes
-						}
-					}
-					custom_tooltip = THIS_OWNER_ELECTOR_NAME
-				}
-			}
-			else = {
-				custom_tooltip = THIS_NO_ELECTOR_NAME
-			}
-
 			custom_tooltip = CURRENT_ELECTORS_COMPOSITION_2
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							is_elector = yes
-							is_a_secular_country = yes
-						}
-						any_elector = {
-							is_a_secular_country = yes
-						}
-					}
-				}
-				every_province = {
-					limit = {
-						is_capital = yes
-						owner = {
-							is_elector = yes
-							is_a_secular_country = yes
-						}
-					}
-					custom_tooltip = THIS_OWNER_ELECTOR_NAME
-				}
-			}
-			else = {
-				custom_tooltip = THIS_NO_ELECTOR_NAME
-			}
 			custom_tooltip = CURRENT_ELECTORS_COMPOSITION_3
-
 			custom_tooltip = " "
-			add_imperial_influence = 5
+			custom_tooltip = GOLDEN_BULL_ENABLE_IMPERIAL_ARCHOFFICES
+			custom_tooltip = GOLDEN_BULL_NO_ANTI_KING_CB
 			if = {
 				limit = {
 					allows_female_emperor = yes
@@ -680,15 +632,9 @@ country_decisions = {
 			else = {
 				custom_tooltip = HRE_GOLDEN_BULL_ONLY_MALE_EMPERORS
 			}
-			add_ruler_modifier = {
-				name = enacted_golden_bull
-				duration = -1
-			}
 			custom_tooltip = EMPEROR_GAINS_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL
 			custom_tooltip = ELECTORS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL
 			custom_tooltip = MEMBERS_GAIN_THESE_BONUSES_BECAUSE_OF_THE_GOLDEN_BULL
-			custom_tooltip = ELECTORS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL
-			custom_tooltip = MEMBERS_OPINION_CHANGE_BECAUSE_OF_GOLDEN_BULL
 			hidden_effect = {
 				every_elector = {
 					limit = {
@@ -789,10 +735,15 @@ country_decisions = {
 		}
 		effect = {
 			set_global_flag = hre_golden_bull_removed
-			custom_tooltip = NO_GOLDEN_BULL_ANTI_KING_CB
-			custom_tooltip = ELECTORS_DO_NOT_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL_ANYMORE
 			add_stability = -1
 			add_imperial_influence = -10
+			add_ruler_modifier = {
+				name = removed_golden_bull
+				duration = 2555
+			}
+			custom_tooltip = ELECTORS_DO_NOT_HAVE_TO_BE_SECULAR_AND_ECCLESIASTICAL_ANYMORE
+			custom_tooltip = GOLDEN_BULL_DISABLE_IMPERIAL_ARCHOFFICES
+			custom_tooltip = NO_GOLDEN_BULL_ANTI_KING_CB
 			if = {
 				limit = {
 					allows_female_emperor = no
@@ -810,10 +761,6 @@ country_decisions = {
 			else = {
 				custom_tooltip = HRE_GOLDEN_BULL_NOT_ONLY_MALE_EMPERORS
 			}
-			add_ruler_modifier = {
-				name = removed_golden_bull
-				duration = 2555
-			}
 			every_elector = {
 				limit = { NOT = { tag = ROOT } }
 				add_opinion = {
@@ -821,18 +768,22 @@ country_decisions = {
 					modifier = removed_golden_bull_opinion
 				}
 			}
-			every_country = {
-				limit = {
-					NOT = { tag = ROOT }
-					is_elector = no
-					is_part_of_hre = yes
+			custom_tooltip = HRE_GOLDEN_BULL_REMOVE_OPINION_HIT_WITH_MEMBERS
+			hidden_effect = {
+				every_country = {
+					limit = {
+						NOT = { tag = ROOT }
+						is_elector = no
+						is_part_of_hre = yes
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = removed_golden_bull_member_opinion
+					}
 				}
-				add_opinion = {
-					who = ROOT
-					modifier = removed_golden_bull_member_opinion
-				}
+				country_event = { id = besseres_hrr_events.12 }
+				hree_clear_imperial_archoffices = yes
 			}
-			hidden_effect = { country_event = { id = besseres_hrr_events.12 } }
 		}
 		ai_will_do = {
 			factor = 1

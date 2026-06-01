@@ -104,7 +104,7 @@
  CB_ALLOWED_po_remove_country_from_hre: "Imperiale Verbannung"
  PEACE_po_remove_country_from_hre: "Aus dem HRR entfernen"
 
- po_revoke_elector_golden_bull_desc: "Entzieht @[From.GetTag] §Y[From.GetName]§! den Status des Kurfürsten und damit das Recht der Kaiserwahl."
+ po_revoke_elector_golden_bull_desc: "Entzieht @[From.GetTag] §Y[From.GetName]§! den Status des Kurfürsten und damit das Recht der Kaiserwahl. Die Kaiserliche Autorität verändert sich um §R-5.00§!."
  CB_ALLOWED_po_revoke_elector_golden_bull: "Wahlberechtigung entziehen"
  PEACE_po_revoke_elector_golden_bull: "Wahlberechtigung entziehen"
 
@@ -127,3 +127,6 @@
  po_become_legitimate_foreign_emperor_desc: "@[Root.GetTag] §Y[Root.GetName]§! erhält §G15§! Reichsautorität und wird nie wieder das Ziel einer §YReichsrevolte§! sein. Falls @[From.GetTag] §Y[From.GetName]§! ein Kurfürst ist, verlieren sie ihren Kurfürstenstatus."
  CB_ALLOWED_po_become_legitimate_foreign_emperor: "Reichsrevolte zerschlagen"
  PEACE_po_become_legitimate_foreign_emperor: "Reichsrevolte zerschlagen"
+
+ # Mercenary Companies:
+ merc_hree_imperial_mercenaries: "Kaiserliche Söldner Kompanie"

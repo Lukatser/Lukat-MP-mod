@@ -1,4 +1,4 @@
-#4543 - Rylsk
+#4543 - Nezhyn
 owner = LIT
 controller = LIT 
 culture = ryazanian
@@ -8,7 +8,7 @@ base_tax = 1
 base_production = 1
 trade_goods = grain
 base_manpower = 1
-capital = "Rylsk"
+capital = "Nezhyn"
 is_city = yes
 add_core = CHR
 add_core = LIT

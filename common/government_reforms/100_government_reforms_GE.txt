@@ -43,7 +43,7 @@ lithuania_warlord_duke = {
 
 
 
-margrave_reform = {
+ge_margrave_reform = {
 	icon = march
 	allow_normal_conversion = yes
 	potential = {
@@ -163,12 +163,9 @@ habsburg_monarchy_reform = {
 			has_reform = arch_duchy_reform
 		}
 	}
-	trigger = { #EVHO
+	trigger = {
 		OR = {
-			has_reform = habsburg_monarchy_reform
-			is_year = 1600
 			AND = {
-				is_year = 1500
 				OR = {
 					senior_union_with = BOH
 					owns = 266
@@ -178,6 +175,7 @@ habsburg_monarchy_reform = {
 					owns = 153
 				}
 			}
+			has_reform = habsburg_monarchy_reform
 		}
 	}
 	effect = {
@@ -224,16 +222,15 @@ austrian_empire_reform = {
 			has_reform = arch_duchy_reform
 		}
 	}
-	trigger = { #EVHO
-		total_development = 500
+	trigger = {
 		OR = {
-			has_reform = austrian_empire_reform
-			is_year = 1800
 			AND = {
-				is_year = 1700
+				absolutism = 50
 				owns = 266
 				owns = 153
+				total_development = 500
 			}
+			has_reform = austrian_empire_reform
 		}
 	}
 	modifiers = {
@@ -8037,101 +8034,3 @@ customs_duties_reform = {
 	}
 }
 
-newar_and_gorkhali_reform = {
-	icon = tribal_federation
-	allow_normal_conversion = yes
-	effect = {
-		change_variable = {
-			which = Royal_Influence
-			value = 1
-		}
-	}
-	removed_effect = {
-		change_variable = {
-			which = Royal_Influence
-			value = -1
-		}
-	}
-	potential = {
-		OR = {
-			has_reform = newar_and_gorkhali_reform
-			tag = NPL
-		}
-	}
-	trigger = {
-		OR = {
-			has_reform = newar_and_gorkhali_reform
-			tag = NPL
-		}
-	}
-	modifiers = {
-		harsh_treatment_cost = -0.33
-	}
-	custom_attributes = {
-		enables_mountain_towns = yes #-25% Development cost in hills and mountains
-	}
-	ai = {
-		factor = 100
-	}
-}
-
-chhetri_clans_reform = {
-	icon = tribal_federation
-	allow_normal_conversion = yes
-	effect = {
-		change_variable = {
-			which = Noble_Influence
-			value = 1
-		}
-	}
-	removed_effect = {
-		change_variable = {
-			which = Noble_Influence
-			value = -1
-		}
-	}
-	potential = {
-		OR = {
-			has_reform = chhetri_clans_reform
-			tag = NPL
-			primary_culture = nepali
-			accepted_culture = nepali
-		}
-	}
-	trigger = {
-		OR = {
-			has_reform = chhetri_clans_reform
-			tag = NPL
-			primary_culture = nepali
-			accepted_culture = nepali
-		}
-	}
-	modifiers = {
-		leader_cost = -0.10
-		leader_land_shock = 1
-	}
-	ai = {
-		factor = 100
-	}
-}
-
-gorkha_kingdom_reform = {
-	icon = crown
-	allow_normal_conversion = yes
-	valid_for_nation_designer = no
-	potential = {
-		OR = {
-			has_reform = gorkha_kingdom_reform
-			tag = GRK
-		}
-		NOT = { tag = NPL }
-	}
-	modifiers = {
-		war_exhaustion = -0.02
-		army_tradition_decay = -0.01
-		nobles_influence_modifier = -0.05
-	}
-	ai = {
-		factor = 100
-	}
-}

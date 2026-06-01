@@ -1,74 +1,6 @@
 Namespace = FEE_Bohemia_Events
 #Jay DoubleU
 
-#Hungary #Setupevent
-country_event = {
-	id = FEE_Bohemia_Events.1
-	title = FEE_Bohemia_Events.1.T
-	desc = FEE_Bohemia_Events.1.D
-	picture = CITY_VIEW_eventPicture
-
-	hidden = yes
-
-	trigger = {
-		tag = HUN
-		has_country_flag = hun_has_had_matthias_corvinus_event	#vanilla flag
-		has_regency = no
-		mil = 6
-		NOT = {
-			is_year = 1500
-		}
-	}
-
-	fire_only_once = yes
-
-	mean_time_to_happen = {
-		months = 1
-	}
-
-	immediate = {
-		hidden_effect = {
-			set_country_flag = fee_hungary_corvinus
-			set_ruler_flag = fee_hungary_matyas_reign
-		}
-	}
-
-	option = {
-		name = FEE_Bohemia_Events.1.OPT1
-	}
-}
-
-#Bohemia #Setupevent
-country_event = {
-	id = FEE_Bohemia_Events.2
-	title = FEE_Bohemia_Events.2.T
-	desc = FEE_Bohemia_Events.2.D
-	picture = CITY_VIEW_eventPicture
-
-	hidden = yes
-
-	trigger = {
-		tag = BOH
-		has_country_flag = first_hussite_king	#vanilla flag
-	}
-
-	fire_only_once = yes
-
-	immediate = {
-		hidden_effect = {
-			set_country_flag = FEE_Podebrad
-			add_ruler_modifier = {
-				name = fee_boh_infertility
-				duration = -1
-			}
-		}
-	}
-
-	option = {
-		name = FEE_Bohemia_Events.2.OPT1
-	}
-}
-
 # Death of Jiri Podebrad
 country_event = {
 	id = FEE_Bohemia_Events.3
@@ -84,6 +16,7 @@ country_event = {
 		NOT = { has_ruler_modifier = fee_boh_infertility }
 		has_country_flag = FEE_Podebrad
 		is_free_or_tributary_trigger = yes
+		NOT = { has_ruler_flag = ruler_cant_trigger_this_event_flag }
 	}
 
 	option = {
@@ -230,10 +163,6 @@ country_event = {
 
 	fire_only_once = yes
 
-	mean_time_to_happen = {
-		days = 30
-	}
-
 	option = {
 		name = FEE_Bohemia_Events.5.OPT1
 		ai_chance = {
@@ -248,7 +177,6 @@ country_event = {
 			BOH = {
 				create_union = HUN
 			}
-			add_liberty_desire = -50 ## EVHO ##
 		}
 		kill_heir = {}
 		add_stability_or_adm_power_per_stab = { amount = 2 }
@@ -379,7 +307,6 @@ country_event = {
 			HAB = {
 				create_union = HUN
 			}
-			add_liberty_desire = -50 ## EVHO ##
 		}
 	}
 }
@@ -468,24 +395,8 @@ country_event = {
 	option = {
 		name = FEE_Bohemia_Events.8.OPT1
 
-		transylvania_area = {
-			limit = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-				NOT = { is_empty = yes }
-				NOT = { is_wasteland = yes }
-			}
-			add_permanent_claim = ROOT
-		}
-		southern_transylvania_area = {
-			limit = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-				NOT = { is_empty = yes }
-				NOT = { is_wasteland = yes }
-			}
-			add_permanent_claim = ROOT
-		}
+		transylvania_area = { add_permanent_claim = ROOT }
+		southern_transylvania_area = { add_permanent_claim = ROOT }
 	}
 }
 
@@ -743,10 +654,6 @@ country_event = {
 		}
 		is_year = 1720
  	}
-
-	mean_time_to_happen = {
-		days = 1
-	}
 
 	option = {
 		name = FEE_Bohemia_Events.13.OPT1 #Will we ever recover?

@@ -21,7 +21,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -221,7 +221,9 @@ country_event = {
 	picture = SHIP_SAILING_eventPicture
 
 	fire_only_once = yes
+
 	trigger = {
+		NOT = { has_dlc = "Winds of Change" }
 		is_or_was_tag = { tag = VEN }
 		is_year = 1473
 		NOT = { is_year = 1535 }
@@ -229,22 +231,9 @@ country_event = {
 		112 = {
 			OR = {
 				development = 30
-				AND = {
-					is_expanded_mod_active = { mod = great_monuments }
-					OR = {
-						has_great_project = {
-							type = gme_arsenale_veneziano
-							tier = 1
-						}
-						has_great_project = {
-							type = gme_arsenale_veneziano
-							tier = 2
-						}
-						has_great_project = {
-							type = gme_arsenale_veneziano
-							tier = 3
-						}
-					}
+				has_great_project = {
+					type = venetian_arsenal_gp
+					tier = 1
 				}
 			}
 		}
@@ -278,7 +267,9 @@ country_event = {
 	picture = SHIP_SAILING_eventPicture
 
 	fire_only_once = yes
+
 	trigger = {
+		NOT = { has_dlc = "Winds of Change" }
 		is_or_was_tag = { tag = VEN }
 		is_year = 1535
 		owns_core_province = 112
@@ -286,18 +277,9 @@ country_event = {
 		112 = {
 			OR = {
 				development = 40
-				AND = {
-					is_expanded_mod_active = { mod = great_monuments }
-					OR = {
-						has_great_project = {
-							type = gme_arsenale_veneziano
-							tier = 2
-						}
-						has_great_project = {
-							type = gme_arsenale_veneziano
-							tier = 3
-						}
-					}
+				has_great_project = {
+					type = venetian_arsenal_gp
+					tier = 2
 				}
 			}
 		}
@@ -335,7 +317,9 @@ country_event = {
 	picture = SHIP_SAILING_eventPicture
 
 	fire_only_once = yes
+
 	trigger = {
+		NOT = { has_dlc = "Winds of Change" }
 		is_or_was_tag = { tag = VEN }
 		is_year = 1566
 		owns_core_province = 112
@@ -343,12 +327,9 @@ country_event = {
 		112 = {
 			OR = {
 				development = 50
-				AND = {
-					is_expanded_mod_active = { mod = great_monuments }
-					has_great_project = {
-						type = gme_arsenale_veneziano
-						tier = 3
-					}
+				has_great_project = {
+					type = venetian_arsenal_gp
+					tier = 3
 				}
 			}
 		}
@@ -453,7 +434,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -473,17 +454,7 @@ country_event = {
 		name = FEE_Venice_Events.10.OPT2
 
 		add_mil_power = 150
-		151 = {
-			if = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_core = ROOT }
-					NOT = { is_empty = yes }
-					NOT = { is_wasteland = yes }
-				}
-				add_permanent_claim = ROOT
-			}
-		}
+		151 = { add_permanent_claim = ROOT }
 	}
 }
 
@@ -563,7 +534,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -607,7 +578,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -669,7 +640,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -735,7 +706,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -766,7 +737,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -802,7 +773,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -845,7 +816,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -925,7 +896,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -957,7 +928,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -989,7 +960,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -1062,7 +1033,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -1213,7 +1184,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -1250,7 +1221,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -1272,24 +1243,8 @@ country_event = {
 			estate = estate_church
 			loyalty = 5
 		}
-		morea_area = {
-			limit = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-				NOT = { is_empty = yes }
-				NOT = { is_wasteland = yes }
-			}
-			add_permanent_claim = ROOT
-		}
-		aegean_archipelago_area = {
-			limit = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-				NOT = { is_empty = yes }
-				NOT = { is_wasteland = yes }
-			}
-			add_permanent_claim = ROOT
-		}
+		morea_area = { add_permanent_claim = ROOT }
+		aegean_archipelago_area = { add_permanent_claim = ROOT }
 	}
 
 	option = {
@@ -1337,7 +1292,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -1666,7 +1621,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -1746,7 +1701,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -1792,7 +1747,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -1849,7 +1804,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -2192,7 +2147,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	major = yes
@@ -2792,7 +2747,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -3071,7 +3026,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -3114,7 +3069,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	goto = 1933
@@ -3449,7 +3404,30 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 12
+		months = 18
+		modifier = {
+			factor = 1.5
+			112 = {
+				OR = {
+					prosperity = 100
+					NOT = { devastation = 1 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.75
+			112 = { devastation = 10 }
+		}
+		modifier = {
+			factor = 0.50
+			112 = {
+				OR = {
+					NOT = { controlled_by = ROOT }
+					has_siege = yes
+					is_blockaded = yes
+				}
+			}
+		}
 	}
 
 	immediate = {
@@ -3459,23 +3437,17 @@ country_event = {
 					is_year = 1483
 					NOT = { is_year = 1485 }
 				}
-				112 = {
-					set_province_flag = fee_ven_first_burning
-				}
+				112 = { set_province_flag = fee_ven_first_burning }
 			}
 			else_if = {
 				limit = {
 					is_year = 1574
 					NOT = { is_year = 1575 }
 				}
-				112 = {
-					set_province_flag = fee_ven_second_burning
-				}
+				112 = { set_province_flag = fee_ven_second_burning }
 			}
 			else = {
-				112 = {
-					set_province_flag = fee_ven_third_burning
-				}
+				112 = { set_province_flag = fee_ven_third_burning }
 			}
 		}
 	}
@@ -3488,35 +3460,7 @@ country_event = {
 			factor = 50
 		}
 
-		add_prestige = -10
-		change_innovativeness = -5
-		kill_advisor_by_category_effect = { ADM = yes }
-		if = {
-			limit = {
-				has_dlc = "Leviathan"
-				112 = {
-					OR = {
-						has_great_project = {
-							type = doges_palace
-							tier = 1
-						}
-						has_great_project = {
-							type = doges_palace
-							tier = 2
-						}
-						has_great_project = {
-							type = doges_palace
-							tier = 3
-						}
-					}
-				}
-			}
-			add_years_of_income = -1
-		}
-		112 = {
-			add_base_tax = -3
-			add_devastation = 25
-		}
+		add_years_of_income = -1
 	}
 
 	option = {
@@ -3527,19 +3471,9 @@ country_event = {
 		trigger = {
 			has_dlc = "Leviathan"
 			112 = {
-				OR = {
-					has_great_project = {
-						type = doges_palace
-						tier = 1
-					}
-					has_great_project = {
-						type = doges_palace
-						tier = 2
-					}
-					has_great_project = {
-						type = doges_palace
-						tier = 3
-					}
+				has_great_project = {
+					type = doges_palace
+					tier = 1
 				}
 			}
 		}
@@ -4197,7 +4131,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	major = yes
@@ -4361,7 +4295,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -4433,7 +4367,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -4525,7 +4459,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -4647,7 +4581,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -4769,7 +4703,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -4806,7 +4740,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -4860,7 +4794,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -5078,7 +5012,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -5266,7 +5200,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -5387,9 +5321,9 @@ country_event = {
 	}
 }
 
-#########	Life of Doge Francesco Venier 1489-1556	#########
+#########	Life of Doge Venier 1489-1556	#########
 
-# Francesco Venier?
+# Venier?
 country_event = {
 	id = FEE_Venice_Events.93
 	title = FEE_Venice_Events.93.T
@@ -5415,7 +5349,6 @@ country_event = {
 		}
 
 		add_estate_burghers_loyalty_effect = yes
-		add_mercantilism_or_monarch_power = { amount = 3 }
 	}
 
 	after = {
@@ -5429,13 +5362,14 @@ country_event = {
 	}
 }
 
-# Francesco Venier in Savoy
+# Venier in Savoy
 country_event = {
 	id = FEE_Venice_Events.94
 	title = FEE_Venice_Events.94.T
 	desc = FEE_Venice_Events.94.D
 	picture = MERCHANTS_TALKING_eventPicture
 
+	is_triggered_only = yes
 	fire_only_once = yes
 
 	trigger = {
@@ -5508,17 +5442,16 @@ country_event = {
 			}
 		}
 
-		add_mil_power = 25
-		add_mercantilism_or_monarch_power = { amount = 3 }
-		random_country = {
-			limit = { owns = 205 }
-			add_opinion = {
-				who = ROOT
-				modifier = opinion_export_bad
-			}
-			reverse_add_opinion = {
-				who = ROOT
-				modifier = opinion_export_bad
+		205 = {
+			owner = {
+				add_opinion = {
+					who = ROOT
+					modifier = opinion_export_bad
+				}
+				reverse_add_opinion = {
+					who = ROOT
+					modifier = opinion_export_bad
+				}
 			}
 		}
 	}
@@ -5534,7 +5467,7 @@ country_event = {
 	}
 }
 
-# Francesco Venier in France
+# Venier in France
 country_event = {
 	id = FEE_Venice_Events.95
 	title = FEE_Venice_Events.95.T
@@ -5610,17 +5543,16 @@ country_event = {
 			}
 		}
 
-		add_mil_power = 25
-		add_mercantilism_or_monarch_power = { amount = 3 }
-		random_country = {
-			limit = { owns = 183 }
-			add_opinion = {
-				who = ROOT
-				modifier = opinion_export_bad
-			}
-			reverse_add_opinion = {
-				who = ROOT
-				modifier = opinion_export_bad
+		183 = {
+			owner = {
+				add_opinion = {
+					who = ROOT
+					modifier = opinion_export_bad
+				}
+				reverse_add_opinion = {
+					who = ROOT
+					modifier = opinion_export_bad
+				}
 			}
 		}
 	}
@@ -5636,7 +5568,7 @@ country_event = {
 	}
 }
 
-# Francesco Venier in London
+# Venier in London
 country_event = {
 	id = FEE_Venice_Events.96
 	title = FEE_Venice_Events.96.T
@@ -5712,17 +5644,16 @@ country_event = {
 			}
 		}
 
-		add_mil_power = 25
-		add_mercantilism_or_monarch_power = { amount = 3 }
-		random_country = {
-			limit = { owns = 236 }
-			add_opinion = {
-				who = ROOT
-				modifier = opinion_export_bad
-			}
-			reverse_add_opinion = {
-				who = ROOT
-				modifier = opinion_export_bad
+		236 = {
+			owner = {
+				add_opinion = {
+					who = ROOT
+					modifier = opinion_export_bad
+				}
+				reverse_add_opinion = {
+					who = ROOT
+					modifier = opinion_export_bad
+				}
 			}
 		}
 	}
@@ -5842,7 +5773,7 @@ country_event = {
 	}
 
 	mean_time_to_happen = {
-		months = 6
+		months = 12
 	}
 
 	option = {
@@ -5935,7 +5866,7 @@ country_event = {
 #	}
 #
 #	mean_time_to_happen = {
-#		months = 6
+#		months = 12
 #	}
 #
 #	option = {

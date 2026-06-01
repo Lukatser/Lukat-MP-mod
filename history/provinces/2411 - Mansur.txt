@@ -1,4 +1,4 @@
-#2411 - Mansur
+#2411 - Kodak
 
 owner = CRI
 controller = CRI
@@ -9,7 +9,7 @@ base_tax = 3
 base_production = 3
 trade_goods = livestock
 base_manpower = 2
-capital = "Mansur"
+capital = "Kodak"
 is_city = yes
 add_core = CRI
 discovered_by = western

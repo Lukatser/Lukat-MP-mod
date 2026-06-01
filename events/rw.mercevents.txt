@@ -193,12 +193,12 @@ country_event = {
 	picture = NOT_DISCIPLINED_SOLDIERS_eventPicture
 	hidden = yes
 	
-	mean_time_to_happen = {
-		months = 1
-	}
-	
 	trigger = {
 		has_country_modifier = merc_change
+	}
+	
+	mean_time_to_happen = {
+		days = 0
 	}
 	
 	option = {

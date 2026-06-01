@@ -43,6 +43,51 @@
  emperor_lift_imperial_ban_action_desc: "Do you want to lift the §YImperial Ban§! imposed on §Y[From.GetName]§!?"
  emperor_lift_imperial_ban_action_tooltip: "Lift the §YImperial Ban§! imposed on §Y[From.GetName]§!.\n"
 
+ hree_remove_imperial_arch_office_title: "Remove Imperial Archoffice"
+ hree_remove_imperial_arch_office_desc: "§Y[From.GetName]§! was granted an Imperial Archoffice, which gives them specific bonuses. Removing it will cost us §R5§! Imperial Authority and change their opinion of us by §R-50§!. \n\nDo you want to remove their Imperial Archoffice?"
+ hree_remove_imperial_arch_office_tooltip: "Remove the Imperial Archoffice from §Y[From.GetName]§!.\n"
+
+ hree_grant_imperial_arch_office_alert_tooltip: "Grant an Imperial Archoffice"
+
+ hree_grant_imperial_arch_office_german_erzkanzler_title: "Grant Ger. Arch-Chancellor"
+ hree_grant_imperial_arch_office_german_erzkanzler_desc: "Do you want to grant §Y[From.GetName]§! the Imperial Archoffice of §YArch-Chancellor of Germany§!? \n\nThis will give them the following effects: \n[diplomatic_reputation]: §G+1.00§! \n[yearly_devotion]: §G+0.25§! \n\nAdditionally, §Y[From.GetName]'s§! opinion of us will change by §G50§!."
+ hree_grant_imperial_arch_office_german_erzkanzler_tooltip: "Grant the Imperial Archoffice of §YArch-Chancellor of Germany§! to §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_german_erzkanzler_dialog: "The [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) wants to grant us the Imperial Archoffice of §YArch-Chancellor of Germany§!. \n\nThis would give us the following effects: \n[diplomatic_reputation]: §G+1.00§! \n[yearly_devotion]: §G+0.25§! \n\nDo you want to accept?"
+
+ hree_grant_imperial_arch_office_italian_erzkanzler_title: "Grant Ital. Arch-Chancellor"
+ hree_grant_imperial_arch_office_italian_erzkanzler_desc: "Do you want to grant §Y[From.GetName]§! the Imperial Archoffice of §YArch-Chancellor of Italy§!? \n\nThis will give them the following effects: \n[diplomats]: §G+1§! \n[yearly_devotion]: §G+0.25§! \n\nAdditionally, §Y[From.GetName]'s§! opinion of us will change by §G50§!."
+ hree_grant_imperial_arch_office_italian_erzkanzler_tooltip: "Grant the Imperial Archoffice of §YArch-Chancellor of Italy§! to §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_italian_erzkanzler_dialog: "The [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) wants to grant us the Imperial Archoffice of §YArch-Chancellor of Italy§!. \n\nThis would give us the following effects: \n[diplomats]: §G+1§! \n[yearly_devotion]: §G+0.25§! \n\nDo you want to accept?"
+
+ hree_grant_imperial_arch_office_burgundian_erzkanzler_title: "Grant Bur. Arch-Chancellor"
+ hree_grant_imperial_arch_office_burgundian_erzkanzler_desc: "Do you want to grant §Y[From.GetName]§! the Imperial Archoffice of §YArch-Chancellor of Burgundy§!? \n\nThis will give them the following effects: \n[improve_relation_modifier]: §G+15.0%§! \n[yearly_devotion]: §G+0.25§! \n\nAdditionally, §Y[From.GetName]'s§! opinion of us will change by §G50§!."
+ hree_grant_imperial_arch_office_burgundian_erzkanzler_tooltip: "Grant the Imperial Archoffice of §YArch-Chancellor of Burgundy§! to §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_burgundian_erzkanzler_dialog: "The [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) wants to grant us the Imperial Archoffice of §YArch-Chancellor of Burgundy§!. \n\nThis would give us the following effects: \n[improve_relation_modifier]: §G+15.0%§! \n[yearly_devotion]: §G+0.25§! \n\nDo you want to accept?"
+
+ hree_grant_imperial_arch_office_erztruchsess_title: "Grant Arch-Steward"
+ hree_grant_imperial_arch_office_erztruchsess_desc: "Do you want to grant §Y[From.GetName]§! the Imperial Archoffice of §YArch-Steward§!? \n\nThis will give them the following effects: \n[yearly_prestige]: §G+0.50§! \n[yearly_legitimacy]: §G+0.25§! \n\nAdditionally, §Y[From.GetName]'s§! opinion of us will change by §G50§!."
+ hree_grant_imperial_arch_office_erztruchsess_tooltip: "Grant the Imperial Archoffice of §YArch-Steward§! to §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erztruchsess_dialog: "The [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) wants to grant us the Imperial Archoffice of §YArch-Steward§!. \n\nThis would give us the following effects: \n[yearly_prestige]: §G+0.50§! \n[yearly_legitimacy]: §G+0.25§! \n\nDo you want to accept?"
+
+ hree_grant_imperial_arch_office_erzmarschall_title: "Grant Arch-Marshal"
+ hree_grant_imperial_arch_office_erzmarschall_desc: "Do you want to grant §Y[From.GetName]§! the Imperial Archoffice of §YArch-Marshal§!? \n\nThis will give them the following effects: \n[own_territory_dice_roll_bonus]: §G+1.00§! \n[yearly_legitimacy]: §G+0.25§! \n\nAdditionally, §Y[From.GetName]'s§! opinion of us will change by §G50§!."
+ hree_grant_imperial_arch_office_erzmarschall_tooltip: "Grant the Imperial Archoffice of §YArch-Marshal§! to §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erzmarschall_dialog: "The [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) wants to grant us the Imperial Archoffice of §YArch-Marshal§!. \n\nThis would give us the following effects: \n[own_territory_dice_roll_bonus]: §G+1.00§! \n[yearly_legitimacy]: §G+0.25§! \n\nDo you want to accept?"
+
+ hree_grant_imperial_arch_office_erzkaemmerer_title: "Grant Arch-Chamberlain"
+ hree_grant_imperial_arch_office_erzkaemmerer_desc: "Do you want to grant §Y[From.GetName]§! the Imperial Archoffice of §YArch-Chamberlain§!? \n\nThis will give them the following effects: \n[global_tax_modifier]: §G+10.0%§! \n[yearly_legitimacy]: §G+0.25§! \n\nAdditionally, §Y[From.GetName]'s§! opinion of us will change by §G50§!."
+ hree_grant_imperial_arch_office_erzkaemmerer_tooltip: "Grant the Imperial Archoffice of §YArch-Chamberlain§! to §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erzkaemmerer_dialog: "The [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) wants to grant us the Imperial Archoffice of §YArch-Chamberlain§!. \n\nThis would give us the following effects: \n[global_tax_modifier]: §G+10.0%§! \n[yearly_legitimacy]: §G+0.25§! \n\nDo you want to accept?"
+
+ hree_grant_imperial_arch_office_erzmundschenk_title: "Grant Arch-Cup-Bearer"
+ hree_grant_imperial_arch_office_erzmundschenk_desc: "Do you want to grant §Y[From.GetName]§! the Imperial Archoffice of §YArch-Cup-Bearer§!? \n\nThis will give them the following effects: \n[global_trade_goods_size_modifier]: §G+5.0%§! \n[yearly_legitimacy]: §G+0.25§! \n\nAdditionally, §Y[From.GetName]'s§! opinion of us will change by §G50§!."
+ hree_grant_imperial_arch_office_erzmundschenk_tooltip: "Grant the Imperial Archoffice of §YArch-Cup-Bearer§! to §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erzmundschenk_dialog: "The [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) wants to grant us the Imperial Archoffice of §YArch-Cup-Bearer§!. \n\nThis would give us the following effects: \n[global_trade_goods_size_modifier]: §G+5.0%§! \n[yearly_legitimacy]: §G+0.25§! \n\nDo you want to accept?"
+
+ hree_grant_imperial_arch_office_erzbannertraeger_title: "Grant Arch-Standard-Bearer"
+ hree_grant_imperial_arch_office_erzbannertraeger_desc: "Do you want to grant §Y[From.GetName]§! the Imperial Archoffice of §YArch-Standard-Bearer§!? \n\nThis will give them the following effects: \n[land_morale]: §G+5.0%§! \n[yearly_legitimacy]: §G+0.25§! \n[yearly_devotion]: §G+0.25§! \n\nAdditionally, §Y[From.GetName]'s§! opinion of us will change by §G50§!."
+ hree_grant_imperial_arch_office_erzbannertraeger_tooltip: "Grant the Imperial Archoffice of §YArch-Standard-Bearer§! to §Y[From.GetName]§!.\n"
+ hree_grant_imperial_arch_office_erzbannertraeger_dialog: "The [GetHREemperorKing] (§Y[This.Monarch.GetName]§!) wants to grant us the Imperial Archoffice of §YArch-Standard-Bearer§!. \n\nThis would give us the following effects: \n[land_morale]: §G+5.0%§! \n[yearly_legitimacy]: §G+0.25§! \n[yearly_devotion]: §G+0.25§! \n\nDo you want to accept?"
 
  AI_ACC_NUM_OF_CITIES: "Their amount of cities"
  WRONG_RELIGION: "They follow the wrong faith"
@@ -50,7 +95,7 @@
  FROM_IS_GREAT_POWER: "They are a great power"
  ENEMY_OR_RIVAL: "They are our rival or enemy"
  ATTITUDE_TOWARDS_ROOT: "Their attitude towards us"
- EMPEROR_ARMY_STRENGTH: "the emperor's army strength"
+ EMPEROR_ARMY_STRENGTH: "Emperor's army strength"
  FROM_OWNS_HRE_PROVINCES_BUT_HAS_HIGH_RANK: "They own HRE provinces and have a higher government rank than \"Duchy\""
  ALLIED_WITH_EMPEROR: "We are allied with them"
  RIGHT_RELIGION: "They follow the true faith"
@@ -58,8 +103,7 @@
  OUR_AI_ACC_NUM_OF_CITIES: "Our amount of cities"
  FROM_OWNS_HRE_PROVINCES: "They own HRE provinces"
  OWNS_HRE_PROVINCES: "We own HRE provinces"
- EMPEROR_DIPLOMATIC_REPUTATION: "The emperor's diplomatic reputation"
+ EMPEROR_DIPLOMATIC_REPUTATION: "Emperor's diplomatic reputation"
  NUM_OF_HRE_MEMBERS: "Current number of HRE members"
- OUR_DIPLOMATIC_REPUTATION: "Diplomatic Reputation"
  ROOT_IS_GREAT_POWER: "We are a Great Power"
  FROM_LEFT_THE_HRE_PERMANENTLY: "They have left the HRE"

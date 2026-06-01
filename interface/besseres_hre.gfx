@@ -11,6 +11,33 @@ spriteTypes = {
 		loadType = "INGAME"
 	}
 
+	# GUIs:
+	spriteType = {
+		name = "GFX_hree_imperial_archoffices_open_button"
+		textureFile = "gfx/interface/hree_imperial_archoffices_open_button.dds"
+	}
+	spriteType = {
+		name = "GFX_hree_imperial_archoffices_bg"
+		textureFile = "gfx/interface/hree_imperial_archoffices_bg.dds"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "GFX_hree_imperial_archoffices_bg_leagues"
+		textureFile = "gfx/interface/hree_imperial_archoffices_bg_leagues.dds"
+		transparencecheck = yes
+	}
+	spriteType = {
+		name = "GFX_hree_imperial_archoffices_titles_bg"
+		textureFile = "gfx/interface/hree_imperial_archoffices_titles_bg.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_hree_imperial_archoffices_shield_bg_icon_strip"
+		textureFile = "gfx/interface/hree_imperial_archoffices_shield_bg_icon_strip.dds"
+		noOfFrames = 8
+		allwaystransparent = yes
+	}
+
 	# CBs:
 	spriteType = {
 		name = "GFX_cb_declare_anti_king"
