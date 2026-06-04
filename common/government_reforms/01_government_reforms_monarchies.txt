@@ -1034,7 +1034,7 @@ ottoman_government = {
 		unjustified_demands = -0.1
 		legitimacy = 0.5
 		max_absolutism = 5
-		governing_capacity = 150
+		governing_capacity = 50
 	}
 
 	removed_effect = {
@@ -2725,7 +2725,7 @@ mamluk_government = {
 		monarch_admin_power = 2
 		same_culture_advisor_cost = -0.25
 		promote_culture_cost = -0.5
-		governing_capacity = 50
+		governing_capacity = 150
 		nobles_influence_modifier = 0.1
 	}
 
