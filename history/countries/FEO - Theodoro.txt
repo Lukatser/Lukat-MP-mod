@@ -1,5 +1,5 @@
 government = monarchy
-add_government_reform = merchant_aristocracy_reform
+add_government_reform = gothic_monarchy_reform
 government_rank = 1
 primary_culture = goths
 religion = orthodox
@@ -18,9 +18,9 @@ if = {
 	monarch = {
 		name = "Alexis"
 		dynasty = "Gavras"
-		adm = 2
+		adm = 6
 		dip = 5
-		mil = 4
+		mil = 5
 	}
 }
 
