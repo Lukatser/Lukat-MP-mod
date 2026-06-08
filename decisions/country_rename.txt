@@ -47,7 +47,9 @@ country_decisions = {
                 tag = BUR
                 tag = LOT
                 tag = LAN
-                tag = ITA 
+                tag = ITA
+                tag = BRA
+                tag = ARA
             }
             NOT = {
                 ai = yes

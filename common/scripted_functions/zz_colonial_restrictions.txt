@@ -1,52 +1,4 @@
 can_colonize_province = {
-	# For ET:
-	condition = {
-		tooltip = NEED_TECH_TO_COLONIZE
-		potential = {
-			is_mod_active = "217416366"
-			has_province_modifier = hard_to_colonize
-		}
-		allow = {
-			FROM = { dip_tech = 78 }
-		}
-	}
-	# For SE:
-	condition = {
-		tooltip = NATIVE_RESERVE_CANNOT_COLONIZE_PROVINCE_WITH_OTHER_CULTURE
-		potential = {
-			is_mod_active = "1834079712"
-			FROM = {
-				is_subject_of_type = native_reserve
-			}
-		}
-		allow = {
-			culture = FROM
-		}
-	}
-	condition = {
-		tooltip = TRADE_OUTPOST_CANNOT_COLONIZE
-		potential = {
-			is_mod_active = "1834079712"
-			FROM = {
-				is_subject_of_type = trade_outpost
-			}
-		}
-		allow = {
-			always = no
-		}
-	}
-	condition = {
-		tooltip = TRADE_COMPANY_DOMINION_CANNOT_COLONIZE_IN_NON_TRADE_COMPANY_REGION
-		potential = {
-			is_mod_active = "1834079712"
-			FROM = {
-				is_any_trade_company_region_dominion_subject = yes
-			}
-		}
-		allow = {
-			is_node_in_trade_company_region = yes
-		}
-	}
 	#For Encyclopædium
 	condition = {
 		tooltip = "ae_COLONIAL_RESTRICTIONS_MAJOR"
@@ -60,8 +12,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -83,8 +39,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -106,8 +66,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -133,8 +97,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -156,8 +124,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -179,8 +151,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -206,8 +182,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -229,8 +209,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -252,8 +236,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -276,8 +264,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -301,8 +293,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -323,8 +319,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -345,8 +345,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -367,8 +371,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -389,8 +397,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -411,8 +423,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -433,8 +449,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -455,8 +475,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -477,8 +501,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -500,8 +528,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -523,8 +555,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -546,8 +582,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -569,8 +609,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -591,8 +635,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -612,8 +660,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -634,8 +686,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -655,8 +711,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -677,8 +737,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}
@@ -698,8 +762,12 @@ can_colonize_province = {
 				AND = {
 					ae_gamerule_colonization_ai = yes
 					OR = {
-						ai = no
-						colonial_parent = { ai = no }
+						FROM = {
+							ai = no
+						}
+						FROM = {
+							colonial_parent = { ai = no }
+						}
 					}
 				}
 			}

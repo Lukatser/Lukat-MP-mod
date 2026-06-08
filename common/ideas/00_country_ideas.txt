@@ -955,7 +955,7 @@ FRA_ideas_2 = {
 
 TUR_ideas = {
 	start = {
-		janissaries_privilege_slots = 1
+		discipline = 0.05
 		tolerance_heathen = 3
 	}
 	
@@ -976,7 +976,7 @@ TUR_ideas = {
 		manpower_recovery_speed = 0.1
 	}		
 	timariot_system = {
-		cavalry_power = 0.1
+		cavalry_power = 0.2
 	}
 	lawcode_of_suleiman_01 = {
 		global_tax_modifier = 0.15
@@ -5423,7 +5423,7 @@ FEO_ideas = {
 		defensiveness = 0.25
 	}
 	turms = {
-		cavalry_fire = 1
+		cavalry_power = 0.25
 		cavalry_flanking = 0.10
 	}
 	cave_monasteries = {

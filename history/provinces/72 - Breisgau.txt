@@ -20,8 +20,8 @@ discovered_by = ottoman
 fort_15th = yes
 
 1444.11.11 = {
-	owner = STY
-	controller = STY
+	owner = TIR
+	controller = TIR
 	add_core = STY
 }
 

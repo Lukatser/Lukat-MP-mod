@@ -1414,6 +1414,21 @@ country_event = {
 		override_country_name = CORONA_DE_CASTILLA_NAME
 	}
 	option = {
+		name = rename_country_aragon.a
+		trigger = { tag = ARA }
+		override_country_name = ARAGON_SICILY_NAME
+	}
+	option = {
+		name = rename_country_aragon.b
+		trigger = { tag = ARA }
+		override_country_name = ARAGON_ITALY_NAME
+	}
+	option = {
+		name = rename_country_aragon.c
+		trigger = { tag = ARA }
+		override_country_name = COMMUNITY_OF_ARAGON_NAME
+	}
+	option = {
 		name = rename_country_spain.a
 		trigger = { tag = SPA }
 		override_country_name = REINO_DE_ESPANA_NAME
@@ -1427,6 +1442,21 @@ country_event = {
 		name = rename_country_spain.c
 		trigger = { tag = SPA }
 		override_country_name = IMPERIUM_HISPANICUM_NAME
+	}
+	option = {
+		name = rename_country_spain.d
+		trigger = { tag = SPA }
+		override_country_name = THE_CATHOLIC_MONARCHY_NAME
+	}
+	option = {
+		name = rename_country_spain.e
+		trigger = { tag = SPA }
+		override_country_name = IMPERIUM_HISPANIAE_ET_ITALIAE_NAME
+	}
+	option = {
+		name = rename_country_spain.f
+		trigger = { tag = SPA }
+		override_country_name = IMPERIUM_COMMUNIUM_NAME
 	}
 	option = {
 		name = rename_country_mali.a
@@ -1497,6 +1527,11 @@ country_event = {
 		name = rename_country_sweden.c
 		trigger = { tag = SWE }
 		override_country_name = IKEA_LAND_NAME
+	}
+	option = {
+		name = rename_country_sweden.d
+		trigger = { tag = SWE }
+		override_country_name = SVERIGE_NAME
 	}
 	option = {
 		name = rename_country_muscovy.a 
@@ -1592,5 +1627,20 @@ country_event = {
 		name = rename_country_lothringia.a
 		trigger = { tag = LOT }
 		override_country_name = LONGTHARINGIA_NAME
+	}
+	option = {
+		name = rename_country_brandendurg.a
+		trigger = { tag = BRA }
+		override_country_name = KURBRANDENBURG_NAME
+	}
+	option = {
+		name = rename_country_brandendurg.b
+		trigger = { tag = BRA }
+		override_country_name = MARKGRAFSCHAFT_BRANDENBURG_NAME
+	}
+	option = {
+		name = rename_country_brandendurg.c
+		trigger = { tag = BRA }
+		override_country_name = KURFURSTENTURN_BRANDENBURG_NAME
 	}
 }
