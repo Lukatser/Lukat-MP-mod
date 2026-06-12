@@ -50,6 +50,9 @@ country_decisions = {
                 tag = ITA
                 tag = BRA
                 tag = ARA
+                tag = GEO
+                tag = FLA
+                tag = POR
             }
             NOT = {
                 ai = yes

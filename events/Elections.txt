@@ -2017,6 +2017,10 @@ country_event = {
 		}
 		else = {
 			define_ruler = {
+				change_adm = 3
+				change_dip = 3
+				change_mil = 3
+				female = yes
 			}
 		}
 		if = {

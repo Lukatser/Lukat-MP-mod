@@ -688,7 +688,7 @@ defensive_ideas = {
 		army_tradition_from_battle = 1.0
 	}
 	military_drill = {
-		land_morale = 0.175
+		land_morale = 0.1
 		garrison_damage = 0.33
 	}
 	improved_manuever = {

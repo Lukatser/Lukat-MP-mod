@@ -1489,6 +1489,26 @@ country_event = {
 		override_country_name = FREE_PROVINCES_OF_THE_LOWLANDS_NAME
 	}
 	option = {
+		name = rename_country_flanders.a
+		trigger = { tag = FLA }
+		override_country_name = SOUTH_NETHERLANDS_NAME
+	}
+	option = {
+		name = rename_country_flanders.b
+		trigger = { tag = FLA }
+		override_country_name = VLAANDEREN_NAME
+	}
+	option = {
+		name = rename_country_netherlands.d
+		trigger = { OR = { tag = FLA tag = NED } }
+		override_country_name = REPUBLIEK_DER_ZEVEN_VERENIGDE_NEDERLANDEN_NAME
+	}
+	option = {
+		name = rename_country_netherlands.e
+		trigger = { tag = NED }
+		override_country_name = BENELUX_UNIE_NAME
+	}
+	option = {
 		name = rename_country_arabia.a
 		trigger = { OR = { tag = ARB tag = MAM } }
 		override_country_name = DAR_AL_ISLAM_NAME
@@ -1642,5 +1662,35 @@ country_event = {
 		name = rename_country_brandendurg.c
 		trigger = { tag = BRA }
 		override_country_name = KURFURSTENTURN_BRANDENBURG_NAME
+	}
+	option = {
+		name = rename_country_georgia.a
+		trigger = { tag = GEO }
+		override_country_name = CAUCASIAN_EMPIRE_NAME
+	}
+	option = {
+		name = rename_country_georgia.b
+		trigger = { tag = GEO }
+		override_country_name = NORTH_GEORGIA_NAME
+	}
+	option = {
+		name = rename_country_georgia.c
+		trigger = { tag = GEO }
+		override_country_name = IBERIA_NAME
+	}
+	option = {
+		name = rename_country_portugal.a
+		trigger = { tag = POR }
+		override_country_name = IMPERIO_POTUGUES_NAME
+	}
+	option = {
+		name = rename_country_portugal.b
+		trigger = { tag = POR }
+		override_country_name = IMPERIO_DO_OESTE_NAME
+	}
+	option = {
+		name = rename_country_portugal.c
+		trigger = { tag = POR }
+		override_country_name = EMPIRE_OF_PORTUGAL_BRAZIL_NAME
 	}
 }
