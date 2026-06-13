@@ -54,7 +54,7 @@ categories =  {
 		nation_designer_cost_multiplier = 0.75
 		combat_width = -0.75
 		attrition = 2
-		garrison_growth = -0.2
+		garrison_growth = -0.1
 		local_defensiveness = 0.6		
 		
 		terrain_override = {		
@@ -155,7 +155,7 @@ categories =  {
 		local_development_cost = 0.2
 		nation_designer_cost_multiplier = 0.9
 		combat_width = -0.20
-		garrison_growth = -0.1
+		garrison_growth = -0.05
 		local_defensiveness = 0.8
 		
 		terrain_override = { 
@@ -185,7 +185,7 @@ categories =  {
 		nation_designer_cost_multiplier = 0.85
 		supply_limit = 5
 		combat_width = -0.25
-		garrison_growth = -0.1
+		garrison_growth = -0.05
 		local_defensiveness = 1
 		
 		terrain_override = {
@@ -478,7 +478,7 @@ categories =  {
 		nation_designer_cost_multiplier = 0.8
 		supply_limit = 5
 		combat_width = -0.25
-		garrison_growth = -0.2
+		garrison_growth = -0.05
 		local_defensiveness = 0.5
 		attrition = 0.5
 		
