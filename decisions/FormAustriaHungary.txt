@@ -24,7 +24,6 @@ country_decisions = {
 				primary_culture = austrian
 			}
 			NOT = { has_country_flag = badboy_not_allowed_flag }
-			has_institution = enlightenment
 		}
 		provinces_to_highlight = {
 			OR = {

@@ -51,11 +51,12 @@ province_event = {
 	title = "SAC_malaria.2.t"
 	desc = "SAC_malaria.2.d"
 	
-	hidden = no
+	hidden = yes
 	
 	trigger = {
 		AND = {
 			has_province_modifier = african_disease_modifier
+			NOT = has_province_modifier = african_disease_modifier_2
 			NOT = {same_continent = capital }
 			NOT = {
 				owner = {

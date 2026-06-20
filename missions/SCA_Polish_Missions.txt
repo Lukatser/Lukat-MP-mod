@@ -3259,7 +3259,7 @@ poland_sca_slot_4_plc_1 = {
 				army_professionalism = 1 
 			}
 			else = { army_tradition = 95 } 
-			army_size = 150 
+			army_size = 75 
 			if = { 
 				limit = { 
 					has_estate = estate_cossacks 

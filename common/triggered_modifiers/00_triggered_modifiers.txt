@@ -1108,6 +1108,7 @@ minor_power_buff = {
 
 	ae_impact = -0.25
 	core_creation = -0.25
+	mercenary_cost = -0.33
 }
 
 medium_power_buff = {

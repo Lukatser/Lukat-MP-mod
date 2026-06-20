@@ -53,6 +53,7 @@ country_decisions = {
                 tag = GEO
                 tag = FLA
                 tag = POR
+                tag = PRU
             }
             NOT = {
                 ai = yes

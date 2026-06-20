@@ -4,6 +4,7 @@ tm_md_polish_crown = {
 		OR = {
 			tag = PLC
 			tag = POL
+			has_country_flag = unlock_polish_ability_flag
 		}
 	}
 	trigger = {}

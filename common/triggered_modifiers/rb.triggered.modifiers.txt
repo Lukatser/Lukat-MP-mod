@@ -3,7 +3,12 @@ RB_CorruptState = {
 		corruption = 5
 	}
 	trigger = {
-		corruption = 30
+		AND = {
+			corruption = 30
+			NOT = {
+				has_government_mechanic = corruption_mechanic
+			}
+		}
 	}
 
 	land_morale = -0.1

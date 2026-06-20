@@ -2647,11 +2647,19 @@ gbr_row_4 = {
 				limit = { is_random_new_world = no }
 				custom_trigger_tooltip = {
 					tooltip = english_colony_in_the_carribean.tooltip
-					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-						value = 5
-						colonial_region = colonial_the_carribean
-						is_city = yes
+					OR = {
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 5
+							colonial_region = colonial_the_carribean
+							is_city = yes
+						}
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 5
+							trade_company_region = trade_company_carribean
+							is_city = yes
+						}
 					}
+					
 				}
 			}
 			else = {

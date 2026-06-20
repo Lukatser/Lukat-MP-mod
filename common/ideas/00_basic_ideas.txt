@@ -633,7 +633,8 @@ offensive_ideas = {
 	}
 	napoleonic_warfare = {
 		discipline = 0.05
-		global_attacker_dice_roll_bonus = 1
+		can_recruit_rajputs = yes
+		allowed_rajput_fraction = 0.2
 	}
 
 	ai_will_do = {

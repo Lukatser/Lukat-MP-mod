@@ -853,8 +853,6 @@ country_event = { #rebel backup
     }
 }
 
-
-
 namespace = rename_country
 
 country_event = {
@@ -1077,6 +1075,21 @@ country_event = {
 		name = rename_country_great_britain.d
 		trigger = { tag = ENG }
 		override_country_name = COMMONWEALTH_OF_ENGLAND_NAME
+	}
+	option = {
+		name = rename_country_great_britain.g
+		trigger = { tag = GBR }
+		override_country_name = ALBION_NAME
+	}
+	option = {
+		name = rename_country_great_britain.h
+		trigger = { tag = GBR }
+		override_country_name = IMPERIAL_FEDERATION_NAME
+	}
+	option = {
+		name = rename_country_great_britain.i
+		trigger = { tag = GBR }
+		override_country_name = BRITANICA_NAME
 	}
 	option = {
 		name = rename_country_holy_roman_empire.c
@@ -1619,6 +1632,11 @@ country_event = {
 		override_country_name = HAUS_HABSBURG_NAME
 	}
 	option = {
+		name = rename_country_styria.g
+		trigger = { is_or_was_tag = { tag = STY } }
+		override_country_name = DANUBIAN_CONFEDERATION_NAME
+	}
+	option = {
 		name = rename_country_florence.a
 		trigger = { tag = LAN }
 		override_country_name = FIRENZE_NAME
@@ -1692,5 +1710,20 @@ country_event = {
 		name = rename_country_portugal.c
 		trigger = { tag = POR }
 		override_country_name = EMPIRE_OF_PORTUGAL_BRAZIL_NAME
+	}
+	option = {
+		name = rename_country_prussia.a
+		trigger = { tag = PRU }
+		override_country_name = BRANDENBURG_PREUSSen_NAME
+	}
+	option = {
+		name = rename_country_prussia.b
+		trigger = { tag = PRU }
+		override_country_name = KONIGREICH_IN_PREUSSEN_NAME
+	}
+	option = {
+		name = rename_country_prussia.c
+		trigger = { tag = PRU }
+		override_country_name = NORDDEUTSCHER_BUND_NAME
 	}
 }
