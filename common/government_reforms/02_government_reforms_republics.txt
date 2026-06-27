@@ -1039,8 +1039,8 @@ ambrosian_republic = {
 	modifiers = {
 		global_tax_modifier = 0.1
 		land_morale = 0.05
-		governing_capacity = 50
-		max_absolutism = 10
+		governing_capacity = 100
+		max_absolutism = 20
 		monthly_liberalism = 0.1
 	}
 	government_abilities = {
@@ -4301,11 +4301,9 @@ millenarian_theocracy_reform = {
 	allow_normal_conversion = yes
 	has_term_election = no
 	potential = {
-		religion = catholic
-		has_ruler = "Girolamo Savonarola"
 		OR = {
-			tag = LAN
-			tag = TUS
+			has_reform = millenarian_theocracy_reform
+			have_had_reform = millenarian_theocracy_reform
 		}
 	}
 	lock_level_when_selected = yes
@@ -4318,10 +4316,10 @@ millenarian_theocracy_reform = {
 		}
 	}
 	modifiers = {
-		devotion = 1
-		tolerance_own = 2
-		global_missionary_strength = 0.02
-		max_absolutism = 40
+		republican_tradition = 1
+		tolerance_own = 3
+		global_missionary_strength = 0.03
+		max_absolutism = 60
 	}
 	custom_attributes = {
 		election_on_death = yes

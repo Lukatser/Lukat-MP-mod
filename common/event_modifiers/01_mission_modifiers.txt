@@ -4742,6 +4742,10 @@ bav_professional_army = {
 bav_boarisch_als_leitkultur = {
 	prestige = 1
 	diplomatic_reputation = 1
+	same_culture_advisor_cost = -0.2
+	culture_conversion_cost = -0.25
+	culture_conversion_time = -0.25
+	development_cost_in_primary_culture = -0.1
 }
 
 bav_italian_coast = {
