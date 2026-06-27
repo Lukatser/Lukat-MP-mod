@@ -12113,8 +12113,8 @@ HAN_ideas = {
 		development_cost = -0.1
 	}
 	han_shutzenfest = {
-		land_morale = 0.05
-		fire_damage = 0.05
+		land_morale = 0.1
+		fire_damage = 0.1
 	}
 	han_herrenhausen_gardens = {
 		prestige = 1
@@ -12127,7 +12127,7 @@ HAN_ideas = {
 	}
 	han_kings_legion = {
 		fire_damage_received = -0.15
-		shock_damage_received = -0.1
+		shock_damage_received = -0.15
 	}
 }
 
@@ -16741,6 +16741,7 @@ FKN_ideas = {
 	}
 	fkn_free_knights_of_franconia = {
 		cavalry_power = 0.25
+		cav_to_inf_ratio = 0.20
 	}
 	franconian_wine = { #in WBG_ideas
 		#production_efficiency = 0.1
@@ -16749,7 +16750,7 @@ FKN_ideas = {
 		land_morale = 0.1
 	}
 	fkn_franconian_bourgeoisie = {
-		development_cost = -0.05
+		development_cost = -0.15
 		advisor_cost = -0.1
 	}
 }
@@ -16832,8 +16833,8 @@ CLI_ideas = {
 
 WES_ideas = {
 	start = {
-		reform_progress_growth = 0.15
-		land_forcelimit_modifier = 0.2
+		reform_progress_growth = 0.25
+		land_forcelimit_modifier = 0.3
 	}
 	bonus = {
 		discipline = 0.05
@@ -16851,7 +16852,7 @@ WES_ideas = {
 		development_cost = -0.1
 	}
 	wes_increased_conscription = {
-		global_manpower_modifier = 0.20
+		global_manpower_modifier = 0.30
 	}
 	wes_administrative_assimilation_of_rheinlanders = {
 		num_accepted_cultures = 1
@@ -16876,7 +16877,7 @@ SWA_ideas = {
 		improve_relation_modifier = 0.25
 	}
 	bonus = {
-		land_morale = 0.15
+		land_morale = 0.2
 	}
 	trigger = {
 		tag = SWA
@@ -16885,13 +16886,15 @@ SWA_ideas = {
 
 	swa_decentralisation = {
 		state_maintenance_modifier = -0.15
+		governing_capacity = 100
 	}
 	fugger_banks = { #from HAB_ideas
 		inflation_reduction = 0.05
-		interest = -0.5
+		interest = -1
 	}
 	swa_free_cities = {
 		global_prov_trade_power_modifier = 0.15
+		global_trade_goods_size_modifier = 0.1
 	}
 	swa_swabian_league = {
 		diplomatic_upkeep = 1
@@ -18645,7 +18648,7 @@ UCN_ideas = {
 GMA_ideas = {
 	start = {
 		global_manpower_modifier = 0.25
-		global_trade_goods_size_modifier = 0.1
+		global_trade_goods_size_modifier = 0.15
 	}
 	
 	bonus = {
@@ -18676,6 +18679,7 @@ GMA_ideas = {
 		republican_tradition = 0.3
 		meritocracy = 1
 		horde_unity = 1
+		infantry_power = 0.15
 	}
 	gma_canonize_cyril_methodius = {
 		tolerance_own = 3
