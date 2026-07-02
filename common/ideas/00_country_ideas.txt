@@ -32,16 +32,16 @@ norse_ideas = {
 		leader_land_shock = 1
 		leader_naval_shock = 1
 	}
+	norse_ideas_leifs_legacy = {
+		may_explore = yes
+		colonists = 1
+		effect = { remove_temporary_colonist = yes }
+	}
 	norse_ideas_norse_artisans = {
 		development_cost = -0.1
 	}
 	norse_ideas_berserkir = {
 		shock_damage = 0.2
-	}
-	norse_ideas_leifs_legacy = {
-		may_explore = yes
-		colonists = 1
-		effect = { remove_temporary_colonist = yes }
 	}
 	norse_ideas_ancestral_faith = {
 		tolerance_own = 2
