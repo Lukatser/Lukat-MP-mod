@@ -981,7 +981,6 @@ country_event = {
 	picture = ECONOMY_eventPicture
 	
 	is_triggered_only = yes
-	hidden = yes
 	trigger = {
 	}
 	option = {
@@ -1402,3 +1401,4 @@ country_event = {
 		}
 	}
 }
+
