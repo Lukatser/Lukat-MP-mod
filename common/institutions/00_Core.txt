@@ -309,7 +309,7 @@ renaissance = {
 				area = lombardy_area
 			}
 			AND = {
-				is_year = 1445
+				is_year = 1444
 				area = liguria_area
 			}
 			AND = {
@@ -320,7 +320,18 @@ renaissance = {
 				is_year = 1444
 				province_id = 78
 			}
-
+			AND = {
+				is_year = 1444
+				province_id = 1869
+			}
+			AND = {
+				is_year = 1444
+				province_id = 201
+			}
+			AND = {
+				is_year = 1444
+				province_id = 1865
+			}
 			AND = {
 				is_year = 1450
 				region = italy_region
@@ -1052,22 +1063,14 @@ new_world_i = {
 			#has_any_exploration_idea = yes
 			#at least one province colonised or colonising, or have a subject colony
 			OR = {
-				AND = {
-					has_discovered = 994
-					has_discovered = 2547
-					has_discovered = 893
-					has_discovered = 842
-					has_discovered = 852
-					has_discovered = 808
-					has_discovered = 2803
-					has_discovered = 1529
-					has_discovered = 1536
-				}
-				AND = {
-					has_discovered = 1539
-					has_discovered = 1177
-					has_discovered = 1485
-					india_superregion = { has_discovered = PREV }
+				num_of_provinces_owned_or_owned_by_subjects_with = {
+					value = 10
+					OR = {
+						continent = north_america
+						continent = south_america
+						continent = new_world
+					}
+					is_city = yes
 				}
 				any_subject_country = {
 					OR = {
@@ -1083,91 +1086,17 @@ new_world_i = {
 							continent = new_world
 						}
 					}
-					num_of_cities = 10
 				}
 			}
 		}
 	}
-	start_chance = 30		#in 100 for when a province can_start
+	start_chance = 15		#in 100 for when a province can_start
 	
 	
 	on_start = institution_events.3
 	
-	
-	
-
-	
-	
 	can_embrace = {
-#		owner = {
-#			OR = {
-#				 hidden_trigger = {
-#				 	has_country_flag = got_colonialism				
-#				 }
-#				any_owned_province = {
-#					new_world_i = 1
-#				}
-#				any_friendly_coast_border_province = {
-#					new_world_i = 1
-#				}
-#				any_neighbor_province = {
-#					new_world_i = 1
-#				}
-#				has_institution = new_world_i
-#				has_idea_group = exploration_ideas
-#				has_idea_group = expansion_ideas
-#				num_of_colonists = 1
-#				has_idea = siberian_frontier
-#				is_colonial_nation = yes
-#				has_subject_of_type = colony
-#				has_subject_of_type = crown_colony
-#				has_subject_of_type = self_governing_colony
-#				has_subject_of_type = private_enterprise
-#				AND = {
-#					capital_scope = {
-#						OR = {
-#							continent = europe
-#							continent = africa
-#							continent = asia
-#						}
-#					}
-#					any_owned_province = {
-#						OR = {
-#							continent = north_america
-#							continent = south_america
-#						}
-#					}
-#				}
-#				AND = {
-#					capital_scope = {
-#						continent = europe
-#					}
-#					is_year = 1600
-#				}
-#				AND = {
-#					capital_scope = {
-#						OR = {
-#							continent = africa
-#							continent = asia
-#						}
-#					}
-#					is_year = 1625
-#				}
-#				AND = {
-#					capital_scope = {
-#						OR = {
-#							continent = north_america
-#							continent = south_america
-#							continent = oceania
-#							continent = island_check_provinces
-#							continent = new_world
-#						}
-#					}
-#					is_year = 1650
-#				}
-#			}			
-#		}
-	always = yes
+		always = yes
 	}
 
 
@@ -1406,12 +1335,6 @@ global_trade = {
 				province_has_center_of_trade_of_level = 1
 			}
 		}
-		owner = {
-			home_trade_node = {
-				is_strongest_trade_power = PREV
-				highest_value_trade_node = yes
-			}
-		}
 		OR = {
 			owner = {
 				dip_tech = 18
@@ -1437,33 +1360,6 @@ global_trade = {
 										continent = south_america
 									}
 									any_active_trade_node = {
-										continent = north_america
-									}
-								}
-							}
-						}
-						custom_trigger_tooltip = {
-							tooltip = province_every_continent_tt
-							AND = {
-								num_of_provinces_owned_or_owned_by_subjects_with = {
-									value = 1
-									continent = europe
-								}
-								num_of_provinces_owned_or_owned_by_subjects_with = {
-									value = 1
-									continent = africa
-								}
-								num_of_provinces_owned_or_owned_by_subjects_with = {
-									value = 1
-									continent = asia
-								}
-								OR = {
-									num_of_provinces_owned_or_owned_by_subjects_with = {
-										value = 1
-										continent = south_america
-									}
-									num_of_provinces_owned_or_owned_by_subjects_with = {
-										value = 1
 										continent = north_america
 									}
 								}
@@ -1761,7 +1657,6 @@ manufactories = {
 	can_start = {
 		# is_year = 1650
 		is_institution_enabled = printing_press
-		owner = { adm_tech = 16 }
 		printing_press = 100
 		global_trade = 100
 		is_in_capital_area = yes
@@ -1773,7 +1668,17 @@ manufactories = {
 			calc_true_if = {
 				amount = 2
 				all_neighbor_province = {
-					development = 15
+					AND = { 
+						development = 15
+						OR = {
+							has_building = wharf
+							has_building = weapons
+							has_building = textile
+							has_building = plantations
+							has_building = tradecompany
+							has_building = mills
+						}
+					}
 				}
 			}
 		}
@@ -2261,14 +2166,16 @@ enlightenment = {
 				has_seat_in_parliament = yes
 			}
 			has_building = university
-			AND = {
-				owner = {
-					ADM = 5
-					MIL = 5
-					DIP = 5
-				}
+		}
+		OR = {
+			owner = {
+				ADM = 5
+				MIL = 4
+				DIP = 4
 			}
-			
+			ruler_has_good_mil_education
+			ruler_has_good_dip_education
+			ruler_has_good_adm_education
 		}
 	}
 	start_chance = 10		#in 100 for when a province can_start

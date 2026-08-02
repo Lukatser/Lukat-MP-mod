@@ -234,7 +234,7 @@ rock_of_gibraltar = {
 }
 
 hohenzollern_castle = {
-	start = 70 #hohenzollern
+	start = 3005 #hohenzollern
 	date = 1129.01.01
 	time = { months = 0 }
 	build_cost = 0

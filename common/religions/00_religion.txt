@@ -821,8 +821,8 @@ christian = {
 		icon = 14
 		allow_female_defenders_of_the_faith = yes
 		country = {
-			defensiveness = 0.15
-			tolerance_own = 1
+			defensiveness = 0.25
+			tolerance_own = 2
 		}
 		country_as_secondary = {
 			siege_ability = 0.1

@@ -3002,8 +3002,8 @@ province;red;green;blue;x;x
 3001;232;5;5;Skopje;x
 3002;134;198;192;Sarajevo;x
 3003;188;110;220;Euboea;x
-3004;189;110;220;South Western Icland coast;
-3005;190;110;220;Unused2;
+3004;189;110;220;South Western Iceland coast;
+3005;190;110;220;Hohenzollern;
 3006;191;110;220;Unused3;
 3007;192;110;220;Unused4;
 3008;193;110;220;Unused5;
@@ -3049,7 +3049,7 @@ province;red;green;blue;x;x
 3048;207;110;247;Unused35;
 3049;207;110;248;Unused36;
 3050;207;110;249;Unused37;
-3051;207;110;250;Unused38;
+3051;207;110;250;Rottweil;
 3052;208;110;1;Unused39;
 3053;207;110;2;Unused40;
 3054;207;110;3;Unused41;

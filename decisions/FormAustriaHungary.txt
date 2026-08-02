@@ -117,8 +117,6 @@ country_decisions = {
 			1768 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			adm_tech = 32
-			has_institution = industrialization
 		} 
 		effect = {
 			if = {

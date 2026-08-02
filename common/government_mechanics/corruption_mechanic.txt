@@ -19,7 +19,7 @@ corruption_mechanic = {
 					spy_offence = 0.50
 					all_power_cost = -1.0
 					min_autonomy = -50
-					global_unrest = 17 # keep -3 from corruption at 100
+					global_unrest = -17 # keep -3 from corruption at 100
 					imperial_mandate = 1
 					# Additional Modifiers
 					yearly_corruption = 12
