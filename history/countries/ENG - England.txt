@@ -24,7 +24,6 @@ change_estate_land_share = {
 	share = -10
 }
 
-#1422.8.31 = { #Succession
 
 change_estate_land_share = { #compensates for lack of nobles, distributes 20 between the remaining estates
 	estate = all
@@ -47,7 +46,18 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 
 #1434.1.1 = { leader = {	name = "Richard Neville"	type = general	fire = 3	shock = 3	manuever = 3	siege = 0	death_date = 1460.12.31 } }
 
-1444.1.1 = { leader = {	name = "John Talbot"	type = general	fire = 2	shock = 4	manuever = 3	siege = 0	death_date = 1453.7.17 } }
+1444.1.1 = { 
+	leader = {	
+		name = "John Talbot"	
+		type = general	
+		fire = 2	
+		shock = 4	
+		manuever = 3	
+		siege = 0	
+		death_date = 1453.7.17 
+	} 
+	set_estate_privilege = estate_nobles_english_villeinage
+}
 
 1445.4.23 = {
 	queen = {
