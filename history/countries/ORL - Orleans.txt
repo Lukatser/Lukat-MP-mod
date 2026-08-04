@@ -4,7 +4,7 @@ government_rank = 1
 primary_culture = cosmopolitan_french
 religion = catholic
 technology_group = western
-capital = 184	# Orléans
+capital = 184	# Orlï¿½ans
 fixed_capital = 184 # Cannot move capital away from this province & no power cost to move to it
 
 1392.1.1 = {
@@ -31,7 +31,7 @@ fixed_capital = 184 # Cannot move capital away from this province & no power cos
 	}
 }
 
-1407.1.1 = {
+1442.1.1 = {
 	monarch = {
 		name = "Charles I"
 		dynasty = "de Valois"
@@ -39,6 +39,18 @@ fixed_capital = 184 # Cannot move capital away from this province & no power cos
 		adm = 1
 		dip = 3
 		mil = 0
+	}
+	heir = {
+		name = "Jeanne"
+		monarch_name = "Louis II"
+		dynasty = "de Valois"
+		birth_date = 1441.6.27
+		death_date = 1612.1.1
+		claim = 95
+		female = yes
+		adm = 3
+		dip = 4
+		mil = 6
 	}
 }
 
@@ -82,7 +94,7 @@ add_government_reform = autocracy_reform }
 
 1545.1.1 = {
 	monarch = {
-		name = "Régence"
+		name = "Rï¿½gence"
 		regent = yes
 		adm = 1
 		dip = 1

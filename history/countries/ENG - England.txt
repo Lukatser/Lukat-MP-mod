@@ -36,9 +36,9 @@ change_estate_land_share = { #compensates for lack of nobles, distributes 20 bet
 		name = "Henry VI"
 		dynasty = "Lancaster"
 		birth_date = 1421.12.6
-		adm = 0
-		dip = 0
-		mil = 0
+		adm = 1
+		dip = 1
+		mil = 1
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = infertile_personality

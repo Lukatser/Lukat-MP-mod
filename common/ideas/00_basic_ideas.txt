@@ -211,7 +211,7 @@ theocracy_gov_ideas = {
 		fire_damage_received = -0.075
 	}
 	friends_in_high_places = {
-		global_religious_conversion_resistance = -0.45
+		global_religious_conversion_resistance = 0.45
 		relation_with_same_religion = 25
 		reverse_relation_with_same_religion = 25
 	}
@@ -1140,6 +1140,10 @@ exploration_ideas = {
 				}
 			}
 		}
+		modifier = {
+			factor = 0.0
+			is_colonial_nation = yes
+		}
 	}
 }
 
@@ -1489,7 +1493,7 @@ expansion_ideas = {
 			has_idea_group = exploration_ideas
 		}
 		modifier = {
-			factor = 1000.0
+			factor = 0.0
 			is_colonial_nation = yes
 		}
 		modifier = {
