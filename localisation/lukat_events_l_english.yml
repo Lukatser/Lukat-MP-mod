@@ -68,15 +68,15 @@
  join_war_event.1: "Diplo play moment?!"
  noo: "No"
 
- dev_to_fl_0_10: Regimental camp forcelimit
- dev_to_fl_0_10_2: Conscription center forcelimit
- dev_to_fl_10_20: Regimental camp forcelimit
- dev_to_fl_10_20_2: Conscription center forcelimit
- dev_to_fl_20_30: Regimental camp forcelimit
- dev_to_fl_20_30_2: Conscription center forcelimit
- dev_to_fl_30_40: Regimental camp forcelimit
- dev_to_fl_30_40_2: Conscription center forcelimit
- dev_to_fl_40_50: Regimental camp forcelimit
- dev_to_fl_40_50_2: Conscription center forcelimit
- dev_to_fl_50+: Regimental camp forcelimit
- dev_to_fl_50+_2: Conscription center forcelimit
+ dev_to_fl_0_10: "Regimental camp forcelimit"
+ dev_to_fl_0_10_2: "Conscription center forcelimit"
+ dev_to_fl_10_20: "Regimental camp forcelimit"
+ dev_to_fl_10_20_2: "Conscription center forcelimit"
+ dev_to_fl_20_30: "Regimental camp forcelimit"
+ dev_to_fl_20_30_2: "Conscription center forcelimit"
+ dev_to_fl_30_40: "Regimental camp forcelimit"
+ dev_to_fl_30_40_2: "Conscription center forcelimit"
+ dev_to_fl_40_50: "Regimental camp forcelimit"
+ dev_to_fl_40_50_2: "Conscription center forcelimit"
+ dev_to_fl_50+: "Regimental camp forcelimit"
+ dev_to_fl_50+_2: "Conscription center forcelimit"

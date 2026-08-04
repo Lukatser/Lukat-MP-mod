@@ -2173,9 +2173,9 @@ enlightenment = {
 				MIL = 4
 				DIP = 4
 			}
-			ruler_has_good_mil_education
-			ruler_has_good_dip_education
-			ruler_has_good_adm_education
+			ruler_has_good_mil_education = yes
+			ruler_has_good_dip_education = yes
+			ruler_has_good_adm_education = yes
 		}
 	}
 	start_chance = 10		#in 100 for when a province can_start
@@ -2476,12 +2476,12 @@ enlightenment = {
 #######################################
 industrialization = {
 	
-	trade_company_efficiency = 5
-
 	bonus = {
 		global_manpower_modifier = 0.25
 		global_tax_modifier = 0.15
 	}
+
+	trade_company_efficiency = 5
 
 	historical_start_date = 1750.1.1
 	historical_start_province = 244 #Lancashire
@@ -2503,13 +2503,12 @@ industrialization = {
 			}
 		}
 	}
-	
+
 	can_start = {
 		# is_year = 1750
 		owner = { adm_tech = 25 }
 		is_institution_enabled = enlightenment
 		manufactories = 100
-		printing_press = 100
 		enlightenment = 100
 		is_in_capital_area = yes
 		is_island = no
@@ -2571,17 +2570,7 @@ industrialization = {
 	
 	
 	can_embrace = {
-		owner = {
-			OR = {
-				any_owned_province = {
-					industrialization = 100
-				}
-				has_institution = industrialization
-				any_owned_province = {
-					trade_goods = coal
-				}
-			}
-		}
+		always = yes
 	}
 
 	
