@@ -1686,6 +1686,16 @@ country_event = {
 		override_country_name = RED_NETHERLANDS_NAME
 	}
 	option = {
+		name = rename_country_burgundy.c
+		trigger = { tag = BUR }
+		override_country_name = MUSTARD_COUNTRY_NAME
+	}
+	option = {
+		name = rename_country_burgundy.d
+		trigger = { tag = BUR }
+		override_country_name = THE_REJECT_FRENCHIES_NAME
+	}
+	option = {
 		name = rename_country_lothringia.a
 		trigger = { tag = LOT }
 		override_country_name = LONGTHARINGIA_NAME
