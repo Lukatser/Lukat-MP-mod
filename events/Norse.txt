@@ -158,7 +158,11 @@ country_event = {
 			primary_culture = icelandic
 			primary_culture = norse
 		}
-		has_ruler_modifier = rethinking_catholic_life
+		OR = {
+			has_ruler_modifier = rethinking_catholic_life
+			has_country_modifier = rethinking_catholic_life
+		}
+		
 		NOT = { has_country_flag = had_norse_discovery_event }
 	}
 	mean_time_to_happen = {
@@ -221,7 +225,10 @@ country_event = {
 		}
 		ruler_religion = norse_pagan_reformed
 		NOT = { religion = norse_pagan_reformed }
-		has_ruler_modifier = rethinking_catholic_life
+		OR = {
+			has_ruler_modifier = rethinking_catholic_life
+			has_country_modifier = rethinking_catholic_life
+		}
 		any_owned_province = {
 			is_capital = no
 			same_continent = capital
@@ -307,7 +314,10 @@ country_event = {
 		}
 		ruler_religion = norse_pagan_reformed
 		NOT = { religion = norse_pagan_reformed }
-		has_ruler_modifier = rethinking_catholic_life
+		OR = {
+			has_ruler_modifier = rethinking_catholic_life
+			has_country_modifier = rethinking_catholic_life
+		}
 		any_owned_province = {
 			religion = norse_pagan_reformed
 		}
