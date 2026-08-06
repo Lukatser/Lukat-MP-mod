@@ -243,17 +243,17 @@ best_logistics_education = {
 poor_modern_army_education = {
 	infantry_power = 0.025
 	drill_gain_modifier = 0.25
-	yearly_army_professionalism = 0.0025
+	yearly_army_professionalism = 0.001
 }
 okay_modern_army_education = {
 	infantry_power = 0.05
 	drill_gain_modifier = 0.5
-	yearly_army_professionalism = 0.005
+	yearly_army_professionalism = 0.0015
 }
 good_modern_army_education = {
 	infantry_power = 0.075
 	drill_gain_modifier = 0.75
-	yearly_army_professionalism = 0.01
+	yearly_army_professionalism = 0.002
 }
 best_modern_army_education = {
 	infantry_power = 0.1

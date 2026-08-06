@@ -461,7 +461,6 @@ country_event = {
 		name = ae_historical_dynasties.14.a 
 		remove_heir = {}
 		}
-	}
 }
 
 

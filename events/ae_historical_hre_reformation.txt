@@ -341,51 +341,7 @@ country_event = {
 }
 
 #Protestant Baltics - province level
-province_event = {
-	id = ae_historical_reformation.201
-	title = ae_historical_reformation.100.t
-	desc = ae_historical_reformation.100.d
-	picture = PROTESTANT_GREAT_REFORMER_eventPicture
-	
-	trigger = {
-		NOT = { ae_gamerule_reformation_off = yes }
-		OR = {
-			ae_gamerule_reformation_on = yes 
-			full_ai = yes
-		}
-		is_religion_enabled = protestant
-		region = baltic_region 
-		NOT = {
-			area = lithuania_area
-			area = west_prussia_area
-			province_id = 42 #Ermland
-		}
-		OR = {
-			religion = catholic
-			AND = {
-				NOT = { religion = protestant }
-				area = east_prussia_area
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 12
-	}	
-	
-	immediate = {
-	}
-	
-	
-	option = { 
-		name = ae_historical_reformation.100.a 
-		change_religion = protestant
-		add_permanent_province_modifier = {
-			name = "religious_zeal_at_conv"
-			duration = 9000
-		}
-	}
-}
+
 
 # Teutons into Prussia when protestant
 country_event = {
@@ -720,48 +676,6 @@ country_event = {
 
 
 #Catholic Belgium, Ireland, Austria, Bavaria - province level
-province_event = {
-	id = ae_historical_reformation.701
-	title = ae_historical_reformation.100.t
-	desc = ae_historical_reformation.100.d
-	picture = RELIGION_eventPicture
-	
-	trigger = {
-		NOT = { ae_gamerule_reformation_off = yes }
-		OR = {
-			ae_gamerule_reformation_on = yes 
-			full_ai = yes
-		}
-		is_religion_enabled = protestant
-		OR = {
-			culture = flemish
-			culture = wallonian
-			culture = irish
-			AND = {
-				trade_company_region = trade_company_wien
-				culture_group = germanic
-			}
-			
-		}
-		NOT = { religion = catholic }
-	}
-	
-	mean_time_to_happen = {
-		months = 12
-	}	
-	
-	immediate = {
-	}
-	
-	
-	option = { 
-		name = ae_historical_reformation.100.a 
-		change_religion = catholic
-		add_permanent_province_modifier = {
-			name = "religious_zeal_at_conv"
-			duration = 9000
-		}
-	}
-}
+
 
 

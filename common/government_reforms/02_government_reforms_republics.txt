@@ -3698,14 +3698,6 @@ moral_principle_reform = {
 	}
 }
 
-stability_principle_reform = {
-	icon = "soldiers_6"
-	allow_normal_conversion = yes
-	modifiers = {
-		possible_mil_policy = 1
-	}
-}
-
 enlightened_principle_reform = {
 	icon = "enlightenment"
 	allow_normal_conversion = yes
