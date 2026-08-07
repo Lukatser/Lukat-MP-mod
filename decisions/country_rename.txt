@@ -47,6 +47,7 @@ country_decisions = {
                 tag = BUR
                 tag = LOT
                 tag = LAN
+                tag = TUS
                 tag = ITA
                 tag = BRA
                 tag = ARA
@@ -54,6 +55,9 @@ country_decisions = {
                 tag = FLA
                 tag = POR
                 tag = PRU
+                tag = TEU
+                tag = KNI
+                tag = KOJ
             }
             NOT = {
                 ai = yes

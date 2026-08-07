@@ -1663,7 +1663,32 @@ country_event = {
 	option = {
 		name = rename_country_florence.a
 		trigger = { tag = LAN }
-		override_country_name = FIRENZE_NAME
+		override_country_name = FIORENZA_NAME
+	}
+	option = {
+		name = rename_country_florence.b
+		trigger = { tag = LAN }
+		override_country_name = REPUBLICA_FIORENTINA_NAME
+	}
+	option = {
+		name = rename_country_florence.c
+		trigger = { tag = LAN }
+		override_country_name = RES_PUBLICA_FLORENTINA_NAME
+	}
+	option = {
+		name = rename_country_florence.d
+		trigger = { tag = TUS }
+		override_country_name = GRANDUCATO_DI_TOSCANA_NAME
+	}
+	option = {
+		name = rename_country_florence.e
+		trigger = { tag = TUS }
+		override_country_name = MAGNUS_DUCATUS_ETRURIAE_NAME
+	}
+	option = {
+		name = rename_country_florence.f
+		trigger = { tag = TUS }
+		override_country_name = RES_PUBLICA_ETRURIAE_NAME
 	}
 	option = {
 		name = rename_country_italy.a
@@ -1759,5 +1784,35 @@ country_event = {
 		name = rename_country_prussia.c
 		trigger = { tag = PRU }
 		override_country_name = NORDDEUTSCHER_BUND_NAME
+	}
+	option = {
+		name = rename_country_teutons.a
+		trigger = { tag = TEU }
+		override_country_name = HOLY_KNIGHT_ORDER_OF_THE_TEUTONS_NAME
+	}
+	option = {
+		name = rename_country_teutons.b
+		trigger = { tag = TEU }
+		override_country_name = EAST_GERMAN_HOLY_ORDER_NAME
+	}
+	option = {
+		name = rename_country_teutons.c
+		trigger = { tag = TEU }
+		override_country_name = GERMANIC_HOLY_HORDE_NAME
+	}
+	option = {
+		name = rename_country_knights.a
+		trigger = { tag = KNI }
+		override_country_name = KNIGHTS_HOSPITALLER_NAME
+	}
+	option = {
+		name = rename_country_jerusalem.a
+		trigger = { tag = KOJ }
+		override_country_name = KINGDOM_OF_JERUSALEM_NAME
+	}
+	option = {
+		name = rename_country_jerusalem.b
+		trigger = { tag = KOJ }
+		override_country_name = KINGDOM_OF_HEAVEN_NAME
 	}
 }

@@ -258,7 +258,7 @@ good_modern_army_education = {
 best_modern_army_education = {
 	infantry_power = 0.1
 	drill_gain_modifier = 1
-	yearly_army_professionalism = 0.5
+	yearly_army_professionalism = 0.005
 }
 fe_education_clerical_upset_local = {
 	local_missionary_strength = -0.05
