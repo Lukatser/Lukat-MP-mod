@@ -795,20 +795,6 @@ is_possible_hre_province = {
 }
 
 can_add_province_to_hre = {
-	#For SE:
-	condition = {
-		tooltip = IMPERIAL_FEUD_SUBJECTS_CANNOT_ADD_PROVINCES_TO_THE_HRE
-		potential = {
-			is_mod_active = "1834079712"
-			FROM = {
-				is_subject_of_type = imperial_feud_subject
-			}
-		}
-		allow = {
-			always = no
-		}
-	}
-	
 	condition = {
 		tooltip = "APH_ONLY_EUROPE"
 		potential = {

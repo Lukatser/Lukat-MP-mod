@@ -13,9 +13,9 @@ historical_idea_groups = {
 	innovativeness_ideas
 	maritime_ideas
 	offensive_ideas
-	conquest_ideas
+	
 	economic_ideas
-	intercontinental_wars_ideas
+	
 	quality_ideas
 }
 

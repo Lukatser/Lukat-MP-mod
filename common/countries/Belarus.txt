@@ -9,11 +9,11 @@ historical_idea_groups = {
 	defensive_ideas
 	offensive_ideas
 	trade_ideas
-	conquest_ideas
+	
 	spy_ideas
 	diplomatic_ideas
 	religious_ideas
-	professional_ideas
+	
 	economic_ideas
 	innovativeness_ideas
 }

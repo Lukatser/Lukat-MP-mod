@@ -30,7 +30,6 @@ estate_peasants = {
 		factor = 1
 		modifier = {
 			factor = 1.5
-			culture_group = owner
 			religion_group = owner
 		}
 		modifier = {

@@ -15,10 +15,10 @@ historical_idea_groups = {
 	offensive_ideas
 	defensive_ideas
 	trade_ideas
-	conquest_ideas
+	
 	economic_ideas
 	maritime_ideas
-	professional_ideas
+	
 }
 
 historical_units = {

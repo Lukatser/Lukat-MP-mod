@@ -6,12 +6,12 @@ revolutionary_colors = { 1  5  8 }
 historical_idea_groups = {
 	trade_ideas
 	defensive_ideas
-	professional_ideas
+	
 	economic_ideas
 	maritime_ideas
 	offensive_ideas
 	innovativeness_ideas
-	conquest_ideas
+	
 	quality_ideas
 	quantity_ideas
 }

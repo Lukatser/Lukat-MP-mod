@@ -1485,7 +1485,6 @@ republic = {
 			reforms = {
 				political_principle_reform
 				moral_principle_reform
-				stability_principle_reform
 				military_principle_reform
 				revolutionary_principle_reform
 				equality_principle_reform
@@ -1899,8 +1898,6 @@ theocracy = {
 				# ajuraan_theocracy_reform
 				dynastic_theocracy_reform
 				ge_sword_of_islam
-				# Religions & Cultures Expanded Reforms
-				nestorian_patriarchy_constantinople_reform
 			}
 		}
 		internal_vs_external_mission = {

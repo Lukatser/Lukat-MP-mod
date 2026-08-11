@@ -13,10 +13,10 @@ historical_idea_groups = {
 	quality_ideas
 	exploration_ideas
 	religious_ideas
-	conquest_ideas
+	
 	maritime_ideas
 	offensive_ideas
-	professional_ideas
+	
 }
 
 historical_units = {

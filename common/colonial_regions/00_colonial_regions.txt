@@ -202,9 +202,6 @@ colonial_canada = {
 		trigger = {
 			tag = BRU
 		}
-			trigger = {
-				EVHO_has_empire_name_trigger = no
-			}
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 
@@ -323,10 +320,6 @@ colonial_louisiana = {
 	# Generic
 	names = {
 		name = "COLONIAL_LOUISIANA_Root_Culture_GetName_Louisiana"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 	names = {
 		trigger = {
@@ -612,10 +605,6 @@ colonial_california = {
 		name = "COLONIAL_LOUISIANA_Root_Culture_GetName_Louisiana"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-	names = {
 		trigger = {
 			OR = {
 				owns = 900 # Tamaroa
@@ -718,10 +707,6 @@ colonial_mexico = {
 	# Generic
 	names = {
 		name = "COLONIAL_MEXICO_Root_Culture_GetName_Mexico"
-	}
-	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 	names = {
 		trigger = {
@@ -937,10 +922,6 @@ colonial_the_carribean = {
 	}
 	# Generic
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
-		name = "COLONIAL_REGION_New_Root_GetName"
-	}
-	names = {
 		name = "COLONIAL_THE_CARRIBEAN_Cuba"
 	}
 }
@@ -1122,7 +1103,6 @@ colonial_colombia = {
 		name = "COLONIAL_COLOMBIA_Root_Culture_GetName_Colombia"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 }
@@ -1325,7 +1305,6 @@ colonial_peru = {
 		name = "COLONIAL_PERU_Root_Culture_GetName_Peru"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 	
@@ -1556,7 +1535,6 @@ colonial_la_plata = {
 		name = "COLONIAL_LA_PLATA_Root_Culture_GetName_La_Plata"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 	names = {
@@ -1810,7 +1788,6 @@ colonial_brazil = {
 		name = "COLONIAL_BRAZIL_Root_Culture_GetName_Brazil"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 	names = {
@@ -2009,7 +1986,6 @@ colonial_australia = {
 		name = "COLONIAL_AUSTRALIA_Root_Culture_GetName_Australia"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 	names = {
@@ -2216,7 +2192,6 @@ colonial_columbia = {
 		name = "COLONIAL_COLUMBIA_Columbia"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 }
@@ -2357,7 +2332,6 @@ colonial_hudson_bay = {
 		name = "COLONIAL_CANADA_Hudson_Bay"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 }
@@ -2516,7 +2490,6 @@ colonial_new_amsterdam = {
 		name = "PROV965" # Manhattan
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 }
@@ -2663,7 +2636,7 @@ colonial_georgia = {
 		name = "COLONIAL_GEORGIA_Georgia"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
+		
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 }
@@ -2733,7 +2706,7 @@ colonial_honduras = {
 		name = "PROV840"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
+		
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 }
@@ -2869,7 +2842,7 @@ colonial_texas = {
 		name = "PROV885"
 	}
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
+		
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 }
@@ -3117,7 +3090,7 @@ colonial_nzl = {
 
 	# Generic
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
+		
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 }
@@ -3341,7 +3314,7 @@ colonial_south_africa = {
 	
 	# Generic
 	names = {
-		trigger = { EVHO_has_empire_name_trigger = no }
+		
 		name = "COLONIAL_REGION_New_Root_GetName"
 	}
 	names = {

@@ -21,7 +21,7 @@ aristocracy_ideas = {
 
 	trigger = {
 		has_government_attribute = enables_aristocratic_idea_group
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 	}
 	
 	noble_knights = {
@@ -58,10 +58,6 @@ aristocracy_ideas = {
 		factor = 6.0
 		modifier = {
 			factor = 2.0
-			xorme_ai_valid_nation = yes
-		}
-		modifier = {
-			factor = 2.0
 			cavalry_fraction = 0.4
 		}
 		modifier = {
@@ -71,10 +67,6 @@ aristocracy_ideas = {
 		modifier = {
 			factor = 2.0
 			has_idea_group = economic_ideas
-		}
-		modifier = {
-			factor = 3.5
-			xorme_aristocracy_idea_group_priority_trigger = yes
 		}
 		modifier = {
 			factor = 5.0
@@ -96,7 +88,7 @@ plutocracy_ideas = {
 	}
 
 	trigger = {
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 		OR = {
 			has_government_attribute = enables_plutocratic_idea_group
 			uses_republican_tradition = yes
@@ -146,7 +138,7 @@ horde_gov_ideas = {
 	}
 	
 	trigger = {
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 		OR = {
 			has_government_attribute = enables_horde_idea_group
 			uses_horde_unity = yes
@@ -194,7 +186,7 @@ theocracy_gov_ideas = {
 	}
 	
 	trigger = {
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 		OR = {
 			government = theocracy
 			has_government_attribute = enables_divine_idea_group
@@ -246,7 +238,7 @@ indigenous_ideas = {
 	}
 
 	trigger = {
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 		has_government_attribute = enables_natives_idea_group
 	}
 
@@ -282,10 +274,9 @@ innovativeness_ideas = {
 	category = ADM
 
 	trigger = {
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 		if = {
 			limit = { ai = yes }
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -331,10 +322,6 @@ innovativeness_ideas = {
 			factor = 3.0
 			has_idea_group = offensive_ideas
 		}
-		modifier = {
-			factor = 1000.0
-			xorme_innovative_idea_group_priority_trigger = yes
-		}
 	}
 }
 
@@ -346,9 +333,8 @@ religious_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 			NOT = { religion = confucianism }
 		}
 		NOT = {
@@ -401,10 +387,6 @@ religious_ideas = {
 			has_idea_group = humanist_ideas
 		}
 		modifier = {
-			factor = 0
-			xorme_nation_with_tolerance_trigger = yes
-		}
-		modifier = {
 			factor = 1.5
 			is_part_of_hre = yes
 		}
@@ -450,9 +432,8 @@ spy_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -532,9 +513,8 @@ diplomatic_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -598,7 +578,7 @@ offensive_ideas = {
 		NOT = {
 			has_idea_group = defensive_ideas
 		}
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 	}
 
 	bonus = {
@@ -666,10 +646,6 @@ offensive_ideas = {
 			factor = 10.0
 			mil_tech = 16
 		}
-		modifier = {
-			factor = 10.0
-			xorme_quantity_idea_group_priority_trigger = yes
-		}
 	}
 }
 
@@ -681,7 +657,7 @@ defensive_ideas = {
 		NOT = {
 			has_idea_group = offensive_ideas
 		}
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 	}
 
 	bonus = {
@@ -798,10 +774,6 @@ defensive_ideas = {
 		}
 		modifier = {
 			factor = 2.0
-			xorme_ai_valid_nation = yes
-		}
-		modifier = {
-			factor = 2.0
 			NOT = { total_development = 100 }
 		}
 		modifier = {
@@ -811,10 +783,6 @@ defensive_ideas = {
 		modifier = {
 			factor = 3.5
 			is_colonial_nation = yes
-		}
-		modifier = {
-			factor = 32.0
-			xorme_defensive_idea_group_priority_trigger = yes
 		}
 	}
 }
@@ -827,9 +795,8 @@ trade_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -878,10 +845,6 @@ trade_ideas = {
 			num_of_cities = 40
 		}
 		modifier = {
-			factor = 2.0
-			xorme_wealthy_region_trigger = yes
-		}
-		modifier = {
 			factor = 2.5
 			has_idea_group = defensive_ideas
 		}
@@ -905,22 +868,6 @@ trade_ideas = {
 			factor = 5.0
 			has_government_attribute = is_merchant_republic
 		}
-		modifier = {
-			factor = 7.5
-			is_great_power = yes
-			OR = {
-				xorme_can_select_third_idea_group_trigger = yes
-				xorme_can_select_fourth_idea_group_trigger = yes
-			}
-		}
-		modifier = {
-			factor = 1000.0
-			xorme_nation_with_strong_navy_trade_potential_trigger = yes
-			OR = {
-				xorme_can_select_third_idea_group_trigger = yes
-				xorme_can_select_fourth_idea_group_trigger = yes
-			}
-		}
 	}
 }
 
@@ -934,9 +881,7 @@ economic_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -1021,13 +966,12 @@ exploration_ideas = {
 	important = yes
 
 	trigger = {
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_ai_can_explo_trigger = yes
 		}
 	}
 
@@ -1113,7 +1057,6 @@ exploration_ideas = {
 		}
 		modifier = {
 			factor = 100.0
-			xorme_can_select_fourth_idea_group_trigger = yes
 			OR = {
 				tag = KUR
 				tag = ASU
@@ -1122,11 +1065,6 @@ exploration_ideas = {
 				tag = MAJ
 				tag = NOR
 			}
-		}
-		modifier = {
-			factor = 1000.0
-			xorme_can_select_second_idea_group_trigger = yes
-			xorme_exploration_idea_group_priority_trigger = yes
 		}
 		modifier = {
 			factor = 1000.0
@@ -1156,9 +1094,8 @@ maritime_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -1266,7 +1203,7 @@ quality_ideas = {
 		NOT = {
 			has_idea_group = quantity_ideas
 		}
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 	}
 
 	bonus = {
@@ -1302,10 +1239,6 @@ quality_ideas = {
 		factor = 5.0
 		modifier = {
 			factor = 2.0
-			xorme_ai_valid_nation = yes
-		}
-		modifier = {
-			factor = 2.0
 			num_of_ports = 3
 		}
 		modifier = {
@@ -1329,10 +1262,6 @@ quality_ideas = {
 			factor = 3.0
 			has_idea_group = expansion_ideas
 		}
-		modifier = {
-			factor = 25.0
-			xorme_quality_idea_group_priority_trigger = yes
-		}
 	}
 }
 
@@ -1344,7 +1273,7 @@ quantity_ideas = {
 		NOT = {
 			has_idea_group = quality_ideas
 		}
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 	}
 
 	bonus = {
@@ -1377,10 +1306,6 @@ quantity_ideas = {
 	ai_will_do = {
 		factor = 10.0
 		modifier = {
-			factor = 2.0
-			xorme_ai_valid_nation = yes
-		}
-		modifier = {
 			factor = 3.0
 			total_development = 300
 		}
@@ -1408,10 +1333,6 @@ quantity_ideas = {
 			factor = 3.0
 			has_idea_group = trade_ideas
 		}
-		modifier = {
-			factor = 15.0
-			xorme_quantity_idea_group_priority_trigger = yes
-		}
 		modifier = { ## EVHO ##
 			factor = 25.0
 			OR = {
@@ -1429,16 +1350,14 @@ expansion_ideas = {
 	important = yes
 
 	trigger = {
-		NOT = { is_subject_of_type = xorme_moh_administrative_district }
+		
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
 			OR = {
 				is_colonial_nation = yes
-				xorme_ai_can_explo_trigger = yes
-				xorme_ai_can_expand_trigger = yes
 			}
 		}
 	}
@@ -1498,15 +1417,6 @@ expansion_ideas = {
 		}
 		modifier = {
 			factor = 1000.0
-			xorme_late_expansion_idea_group_priority_trigger = yes
-			OR = {
-				xorme_can_select_fourth_idea_group_trigger = yes
-				xorme_can_select_fifth_idea_group_trigger = yes
-				xorme_can_select_sixth_idea_group_trigger = yes
-			}
-		}
-		modifier = {
-			factor = 1000.0
 			NOT = { has_dlc = "Third Rome" } # Has siberian frontier instead
 			tag = RUS
 			num_of_cities = 20
@@ -1543,9 +1453,8 @@ administrative_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -1611,10 +1520,6 @@ administrative_ideas = {
 			is_great_power = yes
 		}
 		modifier = {
-			factor = 3.5
-			xorme_administrative_idea_group_priority_trigger = yes
-		}
-		modifier = {
 			factor = 10.0
 			has_idea_group = horde_gov_ideas
 		}
@@ -1625,7 +1530,6 @@ administrative_ideas = {
 		}
 		modifier = {
 			factor = 100.0
-			xorme_can_select_second_idea_group_trigger = yes
 			OR = {
 				tag = TUR
 				tag = SWI	
@@ -1641,9 +1545,8 @@ humanist_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 		NOT = {
 			has_idea_group = religous_ideas
@@ -1688,10 +1591,6 @@ humanist_ideas = {
 		modifier = {
 			factor = 0
 			has_idea_group = religious_ideas
-		}
-		modifier = {
-			factor = 0
-			xorme_nation_with_tolerance_trigger = yes
 		}
 		modifier = {
 			factor = 0.25
@@ -1752,9 +1651,8 @@ influence_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -1901,9 +1799,8 @@ court_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -1976,9 +1873,8 @@ mercenary_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
@@ -2023,9 +1919,8 @@ infrastructure_ideas = {
 		if = {
 			limit = { 
 				ai = yes
-				NOT = { is_subject_of_type = xorme_moh_administrative_district }
+				
 			}
-			xorme_has_any_mil_idea_group_trigger = yes
 		}
 	}
 
