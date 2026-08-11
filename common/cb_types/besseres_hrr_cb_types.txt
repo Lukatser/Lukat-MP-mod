@@ -166,7 +166,6 @@ cb_convert_slavic_pagans = {
 		po_form_personal_union
 		po_gold
 		po_become_vassal
-		po_become_protectorate
 		po_concede_defeat
 		po_annul_treaties
 		po_change_government

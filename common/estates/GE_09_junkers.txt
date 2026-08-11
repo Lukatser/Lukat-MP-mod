@@ -29,7 +29,6 @@ estate_junkers =
 		factor = 1
 		modifier = {
 			factor = 1.5
-			culture_group = owner
 			religion_group = owner
 		}
 		modifier = {
@@ -65,7 +64,6 @@ estate_junkers =
 		estate_nobles_nobility_primacy
 		estate_nobles_officer_corp
 		estate_nobles_levies
-		estate_nobles_advisors
 		estate_nobles_right_of_counsel
 		estate_nobles_french_strong_duchies
 		estate_nobles_supremacy_over_crown

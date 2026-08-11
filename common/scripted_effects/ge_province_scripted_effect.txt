@@ -812,7 +812,6 @@ ge_clan_system_province_update = {
 	if = {
 		limit = {
 			owner = { has_government_attribute = enable_clan_system }
-			culture_group = owner
 		}
 		add_province_modifier = {
 			name = ge_clan_system

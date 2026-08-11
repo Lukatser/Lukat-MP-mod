@@ -7,13 +7,13 @@ color = { 115 15 105 }
 revolutionary_colors = { 2 3 2 } #purple \o/
 
 historical_idea_groups = {
-	conquest_ideas
+	
 	maritime_ideas
 	religious_ideas
 	defensive_ideas
 	administrative_ideas
 	trade_ideas
-	professional_ideas
+	
 	quality_ideas
 	innovativeness_ideas
 	diplomatic_ideas

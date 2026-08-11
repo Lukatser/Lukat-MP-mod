@@ -10,7 +10,7 @@ preferred_religion = catholic
 
 historical_idea_groups = {
 	diplomatic_ideas
-	conquest_ideas
+	
 	humanist_ideas	
 	trade_ideas
 	offensive_ideas
@@ -18,7 +18,7 @@ historical_idea_groups = {
 	defensive_ideas
 	aristocracy_ideas	
 	quality_ideas
-	professional_ideas
+	
 }
 
 historical_units = {

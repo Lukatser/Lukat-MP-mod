@@ -9,13 +9,13 @@ revolutionary_colors = { 5  8  13 } #Inspired by the Five Color Flag
 historical_score = 350
 
 historical_idea_groups = {
-	conquest_ideas
+	
 	trade_ideas
 	economic_ideas
 	defensive_ideas
 	expansion_ideas
 	humanist_ideas
-	intercontinental_wars_ideas
+	
 	quantity_ideas
 	influence_ideas
 	offensive_ideas

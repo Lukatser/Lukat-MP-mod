@@ -12,14 +12,14 @@ preferred_religion = protestant
 
 historical_idea_groups = {
 	maritime_ideas
-	conquest_ideas
+	
 	administrative_ideas
 	aristocracy_ideas
 	expansion_ideas
 	naval_ideas 
 	trade_ideas 
 	quality_ideas
-	professional_ideas
+	
 	economic_ideas
 }
 

@@ -85,7 +85,7 @@ country_event = {
 					NOT = { is_rival = ROOT }
 					has_opinion = {
 						who = ROOT
-						value = 10
+						value = 5
 					}
 					has_regency = no
 				}
@@ -149,7 +149,7 @@ country_event = {
 	option = {
 		name = "mf_positive_personality.3.a"
 		
-		event_target:extrav_friendly_neighbor_country = {
+		event_target:earthwork_event_target = {
 			add_province_modifier = {
 				name = "mfp_sturdy_walls"
 				duration = 1825
@@ -165,7 +165,7 @@ country_event = {
 		name = "mf_positive_personality.3.b"
 		
 		add_mil_power = -20
-		event_target:extrav_friendly_neighbor_country = {
+		event_target:earthwork_event_target = {
 			add_province_modifier = {
 				name = "mfp_impregnable_walls"
 				duration = 1825

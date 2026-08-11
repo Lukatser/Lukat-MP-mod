@@ -1022,9 +1022,9 @@ keen_recruiter_personality = {
 	}
 	
 	leader_naval_shock = 1
-	leader_naval_maneuver = 1
+	leader_naval_manuever = 1
 	leader_land_shock = 1
-	leader_land_maneuver = 1
+	leader_land_manuever = 1
 	wants_avoid_ugly_borders = yes
 	nation_designer_cost = 2
 }
@@ -3847,7 +3847,7 @@ barbaric_personality = {
 	
 	random_insults = yes
 	wants_avoid_ugly_borders = yes
-	possible_mercenaries = 0.25
+	mercenary_manpower = 0.25
 	merc_maintenance_modifier = -0.1
 	improve_relation_modifier = -0.2
 	diplomatic_reputation = -1

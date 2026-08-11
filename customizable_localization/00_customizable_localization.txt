@@ -174,7 +174,6 @@ defined_text = {
 			OR = {
 				culture_group = british
 				culture = anglois
-				culture_group = franco_british
 				culture_group = french
 				culture_group = germanic
 			}
@@ -200,7 +199,6 @@ defined_text = {
 				culture_group = south_slavic
 				culture_group = british
 				culture = anglois
-				culture_group = franco_british
 				culture_group = french
 				culture_group = germanic
 			}

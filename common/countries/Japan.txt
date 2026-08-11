@@ -13,11 +13,11 @@ historical_idea_groups = {
 	economic_ideas
 	quality_ideas
 	expansion_ideas
-    conquest_ideas
+    
 	offensive_ideas
 	administrative_ideas
 	maritime_ideas
-    intercontinental_wars_ideas
+    
 	trade_ideas
 	defensive_ideas
 }

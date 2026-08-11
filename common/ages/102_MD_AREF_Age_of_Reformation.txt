@@ -629,7 +629,6 @@ age_of_reformation = {
 		ab_md_1500s_colony_boost_development = {
 			modifier = {
 				colony_development_boost = 1
-				can_colony_boost_development = yes
 				num_of_age_rewards = 1
 			}
 			ai_will_do = {
