@@ -1,4 +1,6 @@
-This is the mod used in the games played by Shanna on YouTube. That's me <3.
+This is the mod used in the games played by [Shanna](https://www.youtube.com/@Shanna-Lukat). That's me <3.
+
+Join [the discord](https://discord.gg/FqVfxa6HNj) to join either the discourse or the campaigns.
 
 Please leave pull requests with suggestions or fixes found with explanation why. Thanks!
 
